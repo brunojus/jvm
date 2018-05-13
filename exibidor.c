@@ -28,9 +28,9 @@ void print_magic(ClassFile* cf, FILE* fout) {
 
 void print_versions(ClassFile* cf, FILE* fout) {
     fprintf(fout, "MINOR VERSION: %d\n", cf->minor_version);
-    char *nome_versao =  show_version(cf->major_version);
-    fprintf(fout, "MAJOR VERSION: %d - %s\n", cf->major_version, nome_versao);
-    free(nome_versao);
+    char *java_version =  show_version(cf->major_version);
+    fprintf(fout, "MAJOR VERSION: %d - %s\n", cf->major_version, java_version);
+    free(java_version);
 
     fprintf(fout, "CONSTANT POOL COUNT: %d\n", cf->constant_pool_count);
 
@@ -715,51 +715,58 @@ void print_class(ClassFile* cf, char* nomearquivo, FILE* fout) {
     fprintf(fout, "\n\n");
 }
 
+/*A lista utilizada para identificação das major versions pode ser acessada nesse link
+https://en.wikipedia.org/wiki/Java_class_file#General_layout
+*/
+
 char* show_version(int code) {
-//Minor Version funciona como subversão
-    
-    char* nome_versao;
+   
+    char* java_version;
     switch (code) {
         case 45:
-            nome_versao = (char*) malloc(sizeof(char) * 8);
-            strcpy(nome_versao, "JDK 1.1");
+            java_version = (char*) malloc(sizeof(char) * 8);
+            strcpy(java_version, "JDK 1.1");
             break;
         case 46:
-            nome_versao = (char*) malloc(sizeof(char) * 8);
-            strcpy(nome_versao, "JDK 1.2");
+            java_version = (char*) malloc(sizeof(char) * 8);
+            strcpy(java_version, "JDK 1.2");
             break;
         case 47:
-            nome_versao = (char*) malloc(sizeof(char) * 8);
-            strcpy(nome_versao, "JDK 1.3");
+            java_version = (char*) malloc(sizeof(char) * 8);
+            strcpy(java_version, "JDK 1.3");
             break;
         case 48:
-            nome_versao = (char*) malloc(sizeof(char) * 8);
-            strcpy(nome_versao, "JDK 1.4");
+            java_version = (char*) malloc(sizeof(char) * 8);
+            strcpy(java_version, "JDK 1.4");
             break;
         case 49:
-            nome_versao = (char*) malloc(sizeof(char) * 12);
-            strcpy(nome_versao, "Java SE 5.0");
+            java_version = (char*) malloc(sizeof(char) * 12);
+            strcpy(java_version, "Java SE 5.0");
             break;
         case 50:
-            nome_versao = (char*) malloc(sizeof(char) * 12);
-            strcpy(nome_versao, "Java SE 6.0");
+            java_version = (char*) malloc(sizeof(char) * 12);
+            strcpy(java_version, "Java SE 6.0");
             break;
         case 51:
-            nome_versao = (char*) malloc(sizeof(char) * 10);
-            strcpy(nome_versao, "Java SE 7");
+            java_version = (char*) malloc(sizeof(char) * 10);
+            strcpy(java_version, "Java SE 7");
             break;
         case 52:
-            nome_versao = (char*) malloc(sizeof(char) * 10);
-            strcpy(nome_versao, "Java SE 8");
+            java_version = (char*) malloc(sizeof(char) * 10);
+            strcpy(java_version, "Java SE 8");
             break;
         case 53:
-            nome_versao = (char*) malloc(sizeof(char) * 10);
-            strcpy(nome_versao, "Java SE 9");
+            java_version = (char*) malloc(sizeof(char) * 10);
+            strcpy(java_version, "Java SE 9");
             break;
+        case 54: 
+            java_version = (char*) malloc(sizeof(char) * 10);
+            strcpy(java_version, "Java SE 10");
         default:
-            nome_versao = (char*) malloc(sizeof(char) * 21);
-            strcpy(nome_versao, "Java nao reconhecido");
+            java_version = (char*) malloc(sizeof(char) * 21);
+            strcpy(java_version, "Java nao reconhecido");
             break;
     }
-    return nome_versao;
+    return java_version;
 }
+
