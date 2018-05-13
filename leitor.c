@@ -1,18 +1,18 @@
 #include "leitor.h"
 #include "helper.h"
 
+/*Identifica os primeiros bytes do arquivo, valor esperado é CAFEBABE*/
 void load_magic(ClassFile* cf, FILE* fd) {
     cf->magic = u4Read(fd);
-    /*if (cf->magic != 0xcafebabe)
-        EXIT; //arquivo não eh .class
-    */
 }
 
+/*Carrega as versões do JAVA que foram utilizadas para gerar o arquivo .class*/
 void load_versions(ClassFile* cf, FILE* fd) {
     cf->minor_version = u2Read(fd);
     cf->major_version = u2Read(fd);
 }
 
+/*Leitura da constant pool*/
 void load_constantpool(ClassFile* cf, FILE* fd) {
     cf->constant_pool_count = u2Read(fd);
     if (cf->constant_pool_count <= 1) {
@@ -45,9 +45,9 @@ void load_constantpool(ClassFile* cf, FILE* fd) {
             break;
         case UTF8:
             cp->info.Utf8_info.length = u2Read(fd);
-            cp->info.Utf8_info.bytes = (u1*)calloc(cp->info.Utf8_info.length+1, sizeof(u1)); //length diz o numero de bytes UTF8 desse cp_info
+            cp->info.Utf8_info.bytes = (u1*)calloc(cp->info.Utf8_info.length+1, sizeof(u1)); 
             u1* b;
-            for (b = cp->info.Utf8_info.bytes ; b < cp->info.Utf8_info.bytes + cp->info.Utf8_info.length ; ++b) { //laco para leitura desses bytes
+            for (b = cp->info.Utf8_info.bytes ; b < cp->info.Utf8_info.bytes + cp->info.Utf8_info.length ; ++b) { 
                 *b = u1Read(fd);
             }
             break;
@@ -61,11 +61,11 @@ void load_constantpool(ClassFile* cf, FILE* fd) {
             cp->info.Float_info.bytes = u4Read(fd);
             break;
         case LONG:
-            cp->info.Long_info.high_bytes = u4Read(fd); //estrutura de 64 bytes
+            cp->info.Long_info.high_bytes = u4Read(fd); 
             cp->info.Long_info.low_bytes = u4Read(fd);
             break;
         case DOUBLE:
-            cp->info.Double_info.high_bytes = u4Read(fd); //estrutura de 64 bytes
+            cp->info.Double_info.high_bytes = u4Read(fd); 
             cp->info.Double_info.low_bytes = u4Read(fd);
             break;
         }
@@ -84,7 +84,7 @@ void load_classdata(ClassFile* cf, FILE* fd) {
 
 void load_interfaces(ClassFile* cf, FILE* fd) {
     cf->interfaces_count = u2Read(fd);
-    if (cf->interfaces_count == 0) {
+    if (!cf->interfaces_count) {
         cf->interfaces = NULL;
         return;
     }
@@ -167,7 +167,7 @@ void load_innerclasses_attr(attribute_info* att, FILE* fd) {
 }
 
 void load_other_attr(attribute_info* att, FILE* fd) {
-    if (att->attribute_length == 0) {
+    if (!att->attribute_length) {
         att->type.Other.bytes = NULL;
         return;
     }
