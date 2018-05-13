@@ -17,6 +17,7 @@ u4 u4Read(FILE* fd) {
     return toReturn;
 }
 
+/*Verifica o conteúdo da string e retorna qual é o seu tipo*/
 int findtype(char* type) {
     if (!strcmp(type, "ConstantValue")) {
         return CONSTANTVALUE;
@@ -31,6 +32,7 @@ int findtype(char* type) {
     }
 }
 
+/*Desaloca a memória da constant pool*/
 void free_cte_pool(ClassFile *cf) {
     cp_info *cp;
     for(cp = cf->constant_pool;cp<cf->constant_pool+cf->constant_pool_count-1;++cp) {
@@ -40,50 +42,18 @@ void free_cte_pool(ClassFile *cf) {
     free(cf->constant_pool);
 }
 
-
-void free_methods(ClassFile *cf) {
-  /*method_info* method_aux;
-  char *type;
-
-  for (method_aux = cf->methods; method_aux < cf->methods + cf->method_count; ++method_aux) {
-    attribute_info* att_aux;
-    for (att_aux = method_aux->attributes; att_aux < method_aux->attributes + method_aux->attributes_count; ++att_aux) {
-      type = (char*)calloc(cf->constant_pool[att_aux->attribute_name_index - 1].info.Utf8_info.length,sizeof(char));
-      strcpy(type, (char*)cf->constant_pool[att_aux->attribute_name_index - 1].info.Utf8_info.bytes);
-      int i = findtype(type);
-      if (i == CODE){
-        if (att_aux->type.Code_attribute.code_length > 0) {
-          free(att_aux->type.Code_attribute.code);
-        }
-        if (att_aux->type.Code_attribute.exception_table_length > 0) {
-          free(att_aux->type.Code_attribute.exception_table);
-        }
-      }
-      free(type);
-      //free_attr(cf, method_aux);
-    }
-    free(method_aux->attributes);
-  }*/
-  free(cf->methods);
-}
-void free_clFile(ClassFile* cf) {
-  if (!cf)
-    return;
-  free_cte_pool(cf);
-  if (cf->fields)
-    free(cf->fields);
-  if (cf->interfaces)
-    free(cf->interfaces);
-  free_methods(cf);
-  /*if (cf->methods)
-    free(cf->methods);
-  if (cf->attributes)
-    free(cf->attributes);*/
-  free(cf);
-}
-
+/*Função responsável por desalocar memória e finalizar a gravação no arquivo*/
 void shutdown(FILE *fd, FILE *fout, ClassFile* cf) {
-    free_clFile(cf);
+    if (!cf)
+      return;
+    free_cte_pool(cf);
+    if (cf->fields)
+      free(cf->fields);
+    if (cf->interfaces)
+      free(cf->interfaces);
+    free(cf->methods);
+    free(cf);
+
     fclose(fout);
     fclose(fd);
     printf("Finalizado!\n");
