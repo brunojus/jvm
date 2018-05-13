@@ -43,7 +43,7 @@ void free_cte_pool(ClassFile *cf) {
 }
 
 /*Função responsável por desalocar memória e finalizar a gravação no arquivo*/
-void shutdown(FILE *fd, FILE *fout, ClassFile* cf) {
+void shutdown(FILE *fd, FILE *arq, ClassFile* cf) {
     if (!cf)
       return;
     free_cte_pool(cf);
@@ -54,36 +54,36 @@ void shutdown(FILE *fd, FILE *fout, ClassFile* cf) {
     free(cf->methods);
     free(cf);
 
-    fclose(fout);
+    fclose(arq);
     fclose(fd);
-    printf("Finalizado!\n");
+    printf("Finish!\n");
 }
 
 
-FILE* open_file(char *nomearquivo) {
-    FILE* fp = fopen(nomearquivo, "rb");
+FILE* open_file(char *namefile) {
+    FILE* fp = fopen(namefile, "rb");
     if (!fp) {
-        printf("Erro: Arquivo não encontrado.\n");
+        printf("Error: Arquivo não encontrado.\n");
         return NULL;
     } else {
         return fp;
     }
 }
 
-FILE * io_handler(int argc, char *argv[], char *nomearquivo, FILE **fout)
+FILE * io_handler(int argc, char *argv[], char *namefile, FILE **arq)
 {
   FILE *fd = NULL;
   char saidaarquivo[1024] = "output_class.txt";
   if (argc == 1) {
     do {
       printf("Digite o nome do arquivo: ");
-      scanf("%s", nomearquivo);
+      scanf("%s", namefile);
       fflush(stdin);
-      fd = open_file(nomearquivo);
+      fd = open_file(namefile);
     } while (!fd);
   } else if (argc == 3) {
-    strcpy(nomearquivo, argv[1]);
-    fd = open_file(nomearquivo);
+    strcpy(namefile, argv[1]);
+    fd = open_file(namefile);
     if (!fd) {
       printf("Arquivo de entrada não encontrado!\n");
       exit(0);
@@ -94,7 +94,7 @@ FILE * io_handler(int argc, char *argv[], char *nomearquivo, FILE **fout)
     printf("Uso do programa: ./leitorexibidor [nome-do-class nome-da-saída]\n");
     exit(0);
   }
-  if (!(*fout = fopen(saidaarquivo, "w+"))) {
+  if (!(*arq = fopen(saidaarquivo, "w+"))) {
     fprintf(stderr, "Erro %d na abertura do arquivo de saida\n", errno);
     exit(0);
   }

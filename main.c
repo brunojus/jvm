@@ -4,13 +4,13 @@
 
 
 int main(int argc, char* argv[]) {
-    char nomearquivo[1024];
-    FILE* fout = NULL;
+    char namefile[1024];
+    FILE* arq = NULL;
 
-    FILE *fd = io_handler(argc, argv, nomearquivo, &fout);
+    FILE *fd = io_handler(argc, argv, namefile, &arq);
 
     ClassFile* cf = readClass(fd);
-    print_class(cf, nomearquivo, fout);
-    shutdown(fd, fout, cf);
+    print_class(cf, namefile, arq);
+    shutdown(fd, arq, cf);
     return 0;
 }
