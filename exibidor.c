@@ -129,16 +129,18 @@ void print_classdata(ClassFile* cf, FILE* fout) {
     fprintf(fout, "SUPER_CLASS: %d\n\n", cf->super_class);
 }
 
+
 void print_interfaces(ClassFile* cf, FILE* fout) {
     fprintf(fout, "INTERFACES_COUNT: %d\n", cf->interfaces_count);
-    if (cf->interfaces_count == 0) {
-        fprintf(fout, "\n");
-        return;
-    }
+
     fprintf(fout, "INTERFACES:\n");
     u2* interface_aux;
     for (interface_aux = cf->interfaces; interface_aux < cf->interfaces + cf->interfaces_count; ++interface_aux) {
         fprintf(fout, "\tINTERFACE: %d\n\n", *interface_aux);
+    }
+    if (!cf->interfaces_count) {
+        fprintf(fout, "\n");
+        return;
     }
 }
 
@@ -693,25 +695,24 @@ void print_attributes(ClassFile* cf, FILE* fout) {
     }
 }
 
+/*Função Auxiliar para gravar todas em um arquivo*/
 void print_class(ClassFile* cf, char* nomearquivo, FILE* fout) {
     fprintf(fout, "Nome do .class: %s\n\n", nomearquivo);
-    fprintf(fout, "----------------------------------------------\n\n");
+    fprintf(fout, "\n\n");
     print_magic(cf, fout);
-    fprintf(fout, "----------------------------------------------\n\n");
+    fprintf(fout, "\n\n");
     print_versions(cf, fout);
-    fprintf(fout, "----------------------------------------------\n\n");
-    // print_classdata(cf, fout);
-    // fprintf(fout, "----------------------------------------------\n\n");
+    fprintf(fout, "\n\n");
     print_constantpool(cf, fout);
-    fprintf(fout, "----------------------------------------------\n\n");
+    fprintf(fout, "\n\n");
     print_interfaces(cf, fout);
-    fprintf(fout, "----------------------------------------------\n\n");
+    fprintf(fout, "\n\n");
     print_fields(cf, fout);
-    fprintf(fout, "----------------------------------------------\n\n");
+    fprintf(fout, "\n\n");
     print_methods(cf, fout);
-    fprintf(fout, "----------------------------------------------\n\n");
+    fprintf(fout, "\n\n");
     print_attributes(cf, fout);
-    fprintf(fout, "----------------------------------------------\n\n");
+    fprintf(fout, "\n\n");
 }
 
 char* show_version(int code) {
