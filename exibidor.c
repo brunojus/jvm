@@ -47,6 +47,8 @@ void print_versions(ClassFile* cf, FILE* fout) {
 
 }
 
+/*Imprime os valores referente a constant pool, as tags definidas na tabela
+foram definidos no exibidor.h */
 void print_constantpool(ClassFile* cf, FILE* fout) {
     int i = 1;
     long long Long;
