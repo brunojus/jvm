@@ -5,146 +5,146 @@ int is_true(int code, int id) {
     return code & (1 << id);
 }
 
-void print_permissions(int code, FILE* fout) {
-    fprintf(fout, "[");
-    if (is_true(code, 0)) fprintf(fout, "public ");
-    else if (is_true(code, 1)) fprintf(fout, "private ");
-    else if (is_true(code, 2)) fprintf(fout, "protected ");
+void print_permissions(int code, FILE* arq) {
+    fprintf(arq, "[");
+    if (is_true(code, 0)) fprintf(arq, "public ");
+    else if (is_true(code, 1)) fprintf(arq, "private ");
+    else if (is_true(code, 2)) fprintf(arq, "protected ");
 
-    if (is_true(code, 3)) fprintf(fout, "static ");
-    if (is_true(code, 4)) fprintf(fout, "final ");
-    if (is_true(code, 5)) fprintf(fout, "super ");
-    if (is_true(code, 6)) fprintf(fout, "volatile ");
-    if (is_true(code, 7)) fprintf(fout, "transient ");
-    if (is_true(code, 8)) fprintf(fout, "native ");
-    if (is_true(code, 9)) fprintf(fout, "interface ");
-    if (is_true(code, 10)) fprintf(fout, "abstract ");
-    fprintf(fout, "]");
+    if (is_true(code, 3)) fprintf(arq, "static ");
+    if (is_true(code, 4)) fprintf(arq, "final ");
+    if (is_true(code, 5)) fprintf(arq, "super ");
+    if (is_true(code, 6)) fprintf(arq, "volatile ");
+    if (is_true(code, 7)) fprintf(arq, "transient ");
+    if (is_true(code, 8)) fprintf(arq, "native ");
+    if (is_true(code, 9)) fprintf(arq, "interface ");
+    if (is_true(code, 10)) fprintf(arq, "abstract ");
+    fprintf(arq, "]");
 }
 
-void print_magic(ClassFile* cf, FILE* fout) {
-    fprintf(fout, "MAGIC: %x\n\n", cf->magic);
+void print_magic(ClassFile* cf, FILE* arq) {
+    fprintf(arq, "MAGIC: %x\n\n", cf->magic);
 }
 
-void print_versions(ClassFile* cf, FILE* fout) {
-    fprintf(fout, "MINOR VERSION: %d\n", cf->minor_version);
+void print_versions(ClassFile* cf, FILE* arq) {
+    fprintf(arq, "MINOR VERSION: %d\n", cf->minor_version);
     char *java_version =  show_version(cf->major_version);
-    fprintf(fout, "MAJOR VERSION: %d - %s\n", cf->major_version, java_version);
+    fprintf(arq, "MAJOR VERSION: %d - %s\n", cf->major_version, java_version);
     free(java_version);
 
-    fprintf(fout, "CONSTANT POOL COUNT: %d\n", cf->constant_pool_count);
+    fprintf(arq, "CONSTANT POOL COUNT: %d\n", cf->constant_pool_count);
 
-    fprintf(fout, "ACCESS_FLAGS: %x ", cf->access_flags);
-    print_permissions(cf->access_flags, fout);
-    fprintf(fout, "\n");
-    fprintf(fout, "THIS_CLASS: %d\n", cf->this_class);
-    fprintf(fout, "SUPER_CLASS: %d\n", cf->super_class);
+    fprintf(arq, "ACCESS_FLAGS: %x ", cf->access_flags);
+    print_permissions(cf->access_flags, arq);
+    fprintf(arq, "\n");
+    fprintf(arq, "THIS_CLASS: %d\n", cf->this_class);
+    fprintf(arq, "SUPER_CLASS: %d\n", cf->super_class);
 
-    fprintf(fout, "INTERFACES_COUNT: %d\n", cf->interfaces_count);
-    fprintf(fout, "FIELDS_COUNT: %d\n", cf->fields_count);
-    fprintf(fout, "METHODS_COUNT: %d\n", cf->method_count);
-    fprintf(fout, "ATTRIBUTES_COUNT: %d\n\n", cf->attributes_count);
+    fprintf(arq, "INTERFACES_COUNT: %d\n", cf->interfaces_count);
+    fprintf(arq, "FIELDS_COUNT: %d\n", cf->fields_count);
+    fprintf(arq, "METHODS_COUNT: %d\n", cf->method_count);
+    fprintf(arq, "ATTRIBUTES_COUNT: %d\n\n", cf->attributes_count);
 
 }
 
 /*Imprime os valores referente a constant pool, as tags definidas na tabela
 foram definidos no exibidor.h */
-void print_constantpool(ClassFile* cf, FILE* fout) {
+void print_constantpool(ClassFile* cf, FILE* arq) {
     int i = 1;
     long long Long;
-    fprintf(fout, "CONSTANT POOL COUNT: %d\n", cf->constant_pool_count);
-    fprintf(fout, "CONSTANT_POOL:\n");
+    fprintf(arq, "CONSTANT POOL COUNT: %d\n", cf->constant_pool_count);
+    fprintf(arq, "CONSTANT_POOL:\n");
     cp_info* cp;
     for (cp = cf->constant_pool; cp < cf->constant_pool + cf->constant_pool_count - 1; ++cp) {
-        fprintf(fout, "[%d]\n", i++);
+        fprintf(arq, "[%d]\n", i++);
         switch (cp->tag) {
         case CLASS:
-            fprintf(fout, "\tCP_INFO: CLASS\n");
-            fprintf(fout, "\tNAME_INDEX: %d: %s\n\n", cp->info.Class_info.name_index, (char*)cf->constant_pool[cp->info.Class_info.name_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tCP_INFO: CLASS\n");
+            fprintf(arq, "\tNAME_INDEX: %d: %s\n\n", cp->info.Class_info.name_index, (char*)cf->constant_pool[cp->info.Class_info.name_index - 1].info.Utf8_info.bytes);
             break;
         case FIELDREF:
-            fprintf(fout, "\tCP_INFO: FIELDREF\n");
-            fprintf(fout, "\tCLASS_INDEX: %d: %s\n", cp->info.Fieldref_info.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes);
-            fprintf(fout, "\tNAMEANDTYPE_INDEX: %d: %s%s\n\n", cp->info.Fieldref_info.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.name_and_type_index - 1].info.NameAndType_info.descriptor_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tCP_INFO: FIELDREF\n");
+            fprintf(arq, "\tCLASS_INDEX: %d: %s\n", cp->info.Fieldref_info.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tNAMEANDTYPE_INDEX: %d: %s%s\n\n", cp->info.Fieldref_info.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.name_and_type_index - 1].info.NameAndType_info.descriptor_index - 1].info.Utf8_info.bytes);
             break;
         case METHOD:
-            fprintf(fout, "\tCP_INFO: METHOD\n");
-            fprintf(fout, "\tCLASS_INDEX: %d: %s\n", cp->info.Method_info.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes);
-            fprintf(fout, "\tNAMEANDTYPE_INDEX: %d: %s%s\n\n", cp->info.Method_info.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.name_and_type_index - 1].info.NameAndType_info.descriptor_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tCP_INFO: METHOD\n");
+            fprintf(arq, "\tCLASS_INDEX: %d: %s\n", cp->info.Method_info.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tNAMEANDTYPE_INDEX: %d: %s%s\n\n", cp->info.Method_info.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.name_and_type_index - 1].info.NameAndType_info.descriptor_index - 1].info.Utf8_info.bytes);
             break;
         case INTERFACE:
-            fprintf(fout, "\tCP_INFO: INTERFACE\n");
-            fprintf(fout, "\tCLASS_INDEX: %d: %s\n", cp->info.Interface_info.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Interface_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes);
-            fprintf(fout, "\tNAMEANDTYPE_INDEX: %d: %s%s\n\n", cp->info.Interface_info.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Interface_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->info.Interface_info.name_and_type_index - 1].info.NameAndType_info.descriptor_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tCP_INFO: INTERFACE\n");
+            fprintf(arq, "\tCLASS_INDEX: %d: %s\n", cp->info.Interface_info.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Interface_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tNAMEANDTYPE_INDEX: %d: %s%s\n\n", cp->info.Interface_info.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->info.Interface_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->info.Interface_info.name_and_type_index - 1].info.NameAndType_info.descriptor_index - 1].info.Utf8_info.bytes);
             break;
         case NAMEANDTYPE:
-            fprintf(fout, "\tCP_INFO: NAMEANDTYPE\n");
-            fprintf(fout, "\tNAME_INDEX: %d: %s\n", cp->info.NameAndType_info.name_index, (char*)cf->constant_pool[cp->info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
-            fprintf(fout, "\tDESCRIPTOR_INDEX: %d: %s\n\n", cp->info.NameAndType_info.descriptor_index, (char*)cf->constant_pool[cp->info.NameAndType_info.descriptor_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tCP_INFO: NAMEANDTYPE\n");
+            fprintf(arq, "\tNAME_INDEX: %d: %s\n", cp->info.NameAndType_info.name_index, (char*)cf->constant_pool[cp->info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tDESCRIPTOR_INDEX: %d: %s\n\n", cp->info.NameAndType_info.descriptor_index, (char*)cf->constant_pool[cp->info.NameAndType_info.descriptor_index - 1].info.Utf8_info.bytes);
             break;
         case UTF8:
-            fprintf(fout, "\tCP_INFO: UTF8\n");
-            fprintf(fout, "\tLENGTH: %d\n", cp->info.Utf8_info.length);
-            fprintf(fout, "\tVALUE: %s\n\n", (char*)cp->info.Utf8_info.bytes);
+            fprintf(arq, "\tCP_INFO: UTF8\n");
+            fprintf(arq, "\tLENGTH: %d\n", cp->info.Utf8_info.length);
+            fprintf(arq, "\tVALUE: %s\n\n", (char*)cp->info.Utf8_info.bytes);
             break;
         case STRING:
-            fprintf(fout, "\tCP_INFO: STRING\n");
-            fprintf(fout, "\tSTRING_INDEX: %d: %s\n\n", cp->info.String_info.string_index, (char*)cf->constant_pool[cp->info.String_info.string_index - 1].info.Utf8_info.bytes);
+            fprintf(arq, "\tCP_INFO: STRING\n");
+            fprintf(arq, "\tSTRING_INDEX: %d: %s\n\n", cp->info.String_info.string_index, (char*)cf->constant_pool[cp->info.String_info.string_index - 1].info.Utf8_info.bytes);
             break;
         case INTEGER:
-            fprintf(fout, "\tCP_INFO: INTEGER\n");
-            fprintf(fout, "\tBYTES: %x\n", cp->info.Integer_info.bytes);
-            fprintf(fout, "\tVALUE: %u\n\n", cp->info.Integer_info.bytes);
+            fprintf(arq, "\tCP_INFO: INTEGER\n");
+            fprintf(arq, "\tBYTES: %x\n", cp->info.Integer_info.bytes);
+            fprintf(arq, "\tVALUE: %u\n\n", cp->info.Integer_info.bytes);
             break;
         case FLOAT:
-            fprintf(fout, "\tCP_INFO: FLOAT\n");
-            fprintf(fout, "\tBYTES: %x\n", cp->info.Float_info.bytes);
+            fprintf(arq, "\tCP_INFO: FLOAT\n");
+            fprintf(arq, "\tBYTES: %x\n", cp->info.Float_info.bytes);
             u4tofloat.U4 = cp->info.Float_info.bytes;
-            fprintf(fout, "\tVALUE: %f\n\n", u4tofloat.Float);
+            fprintf(arq, "\tVALUE: %f\n\n", u4tofloat.Float);
             break;
         case LONG:
-            fprintf(fout, "\tCP_INFO: LONG\n");
-            fprintf(fout, "\tHIGH: %x\n", cp->info.Long_info.high_bytes);
-            fprintf(fout, "\tLOW: %x\n", cp->info.Long_info.low_bytes);
+            fprintf(arq, "\tCP_INFO: LONG\n");
+            fprintf(arq, "\tHIGH: %x\n", cp->info.Long_info.high_bytes);
+            fprintf(arq, "\tLOW: %x\n", cp->info.Long_info.low_bytes);
             Long = ((long long) cp->info.Long_info.high_bytes << 32) | (cp->info.Long_info.low_bytes);
-            fprintf(fout, "\tVALUE: %lld\n\n", Long);
+            fprintf(arq, "\tVALUE: %lld\n\n", Long);
             break;
         case DOUBLE:
-            fprintf(fout, "\tCP_INFO: DOUBLE\n");
-            fprintf(fout, "\tHIGH: %x\n", cp->info.Double_info.high_bytes);
-            fprintf(fout, "\tLOW: %x\n", cp->info.Double_info.low_bytes);
+            fprintf(arq, "\tCP_INFO: DOUBLE\n");
+            fprintf(arq, "\tHIGH: %x\n", cp->info.Double_info.high_bytes);
+            fprintf(arq, "\tLOW: %x\n", cp->info.Double_info.low_bytes);
             Long = ((long long) cp->info.Double_info.high_bytes << 32) | (cp->info.Double_info.low_bytes);
-            fprintf(fout, "\tVALUE: %lld\n\n", Long);
+            fprintf(arq, "\tVALUE: %lld\n\n", Long);
             break;
         }
     }
 
 }
 
-void print_classdata(ClassFile* cf, FILE* fout) {
-    fprintf(fout, "ACCESS_FLAGS: %x ", cf->access_flags);
-    print_permissions(cf->access_flags, fout);
-    fprintf(fout, "\n");
-    fprintf(fout, "THIS_CLASS: %d\n", cf->this_class);
-    fprintf(fout, "SUPER_CLASS: %d\n\n", cf->super_class);
+void print_classdata(ClassFile* cf, FILE* arq) {
+    fprintf(arq, "ACCESS_FLAGS: %x ", cf->access_flags);
+    print_permissions(cf->access_flags, arq);
+    fprintf(arq, "\n");
+    fprintf(arq, "THIS_CLASS: %d\n", cf->this_class);
+    fprintf(arq, "SUPER_CLASS: %d\n\n", cf->super_class);
 }
 
 
-void print_interfaces(ClassFile* cf, FILE* fout) {
-    fprintf(fout, "INTERFACES_COUNT: %d\n", cf->interfaces_count);
+void print_interfaces(ClassFile* cf, FILE* arq) {
+    fprintf(arq, "INTERFACES_COUNT: %d\n", cf->interfaces_count);
 
-    fprintf(fout, "INTERFACES:\n");
+    fprintf(arq, "INTERFACES:\n");
     u2* interface_aux;
     for (interface_aux = cf->interfaces; interface_aux < cf->interfaces + cf->interfaces_count; ++interface_aux) {
-        fprintf(fout, "\tINTERFACE: %d\n\n", *interface_aux);
+        fprintf(arq, "\tINTERFACE: %d\n\n", *interface_aux);
     }
     if (!cf->interfaces_count) {
-        fprintf(fout, "\n");
+        fprintf(arq, "\n");
         return;
     }
 }
 
-void print_attribute(ClassFile* cf, attribute_info* att, FILE* fout) {
+void print_attribute(ClassFile* cf, attribute_info* att, FILE* arq) {
 
 //Comeca do 4, https://cs.au.dk/~mis/dOvs/jvmspec/ref-newarray.html
 char* newarray_value[] = {NULL, NULL, NULL, NULL, "T_BOOLEAN", "T_CHAR", "T_FLOAT", "T_DOUBLE", "T_BYTE", "T_SHORT","T_INT", "T_LONG"};
@@ -208,96 +208,96 @@ enum instrucoes_code {
     type = (char*)malloc(sizeof(char) * cf->constant_pool[att->attribute_name_index - 1].info.Utf8_info.length+1);
     strcpy(type, (char*)cf->constant_pool[att->attribute_name_index - 1].info.Utf8_info.bytes);
     int i = findtype(type);
-    fprintf(fout, "\tATTRIBUTE_NAME_INDEX: %d : %s\n", att->attribute_name_index, (char*)cf->constant_pool[att->attribute_name_index - 1].info.Utf8_info.bytes);
-    fprintf(fout, "\tATTRIBUTE_LENGTH: %u\n\n", att->attribute_length);
+    fprintf(arq, "\tATTRIBUTE_NAME_INDEX: %d : %s\n", att->attribute_name_index, (char*)cf->constant_pool[att->attribute_name_index - 1].info.Utf8_info.bytes);
+    fprintf(arq, "\tATTRIBUTE_LENGTH: %u\n\n", att->attribute_length);
     switch (i) {
     case CONSTANTVALUE:
-        fprintf(fout, "\tTYPE: CONSTANT_VALUE\n");
-        fprintf(fout, "\tCONSTANTVALUE_INDEX: %d\n\n", att->type.ConstantValue.constantvalue_index);
+        fprintf(arq, "\tTYPE: CONSTANT_VALUE\n");
+        fprintf(arq, "\tCONSTANTVALUE_INDEX: %d\n\n", att->type.ConstantValue.constantvalue_index);
         switch (cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].tag) {
         case INTEGER:
-            fprintf(fout, "\tCP_INFO: INTEGER\n");
-            fprintf(fout, "\tBYTES: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Integer_info.bytes);
-            fprintf(fout, "\tVALUE: %u\n\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Integer_info.bytes);
+            fprintf(arq, "\tCP_INFO: INTEGER\n");
+            fprintf(arq, "\tBYTES: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Integer_info.bytes);
+            fprintf(arq, "\tVALUE: %u\n\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Integer_info.bytes);
             break;
         case FLOAT:
-            fprintf(fout, "\tCP_INFO: FLOAT\n");
-            fprintf(fout, "\tBYTES: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Float_info.bytes);
+            fprintf(arq, "\tCP_INFO: FLOAT\n");
+            fprintf(arq, "\tBYTES: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Float_info.bytes);
             u4tofloat.U4 = cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Float_info.bytes;
-            fprintf(fout, "\tVALUE: %f\n\n", u4tofloat.Float);
+            fprintf(arq, "\tVALUE: %f\n\n", u4tofloat.Float);
             break;
         case LONG:
-            fprintf(fout, "\tCP_INFO: LONG\n");
-            fprintf(fout, "\tHIGH: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Long_info.high_bytes);
-            fprintf(fout, "\tLOW: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Long_info.low_bytes);
+            fprintf(arq, "\tCP_INFO: LONG\n");
+            fprintf(arq, "\tHIGH: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Long_info.high_bytes);
+            fprintf(arq, "\tLOW: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Long_info.low_bytes);
             Long = ((long long) cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Long_info.high_bytes << 32) | (cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Long_info.low_bytes);
-            fprintf(fout, "\tVALUE: %lld\n\n", Long);
+            fprintf(arq, "\tVALUE: %lld\n\n", Long);
             break;
         case DOUBLE:
-            fprintf(fout, "\tCP_INFO: DOUBLE\n");
-            fprintf(fout, "\tHIGH: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Double_info.high_bytes);
-            fprintf(fout, "\tLOW: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Double_info.low_bytes);
+            fprintf(arq, "\tCP_INFO: DOUBLE\n");
+            fprintf(arq, "\tHIGH: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Double_info.high_bytes);
+            fprintf(arq, "\tLOW: %x\n", cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Double_info.low_bytes);
             Long = ((long long) cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Double_info.high_bytes << 32) | (cf->constant_pool[att->type.ConstantValue.constantvalue_index - 1].info.Double_info.low_bytes);
-            fprintf(fout, "\tVALUE: %lld\n\n", Long);
+            fprintf(arq, "\tVALUE: %lld\n\n", Long);
             break;
         }
         break;
     case CODE:
-        fprintf(fout, "\tTYPE: CODE\n");
-        fprintf(fout, "\tMAX_STACK: %d\n", att->type.Code_attribute.max_stack);
-        fprintf(fout, "\tMAX_LOCALS: %d\n", att->type.Code_attribute.max_locals);
-        fprintf(fout, "\tCODE_LENGTH: %u\n", att->type.Code_attribute.code_length);
-        fprintf(fout, "\tCODE:\n");
+        fprintf(arq, "\tTYPE: CODE\n");
+        fprintf(arq, "\tMAX_STACK: %d\n", att->type.Code_attribute.max_stack);
+        fprintf(arq, "\tMAX_LOCALS: %d\n", att->type.Code_attribute.max_locals);
+        fprintf(arq, "\tCODE_LENGTH: %u\n", att->type.Code_attribute.code_length);
+        fprintf(arq, "\tCODE:\n");
         u1* code;
         cp_info* cp;
         for (code = att->type.Code_attribute.code; code < att->type.Code_attribute.code + att->type.Code_attribute.code_length; ++code) {
-            fprintf(fout, "\t\t%d | ", (int) (code - (att->type.Code_attribute.code))); //printa a instrucao sem o codigo em hexa
+            fprintf(arq, "\t\t%d | ", (int) (code - (att->type.Code_attribute.code))); //printa a instrucao sem o codigo em hexa
 
-            fprintf(fout, "%s ", instruction_name[*code]); //printa a instrucao
+            fprintf(arq, "%s ", instruction_name[*code]); //printa a instrucao
             u1 u1_aux;
             u2 u2_aux;
             u4 u4_aux;
 
             switch (*code) {
                 case aload:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case anewarray:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     break;
                 case astore:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case bipush:
-                    fprintf(fout, "%d", *(++code)); //byte
+                    fprintf(arq, "%d", *(++code)); //byte
                     break;
                 case checkcast:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     break;
                 case dload:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case dstore:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case fload:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case fstore:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case getfield:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
                     cp = cf->constant_pool +  u2_aux - 1;
-                    fprintf(fout, "#%d <%s.%s>", u2_aux,
+                    fprintf(arq, "#%d <%s.%s>", u2_aux,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
                     break;
@@ -305,13 +305,13 @@ enum instrucoes_code {
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     break;
                 case goto2: //REVER - MOSTRANDO VALOR INESPERADO
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case goto_w:
                     u4_aux = *(++code); //byte1 de branch
@@ -321,123 +321,123 @@ enum instrucoes_code {
                     u4_aux += *(++code); //byte3 de branch
                     u4_aux = u4_aux << 8; //shift de branch
                     u4_aux += *(++code); //byte4 de branch
-                    fprintf(fout, "%d", u4_aux); //print branchbyte
+                    fprintf(arq, "%d", u4_aux); //print branchbyte
 
                     break;
                 case if_acmpeq:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case if_acmpne:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmple:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmpgt:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmpge:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmplt:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmpne:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmpeq:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case ifeq:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case ifne:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case ifgt:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case iflt:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case ifle:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case ifge:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case ifnonnull:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case ifnull:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case iinc:
                     u1_aux = *(++code); //byte de index
-                    fprintf(fout, "%d by %d", u1_aux, *(++code)); //print branchbyte
+                    fprintf(arq, "%d by %d", u1_aux, *(++code)); //print branchbyte
                     break;
                 case iload:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case instanceof:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     break;
                 case invokedynamic:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     ++code; //leitura de 0 - caracteristica do invokedynamic
                     ++code; //leitura de 0 - caracteristica do invokedynamic
                     break;
@@ -445,8 +445,8 @@ enum instrucoes_code {
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
-                    fprintf(fout, " count %d", *(++code)); //count
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, " count %d", *(++code)); //count
                     ++code; //leitura de 0 - caracteristica do invokedynamic
                     break;
                 case invokespecial:
@@ -454,7 +454,7 @@ enum instrucoes_code {
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
                     cp = cf->constant_pool + u2_aux - 1;
-                    fprintf(fout, "#%d <%s.%s>", u2_aux,
+                    fprintf(arq, "#%d <%s.%s>", u2_aux,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes,
 						(char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
                     break;
@@ -462,25 +462,25 @@ enum instrucoes_code {
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     break;
                 case invokevirtual:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
                     cp = cf->constant_pool + u2_aux - 1;
-                    fprintf(fout, "#%d <%s.%s>", u2_aux,
+                    fprintf(arq, "#%d <%s.%s>", u2_aux,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
                     break;
                 case istore:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case jsr:
                     u2_aux = *(++code); //byte1 de branch
                     u2_aux = u2_aux << 8; //shift de branch
                     u2_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", u2_aux); //print branchbyte
+                    fprintf(arq, "%d", u2_aux); //print branchbyte
                     break;
                 case jsr_w:
                     u4_aux = *(++code); //byte1 de branch
@@ -490,47 +490,47 @@ enum instrucoes_code {
                     u4_aux += *(++code); //byte3 de branch
                     u4_aux = u4_aux << 8; //shift de branch
                     u4_aux += *(++code); //byte4 de branch
-                    fprintf(fout, "%d", u4_aux); //print branchbyte
+                    fprintf(arq, "%d", u4_aux); //print branchbyte
                     break;
                 case ldc:
                     u1_aux = *(++code); //index
                     cp = cf->constant_pool + u2_aux - 1;
-                    fprintf(fout, "#%d", u2_aux); //CONTEUDO PODE SER STRING, FLOAT...
+                    fprintf(arq, "#%d", u2_aux); //CONTEUDO PODE SER STRING, FLOAT...
                     break;
                 case ldc_w:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     break;
                 case ldc2_w:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     break;
                 case lload:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case lstore:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case multianewarray:
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
-                    fprintf(fout, " dim %d", *(++code)); //dimensions
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, " dim %d", *(++code)); //dimensions
                     break;
                 case new:
                     u2_aux = *(++code);
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
                     cp = cf->constant_pool +  u2_aux - 1;
-                    fprintf(fout, "#%d, <%s>", u2_aux, (char*)cf->constant_pool[cp->info.Class_info.name_index - 1].info.Utf8_info.bytes);
+                    fprintf(arq, "#%d, <%s>", u2_aux, (char*)cf->constant_pool[cp->info.Class_info.name_index - 1].info.Utf8_info.bytes);
                     break;
                 case newarray:
-                    fprintf(fout, "%s", newarray_value[*(++code)]);
+                    fprintf(arq, "%s", newarray_value[*(++code)]);
                     break;
                 case putfield:
                     u2_aux = *(++code);
@@ -538,7 +538,7 @@ enum instrucoes_code {
                     u2_aux += *(++code);
 
                     cp = cf->constant_pool +  u2_aux - 1;
-                    fprintf(fout, "#%d <%s.%s>", u2_aux,
+                    fprintf(arq, "#%d <%s.%s>", u2_aux,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
                     break;
@@ -546,34 +546,34 @@ enum instrucoes_code {
                     u2_aux = *(++code);
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", u2_aux); //print indexbyte
+                    fprintf(arq, "#%d", u2_aux); //print indexbyte
                     break;
                 case ret:
-                    fprintf(fout, "#%d", *(++code)); //index
+                    fprintf(arq, "#%d", *(++code)); //index
                     break;
                 case sipush:
                     u2_aux = *(++code); //byte1
                         u2_aux = u2_aux << 8; //shift
                         u2_aux += *(++code); //byte2
-                        fprintf(fout, "%d", u2_aux); //print
+                        fprintf(arq, "%d", u2_aux); //print
                     break;
                 case wide:
                     if ((*(++code)) == iinc) { //caso o proximo byte seja iinc
                         u2_aux = *(++code);
                         u2_aux = u2_aux << 8; //shift de index
                         u2_aux += *(++code); //byte2 de index
-                        fprintf(fout, "#%d", u2_aux); //print indexbyte
+                        fprintf(arq, "#%d", u2_aux); //print indexbyte
 
                         u2_aux = *(++code); //byte1 de constante
                         u2_aux = u2_aux << 8; //shift de constante
                         u2_aux += *(++code); //byte2 de constante
-                        fprintf(fout, " const %d", u2_aux); //print constante
+                        fprintf(arq, " const %d", u2_aux); //print constante
                     }
                     else {
                         u2_aux = *(++code); //byte1 de index
                         u2_aux = u2_aux << 8; //shift de index
                         u2_aux += *(++code); //byte2 de index
-                        fprintf(fout, "#%d", u2_aux); //print indexbyte
+                        fprintf(arq, "#%d", u2_aux); //print indexbyte
                     }
                     break;
 
@@ -586,45 +586,45 @@ enum instrucoes_code {
             }
 
 
-            fprintf(fout, "\n");
+            fprintf(arq, "\n");
         }
-        fprintf(fout, "\tEXCEPTION_TABLE_LENGTH: %d\n", att->type.Code_attribute.exception_table_length);
+        fprintf(arq, "\tEXCEPTION_TABLE_LENGTH: %d\n", att->type.Code_attribute.exception_table_length);
         exception_table_info* exp_aux;
         for (exp_aux = att->type.Code_attribute.exception_table; exp_aux < att->type.Code_attribute.exception_table + att->type.Code_attribute.exception_table_length; ++exp_aux) {
-            fprintf(fout, "\tEXCEPTION:\n");
-            fprintf(fout, "\t\tSTART_PC: %d\n", exp_aux->start_pc);
-            fprintf(fout, "\t\tEND_PC: %d\n", exp_aux->end_pc);
-            fprintf(fout, "\t\tHANDLER_PC: %d\n", exp_aux->handler_pc);
-            fprintf(fout, "\t\tCATCH_TYPE: %d\n\n", exp_aux->catch_type);
+            fprintf(arq, "\tEXCEPTION:\n");
+            fprintf(arq, "\t\tSTART_PC: %d\n", exp_aux->start_pc);
+            fprintf(arq, "\t\tEND_PC: %d\n", exp_aux->end_pc);
+            fprintf(arq, "\t\tHANDLER_PC: %d\n", exp_aux->handler_pc);
+            fprintf(arq, "\t\tCATCH_TYPE: %d\n\n", exp_aux->catch_type);
         }
-        fprintf(fout, "\tATTRIBUTES_COUNT: %d\n", att->type.Code_attribute.attributes_count);
-        attribute_info* att_aux;
-        for (att_aux = att->type.Code_attribute.attributes; att_aux < att->type.Code_attribute.attributes + att->type.Code_attribute.attributes_count; ++att_aux) {
-            print_attribute(cf, att_aux, fout);
+        fprintf(arq, "\tATTRIBUTES_COUNT: %d\n", att->type.Code_attribute.attributes_count);
+        attribute_info* aux_att;
+        for (aux_att = att->type.Code_attribute.attributes; aux_att < att->type.Code_attribute.attributes + att->type.Code_attribute.attributes_count; ++aux_att) {
+            print_attribute(cf, aux_att, arq);
         }
         break;
     case EXCEPTIONS:
-        fprintf(fout, "\tTYPE: EXCEPTIONS\n");
-        fprintf(fout, "\tNUMBER_OF_EXCEPTIONS: %d\n", att->type.Exceptions.number_of_exceptions);
+        fprintf(arq, "\tTYPE: EXCEPTIONS\n");
+        fprintf(arq, "\tNUMBER_OF_EXCEPTIONS: %d\n", att->type.Exceptions.number_of_exceptions);
         u2* expt_aux;
         for (expt_aux = att->type.Exceptions.exception_index_table; expt_aux < att->type.Exceptions.exception_index_table + att->type.Exceptions.number_of_exceptions; ++expt_aux) {
-            fprintf(fout, "\tEXCEPTION:\n");
-            fprintf(fout, "\t\tCLASS: %d\n\n", *expt_aux);
+            fprintf(arq, "\tEXCEPTION:\n");
+            fprintf(arq, "\t\tCLASS: %d\n\n", *expt_aux);
         }
         break;
     case INNERCLASSES:
-        fprintf(fout, "\tTYPE: INNER CLASSES:\n");
-        fprintf(fout, "\tNUMBER_OF_CLASSES: %d\n", att->type.InnerClasses.number_of_classes);
+        fprintf(arq, "\tTYPE: INNER CLASSES:\n");
+        fprintf(arq, "\tNUMBER_OF_CLASSES: %d\n", att->type.InnerClasses.number_of_classes);
         classtype_info* classtype_aux;
         for (classtype_aux = att->type.InnerClasses.classes; classtype_aux < att->type.InnerClasses.classes + att->type.InnerClasses.number_of_classes; ++classtype_aux) {
-            fprintf(fout, "\tINNER CLASS:\n");
-            fprintf(fout, "\t\tINNER CLASS: %d\n", classtype_aux->inner_class_info_index);
-            fprintf(fout, "\t\tOUTER CLASS: %d\n", classtype_aux->outer_class_info_index);
-            fprintf(fout, "\t\tINNER NAME: %d\n", classtype_aux->inner_name_index);
-            fprintf(fout, "\t\tINNER CLASS ACCESS FLAGS: %x ", classtype_aux->inner_class_access_flags);
-            print_permissions(classtype_aux->inner_class_access_flags, fout);
-            fprintf(fout, "\n\n");
-            fprintf(fout, "\n");
+            fprintf(arq, "\tINNER CLASS:\n");
+            fprintf(arq, "\t\tINNER CLASS: %d\n", classtype_aux->inner_class_info_index);
+            fprintf(arq, "\t\tOUTER CLASS: %d\n", classtype_aux->outer_class_info_index);
+            fprintf(arq, "\t\tINNER NAME: %d\n", classtype_aux->inner_name_index);
+            fprintf(arq, "\t\tINNER CLASS ACCESS FLAGS: %x ", classtype_aux->inner_class_access_flags);
+            print_permissions(classtype_aux->inner_class_access_flags, arq);
+            fprintf(arq, "\n\n");
+            fprintf(arq, "\n");
         }
         break;
     case OTHER:
@@ -633,94 +633,94 @@ enum instrucoes_code {
     free(type);
 }
 
-void print_fields(ClassFile* cf, FILE* fout) {
+void print_fields(ClassFile* cf, FILE* arq) {
     int var1 = 0;
     int var2 = 0;
 
-    fprintf(fout, "FIELDS_COUNT: %d\n", cf->fields_count);
+    fprintf(arq, "FIELDS_COUNT: %d\n", cf->fields_count);
     if (cf->fields_count == 0) {
-        fprintf(fout, "\n");
+        fprintf(arq, "\n");
         return;
     }
-    fprintf(fout, "FIELDS:\n");
+    fprintf(arq, "FIELDS:\n");
     field_info* aux_field;
     for (aux_field = cf->fields; aux_field < cf->fields + cf->fields_count; ++aux_field) {
-        fprintf(fout, "\t[%d]\n", var1++);
-        fprintf(fout, "\tNAME_INDEX: %d: %s\n", aux_field->name_index, (char*)cf->constant_pool[aux_field->name_index - 1].info.Utf8_info.bytes);
-        fprintf(fout, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_field->descriptor_index, (char*)cf->constant_pool[aux_field->descriptor_index - 1].info.Utf8_info.bytes);
-        fprintf(fout, "\tACCESS_FLAGS: %x ", aux_field->access_flags);
-        print_permissions(aux_field->access_flags, fout);
-        fprintf(fout, "\n");
-        fprintf(fout, "\tATTRIBUTE_COUNT: %d\n\n", aux_field->attributes_count);
-        attribute_info* att_aux;
-        for (att_aux = aux_field->attributes; att_aux < aux_field->attributes + aux_field->attributes_count; ++att_aux) {
-            fprintf(fout, "[%d] FIELD_ATTRIBUTE:\n", var2++);
-            print_attribute(cf, att_aux, fout);
+        fprintf(arq, "\t[%d]\n", var1++);
+        fprintf(arq, "\tNAME_INDEX: %d: %s\n", aux_field->name_index, (char*)cf->constant_pool[aux_field->name_index - 1].info.Utf8_info.bytes);
+        fprintf(arq, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_field->descriptor_index, (char*)cf->constant_pool[aux_field->descriptor_index - 1].info.Utf8_info.bytes);
+        fprintf(arq, "\tACCESS_FLAGS: %x ", aux_field->access_flags);
+        print_permissions(aux_field->access_flags, arq);
+        fprintf(arq, "\n");
+        fprintf(arq, "\tATTRIBUTE_COUNT: %d\n\n", aux_field->attributes_count);
+        attribute_info* aux_att;
+        for (aux_att = aux_field->attributes; aux_att < aux_field->attributes + aux_field->attributes_count; ++aux_att) {
+            fprintf(arq, "[%d] FIELD_ATTRIBUTE:\n", var2++);
+            print_attribute(cf, aux_att, arq);
         }
     }
 }
 
-void print_methods(ClassFile* cf, FILE* fout) {
+void print_methods(ClassFile* cf, FILE* arq) {
     int var1 = 0;
     int var2 = 0;
 
-    fprintf(fout, "METHODS_COUNT: %d\n", cf->method_count); // número de estruturas na tabela methods
+    fprintf(arq, "METHODS_COUNT: %d\n", cf->method_count); // número de estruturas na tabela methods
     if (cf->method_count == 0) {
-        fprintf(fout, "\n");
+        fprintf(arq, "\n");
         return;
     }
-    fprintf(fout, "METHODS:\n");
+    fprintf(arq, "METHODS:\n");
     method_info* aux_meth;
     for (aux_meth = cf->methods; aux_meth < cf->methods + cf->method_count; ++aux_meth) {
-        fprintf(fout, "[%d]\n", var1++);
-        fprintf(fout, "\tNAME_INDEX: %d: %s\n", aux_meth->name_index, (char*)cf->constant_pool[aux_meth->name_index - 1].info.Utf8_info.bytes);
-        fprintf(fout, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_meth->descriptor_index, (char*)cf->constant_pool[aux_meth->descriptor_index - 1].info.Utf8_info.bytes);
-        fprintf(fout, "\tACCESS_FLAGS: %x ", aux_meth->access_flags);
-        print_permissions(aux_meth->access_flags, fout);
-        fprintf(fout, "\n\n");
-        fprintf(fout, "\tATTRIBUTE_COUNT: %d\n\n", aux_meth->attributes_count);
-        attribute_info* att_aux;
-        for (att_aux = aux_meth->attributes; att_aux < aux_meth->attributes + aux_meth->attributes_count; ++att_aux) {
-            fprintf(fout, "\t[%d] METHOD_ATTRIBUTE:\n", var2++);
-            print_attribute(cf, att_aux, fout);
+        fprintf(arq, "[%d]\n", var1++);
+        fprintf(arq, "\tNAME_INDEX: %d: %s\n", aux_meth->name_index, (char*)cf->constant_pool[aux_meth->name_index - 1].info.Utf8_info.bytes);
+        fprintf(arq, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_meth->descriptor_index, (char*)cf->constant_pool[aux_meth->descriptor_index - 1].info.Utf8_info.bytes);
+        fprintf(arq, "\tACCESS_FLAGS: %x ", aux_meth->access_flags);
+        print_permissions(aux_meth->access_flags, arq);
+        fprintf(arq, "\n\n");
+        fprintf(arq, "\tATTRIBUTE_COUNT: %d\n\n", aux_meth->attributes_count);
+        attribute_info* aux_att;
+        for (aux_att = aux_meth->attributes; aux_att < aux_meth->attributes + aux_meth->attributes_count; ++aux_att) {
+            fprintf(arq, "\t[%d] METHOD_ATTRIBUTE:\n", var2++);
+            print_attribute(cf, aux_att, arq);
         }
     }
 }
 
 
-void print_attributes(ClassFile* cf, FILE* fout) {
+void print_attributes(ClassFile* cf, FILE* arq) {
     int att_itera = 0;
-    fprintf(fout, "ATTRIBUTES_COUNT: %d\n", cf->attributes_count);
+    fprintf(arq, "ATTRIBUTES_COUNT: %d\n", cf->attributes_count);
     if (cf->attributes_count == 0) {
-        fprintf(fout, "\n");
+        fprintf(arq, "\n");
         return;
     }
-    fprintf(fout, "ATTRIBUTES:\n");
-    attribute_info* att_aux;
-    for (att_aux = cf->attributes; att_aux < cf->attributes + cf->attributes_count; ++att_aux) {
-        fprintf(fout, "[%d] ATTRIBUTE:\n", att_itera++);
-        print_attribute(cf, att_aux, fout);
+    fprintf(arq, "ATTRIBUTES:\n");
+    attribute_info* aux_att;
+    for (aux_att = cf->attributes; aux_att < cf->attributes + cf->attributes_count; ++aux_att) {
+        fprintf(arq, "[%d] ATTRIBUTE:\n", att_itera++);
+        print_attribute(cf, aux_att, arq);
     }
 }
 
-/*Função Auxiliar para gravar todas em um arquivo*/
-void print_class(ClassFile* cf, char* nomearquivo, FILE* fout) {
-    fprintf(fout, "Nome do .class: %s\n\n", nomearquivo);
-    fprintf(fout, "\n\n");
-    print_magic(cf, fout);
-    fprintf(fout, "\n\n");
-    print_versions(cf, fout);
-    fprintf(fout, "\n\n");
-    print_constantpool(cf, fout);
-    fprintf(fout, "\n\n");
-    print_interfaces(cf, fout);
-    fprintf(fout, "\n\n");
-    print_fields(cf, fout);
-    fprintf(fout, "\n\n");
-    print_methods(cf, fout);
-    fprintf(fout, "\n\n");
-    print_attributes(cf, fout);
-    fprintf(fout, "\n\n");
+/*Função Auxiliar para gravar todas em um Arquivo*/
+void print_class(ClassFile* cf, char* namefile, FILE* arq) {
+    fprintf(arq, "Nome do .class: %s\n\n", namefile);
+    fprintf(arq, "\n\n");
+    print_magic(cf, arq);
+    fprintf(arq, "\n\n");
+    print_versions(cf, arq);
+    fprintf(arq, "\n\n");
+    print_constantpool(cf, arq);
+    fprintf(arq, "\n\n");
+    print_interfaces(cf, arq);
+    fprintf(arq, "\n\n");
+    print_fields(cf, arq);
+    fprintf(arq, "\n\n");
+    print_methods(cf, arq);
+    fprintf(arq, "\n\n");
+    print_attributes(cf, arq);
+    fprintf(arq, "\n\n");
 }
 
 /*A lista utilizada para identificação das major versions pode ser acessada nesse link
@@ -773,7 +773,7 @@ char* show_version(int code) {
             break;
         default:
             java_version = (char*) malloc(sizeof(char) * 21);
-            strcpy(java_version, "Java nao reconhecido");
+            strcpy(java_version, "Java desconhecido");
             break;
     }
     return java_version;
