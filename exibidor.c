@@ -238,21 +238,21 @@ enum instrucoes_code { //10 instrucoes por linha
         break;
     case CODE:
         fprintf(fout, "\tTYPE: CODE\n");
-        fprintf(fout, "\tMAX_STACK: %d\n", att->type.Code.max_stack);
-        fprintf(fout, "\tMAX_LOCALS: %d\n", att->type.Code.max_locals);
-        fprintf(fout, "\tCODE_LENGTH: %u\n", att->type.Code.code_length);
+        fprintf(fout, "\tMAX_STACK: %d\n", att->type.Code_attribute.max_stack);
+        fprintf(fout, "\tMAX_LOCALS: %d\n", att->type.Code_attribute.max_locals);
+        fprintf(fout, "\tCODE_LENGTH: %u\n", att->type.Code_attribute.code_length);
         fprintf(fout, "\tCODE:\n");
         u1* code;
         cp_info* cp;
-        for (code = att->type.Code.code; code < att->type.Code.code + att->type.Code.code_length; ++code) {
-            //fprintf(fout, "\t\t%d | %02x | ", (int) (code - (att->type.Code.code)), *code); //printa o codigo em hexa da instrucao e a instrucao em questao
-            fprintf(fout, "\t\t%d | ", (int) (code - (att->type.Code.code))); //printa a instrucao sem o codigo em hexa
+        for (code = att->type.Code_attribute.code; code < att->type.Code_attribute.code + att->type.Code_attribute.code_length; ++code) {
+            //fprintf(fout, "\t\t%d | %02x | ", (int) (code - (att->type.Code_attribute.code)), *code); //printa o codigo em hexa da instrucao e a instrucao em questao
+            fprintf(fout, "\t\t%d | ", (int) (code - (att->type.Code_attribute.code))); //printa a instrucao sem o codigo em hexa
 
             fprintf(fout, "%s ", instrucoes_nomes[*code]); //printa a instrucao
             int8_t byte_aux;
             int16_t half_aux;
             int32_t word_aux;
-            
+
             switch (*code) { //TRATAR INSTRUCOES QUE ARMAZENAM OPERANDOS NA PILHA
                 case aload:
                     fprintf(fout, "#%d", *(++code)); //index
@@ -581,18 +581,18 @@ enum instrucoes_code { //10 instrucoes por linha
 
             fprintf(fout, "\n");
         }
-        fprintf(fout, "\tEXCEPTION_TABLE_LENGTH: %d\n", att->type.Code.exception_table_length);
+        fprintf(fout, "\tEXCEPTION_TABLE_LENGTH: %d\n", att->type.Code_attribute.exception_table_length);
         exception_table_info* exp_aux;
-        for (exp_aux = att->type.Code.exception_table; exp_aux < att->type.Code.exception_table + att->type.Code.exception_table_length; ++exp_aux) {
+        for (exp_aux = att->type.Code_attribute.exception_table; exp_aux < att->type.Code_attribute.exception_table + att->type.Code_attribute.exception_table_length; ++exp_aux) {
             fprintf(fout, "\tEXCEPTION:\n");
             fprintf(fout, "\t\tSTART_PC: %d\n", exp_aux->start_pc);
             fprintf(fout, "\t\tEND_PC: %d\n", exp_aux->end_pc);
             fprintf(fout, "\t\tHANDLER_PC: %d\n", exp_aux->handler_pc);
             fprintf(fout, "\t\tCATCH_TYPE: %d\n\n", exp_aux->catch_type);
         }
-        fprintf(fout, "\tATTRIBUTES_COUNT: %d\n", att->type.Code.attributes_count);
+        fprintf(fout, "\tATTRIBUTES_COUNT: %d\n", att->type.Code_attribute.attributes_count);
         attribute_info* att_aux;
-        for (att_aux = att->type.Code.attributes; att_aux < att->type.Code.attributes + att->type.Code.attributes_count; ++att_aux) {
+        for (att_aux = att->type.Code_attribute.attributes; att_aux < att->type.Code_attribute.attributes + att->type.Code_attribute.attributes_count; ++att_aux) {
             print_attribute(cf, att_aux, fout);
         }
         break;

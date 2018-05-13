@@ -100,38 +100,38 @@ void load_constantvalue_attr(attribute_info* att, FILE* fd) {
 }
 
 void load_code_attr(attribute_info* att, ClassFile* cf, FILE* fd) {
-    att->type.Code.max_stack = u2Read(fd);
-    att->type.Code.max_locals = u2Read(fd);
-    att->type.Code.code_length = u4Read(fd);
-    if (att->type.Code.code_length == 0) {
-        att->type.Code.code = NULL;
+    att->type.Code_attribute.max_stack = u2Read(fd);
+    att->type.Code_attribute.max_locals = u2Read(fd);
+    att->type.Code_attribute.code_length = u4Read(fd);
+    if (att->type.Code_attribute.code_length == 0) {
+        att->type.Code_attribute.code = NULL;
     } else {
-        att->type.Code.code = (u1*)calloc(att->type.Code.code_length, sizeof(u1));
+        att->type.Code_attribute.code = (u1*)calloc(att->type.Code_attribute.code_length, sizeof(u1));
         u1* byte;
-        for (byte = att->type.Code.code; byte < att->type.Code.code + att->type.Code.code_length; ++byte) {
+        for (byte = att->type.Code_attribute.code; byte < att->type.Code_attribute.code + att->type.Code_attribute.code_length; ++byte) {
             *byte = u1Read(fd);
         }
     }
-    att->type.Code.exception_table_length = u2Read(fd);
-    if (att->type.Code.exception_table_length == 0) {
-        att->type.Code.exception_table = NULL;
+    att->type.Code_attribute.exception_table_length = u2Read(fd);
+    if (att->type.Code_attribute.exception_table_length == 0) {
+        att->type.Code_attribute.exception_table = NULL;
     } else {
-        att->type.Code.exception_table = (exception_table_info*)calloc(att->type.Code.exception_table_length,sizeof(exception_table_info));
+        att->type.Code_attribute.exception_table = (exception_table_info*)calloc(att->type.Code_attribute.exception_table_length,sizeof(exception_table_info));
         exception_table_info* exp_aux;
-        for (exp_aux = att->type.Code.exception_table; exp_aux < att->type.Code.exception_table + att->type.Code.exception_table_length; ++exp_aux) {
+        for (exp_aux = att->type.Code_attribute.exception_table; exp_aux < att->type.Code_attribute.exception_table + att->type.Code_attribute.exception_table_length; ++exp_aux) {
             exp_aux->start_pc = u2Read(fd);
             exp_aux->end_pc = u2Read(fd);
             exp_aux->handler_pc = u2Read(fd);
             exp_aux->catch_type = u2Read(fd);
         }
     }
-    att->type.Code.attributes_count = u2Read(fd);
-    if (att->type.Code.attributes_count == 0) {
-        att->type.Code.attributes = NULL;
+    att->type.Code_attribute.attributes_count = u2Read(fd);
+    if (att->type.Code_attribute.attributes_count == 0) {
+        att->type.Code_attribute.attributes = NULL;
     } else {
-        att->type.Code.attributes = (attribute_info*)calloc(att->type.Code.attributes_count,sizeof(attribute_info));
+        att->type.Code_attribute.attributes = (attribute_info*)calloc(att->type.Code_attribute.attributes_count,sizeof(attribute_info));
         attribute_info* att_aux;
-        for (att_aux = att->type.Code.attributes; att_aux < att->type.Code.attributes + att->type.Code.attributes_count; ++att_aux) {
+        for (att_aux = att->type.Code_attribute.attributes; att_aux < att->type.Code_attribute.attributes + att->type.Code_attribute.attributes_count; ++att_aux) {
             load_attribute(att_aux, cf, fd);
         }
     }

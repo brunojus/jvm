@@ -60,10 +60,10 @@ typedef struct {
 } classtype_info;
 
 /*
- * Estrutura exception_table_info: Componente da estrutura de Code
+ * Estrutura exception_table_info: Componente da estrutura de Code_attribute
  *
  * Atributos:
- *  
+ *
  *  start_pc (u2):
  *  end_pc (u2):
  *  handler_pc (u2):
@@ -78,13 +78,12 @@ typedef struct {
 }   exception_table_info;
 
 /*
- * Estrutura attribute_info: Armazena dados de atributos nas estruturas ClassFile, field_info, method_info e code;
- * 
- * Atributos:
+ * attribute_info: Armazena dados de atributos nas estruturas ClassFile, field_info, method_info e code;
  *
- *  attribute_name_index(u2): índice válido para constant_pool;
- *  attribute_length(u4): Tamanho, em bytes, do restante do atributo;
- *  type(union): Armazena variaveis atributo-específicas.
+ *
+ *      u2 - attribute_name_index: índice válido para constant_pool;
+ *      u4 - attribute_length(u4): Tamanho, em bytes, do restante do atributo;
+ *      union - type: coleção das variaveis-atributo de uso específico.
  * */
 
 typedef struct _attribute_info {
@@ -103,7 +102,7 @@ typedef struct _attribute_info {
             exception_table_info*   exception_table;
             u2  attributes_count;
             struct _attribute_info* attributes;
-        }   Code;
+        }   Code_attribute;
         struct {
             u2  number_of_exceptions;
             u2* exception_index_table;

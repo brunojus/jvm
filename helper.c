@@ -2,18 +2,12 @@
 #include "leitor.h"
 
 u1 u1Read(FILE* fd) {
-    u1 byte;
-    fread(&byte, sizeof(u1), 1, fd);
-    return byte;
+    return getc(fd);
 }
 
 u2 u2Read(FILE* fd) {
-    u2 toReturn = 0;
-    u1 byte1, byte2;
-    fread(&byte1, sizeof(u1), 1, fd);
-    fread(&byte2, sizeof(u1), 1, fd);
-    toReturn = byte1 << 8;
-    toReturn |= byte2;
+    u2 toReturn = getc(fd);
+    toReturn = (toReturn << 8)|(getc(fd));
     return toReturn;
 }
 
@@ -58,11 +52,11 @@ void free_methods(ClassFile *cf) {
       strcpy(type, (char*)cf->constant_pool[att_aux->attribute_name_index - 1].info.Utf8_info.bytes);
       int i = findtype(type);
       if (i == CODE){
-        if (att_aux->type.Code.code_length > 0) {
-          free(att_aux->type.Code.code);
+        if (att_aux->type.Code_attribute.code_length > 0) {
+          free(att_aux->type.Code_attribute.code);
         }
-        if (att_aux->type.Code.exception_table_length > 0) {
-          free(att_aux->type.Code.exception_table);
+        if (att_aux->type.Code_attribute.exception_table_length > 0) {
+          free(att_aux->type.Code_attribute.exception_table);
         }
       }
       free(type);
