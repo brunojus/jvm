@@ -146,10 +146,11 @@ void print_interfaces(ClassFile* cf, FILE* fout) {
 
 void print_attribute(ClassFile* cf, attribute_info* att, FILE* fout) {
 
-char* tiponewarray_conteudo[] = {NULL, NULL, NULL, NULL, "T_BOOLEAN", "T_CHAR", "T_FLOAT", "T_DOUBLE", "T_BYTE", "T_SHORT","T_INT", "T_LONG"};
-
-char* instrucoes_nomes[] = { //10 instrucoes por linha
-    "nop", "aconst_null", "iconst_m1", "iconst_0", "iconst_1", "iconst_2", "iconst_3", "iconst_4", "iconst_5", "lconst_0", //0 ao 9
+//Comeca do 4, https://cs.au.dk/~mis/dOvs/jvmspec/ref-newarray.html
+char* newarray_value[] = {NULL, NULL, NULL, NULL, "T_BOOLEAN", "T_CHAR", "T_FLOAT", "T_DOUBLE", "T_BYTE", "T_SHORT","T_INT", "T_LONG"};
+//10 instrucoes por linha
+char* instruction_name[] = {
+    "nop", "aconst_null", "iconst_m1", "iconst_0", "iconst_1", "iconst_2", "iconst_3", "iconst_4", "iconst_5", "lconst_0", //9
     "lconst_1", "fconst_0", "fconst_1", "fconst_2", "dconst_0", "dconst_1", "bipush", "sipush", "ldc", "ldc_w",
     "ldc2_w", "iload", "lload", "fload","dload", "aload", "iload_0", "iload_1", "iload_2", "iload_3",
     "lload_0", "lload_1", "lload_2", "lload_3", "fload_0", "fload_1", "fload_2", "fload_3", "dload_0", "dload_1",
@@ -159,36 +160,36 @@ char* instrucoes_nomes[] = { //10 instrucoes por linha
     "fstore_3", "dstore_0", "dstore_1", "dstore_2", "dstore_3", "astore_0", "astore_1", "astore_2", "astore_3", "iastore",
     "lastore", "fastore", "dastore", "aastore", "bastore", "castore", "sastore", "pop", "pop2", "dup",
     "dup_x1", "dup_x2", "dup2", "dup2_x1", "dup2_x2", "swap", "iadd", "ladd", "fadd", "dadd",
-    "isub", "lsub", "fsub", "dsub", "imul", "lmul", "fmul", "dmul", "idiv", "ldiv", //100 ao 109
+    "isub", "lsub", "fsub", "dsub", "imul", "lmul", "fmul", "dmul", "idiv", "ldiv", //109
     "fdiv", "ddiv", "irem", "lrem", "frem", "drem", "ineg", "lneg", "fneg", "dneg",
     "ishl", "lshl", "ishr", "lshr", "iushr", "lushr", "iand", "land", "ior", "lor",
     "ixor", "lxor", "iinc", "i2l", "i2f", "i2d", "l2i", "l2f", "l2d", "f2i",
     "f2l", "f2d", "d2i", "d2l", "d2f", "i2b", "i2c", "i2s", "lcmp", "fcmpl",
-    "fcmpg", "dcmpl", "dcmpg", "ifeq", "ifne", "iflt", "ifge","ifgt", "ifle", "if_icmpeq", //150 ao 159
+    "fcmpg", "dcmpl", "dcmpg", "ifeq", "ifne", "iflt", "ifge","ifgt", "ifle", "if_icmpeq", //159
     "if_icmpne", "if_icmplt", "if_icmpge", "if_icmpgt", "if_icmple", "if_acmpeq", "if_acmpne", "goto", "jsr", "ret",
     "tableswitch", "lookupswitch", "ireturn", "lreturn", "freturn", "dreturn", "areturn", "return", "getstatic", "putstatic",
     "getfield", "putfield", "invokevirtual", "invokespecial", "invokestatic", "invokeinterface", "invokedynamic", "new", "newarray", "anewarray",
     "arraylength", "athrow", "checkcast", "instanceof", "monitorenter", "monitorexit", "wide", "multianewarray", "ifnull", "ifnonnull",
-    "goto_w", "jsr_w", "breakpoint", NULL, NULL, NULL, NULL, NULL, NULL, NULL, //200 ao 209
+    "goto_w", "jsr_w", "breakpoint", NULL, NULL, NULL, NULL, NULL, NULL, NULL, //209
     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
-    NULL, NULL, NULL, NULL, "impdep1", "impdep2" //250 ao 255
+    NULL, NULL, NULL, NULL, "impdep1", "impdep2" //255
 };
-
-enum instrucoes_code { //10 instrucoes por linha
-    nop, aconst_null, iconst_m1, iconst_0, iconst_1, iconst_2, iconst_3, iconst_4, iconst_5, lconst_0, //0 ao 9
+//10 instrucoes por linha
+enum instrucoes_code {
+    nop, aconst_null, iconst_m1, iconst_0, iconst_1, iconst_2, iconst_3, iconst_4, iconst_5, lconst_0, //9
     lconst_1, fconst_0, fconst_1, fconst_2, dconst_0, dconst_1, bipush, sipush, ldc, ldc_w,
     ldc2_w, iload, lload, fload,dload, aload, iload_0, iload_1, iload_2, iload_3,
     lload_0, lload_1, lload_2, lload_3, fload_0, fload_1, fload_2, fload_3, dload_0, dload_1,
-    dload_2, dload_3, aload_0, aload_1, aload_2, aload_3, iaload, laload, faload, daload,
+    dload_2, dload_3, aload_0, aload_1, aload_2, aload_3, iaload, laload, faload, daload,//59
     aaload, baload, caload, saload, istore, lstore, fstore, dstore, astore, istore_0,
     istore_1, istore_2, istore_3, lstore_0, lstore_1, lstore_2, lstore_3, fstore_0, fstore_1, fstore_2,
     fstore_3, dstore_0, dstore_1, dstore_2, dstore_3, astore_0, astore_1, astore_2, astore_3, iastore,
     lastore, fastore, dastore, aastore, bastore, castore, sastore, pop, pop2, dup,
     dup_x1, dup_x2, dup2, dup2_x1, dup2_x2, swap, iadd, ladd, fadd, dadd,
-    isub, lsub, fsub, dsub, imul, lmul, fmul, dmul, idiv, ldiv, //100 ao 109
+    isub, lsub, fsub, dsub, imul, lmul, fmul, dmul, idiv, ldiv, //109
     fdiv, ddiv, irem, lrem, frem, drem, ineg, lneg, fneg, dneg,
     ishl, lshl, ishr, lshr, iushr, lushr, iand, land, ior, lor,
     ixor, lxor, iinc, i2l, i2f, i2d, l2i, l2f, l2d, f2i,
@@ -198,7 +199,8 @@ enum instrucoes_code { //10 instrucoes por linha
     tableswitch, lookupswitch, ireturn, lreturn, freturn, dreturn, areturn, return2, getstatic, putstatic,
     getfield, putfield, invokevirtual, invokespecial, invokestatic, invokeinterface, invokedynamic, new, newarray, anewarray,
     arraylength, athrow, checkcast, instanceof, monitorenter, monitorexit, wide, multianewarray, ifnull, ifnonnull,
-    goto_w, jsr_w, breakpoint, impdep1 = 254, impdep2 = 255 //250 ao 255
+    goto_w, jsr_w, breakpoint,  //200 ao 203
+    impdep1 = 254, impdep2 = 255
 };
 
     long long Long;
@@ -249,23 +251,22 @@ enum instrucoes_code { //10 instrucoes por linha
         u1* code;
         cp_info* cp;
         for (code = att->type.Code_attribute.code; code < att->type.Code_attribute.code + att->type.Code_attribute.code_length; ++code) {
-            //fprintf(fout, "\t\t%d | %02x | ", (int) (code - (att->type.Code_attribute.code)), *code); //printa o codigo em hexa da instrucao e a instrucao em questao
             fprintf(fout, "\t\t%d | ", (int) (code - (att->type.Code_attribute.code))); //printa a instrucao sem o codigo em hexa
 
-            fprintf(fout, "%s ", instrucoes_nomes[*code]); //printa a instrucao
-            int8_t byte_aux;
-            int16_t half_aux;
-            int32_t word_aux;
+            fprintf(fout, "%s ", instruction_name[*code]); //printa a instrucao
+            u1 u1_aux;
+            u2 u2_aux;
+            u4 u4_aux;
 
-            switch (*code) { //TRATAR INSTRUCOES QUE ARMAZENAM OPERANDOS NA PILHA
+            switch (*code) {
                 case aload:
                     fprintf(fout, "#%d", *(++code)); //index
                     break;
                 case anewarray:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     break;
                 case astore:
                     fprintf(fout, "#%d", *(++code)); //index
@@ -274,10 +275,10 @@ enum instrucoes_code { //10 instrucoes por linha
                     fprintf(fout, "%d", *(++code)); //byte
                     break;
                 case checkcast:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     break;
                 case dload:
                     fprintf(fout, "#%d", *(++code)); //index
@@ -292,221 +293,221 @@ enum instrucoes_code { //10 instrucoes por linha
                     fprintf(fout, "#%d", *(++code)); //index
                     break;
                 case getfield:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    cp = cf->constant_pool +  half_aux - 1;
-                    fprintf(fout, "#%d <%s.%s>", half_aux, 
-                        (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes, 
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    cp = cf->constant_pool +  u2_aux - 1;
+                    fprintf(fout, "#%d <%s.%s>", u2_aux,
+                        (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
                     break;
                 case getstatic:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     break;
                 case goto2: //REVER - MOSTRANDO VALOR INESPERADO
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case goto_w:
-                    word_aux = *(++code); //byte1 de branch
-                    word_aux = word_aux << 8; //shift de branch
-                    word_aux += *(++code); //byte2 de branch
-                    word_aux = word_aux << 8; //shift de branch
-                    word_aux += *(++code); //byte3 de branch
-                    word_aux = word_aux << 8; //shift de branch
-                    word_aux += *(++code); //byte4 de branch
-                    fprintf(fout, "%d", word_aux); //print branchbyte
+                    u4_aux = *(++code); //byte1 de branch
+                    u4_aux = u4_aux << 8; //shift de branch
+                    u4_aux += *(++code); //byte2 de branch
+                    u4_aux = u4_aux << 8; //shift de branch
+                    u4_aux += *(++code); //byte3 de branch
+                    u4_aux = u4_aux << 8; //shift de branch
+                    u4_aux += *(++code); //byte4 de branch
+                    fprintf(fout, "%d", u4_aux); //print branchbyte
 
                     break;
                 case if_acmpeq:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case if_acmpne:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmple:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmpgt:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmpge:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmplt:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmpne:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case if_icmpeq:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case ifeq:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case ifne:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case ifgt:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case iflt:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case ifle:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case ifge:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case ifnonnull:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case ifnull:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case iinc:
-                    byte_aux = *(++code); //byte de index
-                    fprintf(fout, "%d by %d", byte_aux, *(++code)); //print branchbyte
+                    u1_aux = *(++code); //byte de index
+                    fprintf(fout, "%d by %d", u1_aux, *(++code)); //print branchbyte
                     break;
                 case iload:
                     fprintf(fout, "#%d", *(++code)); //index
                     break;
                 case instanceof:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     break;
                 case invokedynamic:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     ++code; //leitura de 0 - caracteristica do invokedynamic
                     ++code; //leitura de 0 - caracteristica do invokedynamic
                     break;
                 case invokeinterface:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     fprintf(fout, " count %d", *(++code)); //count
                     ++code; //leitura de 0 - caracteristica do invokedynamic
                     break;
                 case invokespecial:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    cp = cf->constant_pool + half_aux - 1;
-                    fprintf(fout, "#%d <%s.%s>", half_aux, 
-                        (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes, 
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    cp = cf->constant_pool + u2_aux - 1;
+                    fprintf(fout, "#%d <%s.%s>", u2_aux,
+                        (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes,
 						(char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
                     break;
                 case invokestatic:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     break;
                 case invokevirtual:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    cp = cf->constant_pool + half_aux - 1;
-                    fprintf(fout, "#%d <%s.%s>", half_aux, 
-                        (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes, 
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    cp = cf->constant_pool + u2_aux - 1;
+                    fprintf(fout, "#%d <%s.%s>", u2_aux,
+                        (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Method_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
                     break;
                 case istore:
                     fprintf(fout, "#%d", *(++code)); //index
                     break;
                 case jsr:
-                    half_aux = *(++code); //byte1 de branch
-                    half_aux = half_aux << 8; //shift de branch
-                    half_aux += *(++code); //byte2 de branch
-                    fprintf(fout, "%d", half_aux); //print branchbyte
+                    u2_aux = *(++code); //byte1 de branch
+                    u2_aux = u2_aux << 8; //shift de branch
+                    u2_aux += *(++code); //byte2 de branch
+                    fprintf(fout, "%d", u2_aux); //print branchbyte
                     break;
                 case jsr_w:
-                    word_aux = *(++code); //byte1 de branch
-                    word_aux = word_aux << 8; //shift de branch
-                    word_aux += *(++code); //byte2 de branch
-                    word_aux = word_aux << 8; //shift de branch
-                    word_aux += *(++code); //byte3 de branch
-                    word_aux = word_aux << 8; //shift de branch
-                    word_aux += *(++code); //byte4 de branch
-                    fprintf(fout, "%d", word_aux); //print branchbyte
+                    u4_aux = *(++code); //byte1 de branch
+                    u4_aux = u4_aux << 8; //shift de branch
+                    u4_aux += *(++code); //byte2 de branch
+                    u4_aux = u4_aux << 8; //shift de branch
+                    u4_aux += *(++code); //byte3 de branch
+                    u4_aux = u4_aux << 8; //shift de branch
+                    u4_aux += *(++code); //byte4 de branch
+                    fprintf(fout, "%d", u4_aux); //print branchbyte
                     break;
                 case ldc:
-                    byte_aux = *(++code); //index
-                    cp = cf->constant_pool + half_aux - 1;
-                    fprintf(fout, "#%d", half_aux); //CONTEUDO PODE SER STRING, FLOAT...
+                    u1_aux = *(++code); //index
+                    cp = cf->constant_pool + u2_aux - 1;
+                    fprintf(fout, "#%d", u2_aux); //CONTEUDO PODE SER STRING, FLOAT...
                     break;
                 case ldc_w:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     break;
                 case ldc2_w:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     break;
                 case lload:
                     fprintf(fout, "#%d", *(++code)); //index
@@ -515,69 +516,71 @@ enum instrucoes_code { //10 instrucoes por linha
                     fprintf(fout, "#%d", *(++code)); //index
                     break;
                 case multianewarray:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code); //byte1 de index
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     fprintf(fout, " dim %d", *(++code)); //dimensions
                     break;
                 case new:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    cp = cf->constant_pool +  half_aux - 1;
-                    fprintf(fout, "#%d, <%s>", half_aux, (char*)cf->constant_pool[cp->info.Class_info.name_index - 1].info.Utf8_info.bytes); //print indexbyte
+                    u2_aux = *(++code);
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    cp = cf->constant_pool +  u2_aux - 1;
+                    fprintf(fout, "#%d, <%s>", u2_aux, (char*)cf->constant_pool[cp->info.Class_info.name_index - 1].info.Utf8_info.bytes);
                     break;
                 case newarray:
-                    fprintf(fout, "%s", tiponewarray_conteudo[*(++code)]); //string referente a codificacao do tipo em questao
+                    fprintf(fout, "%s", newarray_value[*(++code)]);
                     break;
                 case putfield:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
+                    u2_aux = *(++code);
+                    u2_aux = u2_aux << 8;
+                    u2_aux += *(++code);
 
-                    cp = cf->constant_pool +  half_aux - 1;
-                    fprintf(fout, "#%d <%s.%s>", half_aux, 
-                        (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes, 
+                    cp = cf->constant_pool +  u2_aux - 1;
+                    fprintf(fout, "#%d <%s.%s>", u2_aux,
+                        (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.class_index - 1].info.Class_info.name_index - 1].info.Utf8_info.bytes,
                         (char*)cf->constant_pool[cf->constant_pool[cp->info.Fieldref_info.name_and_type_index - 1].info.NameAndType_info.name_index - 1].info.Utf8_info.bytes);
                     break;
                 case putstatic:
-                    half_aux = *(++code); //byte1 de index
-                    half_aux = half_aux << 8; //shift de index
-                    half_aux += *(++code); //byte2 de index
-                    fprintf(fout, "#%d", half_aux); //print indexbyte
+                    u2_aux = *(++code);
+                    u2_aux = u2_aux << 8; //shift de index
+                    u2_aux += *(++code); //byte2 de index
+                    fprintf(fout, "#%d", u2_aux); //print indexbyte
                     break;
                 case ret:
                     fprintf(fout, "#%d", *(++code)); //index
                     break;
                 case sipush:
-                    half_aux = *(++code); //byte1
-                        half_aux = half_aux << 8; //shift
-                        half_aux += *(++code); //byte2
-                        fprintf(fout, "%d", half_aux); //print
+                    u2_aux = *(++code); //byte1
+                        u2_aux = u2_aux << 8; //shift
+                        u2_aux += *(++code); //byte2
+                        fprintf(fout, "%d", u2_aux); //print
                     break;
                 case wide:
                     if ((*(++code)) == iinc) { //caso o proximo byte seja iinc
-                        half_aux = *(++code); //byte1 de index
-                        half_aux = half_aux << 8; //shift de index
-                        half_aux += *(++code); //byte2 de index
-                        fprintf(fout, "#%d", half_aux); //print indexbyte
-                        
-                        half_aux = *(++code); //byte1 de constante
-                        half_aux = half_aux << 8; //shift de constante
-                        half_aux += *(++code); //byte2 de constante
-                        fprintf(fout, " const %d", half_aux); //print constante
+                        u2_aux = *(++code);
+                        u2_aux = u2_aux << 8; //shift de index
+                        u2_aux += *(++code); //byte2 de index
+                        fprintf(fout, "#%d", u2_aux); //print indexbyte
+
+                        u2_aux = *(++code); //byte1 de constante
+                        u2_aux = u2_aux << 8; //shift de constante
+                        u2_aux += *(++code); //byte2 de constante
+                        fprintf(fout, " const %d", u2_aux); //print constante
                     }
                     else {
-                        half_aux = *(++code); //byte1 de index
-                        half_aux = half_aux << 8; //shift de index
-                        half_aux += *(++code); //byte2 de index
-                        fprintf(fout, "#%d", half_aux); //print indexbyte
+                        u2_aux = *(++code); //byte1 de index
+                        u2_aux = u2_aux << 8; //shift de index
+                        u2_aux += *(++code); //byte2 de index
+                        fprintf(fout, "#%d", u2_aux); //print indexbyte
                     }
                     break;
 
-                case lookupswitch: //REVER - ESTUDAR SOBRE
+                //TODO:
+                case lookupswitch:
                     break;
+                //TODO:
                 case tableswitch: //REVER - ESTUDAR SOBRE
                     break;
             }
@@ -631,7 +634,7 @@ enum instrucoes_code { //10 instrucoes por linha
 }
 
 void print_fields(ClassFile* cf, FILE* fout) {
-    int var1 = 0; 
+    int var1 = 0;
     int var2 = 0;
 
     fprintf(fout, "FIELDS_COUNT: %d\n", cf->fields_count);
@@ -658,7 +661,7 @@ void print_fields(ClassFile* cf, FILE* fout) {
 }
 
 void print_methods(ClassFile* cf, FILE* fout) {
-    int var1 = 0; 
+    int var1 = 0;
     int var2 = 0;
 
     fprintf(fout, "METHODS_COUNT: %d\n", cf->method_count); // número de estruturas na tabela methods
@@ -686,7 +689,7 @@ void print_methods(ClassFile* cf, FILE* fout) {
 
 
 void print_attributes(ClassFile* cf, FILE* fout) {
-    int i = 0;
+    int att_itera = 0;
     fprintf(fout, "ATTRIBUTES_COUNT: %d\n", cf->attributes_count);
     if (cf->attributes_count == 0) {
         fprintf(fout, "\n");
@@ -695,7 +698,7 @@ void print_attributes(ClassFile* cf, FILE* fout) {
     fprintf(fout, "ATTRIBUTES:\n");
     attribute_info* att_aux;
     for (att_aux = cf->attributes; att_aux < cf->attributes + cf->attributes_count; ++att_aux) {
-        fprintf(fout, "[%d] ATTRIBUTE:\n", i++);
+        fprintf(fout, "[%d] ATTRIBUTE:\n", att_itera++);
         print_attribute(cf, att_aux, fout);
     }
 }
@@ -725,7 +728,7 @@ https://en.wikipedia.org/wiki/Java_class_file#General_layout
 */
 
 char* show_version(int code) {
-   
+
     char* java_version;
     switch (code) {
         case 45:
@@ -764,7 +767,7 @@ char* show_version(int code) {
             java_version = (char*) malloc(sizeof(char) * 10);
             strcpy(java_version, "Java SE 9");
             break;
-        case 54: 
+        case 54:
             java_version = (char*) malloc(sizeof(char) * 10);
             strcpy(java_version, "Java SE 10");
         default:
@@ -774,4 +777,3 @@ char* show_version(int code) {
     }
     return java_version;
 }
-
