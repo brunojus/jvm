@@ -206,42 +206,46 @@ void load_attribute(attribute_info* att, ClassFile* cf, FILE* fd) {
   }
 
   void load_fields(ClassFile* cf, FILE* fd) {
+// carrega os fields. Dois campos na mesma classe não podem ter o mesmo nome.
+    
       cf->fields_count = u2Read(fd);
+
       if (cf->fields_count == 0) {
           cf->fields = NULL;
           return;
       }
       cf->fields = (field_info*)calloc(cf->fields_count,sizeof(field_info));
-      field_info* field_aux;
-      for (field_aux = cf->fields; field_aux < cf->fields + cf->fields_count; ++field_aux) {
-          field_aux->access_flags = u2Read(fd);
-          field_aux->name_index = u2Read(fd);
-          field_aux->descriptor_index = u2Read(fd);
-          field_aux->attributes_count = u2Read(fd);
-          field_aux->attributes = calloc(field_aux->attributes_count,sizeof(attribute_info));
-          attribute_info* attribute_aux;
-          for (attribute_aux = field_aux->attributes; attribute_aux < field_aux->attributes + field_aux->attributes_count; ++attribute_aux) {
-              load_attribute(attribute_aux, cf, fd);
+      field_info* aux_field;
+      for (aux_field = cf->fields; aux_field < cf->fields + cf->fields_count; ++aux_field) {
+          aux_field->access_flags = u2Read(fd);
+          aux_field->name_index = u2Read(fd);
+          aux_field->descriptor_index = u2Read(fd);
+          aux_field->attributes_count = u2Read(fd);
+          aux_field->attributes = calloc(aux_field->attributes_count,sizeof(attribute_info));
+          attribute_info* aux_attribute;
+          for (aux_attribute = aux_field->attributes; aux_attribute < aux_field->attributes + aux_field->attributes_count; ++aux_attribute) {
+              load_attribute(aux_attribute, cf, fd);
           }
       }
   }
 
   void load_methods(ClassFile* cf, FILE* fd) {
+    // carrega os métodos
       cf->method_count = u2Read(fd);
       if (cf->method_count == 0) {
           cf->methods = NULL;
           return;
       }
       cf->methods = (method_info*) calloc(cf->method_count, sizeof(method_info));
-      method_info* method_aux;
-      for (method_aux = cf->methods; method_aux < cf->methods + cf->method_count; ++method_aux) {
-          method_aux->access_flags = u2Read(fd);
-          method_aux->name_index = u2Read(fd);
-          method_aux->descriptor_index = u2Read(fd);
-          method_aux->attributes_count = u2Read(fd);
-          method_aux->attributes = (attribute_info*) calloc(method_aux->attributes_count, sizeof(attribute_info));
+      method_info* aux_method;
+      for (aux_method = cf->methods; aux_method < cf->methods + cf->method_count; ++aux_method) {
+          aux_method->access_flags = u2Read(fd);
+          aux_method->name_index = u2Read(fd);
+          aux_method->descriptor_index = u2Read(fd);
+          aux_method->attributes_count = u2Read(fd);
+          aux_method->attributes = (attribute_info*) calloc(aux_method->attributes_count, sizeof(attribute_info));
           attribute_info* att_aux;
-          for (att_aux = method_aux->attributes; att_aux < method_aux->attributes + method_aux->attributes_count; ++att_aux) {
+          for (att_aux = aux_method->attributes; att_aux < aux_method->attributes + aux_method->attributes_count; ++att_aux) {
               load_attribute(att_aux, cf, fd);
           }
       }
