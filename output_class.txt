@@ -7,11 +7,11 @@ MAGIC: cafebabe
 
 
 MINOR VERSION: 0
-MAJOR VERSION: 46 - JDK 1.2
-CONSTANT POOL COUNT: 26
+MAJOR VERSION: 52 - Java SE 8
+CONSTANT POOL COUNT: 29
 ACCESS_FLAGS: 21 [public super ]
-THIS_CLASS: 8
-SUPER_CLASS: 9
+THIS_CLASS: 5
+SUPER_CLASS: 6
 INTERFACES_COUNT: 0
 FIELDS_COUNT: 0
 METHODS_COUNT: 2
@@ -19,125 +19,142 @@ ATTRIBUTES_COUNT: 1
 
 
 
-CONSTANT POOL COUNT: 26
+CONSTANT POOL COUNT: 29
 CONSTANT_POOL:
 [1]
 	CP_INFO: METHOD
-	CLASS_INDEX: 9: java/lang/Object
-	NAMEANDTYPE_INDEX: 18: <init>()V
+	CLASS_INDEX: 6: java/lang/Object
+	NAMEANDTYPE_INDEX: 15: <init>()V
 
 [2]
-	CP_INFO: CLASS
-	NAME_INDEX: 19: javaTeste/HelloWorldObject
+	CP_INFO: FIELDREF
+	CLASS_INDEX: 16: java/lang/System
+	NAMEANDTYPE_INDEX: 17: outLjava/io/PrintStream;
 
 [3]
-	CP_INFO: METHOD
-	CLASS_INDEX: 2: javaTeste/HelloWorldObject
-	NAMEANDTYPE_INDEX: 18: <init>()V
+	CP_INFO: STRING
+	STRING_INDEX: 18: Hello, World
 
 [4]
-	CP_INFO: LONG
-	HIGH: 0
-	LOW: 3
-	VALUE: 3
+	CP_INFO: METHOD
+	CLASS_INDEX: 19: java/io/PrintStream
+	NAMEANDTYPE_INDEX: 20: println(Ljava/lang/String;)V
 
 [5]
+	CP_INFO: CLASS
+	NAME_INDEX: 21: HelloWorld
+
 [6]
-	CP_INFO: METHOD
-	CLASS_INDEX: 2: javaTeste/HelloWorldObject
-	NAMEANDTYPE_INDEX: 20: executeMethod(IFJ)V
+	CP_INFO: CLASS
+	NAME_INDEX: 22: java/lang/Object
 
 [7]
-	CP_INFO: CLASS
-	NAME_INDEX: 21: [[[I
-
-[8]
-	CP_INFO: CLASS
-	NAME_INDEX: 22: javaTeste/HelloWorld
-
-[9]
-	CP_INFO: CLASS
-	NAME_INDEX: 23: java/lang/Object
-
-[10]
 	CP_INFO: UTF8
 	LENGTH: 6
 	VALUE: <init>
 
-[11]
+[8]
 	CP_INFO: UTF8
 	LENGTH: 3
 	VALUE: ()V
 
-[12]
+[9]
 	CP_INFO: UTF8
 	LENGTH: 4
 	VALUE: Code
 
-[13]
+[10]
 	CP_INFO: UTF8
 	LENGTH: 15
 	VALUE: LineNumberTable
 
-[14]
+[11]
 	CP_INFO: UTF8
 	LENGTH: 4
 	VALUE: main
 
-[15]
+[12]
 	CP_INFO: UTF8
 	LENGTH: 22
 	VALUE: ([Ljava/lang/String;)V
 
-[16]
+[13]
 	CP_INFO: UTF8
 	LENGTH: 10
 	VALUE: SourceFile
 
-[17]
+[14]
 	CP_INFO: UTF8
 	LENGTH: 15
 	VALUE: HelloWorld.java
 
-[18]
+[15]
 	CP_INFO: NAMEANDTYPE
-	NAME_INDEX: 10: <init>
-	DESCRIPTOR_INDEX: 11: ()V
+	NAME_INDEX: 7: <init>
+	DESCRIPTOR_INDEX: 8: ()V
+
+[16]
+	CP_INFO: CLASS
+	NAME_INDEX: 23: java/lang/System
+
+[17]
+	CP_INFO: NAMEANDTYPE
+	NAME_INDEX: 24: out
+	DESCRIPTOR_INDEX: 25: Ljava/io/PrintStream;
+
+[18]
+	CP_INFO: UTF8
+	LENGTH: 12
+	VALUE: Hello, World
 
 [19]
-	CP_INFO: UTF8
-	LENGTH: 26
-	VALUE: javaTeste/HelloWorldObject
+	CP_INFO: CLASS
+	NAME_INDEX: 26: java/io/PrintStream
 
 [20]
 	CP_INFO: NAMEANDTYPE
-	NAME_INDEX: 24: executeMethod
-	DESCRIPTOR_INDEX: 25: (IFJ)V
+	NAME_INDEX: 27: println
+	DESCRIPTOR_INDEX: 28: (Ljava/lang/String;)V
 
 [21]
 	CP_INFO: UTF8
-	LENGTH: 4
-	VALUE: [[[I
+	LENGTH: 10
+	VALUE: HelloWorld
 
 [22]
-	CP_INFO: UTF8
-	LENGTH: 20
-	VALUE: javaTeste/HelloWorld
-
-[23]
 	CP_INFO: UTF8
 	LENGTH: 16
 	VALUE: java/lang/Object
 
+[23]
+	CP_INFO: UTF8
+	LENGTH: 16
+	VALUE: java/lang/System
+
 [24]
 	CP_INFO: UTF8
-	LENGTH: 13
-	VALUE: executeMethod
+	LENGTH: 3
+	VALUE: out
 
 [25]
 	CP_INFO: UTF8
-	LENGTH: 6
-	VALUE: (IFJ)V
+	LENGTH: 21
+	VALUE: Ljava/io/PrintStream;
+
+[26]
+	CP_INFO: UTF8
+	LENGTH: 19
+	VALUE: java/io/PrintStream
+
+[27]
+	CP_INFO: UTF8
+	LENGTH: 7
+	VALUE: println
+
+[28]
+	CP_INFO: UTF8
+	LENGTH: 21
+	VALUE: (Ljava/lang/String;)V
 
 
 
@@ -153,14 +170,14 @@ FIELDS_COUNT: 0
 METHODS_COUNT: 2
 METHODS:
 [0]
-	NAME_INDEX: 10: <init>
-	DESCRIPTOR_INDEX: 11: ()V
+	NAME_INDEX: 7: <init>
+	DESCRIPTOR_INDEX: 8: ()V
 	ACCESS_FLAGS: 1 [public ]
 
 	ATTRIBUTE_COUNT: 1
 
 	[0] METHOD_ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 12 : Code
+	ATTRIBUTE_NAME_INDEX: 9 : Code
 	ATTRIBUTE_LENGTH: 29
 
 	TYPE: CODE
@@ -173,51 +190,40 @@ METHODS:
 		4 | return 
 	EXCEPTION_TABLE_LENGTH: 0
 	ATTRIBUTES_COUNT: 1
-	ATTRIBUTE_NAME_INDEX: 13 : LineNumberTable
+	ATTRIBUTE_NAME_INDEX: 10 : LineNumberTable
 	ATTRIBUTE_LENGTH: 6
 
 [1]
-	NAME_INDEX: 14: main
-	DESCRIPTOR_INDEX: 15: ([Ljava/lang/String;)V
+	NAME_INDEX: 11: main
+	DESCRIPTOR_INDEX: 12: ([Ljava/lang/String;)V
 	ACCESS_FLAGS: 9 [public static ]
 
 	ATTRIBUTE_COUNT: 1
 
 	[1] METHOD_ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 12 : Code
-	ATTRIBUTE_LENGTH: 65
+	ATTRIBUTE_NAME_INDEX: 9 : Code
+	ATTRIBUTE_LENGTH: 37
 
 	TYPE: CODE
-	MAX_STACK: 5
-	MAX_LOCALS: 3
-	CODE_LENGTH: 29
+	MAX_STACK: 2
+	MAX_LOCALS: 1
+	CODE_LENGTH: 9
 	CODE:
-		0 | new #2, <javaTeste/HelloWorldObject>
-		3 | dup 
-		4 | invokespecial #3 <javaTeste/HelloWorldObject.<init>>
-		7 | astore_1 
-		8 | aload_1 
-		9 | iconst_1 
-		10 | fconst_2 
-		11 | ldc2_w #4
-		14 | invokevirtual #6 <javaTeste/HelloWorldObject.executeMethod>
-		17 | bipush 30
-		19 | bipush 20
-		21 | bipush 10
-		23 | multianewarray #7 dim 3
-		27 | astore_2 
-		28 | return 
+		0 | getstatic #2
+		3 | ldc #2
+		5 | invokevirtual #4 <java/io/PrintStream.println>
+		8 | return 
 	EXCEPTION_TABLE_LENGTH: 0
 	ATTRIBUTES_COUNT: 1
-	ATTRIBUTE_NAME_INDEX: 13 : LineNumberTable
-	ATTRIBUTE_LENGTH: 18
+	ATTRIBUTE_NAME_INDEX: 10 : LineNumberTable
+	ATTRIBUTE_LENGTH: 10
 
 
 
 ATTRIBUTES_COUNT: 1
 ATTRIBUTES:
 [0] ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 16 : SourceFile
+	ATTRIBUTE_NAME_INDEX: 13 : SourceFile
 	ATTRIBUTE_LENGTH: 2
 
 
