@@ -770,6 +770,7 @@ char* show_version(int code) {
         case 54:
             java_version = (char*) malloc(sizeof(char) * 10);
             strcpy(java_version, "Java SE 10");
+            break;
         default:
             java_version = (char*) malloc(sizeof(char) * 21);
             strcpy(java_version, "Java nao reconhecido");
