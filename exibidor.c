@@ -631,54 +631,59 @@ enum instrucoes_code { //10 instrucoes por linha
 }
 
 void print_fields(ClassFile* cf, FILE* fout) {
-    int i1 = 0, i2 = 0;
+    int var1 = 0; 
+    int var2 = 0;
+
     fprintf(fout, "FIELDS_COUNT: %d\n", cf->fields_count);
     if (cf->fields_count == 0) {
         fprintf(fout, "\n");
         return;
     }
     fprintf(fout, "FIELDS:\n");
-    field_info* field_aux;
-    for (field_aux = cf->fields; field_aux < cf->fields + cf->fields_count; ++field_aux) {
-        fprintf(fout, "\t[%d]\n", i1++);
-        fprintf(fout, "\tNAME_INDEX: %d: %s\n", field_aux->name_index, (char*)cf->constant_pool[field_aux->name_index - 1].info.Utf8_info.bytes);
-        fprintf(fout, "\tDESCRIPTOR_INDEX: %d: %s\n", field_aux->descriptor_index, (char*)cf->constant_pool[field_aux->descriptor_index - 1].info.Utf8_info.bytes);
-        fprintf(fout, "\tACCESS_FLAGS: %x ", field_aux->access_flags);
-        print_permissions(field_aux->access_flags, fout);
+    field_info* aux_field;
+    for (aux_field = cf->fields; aux_field < cf->fields + cf->fields_count; ++aux_field) {
+        fprintf(fout, "\t[%d]\n", var1++);
+        fprintf(fout, "\tNAME_INDEX: %d: %s\n", aux_field->name_index, (char*)cf->constant_pool[aux_field->name_index - 1].info.Utf8_info.bytes);
+        fprintf(fout, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_field->descriptor_index, (char*)cf->constant_pool[aux_field->descriptor_index - 1].info.Utf8_info.bytes);
+        fprintf(fout, "\tACCESS_FLAGS: %x ", aux_field->access_flags);
+        print_permissions(aux_field->access_flags, fout);
         fprintf(fout, "\n");
-        fprintf(fout, "\tATTRIBUTE_COUNT: %d\n\n", field_aux->attributes_count);
+        fprintf(fout, "\tATTRIBUTE_COUNT: %d\n\n", aux_field->attributes_count);
         attribute_info* att_aux;
-        for (att_aux = field_aux->attributes; att_aux < field_aux->attributes + field_aux->attributes_count; ++att_aux) {
-            fprintf(fout, "[%d] FIELD_ATTRIBUTE:\n", i2++);
+        for (att_aux = aux_field->attributes; att_aux < aux_field->attributes + aux_field->attributes_count; ++att_aux) {
+            fprintf(fout, "[%d] FIELD_ATTRIBUTE:\n", var2++);
             print_attribute(cf, att_aux, fout);
         }
     }
 }
 
 void print_methods(ClassFile* cf, FILE* fout) {
-    int i1 = 0, i2 = 0;
-    fprintf(fout, "METHODS_COUNT: %d\n", cf->method_count);
+    int var1 = 0; 
+    int var2 = 0;
+
+    fprintf(fout, "METHODS_COUNT: %d\n", cf->method_count); // número de estruturas na tabela methods
     if (cf->method_count == 0) {
         fprintf(fout, "\n");
         return;
     }
     fprintf(fout, "METHODS:\n");
-    method_info* method_aux;
-    for (method_aux = cf->methods; method_aux < cf->methods + cf->method_count; ++method_aux) {
-        fprintf(fout, "[%d]\n", i1++);
-        fprintf(fout, "\tNAME_INDEX: %d: %s\n", method_aux->name_index, (char*)cf->constant_pool[method_aux->name_index - 1].info.Utf8_info.bytes);
-        fprintf(fout, "\tDESCRIPTOR_INDEX: %d: %s\n", method_aux->descriptor_index, (char*)cf->constant_pool[method_aux->descriptor_index - 1].info.Utf8_info.bytes);
-        fprintf(fout, "\tACCESS_FLAGS: %x ", method_aux->access_flags);
-        print_permissions(method_aux->access_flags, fout);
+    method_info* aux_meth;
+    for (aux_meth = cf->methods; aux_meth < cf->methods + cf->method_count; ++aux_meth) {
+        fprintf(fout, "[%d]\n", var1++);
+        fprintf(fout, "\tNAME_INDEX: %d: %s\n", aux_meth->name_index, (char*)cf->constant_pool[aux_meth->name_index - 1].info.Utf8_info.bytes);
+        fprintf(fout, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_meth->descriptor_index, (char*)cf->constant_pool[aux_meth->descriptor_index - 1].info.Utf8_info.bytes);
+        fprintf(fout, "\tACCESS_FLAGS: %x ", aux_meth->access_flags);
+        print_permissions(aux_meth->access_flags, fout);
         fprintf(fout, "\n\n");
-        fprintf(fout, "\tATTRIBUTE_COUNT: %d\n\n", method_aux->attributes_count);
+        fprintf(fout, "\tATTRIBUTE_COUNT: %d\n\n", aux_meth->attributes_count);
         attribute_info* att_aux;
-        for (att_aux = method_aux->attributes; att_aux < method_aux->attributes + method_aux->attributes_count; ++att_aux) {
-            fprintf(fout, "\t[%d] METHOD_ATTRIBUTE:\n", i2++);
+        for (att_aux = aux_meth->attributes; att_aux < aux_meth->attributes + aux_meth->attributes_count; ++att_aux) {
+            fprintf(fout, "\t[%d] METHOD_ATTRIBUTE:\n", var2++);
             print_attribute(cf, att_aux, fout);
         }
     }
 }
+
 
 void print_attributes(ClassFile* cf, FILE* fout) {
     int i = 0;
