@@ -3,7 +3,7 @@
 
 /*Verifica de o bit na posição id é 1*/
 int bit_is_true(int code, int id) {
-    //Realiza o shit a esquerda do bit 0..01 em 'id' posições
+    //Realiza o shift a esquerda do bit 0..01 em 'id' posições
     return code & (1 << id);
 }
 /*De acordo com tabela em https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.1-200-E.1*/
