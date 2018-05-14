@@ -5,7 +5,6 @@ Nome do .class: HelloWorld.class
 MAGIC: cafebabe
 
 
-
 MINOR VERSION: 0
 MAJOR VERSION: 52 - Java SE 8
 CONSTANT POOL COUNT: 29

@@ -1,31 +1,35 @@
 #include "exibidor.h"
 #include "helper.h"
 
-int is_true(int code, int id) {
+/*Verifica de o bit na posição id é 1*/
+int bit_is_true(int code, int id) {
+    //Realiza o shit a esquerda do bit 0..01 em 'id' posições
     return code & (1 << id);
 }
+/*De acordo com tabela em https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.1-200-E.1*/
+void print_access_flags(int code, FILE* fout) {
+    fprintf(fout, "[");
+    if (bit_is_true(code, 0)) fprintf(fout, "public ");
+    else if (bit_is_true(code, 1)) fprintf(fout, "private ");
+    else if (bit_is_true(code, 2)) fprintf(fout, "protected ");
 
-void print_permissions(int code, FILE* arq) {
-    fprintf(arq, "[");
-    if (is_true(code, 0)) fprintf(arq, "public ");
-    else if (is_true(code, 1)) fprintf(arq, "private ");
-    else if (is_true(code, 2)) fprintf(arq, "protected ");
-
-    if (is_true(code, 3)) fprintf(arq, "static ");
-    if (is_true(code, 4)) fprintf(arq, "final ");
-    if (is_true(code, 5)) fprintf(arq, "super ");
-    if (is_true(code, 6)) fprintf(arq, "volatile ");
-    if (is_true(code, 7)) fprintf(arq, "transient ");
-    if (is_true(code, 8)) fprintf(arq, "native ");
-    if (is_true(code, 9)) fprintf(arq, "interface ");
-    if (is_true(code, 10)) fprintf(arq, "abstract ");
-    fprintf(arq, "]");
+    if (bit_is_true(code, 3)) fprintf(fout, "static ");
+    if (bit_is_true(code, 4)) fprintf(fout, "final ");
+    if (bit_is_true(code, 5)) fprintf(fout, "super ");
+    if (bit_is_true(code, 6)) fprintf(fout, "volatile ");
+    if (bit_is_true(code, 7)) fprintf(fout, "transient ");
+    if (bit_is_true(code, 8)) fprintf(fout, "native ");
+    if (bit_is_true(code, 9)) fprintf(fout, "interface ");
+    if (bit_is_true(code, 10)) fprintf(fout, "abstract ");
+    fprintf(fout, "]");
 }
 
-void print_magic(ClassFile* cf, FILE* arq) {
-    fprintf(arq, "MAGIC: %x\n\n", cf->magic);
+/*Print do CAFEBABE em hexa*/
+void print_magic(ClassFile* cf, FILE* fout) {
+    fprintf(fout, "MAGIC: %x\n", cf->magic);
 }
 
+/*Imprime os valores lidos pela função load_versions em "leitor"*/
 void print_versions(ClassFile* cf, FILE* arq) {
     fprintf(arq, "MINOR VERSION: %d\n", cf->minor_version);
     char *java_version =  show_version(cf->major_version);
@@ -35,7 +39,7 @@ void print_versions(ClassFile* cf, FILE* arq) {
     fprintf(arq, "CONSTANT POOL COUNT: %d\n", cf->constant_pool_count);
 
     fprintf(arq, "ACCESS_FLAGS: %x ", cf->access_flags);
-    print_permissions(cf->access_flags, arq);
+    print_access_flags(cf->access_flags, arq);
     fprintf(arq, "\n");
     fprintf(arq, "THIS_CLASS: %d\n", cf->this_class);
     fprintf(arq, "SUPER_CLASS: %d\n", cf->super_class);
@@ -123,7 +127,7 @@ void print_constantpool(ClassFile* cf, FILE* arq) {
 
 void print_classdata(ClassFile* cf, FILE* arq) {
     fprintf(arq, "ACCESS_FLAGS: %x ", cf->access_flags);
-    print_permissions(cf->access_flags, arq);
+    print_access_flags(cf->access_flags, arq);
     fprintf(arq, "\n");
     fprintf(arq, "THIS_CLASS: %d\n", cf->this_class);
     fprintf(arq, "SUPER_CLASS: %d\n\n", cf->super_class);
@@ -144,6 +148,8 @@ void print_interfaces(ClassFile* cf, FILE* arq) {
     }
 }
 
+//TODO: Quebrar em mais funções
+/*Imprime um atributo de qualquer tipo*/
 void print_attribute(ClassFile* cf, attribute_info* att, FILE* arq) {
 
 //Comeca do 4, https://cs.au.dk/~mis/dOvs/jvmspec/ref-newarray.html
@@ -622,7 +628,7 @@ enum instrucoes_code {
             fprintf(arq, "\t\tOUTER CLASS: %d\n", classtype_aux->outer_class_info_index);
             fprintf(arq, "\t\tINNER NAME: %d\n", classtype_aux->inner_name_index);
             fprintf(arq, "\t\tINNER CLASS ACCESS FLAGS: %x ", classtype_aux->inner_class_access_flags);
-            print_permissions(classtype_aux->inner_class_access_flags, arq);
+            print_access_flags(classtype_aux->inner_class_access_flags, arq);
             fprintf(arq, "\n\n");
             fprintf(arq, "\n");
         }
@@ -649,7 +655,7 @@ void print_fields(ClassFile* cf, FILE* arq) {
         fprintf(arq, "\tNAME_INDEX: %d: %s\n", aux_field->name_index, (char*)cf->constant_pool[aux_field->name_index - 1].info.Utf8_info.bytes);
         fprintf(arq, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_field->descriptor_index, (char*)cf->constant_pool[aux_field->descriptor_index - 1].info.Utf8_info.bytes);
         fprintf(arq, "\tACCESS_FLAGS: %x ", aux_field->access_flags);
-        print_permissions(aux_field->access_flags, arq);
+        print_access_flags(aux_field->access_flags, arq);
         fprintf(arq, "\n");
         fprintf(arq, "\tATTRIBUTE_COUNT: %d\n\n", aux_field->attributes_count);
         attribute_info* aux_att;
@@ -676,7 +682,7 @@ void print_methods(ClassFile* cf, FILE* arq) {
         fprintf(arq, "\tNAME_INDEX: %d: %s\n", aux_meth->name_index, (char*)cf->constant_pool[aux_meth->name_index - 1].info.Utf8_info.bytes);
         fprintf(arq, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_meth->descriptor_index, (char*)cf->constant_pool[aux_meth->descriptor_index - 1].info.Utf8_info.bytes);
         fprintf(arq, "\tACCESS_FLAGS: %x ", aux_meth->access_flags);
-        print_permissions(aux_meth->access_flags, arq);
+        print_access_flags(aux_meth->access_flags, arq);
         fprintf(arq, "\n\n");
         fprintf(arq, "\tATTRIBUTE_COUNT: %d\n\n", aux_meth->attributes_count);
         attribute_info* aux_att;

@@ -45,9 +45,9 @@ void load_constantpool(ClassFile* cf, FILE* fd) {
             break;
         case UTF8:
             cp->info.Utf8_info.length = u2Read(fd);
-            cp->info.Utf8_info.bytes = (u1*)calloc(cp->info.Utf8_info.length+1, sizeof(u1)); 
+            cp->info.Utf8_info.bytes = (u1*)calloc(cp->info.Utf8_info.length+1, sizeof(u1));
             u1* b;
-            for (b = cp->info.Utf8_info.bytes ; b < cp->info.Utf8_info.bytes + cp->info.Utf8_info.length ; ++b) { 
+            for (b = cp->info.Utf8_info.bytes ; b < cp->info.Utf8_info.bytes + cp->info.Utf8_info.length ; ++b) {
                 *b = u1Read(fd);
             }
             break;
@@ -61,11 +61,11 @@ void load_constantpool(ClassFile* cf, FILE* fd) {
             cp->info.Float_info.bytes = u4Read(fd);
             break;
         case LONG:
-            cp->info.Long_info.high_bytes = u4Read(fd); 
+            cp->info.Long_info.high_bytes = u4Read(fd);
             cp->info.Long_info.low_bytes = u4Read(fd);
             break;
         case DOUBLE:
-            cp->info.Double_info.high_bytes = u4Read(fd); 
+            cp->info.Double_info.high_bytes = u4Read(fd);
             cp->info.Double_info.low_bytes = u4Read(fd);
             break;
         }
@@ -95,10 +95,14 @@ void load_interfaces(ClassFile* cf, FILE* fd) {
     }
 }
 
+/*Carrega o indice da constante que deve ser de acordo com a tabela:
+https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.7.2-300-C.1*/
 void load_constantvalue_attr(attribute_info* att, FILE* fd) {
     att->type.ConstantValue.constantvalue_index = u2Read(fd);
 }
 
+/*Carrega atributo code, que possui três tabelas de acordo com a tabela:
+https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.7.2-300-C.1*/
 void load_code_attr(attribute_info* att, ClassFile* cf, FILE* fd) {
     att->type.Code_attribute.max_stack = u2Read(fd);
     att->type.Code_attribute.max_locals = u2Read(fd);
@@ -136,7 +140,8 @@ void load_code_attr(attribute_info* att, ClassFile* cf, FILE* fd) {
         }
     }
 }
-
+/*Carrega os atributos exception*/
+/*Usada pela tabela attributes de method_info*/
 void load_exceptions_attr(attribute_info* att, FILE* fd) {
     att->type.Exceptions.number_of_exceptions = u2Read(fd);
     if (att->type.Exceptions.number_of_exceptions == 0) {
@@ -150,6 +155,8 @@ void load_exceptions_attr(attribute_info* att, FILE* fd) {
     }
 }
 
+/*Carrega o atributo InnerClasses*/
+/*Usada pela tabela de atributos de ClassFile*/
 void load_innerclasses_attr(attribute_info* att, FILE* fd) {
     att->type.InnerClasses.number_of_classes = u2Read(fd);
     if (att->type.InnerClasses.number_of_classes == 0) {
@@ -177,15 +184,16 @@ void load_other_attr(attribute_info* att, FILE* fd) {
         *bytes = u1Read(fd);
     }
 }
-
+/*Determina qual o tipo de attribute a ser lido e chama a função apropriada*/
+/*Pode ser chamado para ler atributo do ClassFile, Method_info ou Field_info*/
 void load_attribute(attribute_info* att, ClassFile* cf, FILE* fd) {
     char* type;
     att->attribute_name_index = u2Read(fd);
     att->attribute_length = u4Read(fd);
     type = (char*)calloc(cf->constant_pool[att->attribute_name_index - 1].info.Utf8_info.length+1,sizeof(char));
       strcpy(type, (char*)cf->constant_pool[att->attribute_name_index - 1].info.Utf8_info.bytes);
-      int i = findtype(type);
-      switch (i) {
+      int typeInt = findtype(type);
+      switch (typeInt) {
       case CONSTANTVALUE:
           load_constantvalue_attr(att, fd);
           break;
@@ -207,7 +215,7 @@ void load_attribute(attribute_info* att, ClassFile* cf, FILE* fd) {
 
   void load_fields(ClassFile* cf, FILE* fd) {
 // carrega os fields. Dois campos na mesma classe não podem ter o mesmo nome.
-    
+
       cf->fields_count = u2Read(fd);
 
       if (cf->fields_count == 0) {
