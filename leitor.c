@@ -1,5 +1,5 @@
 #include "leitor.h"
-#include "helper.h"
+#include "auxiliar.h"
 
 /*Identifica os primeiros bytes do arquivo, valor esperado é CAFEBABE*/
 void load_magic(ClassFile* cf, FILE* fd) {

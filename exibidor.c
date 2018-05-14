@@ -1,5 +1,5 @@
 #include "exibidor.h"
-#include "helper.h"
+#include "auxiliar.h"
 
 /*Verifica de o bit na posição id é 1*/
 int bit_is_true(int code, int id) {
