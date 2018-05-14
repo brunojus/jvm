@@ -18,7 +18,7 @@ u4 u4Read(FILE* fd) {
 }
 
 /*Verifica o conteúdo da string e retorna qual é o seu tipo*/
-int findtype(char* type) {
+int return_type(char* type) {
     if (!strcmp(type, "ConstantValue")) {
         return CONSTANTVALUE;
     } else if (!strcmp(type, "Code")) {
@@ -33,7 +33,7 @@ int findtype(char* type) {
 }
 
 /*Desaloca a memória da constant pool*/
-void free_cte_pool(ClassFile *cf) {
+void free_constpool(ClassFile *cf) {
     cp_info *cp;
     for(cp = cf->constant_pool;cp<cf->constant_pool+cf->constant_pool_count-1;++cp) {
        if (cp->tag == UTF8)
@@ -43,10 +43,10 @@ void free_cte_pool(ClassFile *cf) {
 }
 
 /*Função responsável por desalocar memória e finalizar a gravação no arquivo*/
-void shutdown(FILE *fd, FILE *arq, ClassFile* cf) {
+void finish_record(FILE *fd, FILE *arq, ClassFile* cf) {
     if (!cf)
       return;
-    free_cte_pool(cf);
+    free_constpool(cf);
     if (cf->fields)
       free(cf->fields);
     if (cf->interfaces)
@@ -60,7 +60,7 @@ void shutdown(FILE *fd, FILE *arq, ClassFile* cf) {
 }
 
 
-FILE* open_file(char *namefile) {
+FILE* open_arq(char *namefile) {
     FILE* fp = fopen(namefile, "rb");
     if (!fp) {
         printf("Error: Arquivo não encontrado.\n");
@@ -70,20 +70,20 @@ FILE* open_file(char *namefile) {
     }
 }
 
-FILE * io_handler(int argc, char *argv[], char *namefile, FILE **arq)
+FILE * handlerio(int argc, char *argv[], char *namefile, FILE **arq)
 {
   FILE *fd = NULL;
-  char saidaarquivo[1024] = "output_class.txt";
+  char saidaarquivo[1024] = "output.txt";
   if (argc == 1) {
     do {
       printf("Digite o nome do arquivo: ");
       scanf("%s", namefile);
       fflush(stdin);
-      fd = open_file(namefile);
+      fd = open_arq(namefile);
     } while (!fd);
   } else if (argc == 3) {
     strcpy(namefile, argv[1]);
-    fd = open_file(namefile);
+    fd = open_arq(namefile);
     if (!fd) {
       printf("Arquivo de entrada não encontrado!\n");
       exit(0);

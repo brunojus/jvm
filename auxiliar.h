@@ -3,7 +3,7 @@
 u1 u1Read(FILE* fd);
 u2 u2Read(FILE* fd);
 u4 u4Read(FILE* fd);
-void shutdown(FILE *fd, FILE *arq, ClassFile* cf);
-int findtype(char* type);
-FILE* open_file(char *namefile);
-FILE * io_handler(int argc, char *argv[], char *namefile, FILE **arq);
+void finish_record(FILE *fd, FILE *arq, ClassFile* cf);
+int return_type(char* type);
+FILE* open_arq(char *namefile);
+FILE * handlerio(int argc, char *argv[], char *namefile, FILE **arq);

@@ -1,16 +1,13 @@
 #include "leitor.h"
 #include "exibidor.h"
-#include "helper.h"
-
+#include "auxiliar.h"
 
 int main(int argc, char* argv[]) {
     char namefile[1024];
     FILE* arq = NULL;
-
-    FILE *fd = io_handler(argc, argv, namefile, &arq);
-
+    FILE *fd = handlerio(argc, argv, namefile, &arq);
     ClassFile* cf = readClass(fd);
     print_class(cf, namefile, arq);
-    shutdown(fd, arq, cf);
+    finish_record(fd, arq, cf);
     return 0;
 }

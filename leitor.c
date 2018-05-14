@@ -2,12 +2,12 @@
 #include "auxiliar.h"
 
 /*Identifica os primeiros bytes do arquivo, valor esperado é CAFEBABE*/
-void load_magic(ClassFile* cf, FILE* fd) {
+void load_func_magic(ClassFile* cf, FILE* fd) {
     cf->magic = u4Read(fd);
 }
 
 /*Carrega as versões do JAVA que foram utilizadas para gerar o arquivo .class*/
-void load_versions(ClassFile* cf, FILE* fd) {
+void load_java_versions(ClassFile* cf, FILE* fd) {
     cf->minor_version = u2Read(fd);
     cf->major_version = u2Read(fd);
 }
@@ -97,13 +97,13 @@ void load_interfaces(ClassFile* cf, FILE* fd) {
 
 /*Carrega o indice da constante que deve ser de acordo com a tabela:
 https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.7.2-300-C.1*/
-void load_constantvalue_attr(attribute_info* att, FILE* fd) {
+void load_constantvalue_attribute(attribute_info* att, FILE* fd) {
     att->type.ConstantValue.constantvalue_index = u2Read(fd);
 }
 
 /*Carrega atributo code, que possui três tabelas de acordo com a tabela:
 https://docs.oracle.com/javase/specs/jvms/se7/html/jvms-4.html#jvms-4.7.2-300-C.1*/
-void load_code_attr(attribute_info* att, ClassFile* cf, FILE* fd) {
+void load_code_attribute(attribute_info* att, ClassFile* cf, FILE* fd) {
     att->type.Code_attribute.max_stack = u2Read(fd);
     att->type.Code_attribute.max_locals = u2Read(fd);
     att->type.Code_attribute.code_length = u4Read(fd);
@@ -142,7 +142,7 @@ void load_code_attr(attribute_info* att, ClassFile* cf, FILE* fd) {
 }
 /*Carrega os atributos exception*/
 /*Usada pela tabela attributes de method_info*/
-void load_exceptions_attr(attribute_info* att, FILE* fd) {
+void load_exception_attribute(attribute_info* att, FILE* fd) {
     att->type.Exceptions.number_of_exceptions = u2Read(fd);
     if (att->type.Exceptions.number_of_exceptions == 0) {
         att->type.Exceptions.exception_index_table = NULL;
@@ -157,7 +157,7 @@ void load_exceptions_attr(attribute_info* att, FILE* fd) {
 
 /*Carrega o atributo InnerClasses*/
 /*Usada pela tabela de atributos de ClassFile*/
-void load_innerclasses_attr(attribute_info* att, FILE* fd) {
+void load_innerclasses_attribute(attribute_info* att, FILE* fd) {
     att->type.InnerClasses.number_of_classes = u2Read(fd);
     if (att->type.InnerClasses.number_of_classes == 0) {
         att->type.InnerClasses.classes = NULL;
@@ -173,7 +173,7 @@ void load_innerclasses_attr(attribute_info* att, FILE* fd) {
     }
 }
 
-void load_other_attr(attribute_info* att, FILE* fd) {
+void load_other_attribute(attribute_info* att, FILE* fd) {
     if (!att->attribute_length) {
         att->type.Other.bytes = NULL;
         return;
@@ -192,22 +192,22 @@ void load_attribute(attribute_info* att, ClassFile* cf, FILE* fd) {
     att->attribute_length = u4Read(fd);
     type = (char*)calloc(cf->constant_pool[att->attribute_name_index - 1].info.Utf8_info.length+1,sizeof(char));
       strcpy(type, (char*)cf->constant_pool[att->attribute_name_index - 1].info.Utf8_info.bytes);
-      int typeInt = findtype(type);
+      int typeInt = return_type(type);
       switch (typeInt) {
       case CONSTANTVALUE:
-          load_constantvalue_attr(att, fd);
+          load_constantvalue_attribute(att, fd);
           break;
       case CODE:
-          load_code_attr(att, cf, fd);
+          load_code_attribute(att, cf, fd);
           break;
       case EXCEPTIONS:
-          load_exceptions_attr(att, fd);
+          load_exception_attribute(att, fd);
           break;
       case INNERCLASSES:
-          load_innerclasses_attr(att, fd);
+          load_innerclasses_attribute(att, fd);
           break;
       case OTHER:
-          load_other_attr(att, fd);
+          load_other_attribute(att, fd);
           break;
       }
       free(type);
@@ -274,8 +274,8 @@ void load_attribute(attribute_info* att, ClassFile* cf, FILE* fd) {
 
   ClassFile* readClass(FILE* fd) {
       ClassFile* cf = (ClassFile*) calloc(1,sizeof(ClassFile));
-      load_magic(cf, fd);
-      load_versions(cf, fd);
+      load_func_magic(cf, fd);
+      load_java_versions(cf, fd);
       load_constantpool(cf, fd);
       load_classdata(cf, fd);
       load_interfaces(cf, fd);
