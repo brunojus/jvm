@@ -1,0 +1,30 @@
+Universidade de Brasilia  - UnB
+Departamento de Ciencia da Computacao  - CIC
+Disciplina:  Software Basico
+Professor:  Marcelo Ladera
+Turma: A
+Alunos:
+       Tomaz Aguiar 090040121
+       Lucas Braga 090009746
+       Lucas Lo Ami 090009886
+       Leonardo de Sousa Melo 0834220
+       Artur de Azevedo 0990001       
+
+Java Virtual Machine, a ser entregue em 19/12/11 para a conclusão do curso de Software Básico
+na Universidade de Brasilia.
+
+Quaisquer duvidas:
+
+Lucas Braga lucas.braga.ribeiro@gmail.com
+Tomaz Aguiar tomazweb@gmail.com
+Lucas Lo Ami loamilucas@gmail.com
+Artur de Azevedo arturdeazevedo@gmail.com
+Leonardo Melo leosagitalm@gmail.com
+
+Referências teóricas:
+
+http://java.sun.com/docs/books/jvms/second_edition/html/VMSpecTOC.doc.html
+JUNQUEIRA FROSONI, Daniele, ZUQUIM GUIMARÃES GARCIA, Diego, COSTA TEIXEIRA, Fabiano. Arquiteturas de Máquinas Virtuais - UNICAMP. Maio, 2005
+
+
+
