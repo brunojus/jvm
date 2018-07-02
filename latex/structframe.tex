@@ -1,0 +1,114 @@
+\hypertarget{structframe}{}\section{Referência da Estrutura frame}
+\label{structframe}\index{frame@{frame}}
+
+
+Estrutura dos elementos da pilha de frames.  
+
+
+
+
+{\ttfamily \#include $<$Frame\+Stack.\+h$>$}
+
+
+
+Diagrama de colaboração para frame\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structframe__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structoperand__stack}{operand\+\_\+stack} \hyperlink{structframe_ac87e8a50c7f6d37600c44c1faca0f530}{op\+Stack}
+\item 
+\hyperlink{structcp__info}{cp\+\_\+info} $\ast$ \hyperlink{structframe_af9ce330bb6f6e4d7b2a5fb046f08e4dc}{c\+Pool\+Run\+Time}
+\item 
+\hyperlink{structStaticAtrib}{Static\+Atrib} $\ast$ \hyperlink{structframe_adf21113594c388521fe0f3591241f597}{p\+Static\+Atrib}
+\item 
+\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} $\ast$ \hyperlink{structframe_a1c91e0ecde5fe1fee5bf295f096b511f}{Local\+Variables}
+\item 
+void $\ast$$\ast$ \hyperlink{structframe_a29911524013a45af719b6d19592dc60d}{pointers}
+\item 
+\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{structframe_aa4ce8c8307208f3fdf27b5a81fc265af}{countpoint}
+\item 
+void $\ast$ \hyperlink{structframe_ae25d34f063809e9990a1279fa9a794f4}{temp\+Mult\+Array}
+\item 
+\hyperlink{structmethod__info}{method\+\_\+info} $\ast$ \hyperlink{structframe_a2fac8190b89a1cf94c23628f1849a939}{method}
+\item 
+\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{structframe_ae2f8c8d0abb0ff0952fb8ab971c2d3d0}{pc}
+\item 
+struct \hyperlink{structframe}{frame} $\ast$ \hyperlink{structframe_a23c908c0892e1329c82f3673e1d659eb}{next}
+\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Estrutura dos elementos da pilha de frames. 
+
+\subsection{Atributos}
+\mbox{\Hypertarget{structframe_aa4ce8c8307208f3fdf27b5a81fc265af}\label{structframe_aa4ce8c8307208f3fdf27b5a81fc265af}} 
+\index{frame@{frame}!countpoint@{countpoint}}
+\index{countpoint@{countpoint}!frame@{frame}}
+\subsubsection{\texorpdfstring{countpoint}{countpoint}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} frame\+::countpoint}
+
+\mbox{\Hypertarget{structframe_af9ce330bb6f6e4d7b2a5fb046f08e4dc}\label{structframe_af9ce330bb6f6e4d7b2a5fb046f08e4dc}} 
+\index{frame@{frame}!c\+Pool\+Run\+Time@{c\+Pool\+Run\+Time}}
+\index{c\+Pool\+Run\+Time@{c\+Pool\+Run\+Time}!frame@{frame}}
+\subsubsection{\texorpdfstring{c\+Pool\+Run\+Time}{cPoolRunTime}}
+{\footnotesize\ttfamily \hyperlink{structcp__info}{cp\+\_\+info}$\ast$ frame\+::c\+Pool\+Run\+Time}
+
+\mbox{\Hypertarget{structframe_a1c91e0ecde5fe1fee5bf295f096b511f}\label{structframe_a1c91e0ecde5fe1fee5bf295f096b511f}} 
+\index{frame@{frame}!Local\+Variables@{Local\+Variables}}
+\index{Local\+Variables@{Local\+Variables}!frame@{frame}}
+\subsubsection{\texorpdfstring{Local\+Variables}{LocalVariables}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}$\ast$ frame\+::\+Local\+Variables}
+
+\mbox{\Hypertarget{structframe_a2fac8190b89a1cf94c23628f1849a939}\label{structframe_a2fac8190b89a1cf94c23628f1849a939}} 
+\index{frame@{frame}!method@{method}}
+\index{method@{method}!frame@{frame}}
+\subsubsection{\texorpdfstring{method}{method}}
+{\footnotesize\ttfamily \hyperlink{structmethod__info}{method\+\_\+info}$\ast$ frame\+::method}
+
+\mbox{\Hypertarget{structframe_a23c908c0892e1329c82f3673e1d659eb}\label{structframe_a23c908c0892e1329c82f3673e1d659eb}} 
+\index{frame@{frame}!next@{next}}
+\index{next@{next}!frame@{frame}}
+\subsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily struct \hyperlink{structframe}{frame}$\ast$ frame\+::next}
+
+\mbox{\Hypertarget{structframe_ac87e8a50c7f6d37600c44c1faca0f530}\label{structframe_ac87e8a50c7f6d37600c44c1faca0f530}} 
+\index{frame@{frame}!op\+Stack@{op\+Stack}}
+\index{op\+Stack@{op\+Stack}!frame@{frame}}
+\subsubsection{\texorpdfstring{op\+Stack}{opStack}}
+{\footnotesize\ttfamily \hyperlink{structoperand__stack}{operand\+\_\+stack} frame\+::op\+Stack}
+
+\mbox{\Hypertarget{structframe_ae2f8c8d0abb0ff0952fb8ab971c2d3d0}\label{structframe_ae2f8c8d0abb0ff0952fb8ab971c2d3d0}} 
+\index{frame@{frame}!pc@{pc}}
+\index{pc@{pc}!frame@{frame}}
+\subsubsection{\texorpdfstring{pc}{pc}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} frame\+::pc}
+
+\mbox{\Hypertarget{structframe_a29911524013a45af719b6d19592dc60d}\label{structframe_a29911524013a45af719b6d19592dc60d}} 
+\index{frame@{frame}!pointers@{pointers}}
+\index{pointers@{pointers}!frame@{frame}}
+\subsubsection{\texorpdfstring{pointers}{pointers}}
+{\footnotesize\ttfamily void$\ast$$\ast$ frame\+::pointers}
+
+\mbox{\Hypertarget{structframe_adf21113594c388521fe0f3591241f597}\label{structframe_adf21113594c388521fe0f3591241f597}} 
+\index{frame@{frame}!p\+Static\+Atrib@{p\+Static\+Atrib}}
+\index{p\+Static\+Atrib@{p\+Static\+Atrib}!frame@{frame}}
+\subsubsection{\texorpdfstring{p\+Static\+Atrib}{pStaticAtrib}}
+{\footnotesize\ttfamily \hyperlink{structStaticAtrib}{Static\+Atrib}$\ast$ frame\+::p\+Static\+Atrib}
+
+\mbox{\Hypertarget{structframe_ae25d34f063809e9990a1279fa9a794f4}\label{structframe_ae25d34f063809e9990a1279fa9a794f4}} 
+\index{frame@{frame}!temp\+Mult\+Array@{temp\+Mult\+Array}}
+\index{temp\+Mult\+Array@{temp\+Mult\+Array}!frame@{frame}}
+\subsubsection{\texorpdfstring{temp\+Mult\+Array}{tempMultArray}}
+{\footnotesize\ttfamily void$\ast$ frame\+::temp\+Mult\+Array}
+
+
+
+A documentação para esta estrutura foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{FrameStack_8h}{Frame\+Stack.\+h}\end{DoxyCompactItemize}

@@ -1,21 +1,3 @@
-/*
- Universidade de Brasilia  - UnB
- Departamento de Ciencia da Computacao  - CIC
- Disciplina:  Software Basico
- Professor:  Marcelo Ladera
- Turma: A
- Alunos:
-       Tomaz Aguiar 090040121
-       Lucas Braga 090009746
-       Lucas Lo Ami 090009886
-       Leonardo de Sousa Melo 0834220
-       Artur de Azevedo 0990001
-*/
-
-
-
-
-
 #include "Interpreter.h"
 
 

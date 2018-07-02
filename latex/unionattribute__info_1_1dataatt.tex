@@ -1,0 +1,133 @@
+\hypertarget{unionattribute__info_1_1dataatt}{}\section{Referência da União attribute\+\_\+info\+:\+:dataatt}
+\label{unionattribute__info_1_1dataatt}\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+
+
+{\ttfamily \#include $<$Class\+Loader.\+h$>$}
+
+
+
+Diagrama de colaboração para attribute\+\_\+info\+:\+:dataatt\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unionattribute__info_1_1dataatt__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structattribute__info_1_1dataatt_1_1ConstantValue__attribute}{Constant\+Value\+\_\+attribute}
+\end{DoxyCompactItemize}
+\subsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structattribute__info_1_1dataatt_1_1ConstantValue__attribute}{attribute\+\_\+info\+::dataatt\+::\+Constant\+Value\+\_\+attribute} \hyperlink{unionattribute__info_1_1dataatt_a7528732c04d522ee66b03ac3ee68a328}{Constant\+Value\+\_\+attribute}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unionattribute__info_1_1dataatt_a5324cb4f9387dd83fbf918a214e9ecf5}{max\_stack}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unionattribute__info_1_1dataatt_a50f68cdf74cc0a4ae6cfdff4f9deff56}{max\_locals}\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unionattribute__info_1_1dataatt_a632ec76b539aef919ad1b53bc06ae202}{code\_length}\\
+\>\hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1} $\ast$ \hyperlink{unionattribute__info_1_1dataatt_ae358021d0aeaf42c2946d7ca9bde4561}{code}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unionattribute__info_1_1dataatt_aab4fba017aae830c5d0ee6e5498c4e0a}{exception\_table\_length}\\
+\>struct \hyperlink{structexception__table}{exception\_table} $\ast$ \hyperlink{unionattribute__info_1_1dataatt_ad8651df15e6a1ce7795fb5bbfc036497}{exception\_table}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unionattribute__info_1_1dataatt_a2684a4c2f7e2e9bf618563c5aa3f0bad}{attributes\_count}\\
+\>struct \hyperlink{structattribute__info}{attribute\_info} $\ast$ \hyperlink{unionattribute__info_1_1dataatt_a3e6b34fe04111fe1a6b2d386d7c7e4f3}{attributes}\\
+\} \hyperlink{unionattribute__info_1_1dataatt_ad91d6c59069565594996c8f6f94633d3}{Code\_attribute}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unionattribute__info_1_1dataatt_a6c0783aaa8139388956c2d325ea0e904}{number\_of\_exceptions}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} $\ast$ \hyperlink{unionattribute__info_1_1dataatt_ac88c57d4da20ece664c3c9afda924cdc}{exception\_index\_table}\\
+\} \hyperlink{unionattribute__info_1_1dataatt_abe0efcf86b26c61e1252bdc8ed57f16f}{Exceptions\_attribute}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Atributos}
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_a3e6b34fe04111fe1a6b2d386d7c7e4f3}\label{unionattribute__info_1_1dataatt_a3e6b34fe04111fe1a6b2d386d7c7e4f3}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!attributes@{attributes}}
+\index{attributes@{attributes}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{attributes}{attributes}}
+{\footnotesize\ttfamily struct \hyperlink{structattribute__info}{attribute\+\_\+info}$\ast$ attribute\+\_\+info\+::dataatt\+::attributes}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_a2684a4c2f7e2e9bf618563c5aa3f0bad}\label{unionattribute__info_1_1dataatt_a2684a4c2f7e2e9bf618563c5aa3f0bad}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!attributes\+\_\+count@{attributes\+\_\+count}}
+\index{attributes\+\_\+count@{attributes\+\_\+count}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{attributes\+\_\+count}{attributes\_count}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} attribute\+\_\+info\+::dataatt\+::attributes\+\_\+count}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_ae358021d0aeaf42c2946d7ca9bde4561}\label{unionattribute__info_1_1dataatt_ae358021d0aeaf42c2946d7ca9bde4561}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!code@{code}}
+\index{code@{code}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1}$\ast$ attribute\+\_\+info\+::dataatt\+::code}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_ad91d6c59069565594996c8f6f94633d3}\label{unionattribute__info_1_1dataatt_ad91d6c59069565594996c8f6f94633d3}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!Code\+\_\+attribute@{Code\+\_\+attribute}}
+\index{Code\+\_\+attribute@{Code\+\_\+attribute}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{Code\+\_\+attribute}{Code\_attribute}}
+{\footnotesize\ttfamily struct \{ ... \}  attribute\+\_\+info\+::dataatt\+::\+Code\+\_\+attribute}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_a632ec76b539aef919ad1b53bc06ae202}\label{unionattribute__info_1_1dataatt_a632ec76b539aef919ad1b53bc06ae202}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!code\+\_\+length@{code\+\_\+length}}
+\index{code\+\_\+length@{code\+\_\+length}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{code\+\_\+length}{code\_length}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} attribute\+\_\+info\+::dataatt\+::code\+\_\+length}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_a7528732c04d522ee66b03ac3ee68a328}\label{unionattribute__info_1_1dataatt_a7528732c04d522ee66b03ac3ee68a328}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!Constant\+Value\+\_\+attribute@{Constant\+Value\+\_\+attribute}}
+\index{Constant\+Value\+\_\+attribute@{Constant\+Value\+\_\+attribute}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{Constant\+Value\+\_\+attribute}{ConstantValue\_attribute}}
+{\footnotesize\ttfamily struct \hyperlink{structattribute__info_1_1dataatt_1_1ConstantValue__attribute}{attribute\+\_\+info\+::dataatt\+::\+Constant\+Value\+\_\+attribute} \hyperlink{structattribute__info_1_1dataatt_1_1ConstantValue__attribute}{attribute\+\_\+info\+::dataatt\+::\+Constant\+Value\+\_\+attribute}}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_ac88c57d4da20ece664c3c9afda924cdc}\label{unionattribute__info_1_1dataatt_ac88c57d4da20ece664c3c9afda924cdc}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!exception\+\_\+index\+\_\+table@{exception\+\_\+index\+\_\+table}}
+\index{exception\+\_\+index\+\_\+table@{exception\+\_\+index\+\_\+table}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{exception\+\_\+index\+\_\+table}{exception\_index\_table}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2}$\ast$ attribute\+\_\+info\+::dataatt\+::exception\+\_\+index\+\_\+table}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_ad8651df15e6a1ce7795fb5bbfc036497}\label{unionattribute__info_1_1dataatt_ad8651df15e6a1ce7795fb5bbfc036497}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!exception\+\_\+table@{exception\+\_\+table}}
+\index{exception\+\_\+table@{exception\+\_\+table}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{exception\+\_\+table}{exception\_table}}
+{\footnotesize\ttfamily struct \hyperlink{structexception__table}{exception\+\_\+table}$\ast$ attribute\+\_\+info\+::dataatt\+::exception\+\_\+table}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_aab4fba017aae830c5d0ee6e5498c4e0a}\label{unionattribute__info_1_1dataatt_aab4fba017aae830c5d0ee6e5498c4e0a}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!exception\+\_\+table\+\_\+length@{exception\+\_\+table\+\_\+length}}
+\index{exception\+\_\+table\+\_\+length@{exception\+\_\+table\+\_\+length}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{exception\+\_\+table\+\_\+length}{exception\_table\_length}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} attribute\+\_\+info\+::dataatt\+::exception\+\_\+table\+\_\+length}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_abe0efcf86b26c61e1252bdc8ed57f16f}\label{unionattribute__info_1_1dataatt_abe0efcf86b26c61e1252bdc8ed57f16f}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!Exceptions\+\_\+attribute@{Exceptions\+\_\+attribute}}
+\index{Exceptions\+\_\+attribute@{Exceptions\+\_\+attribute}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{Exceptions\+\_\+attribute}{Exceptions\_attribute}}
+{\footnotesize\ttfamily struct \{ ... \}  attribute\+\_\+info\+::dataatt\+::\+Exceptions\+\_\+attribute}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_a50f68cdf74cc0a4ae6cfdff4f9deff56}\label{unionattribute__info_1_1dataatt_a50f68cdf74cc0a4ae6cfdff4f9deff56}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!max\+\_\+locals@{max\+\_\+locals}}
+\index{max\+\_\+locals@{max\+\_\+locals}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{max\+\_\+locals}{max\_locals}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} attribute\+\_\+info\+::dataatt\+::max\+\_\+locals}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_a5324cb4f9387dd83fbf918a214e9ecf5}\label{unionattribute__info_1_1dataatt_a5324cb4f9387dd83fbf918a214e9ecf5}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!max\+\_\+stack@{max\+\_\+stack}}
+\index{max\+\_\+stack@{max\+\_\+stack}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{max\+\_\+stack}{max\_stack}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} attribute\+\_\+info\+::dataatt\+::max\+\_\+stack}
+
+\mbox{\Hypertarget{unionattribute__info_1_1dataatt_a6c0783aaa8139388956c2d325ea0e904}\label{unionattribute__info_1_1dataatt_a6c0783aaa8139388956c2d325ea0e904}} 
+\index{attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}!number\+\_\+of\+\_\+exceptions@{number\+\_\+of\+\_\+exceptions}}
+\index{number\+\_\+of\+\_\+exceptions@{number\+\_\+of\+\_\+exceptions}!attribute\+\_\+info\+::dataatt@{attribute\+\_\+info\+::dataatt}}
+\subsubsection{\texorpdfstring{number\+\_\+of\+\_\+exceptions}{number\_of\_exceptions}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} attribute\+\_\+info\+::dataatt\+::number\+\_\+of\+\_\+exceptions}
+
+
+
+A documentação para esta união foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ClassLoader_8h}{Class\+Loader.\+h}\end{DoxyCompactItemize}

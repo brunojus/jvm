@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Java Virtual Machine: Referência da Estrutura FrameStack</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Java Virtual Machine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Atributos Públicos</a> &#124;
+<a href="structFrameStack-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência da Estrutura FrameStack</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estrutura da pilha de frames.  
+ <a href="structFrameStack.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="FrameStack_8h_source.html">FrameStack.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para FrameStack:</div>
+<div class="dyncontent">
+<div class="center"><img src="structFrameStack__coll__graph.png" border="0" usemap="#FrameStack_coll__map" alt="Collaboration graph"/></div>
+<map name="FrameStack_coll__map" id="FrameStack_coll__map">
+<area shape="rect" id="node2" href="structframe.html" title="Estrutura dos elementos da pilha de frames. " alt="" coords="1713,749,1767,827"/>
+<area shape="rect" id="node3" href="structoperand__stack.html" title="Estrutura da pilha propriamente dita. " alt="" coords="5,508,112,585"/>
+<area shape="rect" id="node4" href="structoperand.html" title="{operand\n||}" alt="" coords="13,305,81,383"/>
+<area shape="rect" id="node8" href="structattribute__info.html" title="Estrutura das informações dos atributos. " alt="" coords="886,197,983,274"/>
+<area shape="rect" id="node9" href="unionattribute__info_1_1dataatt.html" title="{attribute_info::dataatt\n||}" alt="" coords="966,407,1111,484"/>
+<area shape="rect" id="node18" href="unioncp__info_1_1datacp.html" title="{cp_info::datacp\n||}" alt="" coords="3494,407,3605,484"/>
+<area shape="rect" id="node31" href="unionDataStaticAtrib.html" title="Estrutura que gerencia os atributos estáticos para cada tipo. " alt="" coords="1909,407,2019,484"/>
+<area shape="rect" id="node6" href="structmethod__info.html" title="Escrutura para gernciar as informações dos metodos. " alt="" coords="635,407,728,484"/>
+<area shape="rect" id="node12" href="structexception__table.html" title="Tabela de excesões. " alt="" coords="1007,197,1121,274"/>
+<area shape="rect" id="node14" href="structattribute__info_1_1dataatt_1_1ConstantValue__attribute.html" title="{attribute_info::dataatt\l::ConstantValue_attribute\n||}" alt="" coords="1145,189,1316,281"/>
+<area shape="rect" id="node30" href="structStaticAtrib.html" title="Estrutura que gerencia os atributos estáticos, mais geral. " alt="" coords="1699,609,1781,687"/>
+<area shape="rect" id="node32" href="structarrayMult.html" title="Estrutura que gerencia os array multidimensionais. " alt="" coords="2825,197,2901,274"/>
+<area shape="rect" id="node16" href="structcp__info.html" title="Estrutura do constant pool. " alt="" coords="3517,609,3581,687"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Atributos Públicos</h2></td></tr>
+<tr class="memitem:a0b30458d8eb5565c6fa8db0cb4b4bebd"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structframe.html">frame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structFrameStack.html#a0b30458d8eb5565c6fa8db0cb4b4bebd">top</a></td></tr>
+<tr class="separator:a0b30458d8eb5565c6fa8db0cb4b4bebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Estrutura da pilha de frames. </p>
+</div><h2 class="groupheader">Atributos</h2>
+<a id="a0b30458d8eb5565c6fa8db0cb4b4bebd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b30458d8eb5565c6fa8db0cb4b4bebd">&#9670;&nbsp;</a></span>top</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structframe.html">frame</a>* FrameStack::top</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li><a class="el" href="FrameStack_8h_source.html">FrameStack.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

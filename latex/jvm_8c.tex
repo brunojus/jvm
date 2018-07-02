@@ -1,0 +1,58 @@
+\hypertarget{jvm_8c}{}\section{Referência do Arquivo jvm.\+c}
+\label{jvm_8c}\index{jvm.\+c@{jvm.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Interpreter.\+h\char`\"{}}\newline
+Gráfico de dependência de inclusões para jvm.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jvm_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{jvm_8c_a2ddcc1c187ddc987628d0ab578b9bdaf}{Nargs} (char $\ast$descriptor, int length)
+\item 
+void \hyperlink{jvm_8c_a34beb517dee3ac718322e49051319d9c}{executar\+Println} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fr, char $\ast$descriptor, int length)
+\item 
+void \hyperlink{jvm_8c_ac43e303b11535d016ead0d667ec059dc}{executar\+Clinit} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fr)
+\item 
+void \hyperlink{jvm_8c_afe8264d3d4324533907e8018e7d7a185}{executar} (char $\ast$method, char $\ast$descriptor, char $\ast$class\+\_\+name, int nargs, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fr, int especial)
+\item 
+int \hyperlink{jvm_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{jvm_8c_afe8264d3d4324533907e8018e7d7a185}\label{jvm_8c_afe8264d3d4324533907e8018e7d7a185}} 
+\index{jvm.\+c@{jvm.\+c}!executar@{executar}}
+\index{executar@{executar}!jvm.\+c@{jvm.\+c}}
+\subsubsection{\texorpdfstring{executar()}{executar()}}
+{\footnotesize\ttfamily void executar (\begin{DoxyParamCaption}\item[{char $\ast$}]{method,  }\item[{char $\ast$}]{descriptor,  }\item[{char $\ast$}]{class\+\_\+name,  }\item[{int}]{nargs,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fr,  }\item[{int}]{especial }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{jvm_8c_ac43e303b11535d016ead0d667ec059dc}\label{jvm_8c_ac43e303b11535d016ead0d667ec059dc}} 
+\index{jvm.\+c@{jvm.\+c}!executar\+Clinit@{executar\+Clinit}}
+\index{executar\+Clinit@{executar\+Clinit}!jvm.\+c@{jvm.\+c}}
+\subsubsection{\texorpdfstring{executar\+Clinit()}{executarClinit()}}
+{\footnotesize\ttfamily void executar\+Clinit (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{jvm_8c_a34beb517dee3ac718322e49051319d9c}\label{jvm_8c_a34beb517dee3ac718322e49051319d9c}} 
+\index{jvm.\+c@{jvm.\+c}!executar\+Println@{executar\+Println}}
+\index{executar\+Println@{executar\+Println}!jvm.\+c@{jvm.\+c}}
+\subsubsection{\texorpdfstring{executar\+Println()}{executarPrintln()}}
+{\footnotesize\ttfamily void executar\+Println (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fr,  }\item[{char $\ast$}]{descriptor,  }\item[{int}]{length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{jvm_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{jvm_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{jvm.\+c@{jvm.\+c}!main@{main}}
+\index{main@{main}!jvm.\+c@{jvm.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{jvm_8c_a2ddcc1c187ddc987628d0ab578b9bdaf}\label{jvm_8c_a2ddcc1c187ddc987628d0ab578b9bdaf}} 
+\index{jvm.\+c@{jvm.\+c}!Nargs@{Nargs}}
+\index{Nargs@{Nargs}!jvm.\+c@{jvm.\+c}}
+\subsubsection{\texorpdfstring{Nargs()}{Nargs()}}
+{\footnotesize\ttfamily int Nargs (\begin{DoxyParamCaption}\item[{char $\ast$}]{descriptor,  }\item[{int}]{length }\end{DoxyParamCaption})}
+

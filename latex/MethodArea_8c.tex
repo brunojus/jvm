@@ -1,0 +1,287 @@
+\hypertarget{MethodArea_8c}{}\section{Referência do Arquivo Method\+Area.\+c}
+\label{MethodArea_8c}\index{Method\+Area.\+c@{Method\+Area.\+c}}
+{\ttfamily \#include \char`\"{}Method\+Area.\+h\char`\"{}}\newline
+Gráfico de dependência de inclusões para Method\+Area.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{MethodArea_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MethodArea_8c_ac4fbac94288cf0cd229e1fd09183b2f5}{insert\+Class} (\hyperlink{structClass}{Class} $\ast$new\+Class)
+\begin{DoxyCompactList}\small\item\em Função que insere uma classe na lista de classes. \end{DoxyCompactList}\item 
+void \hyperlink{MethodArea_8c_ab63ab145475573765f2ba8751e7debbb}{destroy\+Class\+List} ()
+\begin{DoxyCompactList}\small\item\em Limpa da memória toda a lista de classes. \end{DoxyCompactList}\item 
+\hyperlink{structClass}{Class} $\ast$ \hyperlink{MethodArea_8c_a3c73bbfba081261f068c03a5993eaa5f}{search\+Class} (char $\ast$class\+Name)
+\begin{DoxyCompactList}\small\item\em Função que procura e carrega uma classe do HD. \end{DoxyCompactList}\item 
+\hyperlink{structcp__info}{cp\+\_\+info} $\ast$ \hyperlink{MethodArea_8c_af296db4d6c3b98842c7850fd72a80883}{cp\+Search} (char $\ast$class\+Name)
+\begin{DoxyCompactList}\small\item\em Função que procura o constant pool. \end{DoxyCompactList}\item 
+int \hyperlink{MethodArea_8c_a562ab8bca97550f9ea25092bb5e81b25}{Count\+Static\+Atrib} (\hyperlink{structClassFile}{Class\+File} $\ast$pt\+Class)
+\begin{DoxyCompactList}\small\item\em Função que conta o número de atributos estáticos. \end{DoxyCompactList}\item 
+int \hyperlink{MethodArea_8c_a07f2ba10edcf4fa9e42f29c1b77e25d9}{Count\+Atrib} (\hyperlink{structClassFile}{Class\+File} $\ast$pt\+Class)
+\begin{DoxyCompactList}\small\item\em Função que conta o número de atributos dinâmicos. \end{DoxyCompactList}\item 
+int \hyperlink{MethodArea_8c_aa543f19f820dc4c6700166fd4fb80a6a}{Type\+Descriptor} (char $\ast$descriptor)
+\begin{DoxyCompactList}\small\item\em Função que procura o tipo do descritor. \end{DoxyCompactList}\item 
+\hyperlink{structStaticAtrib}{Static\+Atrib} $\ast$ \hyperlink{MethodArea_8c_af6fe11c8391105d4fbeb194a5e1aa234}{static\+Load} (\hyperlink{structClassFile}{Class\+File} $\ast$cf)
+\begin{DoxyCompactList}\small\item\em Função que extrai todos os parametros estáticos. \end{DoxyCompactList}\item 
+\hyperlink{structObject}{Object} $\ast$ \hyperlink{MethodArea_8c_a013df09207698346ad966d4b80035bce}{create\+Object} (\hyperlink{structClassFile}{Class\+File} $\ast$cf)
+\begin{DoxyCompactList}\small\item\em Função que cria um objeto. \end{DoxyCompactList}\item 
+\hyperlink{structmethod__info}{method\+\_\+info} $\ast$ \hyperlink{MethodArea_8c_a998584cc00a46f1674dc97c91e1786e7}{get\+Method} (char $\ast$name, char $\ast$class\+\_\+name, char $\ast$descriptor)
+\begin{DoxyCompactList}\small\item\em Função que extrai as informações de um dado método. \end{DoxyCompactList}\item 
+\hyperlink{structcp__info}{cp\+\_\+info} $\ast$ \hyperlink{MethodArea_8c_a8141c4149f381e339859a57b0e2f5e68}{get\+Cp\+Super} (char $\ast$name, char $\ast$class\+\_\+name, char $\ast$descriptor)
+\begin{DoxyCompactList}\small\item\em Função que procura um constant pool de um função. \end{DoxyCompactList}\item 
+\hyperlink{structStaticAtrib}{Static\+Atrib} $\ast$ \hyperlink{MethodArea_8c_a6a9afe10625c496a7e6b9329feeb3874}{getstatic\+Atrib} (char $\ast$class\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Função que busca o vetor de variáveis estáticas. \end{DoxyCompactList}\item 
+long \hyperlink{MethodArea_8c_a6c1d849ab049d6d42552889dfea989d5}{get\+N\+Atrib\+Static} (char $\ast$class\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Função que conta o número de atributos estáticos. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variáveis}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structClass}{Class} $\ast$ \hyperlink{MethodArea_8c_ab10f9eb1f39a25ecca6fe345f4bff710}{list} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{MethodArea_8c_a07f2ba10edcf4fa9e42f29c1b77e25d9}\label{MethodArea_8c_a07f2ba10edcf4fa9e42f29c1b77e25d9}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!Count\+Atrib@{Count\+Atrib}}
+\index{Count\+Atrib@{Count\+Atrib}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{Count\+Atrib()}{CountAtrib()}}
+{\footnotesize\ttfamily int Count\+Atrib (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{pt\+Class }\end{DoxyParamCaption})}
+
+
+
+Função que conta o número de atributos dinâmicos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$pt\+Class} & ponteiro para a classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Número de atributos dinâmicos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_a562ab8bca97550f9ea25092bb5e81b25}\label{MethodArea_8c_a562ab8bca97550f9ea25092bb5e81b25}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!Count\+Static\+Atrib@{Count\+Static\+Atrib}}
+\index{Count\+Static\+Atrib@{Count\+Static\+Atrib}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{Count\+Static\+Atrib()}{CountStaticAtrib()}}
+{\footnotesize\ttfamily int Count\+Static\+Atrib (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{pt\+Class }\end{DoxyParamCaption})}
+
+
+
+Função que conta o número de atributos estáticos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$pt\+Class} & ponteiro para a classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Número de atributos estáticos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_af296db4d6c3b98842c7850fd72a80883}\label{MethodArea_8c_af296db4d6c3b98842c7850fd72a80883}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!cp\+Search@{cp\+Search}}
+\index{cp\+Search@{cp\+Search}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{cp\+Search()}{cpSearch()}}
+{\footnotesize\ttfamily \hyperlink{structcp__info}{cp\+\_\+info}$\ast$ cp\+Search (\begin{DoxyParamCaption}\item[{char $\ast$}]{class\+Name }\end{DoxyParamCaption})}
+
+
+
+Função que procura o constant pool. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$class\+Name} & Nome da classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Ponteiro para o constant poll 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_a013df09207698346ad966d4b80035bce}\label{MethodArea_8c_a013df09207698346ad966d4b80035bce}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!create\+Object@{create\+Object}}
+\index{create\+Object@{create\+Object}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{create\+Object()}{createObject()}}
+{\footnotesize\ttfamily \hyperlink{structObject}{Object}$\ast$ create\+Object (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf }\end{DoxyParamCaption})}
+
+
+
+Função que cria um objeto. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$cf} & Ponteiro para a classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Ponteiro para o objeto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_ab63ab145475573765f2ba8751e7debbb}\label{MethodArea_8c_ab63ab145475573765f2ba8751e7debbb}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!destroy\+Class\+List@{destroy\+Class\+List}}
+\index{destroy\+Class\+List@{destroy\+Class\+List}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{destroy\+Class\+List()}{destroyClassList()}}
+{\footnotesize\ttfamily void destroy\+Class\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Limpa da memória toda a lista de classes. 
+
+\mbox{\Hypertarget{MethodArea_8c_a8141c4149f381e339859a57b0e2f5e68}\label{MethodArea_8c_a8141c4149f381e339859a57b0e2f5e68}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!get\+Cp\+Super@{get\+Cp\+Super}}
+\index{get\+Cp\+Super@{get\+Cp\+Super}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{get\+Cp\+Super()}{getCpSuper()}}
+{\footnotesize\ttfamily \hyperlink{structcp__info}{cp\+\_\+info}$\ast$ get\+Cp\+Super (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{char $\ast$}]{class\+\_\+name,  }\item[{char $\ast$}]{descriptor }\end{DoxyParamCaption})}
+
+
+
+Função que procura um constant pool de um função. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$name} & Nome do método \\
+\hline
+{\em $\ast$class\+\_\+name} & Nome da classe que contém esse método \\
+\hline
+{\em $\ast$descritor} & Descritor do método \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Ponteiro para o constant pool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_a998584cc00a46f1674dc97c91e1786e7}\label{MethodArea_8c_a998584cc00a46f1674dc97c91e1786e7}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!get\+Method@{get\+Method}}
+\index{get\+Method@{get\+Method}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{get\+Method()}{getMethod()}}
+{\footnotesize\ttfamily \hyperlink{structmethod__info}{method\+\_\+info}$\ast$ get\+Method (\begin{DoxyParamCaption}\item[{char $\ast$}]{name,  }\item[{char $\ast$}]{class\+\_\+name,  }\item[{char $\ast$}]{descriptor }\end{DoxyParamCaption})}
+
+
+
+Função que extrai as informações de um dado método. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$name} & Nome do método \\
+\hline
+{\em $\ast$class\+\_\+name} & Nome da classe que contém esse método \\
+\hline
+{\em $\ast$descritor} & Descritor do método \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Ponteiro para a estrutura que guarda as informações do método 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_a6c1d849ab049d6d42552889dfea989d5}\label{MethodArea_8c_a6c1d849ab049d6d42552889dfea989d5}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!get\+N\+Atrib\+Static@{get\+N\+Atrib\+Static}}
+\index{get\+N\+Atrib\+Static@{get\+N\+Atrib\+Static}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{get\+N\+Atrib\+Static()}{getNAtribStatic()}}
+{\footnotesize\ttfamily long get\+N\+Atrib\+Static (\begin{DoxyParamCaption}\item[{char $\ast$}]{class\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Função que conta o número de atributos estáticos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$class\+\_\+name} & nome da classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Número de atributos estáticos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_a6a9afe10625c496a7e6b9329feeb3874}\label{MethodArea_8c_a6a9afe10625c496a7e6b9329feeb3874}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!getstatic\+Atrib@{getstatic\+Atrib}}
+\index{getstatic\+Atrib@{getstatic\+Atrib}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{getstatic\+Atrib()}{getstaticAtrib()}}
+{\footnotesize\ttfamily \hyperlink{structStaticAtrib}{Static\+Atrib}$\ast$ getstatic\+Atrib (\begin{DoxyParamCaption}\item[{char $\ast$}]{class\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Função que busca o vetor de variáveis estáticas. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$class\+\_\+name} & nome da classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Ponteiro para o vetor de variáveis estáticas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_ac4fbac94288cf0cd229e1fd09183b2f5}\label{MethodArea_8c_ac4fbac94288cf0cd229e1fd09183b2f5}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!insert\+Class@{insert\+Class}}
+\index{insert\+Class@{insert\+Class}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{insert\+Class()}{insertClass()}}
+{\footnotesize\ttfamily void insert\+Class (\begin{DoxyParamCaption}\item[{\hyperlink{structClass}{Class} $\ast$}]{new\+Class }\end{DoxyParamCaption})}
+
+
+
+Função que insere uma classe na lista de classes. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$new\+Class} & Ponteiro para a classe a ser inserida \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{MethodArea_8c_a3c73bbfba081261f068c03a5993eaa5f}\label{MethodArea_8c_a3c73bbfba081261f068c03a5993eaa5f}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!search\+Class@{search\+Class}}
+\index{search\+Class@{search\+Class}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{search\+Class()}{searchClass()}}
+{\footnotesize\ttfamily \hyperlink{structClass}{Class}$\ast$ search\+Class (\begin{DoxyParamCaption}\item[{char $\ast$}]{class\+Name }\end{DoxyParamCaption})}
+
+
+
+Função que procura e carrega uma classe do HD. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$class\+Name} & Endereço da classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Ponteiro para a classe 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_af6fe11c8391105d4fbeb194a5e1aa234}\label{MethodArea_8c_af6fe11c8391105d4fbeb194a5e1aa234}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!static\+Load@{static\+Load}}
+\index{static\+Load@{static\+Load}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{static\+Load()}{staticLoad()}}
+{\footnotesize\ttfamily \hyperlink{structStaticAtrib}{Static\+Atrib}$\ast$ static\+Load (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf }\end{DoxyParamCaption})}
+
+
+
+Função que extrai todos os parametros estáticos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$cf} & Ponteiro para a classe \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Vetor de variáveis estáticas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{MethodArea_8c_aa543f19f820dc4c6700166fd4fb80a6a}\label{MethodArea_8c_aa543f19f820dc4c6700166fd4fb80a6a}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!Type\+Descriptor@{Type\+Descriptor}}
+\index{Type\+Descriptor@{Type\+Descriptor}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{Type\+Descriptor()}{TypeDescriptor()}}
+{\footnotesize\ttfamily int Type\+Descriptor (\begin{DoxyParamCaption}\item[{char $\ast$}]{descriptor }\end{DoxyParamCaption})}
+
+
+
+Função que procura o tipo do descritor. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$descritor} & string do descritor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Número referente a esse descritor 
+\end{DoxyReturn}
+
+
+\subsection{Variáveis}
+\mbox{\Hypertarget{MethodArea_8c_ab10f9eb1f39a25ecca6fe345f4bff710}\label{MethodArea_8c_ab10f9eb1f39a25ecca6fe345f4bff710}} 
+\index{Method\+Area.\+c@{Method\+Area.\+c}!list@{list}}
+\index{list@{list}!Method\+Area.\+c@{Method\+Area.\+c}}
+\subsubsection{\texorpdfstring{list}{list}}
+{\footnotesize\ttfamily \hyperlink{structClass}{Class}$\ast$ list = N\+U\+LL}
+

@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Java Virtual Machine: Referência do Arquivo FrameStack.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Java Virtual Machine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo FrameStack.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="FrameStack_8h_source.html">FrameStack.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para FrameStack.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="FrameStack_8c__incl.png" border="0" usemap="#FrameStack_8c" alt=""/></div>
+<map name="FrameStack_8c" id="FrameStack_8c">
+<area shape="rect" id="node3" href="FrameStack_8h.html" title="FrameStack.h" alt="" coords="55,80,159,107"/>
+<area shape="rect" id="node4" href="MethodArea_8h.html" title="MethodArea.h" alt="" coords="55,155,158,181"/>
+<area shape="rect" id="node6" href="ClassLoader_8h.html" title="ClassLoader.h" alt="" coords="147,229,253,256"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a605a09336c06cbc72668767f80bc0865"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FrameStack_8c.html#a605a09336c06cbc72668767f80bc0865">push_frame</a> (<a class="el" href="structcp__info.html">cp_info</a> *cp, <a class="el" href="structStaticAtrib.html">StaticAtrib</a> *sa, <a class="el" href="structmethod__info.html">method_info</a> *mf, <a class="el" href="structFrameStack.html">FrameStack</a> *fs)</td></tr>
+<tr class="memdesc:a605a09336c06cbc72668767f80bc0865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que adiciona um frame.  <a href="#a605a09336c06cbc72668767f80bc0865">Mais...</a><br /></td></tr>
+<tr class="separator:a605a09336c06cbc72668767f80bc0865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0023f807f16e23c4bf72546e035d6c7d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FrameStack_8c.html#a0023f807f16e23c4bf72546e035d6c7d">pop_frame</a> (<a class="el" href="structFrameStack.html">FrameStack</a> *fs)</td></tr>
+<tr class="separator:a0023f807f16e23c4bf72546e035d6c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e0fe52e8e68e2d658615da24266b9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FrameStack_8c.html#a58e0fe52e8e68e2d658615da24266b9b">push_operand</a> (<a class="el" href="ClassLoader_8h.html#aedf6ddc03df8caaaccbb4c60b9a9b850">u4</a> data, <a class="el" href="structoperand__stack.html">operand_stack</a> *opstack)</td></tr>
+<tr class="memdesc:a58e0fe52e8e68e2d658615da24266b9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que coloca um operando na pilha.  <a href="#a58e0fe52e8e68e2d658615da24266b9b">Mais...</a><br /></td></tr>
+<tr class="separator:a58e0fe52e8e68e2d658615da24266b9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1cfd3f59256a45cef0b2308c57d1b1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FrameStack_8c.html#aa1cfd3f59256a45cef0b2308c57d1b1a">free_operand_stack</a> (<a class="el" href="structoperand__stack.html">operand_stack</a> *opstack)</td></tr>
+<tr class="memdesc:aa1cfd3f59256a45cef0b2308c57d1b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que libera a pilha da memória.  <a href="#aa1cfd3f59256a45cef0b2308c57d1b1a">Mais...</a><br /></td></tr>
+<tr class="separator:aa1cfd3f59256a45cef0b2308c57d1b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5316e1c063f566340878c6e5564c11a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ClassLoader_8h.html#aedf6ddc03df8caaaccbb4c60b9a9b850">u4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="FrameStack_8c.html#a5316e1c063f566340878c6e5564c11a7">pop_operand</a> (<a class="el" href="structoperand__stack.html">operand_stack</a> *opstack)</td></tr>
+<tr class="memdesc:a5316e1c063f566340878c6e5564c11a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que desempilha um operando da pilha.  <a href="#a5316e1c063f566340878c6e5564c11a7">Mais...</a><br /></td></tr>
+<tr class="separator:a5316e1c063f566340878c6e5564c11a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Funções</h2>
+<a id="aa1cfd3f59256a45cef0b2308c57d1b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1cfd3f59256a45cef0b2308c57d1b1a">&#9670;&nbsp;</a></span>free_operand_stack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void free_operand_stack </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structoperand__stack.html">operand_stack</a> *&#160;</td>
+          <td class="paramname"><em>opstack</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que libera a pilha da memória. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*opstack</td><td>ponteiro para a pilha </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0023f807f16e23c4bf72546e035d6c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0023f807f16e23c4bf72546e035d6c7d">&#9670;&nbsp;</a></span>pop_frame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pop_frame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structFrameStack.html">FrameStack</a> *&#160;</td>
+          <td class="paramname"><em>fs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5316e1c063f566340878c6e5564c11a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5316e1c063f566340878c6e5564c11a7">&#9670;&nbsp;</a></span>pop_operand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ClassLoader_8h.html#aedf6ddc03df8caaaccbb4c60b9a9b850">u4</a> pop_operand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structoperand__stack.html">operand_stack</a> *&#160;</td>
+          <td class="paramname"><em>stack</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que desempilha um operando da pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*stack</td><td>ponteiro para a pilha </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>O operando desimpilhado </dd></dl>
+
+</div>
+</div>
+<a id="a605a09336c06cbc72668767f80bc0865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a605a09336c06cbc72668767f80bc0865">&#9670;&nbsp;</a></span>push_frame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void push_frame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcp__info.html">cp_info</a> *&#160;</td>
+          <td class="paramname"><em>cp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structStaticAtrib.html">StaticAtrib</a> *&#160;</td>
+          <td class="paramname"><em>sa</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structmethod__info.html">method_info</a> *&#160;</td>
+          <td class="paramname"><em>mf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structFrameStack.html">FrameStack</a> *&#160;</td>
+          <td class="paramname"><em>fs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que adiciona um frame. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*cp</td><td>Ponteiro para o constant pool </td></tr>
+    <tr><td class="paramname">*mf</td><td>Ponteiro para as informações do método </td></tr>
+    <tr><td class="paramname">*fs</td><td>Ponteiro para a pilha de frames </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a58e0fe52e8e68e2d658615da24266b9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e0fe52e8e68e2d658615da24266b9b">&#9670;&nbsp;</a></span>push_operand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void push_operand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="ClassLoader_8h.html#aedf6ddc03df8caaaccbb4c60b9a9b850">u4</a>&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structoperand__stack.html">operand_stack</a> *&#160;</td>
+          <td class="paramname"><em>stack</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que coloca um operando na pilha. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>O operando a ser empilhado </td></tr>
+    <tr><td class="paramname">*stack</td><td>ponteiro para a pilha </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

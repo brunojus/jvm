@@ -1,0 +1,143 @@
+\hypertarget{unionDataAtrib}{}\section{Referência da União Data\+Atrib}
+\label{unionDataAtrib}\index{Data\+Atrib@{Data\+Atrib}}
+
+
+Estrutura que gerencia os atributos dinâmicos para cada tipo.  
+
+
+
+
+{\ttfamily \#include $<$Method\+Area.\+h$>$}
+
+
+
+Diagrama de colaboração para Data\+Atrib\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unionDataAtrib__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unionDataAtrib_afca160cb9b44b9af18bd6b84156cabbe}{length}\\
+\>\hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1} $\ast$ \hyperlink{unionDataAtrib_a6ed5174c66346d1713654b70b363eef7}{String\_bytes}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unionDataAtrib_a534a316e72c85094ad85664a845eae7f}{index\_bytes}\\
+\} \hyperlink{unionDataAtrib_a311ec052f39dc74b8fe8bedec2b94c7c}{String}\\
+
+\end{tabbing}\item 
+\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unionDataAtrib_a0ceb91dbaf5366fb7b7aeb8bd940d0ce}{Int}
+\item 
+void $\ast$ \hyperlink{unionDataAtrib_a1cd92c3acf2b8cbe2889f0b766661f1d}{Array}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unionDataAtrib_abb7703b7239c1c10a4f0dd2564af85cf}{LowLong}\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unionDataAtrib_a517700e20f5cbaeeb1c6ba0003ee4c12}{HighLong}\\
+\} \hyperlink{unionDataAtrib_af87c0787ade6589cd16574a11b27abbc}{Long}\\
+
+\end{tabbing}\item 
+\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unionDataAtrib_abf1cacd5fc8d6219aa5bea2dc474f89a}{Float}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unionDataAtrib_a1f6e08d1c97fee36f6b0f92d7b985933}{LowDouble}\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unionDataAtrib_ae701e4461c45e996636b301026eec3e1}{HighDouble}\\
+\} \hyperlink{unionDataAtrib_a3be5309079282250f66331e13f32ad46}{Double}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Descrição Detalhada}
+Estrutura que gerencia os atributos dinâmicos para cada tipo. 
+
+\subsection{Atributos}
+\mbox{\Hypertarget{unionDataAtrib_a1cd92c3acf2b8cbe2889f0b766661f1d}\label{unionDataAtrib_a1cd92c3acf2b8cbe2889f0b766661f1d}} 
+\index{Data\+Atrib@{Data\+Atrib}!Array@{Array}}
+\index{Array@{Array}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{Array}{Array}}
+{\footnotesize\ttfamily void$\ast$ Data\+Atrib\+::\+Array}
+
+\mbox{\Hypertarget{unionDataAtrib_a3be5309079282250f66331e13f32ad46}\label{unionDataAtrib_a3be5309079282250f66331e13f32ad46}} 
+\index{Data\+Atrib@{Data\+Atrib}!Double@{Double}}
+\index{Double@{Double}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{Double}{Double}}
+{\footnotesize\ttfamily struct \{ ... \}  Data\+Atrib\+::\+Double}
+
+\mbox{\Hypertarget{unionDataAtrib_abf1cacd5fc8d6219aa5bea2dc474f89a}\label{unionDataAtrib_abf1cacd5fc8d6219aa5bea2dc474f89a}} 
+\index{Data\+Atrib@{Data\+Atrib}!Float@{Float}}
+\index{Float@{Float}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{Float}{Float}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} Data\+Atrib\+::\+Float}
+
+\mbox{\Hypertarget{unionDataAtrib_ae701e4461c45e996636b301026eec3e1}\label{unionDataAtrib_ae701e4461c45e996636b301026eec3e1}} 
+\index{Data\+Atrib@{Data\+Atrib}!High\+Double@{High\+Double}}
+\index{High\+Double@{High\+Double}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{High\+Double}{HighDouble}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} Data\+Atrib\+::\+High\+Double}
+
+\mbox{\Hypertarget{unionDataAtrib_a517700e20f5cbaeeb1c6ba0003ee4c12}\label{unionDataAtrib_a517700e20f5cbaeeb1c6ba0003ee4c12}} 
+\index{Data\+Atrib@{Data\+Atrib}!High\+Long@{High\+Long}}
+\index{High\+Long@{High\+Long}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{High\+Long}{HighLong}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} Data\+Atrib\+::\+High\+Long}
+
+\mbox{\Hypertarget{unionDataAtrib_a534a316e72c85094ad85664a845eae7f}\label{unionDataAtrib_a534a316e72c85094ad85664a845eae7f}} 
+\index{Data\+Atrib@{Data\+Atrib}!index\+\_\+bytes@{index\+\_\+bytes}}
+\index{index\+\_\+bytes@{index\+\_\+bytes}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{index\+\_\+bytes}{index\_bytes}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} Data\+Atrib\+::index\+\_\+bytes}
+
+\mbox{\Hypertarget{unionDataAtrib_a0ceb91dbaf5366fb7b7aeb8bd940d0ce}\label{unionDataAtrib_a0ceb91dbaf5366fb7b7aeb8bd940d0ce}} 
+\index{Data\+Atrib@{Data\+Atrib}!Int@{Int}}
+\index{Int@{Int}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{Int}{Int}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} Data\+Atrib\+::\+Int}
+
+\mbox{\Hypertarget{unionDataAtrib_afca160cb9b44b9af18bd6b84156cabbe}\label{unionDataAtrib_afca160cb9b44b9af18bd6b84156cabbe}} 
+\index{Data\+Atrib@{Data\+Atrib}!length@{length}}
+\index{length@{length}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} Data\+Atrib\+::length}
+
+\mbox{\Hypertarget{unionDataAtrib_af87c0787ade6589cd16574a11b27abbc}\label{unionDataAtrib_af87c0787ade6589cd16574a11b27abbc}} 
+\index{Data\+Atrib@{Data\+Atrib}!Long@{Long}}
+\index{Long@{Long}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{Long}{Long}}
+{\footnotesize\ttfamily struct \{ ... \}  Data\+Atrib\+::\+Long}
+
+\mbox{\Hypertarget{unionDataAtrib_a1f6e08d1c97fee36f6b0f92d7b985933}\label{unionDataAtrib_a1f6e08d1c97fee36f6b0f92d7b985933}} 
+\index{Data\+Atrib@{Data\+Atrib}!Low\+Double@{Low\+Double}}
+\index{Low\+Double@{Low\+Double}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{Low\+Double}{LowDouble}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} Data\+Atrib\+::\+Low\+Double}
+
+\mbox{\Hypertarget{unionDataAtrib_abb7703b7239c1c10a4f0dd2564af85cf}\label{unionDataAtrib_abb7703b7239c1c10a4f0dd2564af85cf}} 
+\index{Data\+Atrib@{Data\+Atrib}!Low\+Long@{Low\+Long}}
+\index{Low\+Long@{Low\+Long}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{Low\+Long}{LowLong}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} Data\+Atrib\+::\+Low\+Long}
+
+\mbox{\Hypertarget{unionDataAtrib_a311ec052f39dc74b8fe8bedec2b94c7c}\label{unionDataAtrib_a311ec052f39dc74b8fe8bedec2b94c7c}} 
+\index{Data\+Atrib@{Data\+Atrib}!String@{String}}
+\index{String@{String}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{String}{String}}
+{\footnotesize\ttfamily struct \{ ... \}  Data\+Atrib\+::\+String}
+
+\mbox{\Hypertarget{unionDataAtrib_a6ed5174c66346d1713654b70b363eef7}\label{unionDataAtrib_a6ed5174c66346d1713654b70b363eef7}} 
+\index{Data\+Atrib@{Data\+Atrib}!String\+\_\+bytes@{String\+\_\+bytes}}
+\index{String\+\_\+bytes@{String\+\_\+bytes}!Data\+Atrib@{Data\+Atrib}}
+\subsubsection{\texorpdfstring{String\+\_\+bytes}{String\_bytes}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1}$\ast$ Data\+Atrib\+::\+String\+\_\+bytes}
+
+
+
+A documentação para esta união foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{MethodArea_8h}{Method\+Area.\+h}\end{DoxyCompactItemize}

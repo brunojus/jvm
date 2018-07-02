@@ -1,0 +1,2626 @@
+\hypertarget{Instructions_8c}{}\section{Referência do Arquivo Instructions.\+c}
+\label{Instructions_8c}\index{Instructions.\+c@{Instructions.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Frame\+Stack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Instructions.\+h\char`\"{}}\newline
+Gráfico de dependência de inclusões para Instructions.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{Instructions_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Instructions_8c_a705dd2fba1996967769549452c8266e1}{bipush} (char valor, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha um imediato de um byte. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ad0af00102fb7621045a1c6035acfe5eb}{getstatic} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o coloca no frame o operador est�tico. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ac3b98fd98a5a66d5a193e31249f87ab5}{putstatic} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o desempilha o valor est�tico de um atributo de uma classe, e faz uma atribui��o ao campo. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a532851306e97050026eb46435c61e9cd}{ldc} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o busca uma constante no pool de constantes e a empilha na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_af89834744bb8c53ff1223c62af02df94}{ldc2} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o busca uma constante no pool de constantes e a empilha na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a9774fa7ccf4436f3bd486ecba45f7b72}{iconst} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função empilha um valor constante na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a14ee4849c176450df2d8c109872abf7f}{istoren} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente armazena um int do topo da pilha de operandos no vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a49c874473ab4ef46868606485ee972c6}{iloadn} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente carrega um int na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a45ea65a52b6ea9e735727875934b8c47}{iload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente carrega um int na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8c01e95c269879a1dc1a93334274b3a4}{istore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o simplesmente armazena um int do topo da pilha de operandos no vetor de vari�veis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_add0fcbb1828f4213f1604c9d6305e9f0}{imul} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função multiplica dois valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a623503ebec3f0a1528a72dc4299d79db}{iadd} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função soma dois valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a9f7af649faabeddfda007b01ce895ba3}{isub} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função subtrai dois valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a4f9e7c6193392fe8824266697f51fcf5}{idiv} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função divide dois valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_acfc35c6f495590de03ec16bb410fa2eb}{iand} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz a operação \char`\"{}e\char`\"{} logico entre dois valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a0a547b62f2d2962310ea9d0f77666a89}{ineg} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função passa o valor para negativo de um inteiro. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a90f4258b5f87aa1547bb969718ebd90e}{ior} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz a operação \char`\"{}ou\char`\"{} logico entre dois valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a6f1742a279efdafe9a8e35e0cfe70bc5}{ixor} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz a operação logica \char`\"{}xor\char`\"{} entre dois valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a5431f64e760037b20933b1ec0ff8c932}{irem} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função pela o resto de uma divisão inteira. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a5a47a84af9ce9210583e2b34e7e8ca17}{ishl} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz o deslocamento de bits a esquerda de valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ad7436a2936e0f5648f5e4341c51ebdcf}{ishr} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz o deslocamento de bits a direita de valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_adf61ef75f4895aa3a4db1e3144a85816}{iushr} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz o deslocamento de bits a direita de valores inteiros. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a4f64f89ab6d89fec030df9acc88b730d}{i2f} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função coverte um valor inteiro para o tipo float. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_af705acf601f1223a0f9f7e839d6a16ed}{ireturn} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao executa o retorno de um metodo, empilhando o valor int de retorno na pilha de operandos do frame do metodo chamador. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a984ee14a3d1305398a30d71a39a31e2b}{if\+\_\+icmpge} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o retira dois elementos do topo da pilha, e calcula um offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a781631e63f47b9950053aca869f6beda}{if\+\_\+icmplt} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o compara se o valor no topo da pilha de operandos � maior que o segundo valor, e calcula o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ab97d9bee28ad74380ccf16fdb0891dec}{if\+\_\+icmpeq} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o compara os dois valores inteiros no topo da pilha de operandos, e calcula o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a98218ae00da49f5e14d869765a1d430b}{if\+\_\+icmpne} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o compara os dois valores inteiros no topo da pilha de operandos, e calcula o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aaf08c7dcf4830be0ca8c009322d7afa8}{if\+\_\+icmpgt} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o retira dois elementos do topo da pilha, e produz um offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a4661a511019cc319a25485bbb060da36}{if\+\_\+icmple} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o compara se o valor no topo da pilha de operandos � maior ou igual ao segundo valor, e calcula o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ab8ac31bb6743ea143a088dd3a3f41c51}{iinc} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o simplesmente incrementa um valor do vetor de vari�veis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a701e241491f321212b2bec5be7f7e5b3}{lconstn} (long val1, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha um valor constante na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ad864f908094892a5bd18dabc7c06d6c3}{lstoren} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente armazena um long long do topo da pilha de operandos no vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a79deb92ed9543e32e024835e7d195350}{lloadn} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente carrega um long long na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a7022391b3bea98bf1e5537b195f789f5}{lload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente carrega um long long na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a7e198a4137854449586d5d6bdbe360de}{lstore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funcao simplesmente armazena um long long do topo da pilha de operandos no vetor de variaveis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a6a53cc0354e8782ce6d8dd07219c96d5}{ladd} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função soma dois valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ac1c570a56086d685de552ede0f46d2f3}{lsub} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função subtrai dois valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a3dd414846c75f8b15a19b13e11c40fda}{lldiv\+\_\+} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função divide dois valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ac33a3332a30047f7da250f034c0bb9e5}{lrem} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função divide dois valores long long e armazena o resto da divisao. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a0ec203fbd351f0084818a871d92e6363}{lmul} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função multiplicaçao dois valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a1ccaa67537c2f37814764874da2aee04}{lneg} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao passa o valor para negativo de um long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_af107187a6f0ab21fa07051bcce1fe477}{land} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao faz a operaçao \char`\"{}e\char`\"{} logico entre dois valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a5a7da23a7ecbd62acedc398f5295162c}{lor} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao faz a operaçao \char`\"{}ou\char`\"{} logico entre dois valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a1007ca19be5041d1fe3fbc71a621acfc}{lxor} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao faz a operaçao \char`\"{}ou exclusivo\char`\"{} logico entre dois valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8ae75286fc4b426fcc7c7da53c93842c}{lshl} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz o deslocamento de bits a esquerda de valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a951fbc7756dfc4b798d531152a8fb93e}{lshr} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz o deslocamento de bits a direita de valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a5a3fa8102d08ff7db6556d4af5644f22}{lushr} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz o deslocamento de bits a direita de valores long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a1d0b49d57b4e97594a7f82bf299d487c}{lreturn} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao executa o retorno de um metodo, empilhando o valor long long de retorno na pilha de operandos do frame do metodo chamador. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a4e0a77edecb133b58f57ba29cd277b53}{l2d} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um long long para double. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_addaf018472ab2c5257e3275a50624818}{l2f} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um long long para float. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a750239172914d03cc2a68608f545ecee}{l2i} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um long long para int. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8af416713ef811ca6cf0026c8a4b29b0}{lcmp} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta compara dois valores long long que estao no topo da pilha. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ab2e41bd12bf6cba5174c3ef2744b5388}{dconstn} (double val1, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha um valor constante na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ac172c203901c8234b885afee1f2042cc}{dstoren} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente armazena um double do topo da pilha de operandos no vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a12bf774e8ddc18946ba4b94133d44546}{dloadn} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente carrega um double na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a10b33378017a94f7dfc03dd729ccd5b6}{dload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente carrega um double na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8aa585d86f1ff8e6b9dec5285a33d9b6}{dstore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funcao simplesmente armazena um double do topo da pilha de operandos no vetor de variaveis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a7f2bfad7c28ae93c335c1c8616520d99}{dadd} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função soma dois valores double. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a6b3ca5eef979f4912636be9f8239049d}{dsub} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função subtrai dois valores double. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8a8d2d455f2cbe8ba7d7ab735f5270b9}{ddiv} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função divide dois valores double. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a51cc19ebd5496bec721d27a4f6203f89}{d\+Rem} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função divide dois valores double e armazena o resto da divisao. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aa7135aa797378c29f558f804106f863b}{dmul} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função multiplica dois valores double. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aa8af81288ee43bca23c6a95d67ec1e23}{dneg} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao passa o valor para negativo de um double. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_acb76e47bacd394b13dce2820bb5fad9f}{dreturn} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao executa o retorno de um metodo, empilhando o valor double de retorno na pilha de operandos do frame do metodo chamador. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ad3f5e19e7279c969e5f69eeb7d2046f6}{d2l} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um double para long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a4104b7156493ce1a5a02044a9d9a60ee}{d2f} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um double para float. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a244d120a6e4bc0ca97ed598ce0b08bcb}{d2i} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um double para int. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_abbabf9264947f27e0ebeb39060b09448}{dcmpl} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta compara dois valores double que estao no topo da pilha. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a4826f0038e41025231da4ce337e338d4}{dcmpg} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta � uma fun��o de compara��o de dois doubles da pilha de operandos utilizando o padr�o I\+E\+EE 754. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aaf33632fc01437bcca50421602ea5b1f}{dup} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz o duplica o valor deo topo da pilha. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aa91cf719e5339663a9fe5704b3e5bfe4}{dupx1} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função duplica um valor intercalado a outro. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a48f563018ce8aa6f43cbed7433a68a40}{dupx2\+\_\+1} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função empilha valores no topo da pilha segundo uma determinada regra. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a2dd2a6f684b065a929d4609b53422219}{dupx2\+\_\+2} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função refaz a forma utilizada pela função dupx1. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a5430b63fa308acbc720685f19e9b3617}{dup2} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função empilha valores na pilha segundo uma determinada regra. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a43d682b7080ee028515f377b3a28a076}{dup2x1\+\_\+1} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função empilha valores na pilha segundo uma determinada regra. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a5a1d5cb0adfea022d352ff5f5fe060b1}{dup2x1\+\_\+2} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função refaz a forma utilizada pela função dupx1. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aaf855a211029717dcc1b428d9889eef2}{dup2x2\+\_\+1} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função empilha valores na pilha segundo uma determinada regra. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a988cf09556fe8127cd2e088153832347}{dup2x2\+\_\+2} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função empilha valores na pilha segundo uma determinada regra. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a164222c1e344350279464e0557d7cc0f}{dup2x2\+\_\+3} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função refaz a forma utilizada pela função dupx2x1\+\_\+1. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a72541e2df41b1e9be9d36d4389a886b9}{dup2x2\+\_\+4} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função refaz a forma utilizada pela função dupx1. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ab1f6e9da234a92f5725f6c0de3c47a39}{Goto} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o produz um deslocamento de 16 bits a ser somado ao valor de PC para implementar um desvio incondicional. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aec146b3cfa3d34b7d6804d574c80636e}{newarray} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha a refer�ncia e aloca a mem�ria para um array unidimensional. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_acfb54f8f70bbbc2e8dfc91a9f4d6b0bd}{astore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o faz um pop de uma referencia no frame que est� na pilha de frame. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a5f0bee11c4a127ee1184c1f2472ee9b6}{astoren} (\hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o simplesmente armazena uma refer�ncia do topo da pilha de operandos no vetor de vari�veis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a25e65a9f93b6628203beed5f4a3d542a}{aload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o faz um push de uma referencia no frame que est� na pilha de frame. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a4384aded432d3ed9be44f92976708f2a}{aloadn} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha um valor do tipo refer�ncia armazenado em um certo �ndice do vetor de vari�veis locais na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_acb0bbb231bebfe7ee184f51439cde5a7}{iastore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função armazena um int do topo da pilha de operandos em um vetor de ints. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a3ba98d8f29fa2e335cedde2ee701dcfb}{iaload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o armazena um int do topo da pilha de operandos em um vetor de ints. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a7a66351c38b630f31819190b8bd68f54}{fastore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função armazena um float do topo da pilha de operandos em um vetor de floats. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a773dfc779489dc4e7749a29a499ed807}{faload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função carrega um float na pilha de operandos a partir de um array de floats. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_abea004772e0d61315aceb30738629b69}{bastore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o armazena um valor em um dado �ndice de um array de byte ou boolean. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_abf723135b1208847d159d47a54564595}{baload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha o valor em um dado �ndice de um array de bytes ou booleans na pilha de operandos, extendendo o sinal se a vari�vel for byte e n�o extendendo o sinal se a vari�vel for boolean. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ac81420e277715c7a7ea2c82e6623b576}{castore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o armazena um valor em um dado �ndice de um array de chars. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a86a0cace7f3d67338e28486fe431f057}{caload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha o valor presente em um dado �ndice de um array de chars na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a88acb22190554ff72bc2b5a266f37c0b}{sastore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o armazena um valor em um dado �ndice de um array de shorts. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a74f2eaf3d9a79736d123665b7e03ec13}{saload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o armazena um short do topo da pilha de operandos em um vetor de shorts. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a65ff21c9bc7c3195d109a95721f56eca}{dastore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função armazena um double do topo da pilha de operandos em um vetor de long long\textquotesingle{}s. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a226b49b9de171996cf1f13360f65f0a6}{daload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o armazena um double do topo da pilha de operandos em um vetor de doubles. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a03dd1a36cf9045704ce5867c540ac867}{lastore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função armazena um long long do topo da pilha de operandos em um vetor de long long\textquotesingle{}s. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a93b5647880fca8535245cd71497a60b4}{laload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o armazena um long long do topo da pilha de operandos em um vetor de long longs. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a9758a41c86b5f83365c6d974f4464d6e}{aaload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o armazena uma refer�ncia do topo da pilha de operandos em um vetor de refer�ncias. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a34ecfdc9e3def3ee1fd4395cd45ba64c}{fconstn} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função insere na pilha um valor de ponto flutuante. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a2fa2713004b611c8bc0bfebc89510ec0}{fadd} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função soma dois valores do tipo float. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ab5ddde2fa9a7480f08ccc33c4402a6c3}{fsub} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função subtrai dois valores do tipo float. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a026967129d62c77760656130595cacec}{fmul} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função multiplica dois do tipo float. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ada86d1da11dd35aac89d3e2be7cda5cf}{fdiv} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função divide dois valores do tipo float. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a847f61be128bf30e88346cf55f7bc3ba}{frem} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função obtém o resto de uma divisão de ponto flutuante. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a778424f5d04a57b5c5b9c010b10642d3}{fneg} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função passa o valor para negativo de um float. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ad03163d48d68f24e57a5cbcf3159bac9}{fload} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente carrega um float na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a353f26708cd929278d61b6a6be8dee12}{fstore} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente armazena um float do topo da pilha de operandos no vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a3881f278d7316ed8e8853373b3c3d5fc}{floadn} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente carrega uma constante float na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8a6f8d2ae4502435cf6c67fdfe83543e}{freturn} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o executa o retorno de um metodo, empilhando o valor float de retorno na pilha de operandos do frame do metodo chamador. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a385c644c66d20927c82a9f19e7720a27}{fstoren} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} val, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função simplesmente armazena um float do topo da pilha de operandos no vetor de variáveis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a3819adbf3f5150e9a3ee9a6a13180a27}{fcmpg} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta � uma fun��o de compara��o de dois floats da pilha de operandos utilizando o padrão I\+E\+EE 754. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8af59e9aec972bf0a8a4bca916e5e802}{fcmpl} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta é uma função de comparação de dois floats da pilha de operandos utilizando o padrão I\+E\+EE 754. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a66f881d94a0e1ebfcc247f3bdc62720f}{pop2} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz dois pops na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8d96d1abf18ba97f8ec556fe5fe7cddf}{pop} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz um pop na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a0f5d2ab60ed5197f3a3a3d1ee841dd8d}{sipush} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o simplesmente empilha um short (2 bytes) dado na pilha de operandos. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ae8c1c66e8119230a0245b76c42636f0c}{swap} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta função faz a troca de posição entre dois valores da pilha. \end{DoxyCompactList}\item 
+int \hyperlink{Instructions_8c_ad9aec0002a5299ebfc3407dbc6e7a43e}{achar\+Tipo\+Array} (char $\ast$descritor)
+\item 
+void \hyperlink{Instructions_8c_a025278966d6ee63ae872e680a1827eb4}{anewarray} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\item 
+void \hyperlink{Instructions_8c_a4d1a81a0faca488a7f82de6a5576d4e1}{multianewarray} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha a refer�ncia e aloca a mem�ria para um array multidimensional. \end{DoxyCompactList}\item 
+\hyperlink{structarrayMult}{array\+Mult} $\ast$ \hyperlink{Instructions_8c_a1a30209ee66bb49b17a547b06e41d6d5}{Reduce\+Dimension} (\hyperlink{structarrayMult}{array\+Mult} $\ast$dimen, \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} qualpos)
+\begin{DoxyCompactList}\small\item\em Esta fun��o reduz uma �nica dimens�o do array multidimensional. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a7e9f3a9b0d70c7453f8e234f2483d4c8}{new\+Obj} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o procura a classe e cria um novo objeto dessa classe. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a973ed81061aab3cc555c3e81e1d96edf}{putfield} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o desempilha o valor de um atributo de uma classe, e faz uma atribui��o ao campo. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a58eac8eff63f9b01d3e732868752d29d}{getfield} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha o valor de um atributo de uma classe. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ad44b1dfb2457e7dde15873e44259bfd9}{f2i} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um float para int. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a098f7408a3df0fd67ef07ee694cba314}{f2l} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um float para long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a67421289339ff79e64120f6eece8f553}{i2l} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um int para long long. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a289dc0bc8d211502c64e8eaf6c788891}{i2d} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um int para double. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a1e6ace92acc086c83667982f68c2e448}{f2d} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um float para double. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a1b83b228e63c9d60057ddd3133ee95a3}{i2b} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um int para byte. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ae845ffb71260c681aef0497c9cc8c537}{i2c} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um int para char. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a3dff2d25279d8cde9acba86e542960b8}{i2s} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta funçao converte um int para short. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a7d28c1bcf59ba303119001f847b64a6d}{aconstnull} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o emplilha um ponteiro com o valor null. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aee7559362b17e07327f743f0bec3afd6}{ifeq} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o implementa um desvio condicional do tipo vari�vel igual a zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aaedd51dc94e53861a357b9df3754aa66}{ifne} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o implementa um desvio condicional do tipo vari�vel diferente de zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ad504c74f331058c5f95a9ac7ff9d18e1}{iflt} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o implementa um desvio condicional do tipo vari�vel menor que zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aeb8800de8baa55ab71d6cb58fc93c22b}{ifle} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o implementa um desvio condicional do tipo vari�vel menor ou igual a zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ac1c65e20772cf0ea744a4615fe38a388}{ifgt} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o implementa um desvio condicional do tipo vari�vel maior que zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_abf549ebd8ac5fed66d6678af96f1f062}{ifge} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o implementa um desvio condicional do tipo vari�vel maior ou igual a zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a415c81a41fac4524d110aff25284830e}{if\+\_\+acmpeq} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o compara os dois valores do tipo refer�ncia no topo da pilha de operandos, e produz o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a35f02117ec35a53434035688c339a21f}{if\+\_\+acmpne} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o compara os dois valores do tipo refer�ncia no topo da pilha de operandos, e produz o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ae010f8139df37446a351566312688379}{jsr} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha o endere�o da pr�xima execu��o a ser executada e retorna um deslocamento de 16 bits a ser somado a PC. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a68fc171934ce61f90c721103e173905d}{ret} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o l� o novo ppc do vetor de vari�veis locais. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_ac1a0c8fff689e07ee131622c5717132e}{ifnull} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o verifica se o valor no topo da pilha � uma refer�ncia nula, e produz um offset a ser somado ao PC para alcan�ar a pr�xima instru��o a ser executada. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a12dec4bc7993af7347d0f46e20d6c6e7}{ifnonull} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o verifica se o valor no topo da pilha � uma refer�ncia nula, e produz um offset a ser somado ao PC para alcan�ar a pr�xima instru��o a ser executada. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a61f19fe1ba20edb901a2090344a983de}{Goto\+\_\+w} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o produz um deslocamento de 32 bits a ser somado ao valor de PC para implementar um desvio incondicional. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a17d3e3e5fb8d99e25a1e5caf899c54a1}{jsr\+\_\+w} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o empilha o endere�o da pr�xima execu��o a ser executada e retorna um deslocamento de 32 bits a ser somado a PC. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_aaf568b4090e91eb7bab05d285a05c494}{areturn} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o retorna uma refer�ncia. \end{DoxyCompactList}\item 
+void \hyperlink{Instructions_8c_a8475bd26f5f967d5e3a7cd972179acc2}{tableswitch} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Esta fun��o que executa o comando switch. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{Instructions_8c_a9758a41c86b5f83365c6d974f4464d6e}\label{Instructions_8c_a9758a41c86b5f83365c6d974f4464d6e}} 
+\index{Instructions.\+c@{Instructions.\+c}!aaload@{aaload}}
+\index{aaload@{aaload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{aaload()}{aaload()}}
+{\footnotesize\ttfamily void aaload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o armazena uma refer�ncia do topo da pilha de operandos em um vetor de refer�ncias. 
+
+A fun��o retira da pilha de operandos o valor da refer�ncia a ser armazenado do vetor, o �ndice para a posi��o onde esse elemento ser� armazenado e uma refer�ncia a posi��o do in�cio desse vetor na mem�ria 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ad9aec0002a5299ebfc3407dbc6e7a43e}\label{Instructions_8c_ad9aec0002a5299ebfc3407dbc6e7a43e}} 
+\index{Instructions.\+c@{Instructions.\+c}!achar\+Tipo\+Array@{achar\+Tipo\+Array}}
+\index{achar\+Tipo\+Array@{achar\+Tipo\+Array}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{achar\+Tipo\+Array()}{acharTipoArray()}}
+{\footnotesize\ttfamily int achar\+Tipo\+Array (\begin{DoxyParamCaption}\item[{char $\ast$}]{descritor }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Instructions_8c_a7d28c1bcf59ba303119001f847b64a6d}\label{Instructions_8c_a7d28c1bcf59ba303119001f847b64a6d}} 
+\index{Instructions.\+c@{Instructions.\+c}!aconstnull@{aconstnull}}
+\index{aconstnull@{aconstnull}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{aconstnull()}{aconstnull()}}
+{\footnotesize\ttfamily void aconstnull (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o emplilha um ponteiro com o valor null. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a25e65a9f93b6628203beed5f4a3d542a}\label{Instructions_8c_a25e65a9f93b6628203beed5f4a3d542a}} 
+\index{Instructions.\+c@{Instructions.\+c}!aload@{aload}}
+\index{aload@{aload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{aload()}{aload()}}
+{\footnotesize\ttfamily void aload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o faz um push de uma referencia no frame que est� na pilha de frame. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a4384aded432d3ed9be44f92976708f2a}\label{Instructions_8c_a4384aded432d3ed9be44f92976708f2a}} 
+\index{Instructions.\+c@{Instructions.\+c}!aloadn@{aloadn}}
+\index{aloadn@{aloadn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{aloadn()}{aloadn()}}
+{\footnotesize\ttfamily void aloadn (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha um valor do tipo refer�ncia armazenado em um certo �ndice do vetor de vari�veis locais na pilha de operandos. 
+
+Esta fun��o na verdade implementa a fam�lia de instru��es aload\+\_\+$<$n$>$ onde n varia de 0 a 3 inclusive. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde se executar� a opera��o. \\
+\hline
+{\em val} & O �ndice no vetor de vari�veis locais onde o valor do tipo refer�ncia est� armazenado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a025278966d6ee63ae872e680a1827eb4}\label{Instructions_8c_a025278966d6ee63ae872e680a1827eb4}} 
+\index{Instructions.\+c@{Instructions.\+c}!anewarray@{anewarray}}
+\index{anewarray@{anewarray}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{anewarray()}{anewarray()}}
+{\footnotesize\ttfamily void anewarray (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{Instructions_8c_aaf568b4090e91eb7bab05d285a05c494}\label{Instructions_8c_aaf568b4090e91eb7bab05d285a05c494}} 
+\index{Instructions.\+c@{Instructions.\+c}!areturn@{areturn}}
+\index{areturn@{areturn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{areturn()}{areturn()}}
+{\footnotesize\ttfamily void areturn (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o retorna uma refer�ncia. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_acfb54f8f70bbbc2e8dfc91a9f4d6b0bd}\label{Instructions_8c_acfb54f8f70bbbc2e8dfc91a9f4d6b0bd}} 
+\index{Instructions.\+c@{Instructions.\+c}!astore@{astore}}
+\index{astore@{astore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{astore()}{astore()}}
+{\footnotesize\ttfamily void astore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o faz um pop de uma referencia no frame que est� na pilha de frame. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a5f0bee11c4a127ee1184c1f2472ee9b6}\label{Instructions_8c_a5f0bee11c4a127ee1184c1f2472ee9b6}} 
+\index{Instructions.\+c@{Instructions.\+c}!astoren@{astoren}}
+\index{astoren@{astoren}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{astoren()}{astoren()}}
+{\footnotesize\ttfamily void astoren (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o simplesmente armazena uma refer�ncia do topo da pilha de operandos no vetor de vari�veis locais. 
+
+A fun��o primeiro desempilha o valor do topo da pilha e esse valor � armazenado no vetor de vari�veis locais na posi��o indicada por �ndice. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+{\em val} & O �ndice indicando a posi��o do vetor de vari�veis locais onde a refer�ncia ser� armazenada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_abf723135b1208847d159d47a54564595}\label{Instructions_8c_abf723135b1208847d159d47a54564595}} 
+\index{Instructions.\+c@{Instructions.\+c}!baload@{baload}}
+\index{baload@{baload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{baload()}{baload()}}
+{\footnotesize\ttfamily void baload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha o valor em um dado �ndice de um array de bytes ou booleans na pilha de operandos, extendendo o sinal se a vari�vel for byte e n�o extendendo o sinal se a vari�vel for boolean. 
+
+A fun��o opera desempilhando o �ndice e o endere�o do vetor da pilha de operandos, ap�s isso o endere�o do vetor � copiado para um ponteiro para a estrutura array. O tipo do vetor � determinado, se for byte o valor naquele �ndice do vetor tem seu sinal extendido para 32 bits e armazenado na pilha de operandos. Caso o tipo do vetor seja boolean o valor naquela posi��o � empilhado na pilha de operandos, sem extens�o de sinal. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para a pilha de frames. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_abea004772e0d61315aceb30738629b69}\label{Instructions_8c_abea004772e0d61315aceb30738629b69}} 
+\index{Instructions.\+c@{Instructions.\+c}!bastore@{bastore}}
+\index{bastore@{bastore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{bastore()}{bastore()}}
+{\footnotesize\ttfamily void bastore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o armazena um valor em um dado �ndice de um array de byte ou boolean. 
+
+A fun��o opera desempilhando o valor a ser armazenado no vetor, o �ndice a ser alterado e a refer�ncia para o array de bytes ou booleans. Ap�s isso o valor desempilhado � armazenado naquele �ndice do array. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde se efetuar� a opera��o. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a705dd2fba1996967769549452c8266e1}\label{Instructions_8c_a705dd2fba1996967769549452c8266e1}} 
+\index{Instructions.\+c@{Instructions.\+c}!bipush@{bipush}}
+\index{bipush@{bipush}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{bipush()}{bipush()}}
+{\footnotesize\ttfamily void bipush (\begin{DoxyParamCaption}\item[{char}]{valor,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha um imediato de um byte. 
+
+A fun��o opera inserindo um valor byte no topo do pilha 
+\begin{DoxyParams}{Parâmetros}
+{\em valor} & Um byte a ser empilhado. \\
+\hline
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a86a0cace7f3d67338e28486fe431f057}\label{Instructions_8c_a86a0cace7f3d67338e28486fe431f057}} 
+\index{Instructions.\+c@{Instructions.\+c}!caload@{caload}}
+\index{caload@{caload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{caload()}{caload()}}
+{\footnotesize\ttfamily void caload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha o valor presente em um dado �ndice de um array de chars na pilha de operandos. 
+
+A fun��o opera desempilhando um �ndice e uma refer�ncia para um array de chars, buscando o valor presente naquele �ndice do array, e empilhando esse valor na pilha de operandos. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ac81420e277715c7a7ea2c82e6623b576}\label{Instructions_8c_ac81420e277715c7a7ea2c82e6623b576}} 
+\index{Instructions.\+c@{Instructions.\+c}!castore@{castore}}
+\index{castore@{castore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{castore()}{castore()}}
+{\footnotesize\ttfamily void castore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o armazena um valor em um dado �ndice de um array de chars. 
+
+A fun��o opera desempilhando o valor a ser armazenado no vetor, o �ndice a ser alterado e a refer�ncia para o array de chars. Ap�s isso o valor desempilhado � armazenado naquele �ndice do array. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde se efetuar� a opera��o. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a4104b7156493ce1a5a02044a9d9a60ee}\label{Instructions_8c_a4104b7156493ce1a5a02044a9d9a60ee}} 
+\index{Instructions.\+c@{Instructions.\+c}!d2f@{d2f}}
+\index{d2f@{d2f}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{d2f()}{d2f()}}
+{\footnotesize\ttfamily void d2f (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um double para float. 
+
+A funçao desempilha um double, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para float, depois empilha no top da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a244d120a6e4bc0ca97ed598ce0b08bcb}\label{Instructions_8c_a244d120a6e4bc0ca97ed598ce0b08bcb}} 
+\index{Instructions.\+c@{Instructions.\+c}!d2i@{d2i}}
+\index{d2i@{d2i}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{d2i()}{d2i()}}
+{\footnotesize\ttfamily void d2i (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um double para int. 
+
+A funçao desempilha um double, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para int, depois empilha no top da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ad3f5e19e7279c969e5f69eeb7d2046f6}\label{Instructions_8c_ad3f5e19e7279c969e5f69eeb7d2046f6}} 
+\index{Instructions.\+c@{Instructions.\+c}!d2l@{d2l}}
+\index{d2l@{d2l}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{d2l()}{d2l()}}
+{\footnotesize\ttfamily void d2l (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um double para long long. 
+
+A funçao desempilha um double, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para long long, depois empilha no top da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a7f2bfad7c28ae93c335c1c8616520d99}\label{Instructions_8c_a7f2bfad7c28ae93c335c1c8616520d99}} 
+\index{Instructions.\+c@{Instructions.\+c}!dadd@{dadd}}
+\index{dadd@{dadd}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dadd()}{dadd()}}
+{\footnotesize\ttfamily void dadd (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função soma dois valores double. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando.\+Soma os dois operandos e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a226b49b9de171996cf1f13360f65f0a6}\label{Instructions_8c_a226b49b9de171996cf1f13360f65f0a6}} 
+\index{Instructions.\+c@{Instructions.\+c}!daload@{daload}}
+\index{daload@{daload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{daload()}{daload()}}
+{\footnotesize\ttfamily void daload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o armazena um double do topo da pilha de operandos em um vetor de doubles. 
+
+A fun��o retira da pilha de operandos o valor do double a ser armazenado do vetor, o �ndice para a posi��o onde esse elemento ser� armazenado e uma refer�ncia a posi��o do in�cio desse vetor na mem�ria 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a65ff21c9bc7c3195d109a95721f56eca}\label{Instructions_8c_a65ff21c9bc7c3195d109a95721f56eca}} 
+\index{Instructions.\+c@{Instructions.\+c}!dastore@{dastore}}
+\index{dastore@{dastore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dastore()}{dastore()}}
+{\footnotesize\ttfamily void dastore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função armazena um double do topo da pilha de operandos em um vetor de long long\textquotesingle{}s. 
+
+A função retira da pilha de operandos o valor do double a ser armazenado do vetor, o índice para a posição onde esse elemento será armazenado e uma referência a posição do início desse vetor na memória. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a4826f0038e41025231da4ce337e338d4}\label{Instructions_8c_a4826f0038e41025231da4ce337e338d4}} 
+\index{Instructions.\+c@{Instructions.\+c}!dcmpg@{dcmpg}}
+\index{dcmpg@{dcmpg}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dcmpg()}{dcmpg()}}
+{\footnotesize\ttfamily void dcmpg (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta � uma fun��o de compara��o de dois doubles da pilha de operandos utilizando o padr�o I\+E\+EE 754. 
+
+A fun��o desempilha quatro valores, primeiro o menos significativo e o mais significativo do primeiro operando, e depois o menos significativo e o mais significativo do segundo operando. Se o valor do primeiro operando for maior que o valor do segundo operando, a fun��o empilha 1 na pilha de operandos. Se os valores forem iguais, a fun��o empilha 0. Caso o valor do segundo operando seja maior que o valor do primeiro, ent�o -\/1 � inserido na pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_abbabf9264947f27e0ebeb39060b09448}\label{Instructions_8c_abbabf9264947f27e0ebeb39060b09448}} 
+\index{Instructions.\+c@{Instructions.\+c}!dcmpl@{dcmpl}}
+\index{dcmpl@{dcmpl}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dcmpl()}{dcmpl()}}
+{\footnotesize\ttfamily void dcmpl (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta compara dois valores double que estao no topo da pilha. 
+
+A funçao desempilha dois double\textquotesingle{}s, primeiro o menos significativo depois o mais significativo de cada operando. Entao, faz uma subtraçao entre os operandos, depois empilha um valor int, que sera 1 caso o primeiro operando for maior que o segundo, sera 0 caso os operandos sejam iguais, ou sera -\/1 caso o primeiro operando seja menor que o segundo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ab2e41bd12bf6cba5174c3ef2744b5388}\label{Instructions_8c_ab2e41bd12bf6cba5174c3ef2744b5388}} 
+\index{Instructions.\+c@{Instructions.\+c}!dconstn@{dconstn}}
+\index{dconstn@{dconstn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dconstn()}{dconstn()}}
+{\footnotesize\ttfamily void dconstn (\begin{DoxyParamCaption}\item[{double}]{val1,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha um valor constante na pilha de operandos. 
+
+A fun��o opera inserindo um valor double no topo do pilha 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+{\em valor} & Um double a ser empilhado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8a8d2d455f2cbe8ba7d7ab735f5270b9}\label{Instructions_8c_a8a8d2d455f2cbe8ba7d7ab735f5270b9}} 
+\index{Instructions.\+c@{Instructions.\+c}!ddiv@{ddiv}}
+\index{ddiv@{ddiv}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ddiv()}{ddiv()}}
+{\footnotesize\ttfamily void ddiv (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função divide dois valores double. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando.\+Divide os dois operandos e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a10b33378017a94f7dfc03dd729ccd5b6}\label{Instructions_8c_a10b33378017a94f7dfc03dd729ccd5b6}} 
+\index{Instructions.\+c@{Instructions.\+c}!dload@{dload}}
+\index{dload@{dload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dload()}{dload()}}
+{\footnotesize\ttfamily void dload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente carrega um double na pilha de operandos. 
+
+A função empilha o valor do int armazenado no vetor de variáveis locais do índice dado. Empilha o mais significativo depois o menso significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a12bf774e8ddc18946ba4b94133d44546}\label{Instructions_8c_a12bf774e8ddc18946ba4b94133d44546}} 
+\index{Instructions.\+c@{Instructions.\+c}!dloadn@{dloadn}}
+\index{dloadn@{dloadn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dloadn()}{dloadn()}}
+{\footnotesize\ttfamily void dloadn (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente carrega um double na pilha de operandos. 
+
+A função empilha o valor do double armazenado no vetor de variáveis locais do índice dado. 
+\begin{DoxyParams}{Parâmetros}
+{\em val} & Índice do valor a ser empilhado. \\
+\hline
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aa7135aa797378c29f558f804106f863b}\label{Instructions_8c_aa7135aa797378c29f558f804106f863b}} 
+\index{Instructions.\+c@{Instructions.\+c}!dmul@{dmul}}
+\index{dmul@{dmul}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dmul()}{dmul()}}
+{\footnotesize\ttfamily void dmul (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função multiplica dois valores double. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando. Multiplica os dois operandos e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aa8af81288ee43bca23c6a95d67ec1e23}\label{Instructions_8c_aa8af81288ee43bca23c6a95d67ec1e23}} 
+\index{Instructions.\+c@{Instructions.\+c}!dneg@{dneg}}
+\index{dneg@{dneg}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dneg()}{dneg()}}
+{\footnotesize\ttfamily void dneg (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao passa o valor para negativo de um double. 
+
+A função opera desempilhando dois valores da pilha, o menos significativo depois o mais significativo do operando. Acrescenta o sinal negativo a este valor, e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a51cc19ebd5496bec721d27a4f6203f89}\label{Instructions_8c_a51cc19ebd5496bec721d27a4f6203f89}} 
+\index{Instructions.\+c@{Instructions.\+c}!d\+Rem@{d\+Rem}}
+\index{d\+Rem@{d\+Rem}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{d\+Rem()}{dRem()}}
+{\footnotesize\ttfamily void d\+Rem (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função divide dois valores double e armazena o resto da divisao. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando.\+Divide os dois operandos e empilha o resto da divisao no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_acb76e47bacd394b13dce2820bb5fad9f}\label{Instructions_8c_acb76e47bacd394b13dce2820bb5fad9f}} 
+\index{Instructions.\+c@{Instructions.\+c}!dreturn@{dreturn}}
+\index{dreturn@{dreturn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dreturn()}{dreturn()}}
+{\footnotesize\ttfamily void dreturn (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao executa o retorno de um metodo, empilhando o valor double de retorno na pilha de operandos do frame do metodo chamador. 
+
+A funçao desempilha dois valores, primeiro o menos significativo depois o mais significativo. Depois empilha na ordem contraria. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8aa585d86f1ff8e6b9dec5285a33d9b6}\label{Instructions_8c_a8aa585d86f1ff8e6b9dec5285a33d9b6}} 
+\index{Instructions.\+c@{Instructions.\+c}!dstore@{dstore}}
+\index{dstore@{dstore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dstore()}{dstore()}}
+{\footnotesize\ttfamily void dstore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funcao simplesmente armazena um double do topo da pilha de operandos no vetor de variaveis locais. 
+
+A função primeiro desempilha o valor do topo da pilha e esse valor é armazenado no vetor de variáveis locais na posição indicada por index. Isso e feito para as partes mais e menos significativas. Caso o indicador wide seja 0, o índice não é concatenado e seu alcance é de 8 bits. Caso seja 1, o índice é concatenado para que o mesmo possa ter um alcance maior de 16 bits. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ac172c203901c8234b885afee1f2042cc}\label{Instructions_8c_ac172c203901c8234b885afee1f2042cc}} 
+\index{Instructions.\+c@{Instructions.\+c}!dstoren@{dstoren}}
+\index{dstoren@{dstoren}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dstoren()}{dstoren()}}
+{\footnotesize\ttfamily void dstoren (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente armazena um double do topo da pilha de operandos no vetor de variáveis locais. 
+
+A função primeiro desempilha o valor menos significativo do topo da pilha e esse valor é armazenado no vetor de variáveis locais na posição indicada por val. O valor mais significativo � retirado do topo da pilha e armazenado no vetor de vari�veis locais na posi��o val+1. 
+\begin{DoxyParams}{Parâmetros}
+{\em val} & Índice do vetor de variaveis locais. \\
+\hline
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a6b3ca5eef979f4912636be9f8239049d}\label{Instructions_8c_a6b3ca5eef979f4912636be9f8239049d}} 
+\index{Instructions.\+c@{Instructions.\+c}!dsub@{dsub}}
+\index{dsub@{dsub}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dsub()}{dsub()}}
+{\footnotesize\ttfamily void dsub (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função subtrai dois valores double. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando.\+Subtrai os dois operandos e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aaf33632fc01437bcca50421602ea5b1f}\label{Instructions_8c_aaf33632fc01437bcca50421602ea5b1f}} 
+\index{Instructions.\+c@{Instructions.\+c}!dup@{dup}}
+\index{dup@{dup}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dup()}{dup()}}
+{\footnotesize\ttfamily void dup (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz o duplica o valor deo topo da pilha. 
+
+A função opera desempilhando um valor e em seguida empilha este valor duas vezes. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a5430b63fa308acbc720685f19e9b3617}\label{Instructions_8c_a5430b63fa308acbc720685f19e9b3617}} 
+\index{Instructions.\+c@{Instructions.\+c}!dup2@{dup2}}
+\index{dup2@{dup2}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dup2()}{dup2()}}
+{\footnotesize\ttfamily void dup2 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função empilha valores na pilha segundo uma determinada regra. 
+
+A função opera desempilhando dois valores, e logo em seguida empilha o segundo valor, depois o primeiro valor, novamente o segundo valor e por fim o primeiro valor novamente. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a43d682b7080ee028515f377b3a28a076}\label{Instructions_8c_a43d682b7080ee028515f377b3a28a076}} 
+\index{Instructions.\+c@{Instructions.\+c}!dup2x1\+\_\+1@{dup2x1\+\_\+1}}
+\index{dup2x1\+\_\+1@{dup2x1\+\_\+1}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dup2x1\+\_\+1()}{dup2x1\_1()}}
+{\footnotesize\ttfamily void dup2x1\+\_\+1 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função empilha valores na pilha segundo uma determinada regra. 
+
+A função opera desempilhando tres valores, e logo em seguida empilha o segundo valor, depois o primeiro valor,depois o terceiro valor, empilha novamente o segundo e por fim o primeiro valor novamente. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a5a1d5cb0adfea022d352ff5f5fe060b1}\label{Instructions_8c_a5a1d5cb0adfea022d352ff5f5fe060b1}} 
+\index{Instructions.\+c@{Instructions.\+c}!dup2x1\+\_\+2@{dup2x1\+\_\+2}}
+\index{dup2x1\+\_\+2@{dup2x1\+\_\+2}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dup2x1\+\_\+2()}{dup2x1\_2()}}
+{\footnotesize\ttfamily void dup2x1\+\_\+2 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função refaz a forma utilizada pela função dupx1. 
+
+A função funciona analogamente a funçao dupx1 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aaf855a211029717dcc1b428d9889eef2}\label{Instructions_8c_aaf855a211029717dcc1b428d9889eef2}} 
+\index{Instructions.\+c@{Instructions.\+c}!dup2x2\+\_\+1@{dup2x2\+\_\+1}}
+\index{dup2x2\+\_\+1@{dup2x2\+\_\+1}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dup2x2\+\_\+1()}{dup2x2\_1()}}
+{\footnotesize\ttfamily void dup2x2\+\_\+1 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função empilha valores na pilha segundo uma determinada regra. 
+
+A função opera desempilhando quatro valores, e logo em seguida empilha o segundo valor, depois o primeiro valor,depois o quarto valor,depois o terceiro valor empilha novamente o segundo e por fim o primeiro valor novamente. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a988cf09556fe8127cd2e088153832347}\label{Instructions_8c_a988cf09556fe8127cd2e088153832347}} 
+\index{Instructions.\+c@{Instructions.\+c}!dup2x2\+\_\+2@{dup2x2\+\_\+2}}
+\index{dup2x2\+\_\+2@{dup2x2\+\_\+2}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dup2x2\+\_\+2()}{dup2x2\_2()}}
+{\footnotesize\ttfamily void dup2x2\+\_\+2 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função empilha valores na pilha segundo uma determinada regra. 
+
+A função opera desempilhando tres valores, e logo em seguida empilha o primeiro valor, depois o tecceiro valor,depois o segundo valor novamente, e por fim o primeiro valor novamente. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a164222c1e344350279464e0557d7cc0f}\label{Instructions_8c_a164222c1e344350279464e0557d7cc0f}} 
+\index{Instructions.\+c@{Instructions.\+c}!dup2x2\+\_\+3@{dup2x2\+\_\+3}}
+\index{dup2x2\+\_\+3@{dup2x2\+\_\+3}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dup2x2\+\_\+3()}{dup2x2\_3()}}
+{\footnotesize\ttfamily void dup2x2\+\_\+3 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função refaz a forma utilizada pela função dupx2x1\+\_\+1. 
+
+A função funciona analogamente a funçao dupx2x1\+\_\+1 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a72541e2df41b1e9be9d36d4389a886b9}\label{Instructions_8c_a72541e2df41b1e9be9d36d4389a886b9}} 
+\index{Instructions.\+c@{Instructions.\+c}!dup2x2\+\_\+4@{dup2x2\+\_\+4}}
+\index{dup2x2\+\_\+4@{dup2x2\+\_\+4}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dup2x2\+\_\+4()}{dup2x2\_4()}}
+{\footnotesize\ttfamily void dup2x2\+\_\+4 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função refaz a forma utilizada pela função dupx1. 
+
+A função funciona analogamente a funçao dupx1 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aa91cf719e5339663a9fe5704b3e5bfe4}\label{Instructions_8c_aa91cf719e5339663a9fe5704b3e5bfe4}} 
+\index{Instructions.\+c@{Instructions.\+c}!dupx1@{dupx1}}
+\index{dupx1@{dupx1}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dupx1()}{dupx1()}}
+{\footnotesize\ttfamily void dupx1 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função duplica um valor intercalado a outro. 
+
+A função opera desempilhando dois valores da pilha, e logo em seguida empilha o primeiro valor retirado, depois o segundo e novamente o primeiro valor. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a48f563018ce8aa6f43cbed7433a68a40}\label{Instructions_8c_a48f563018ce8aa6f43cbed7433a68a40}} 
+\index{Instructions.\+c@{Instructions.\+c}!dupx2\+\_\+1@{dupx2\+\_\+1}}
+\index{dupx2\+\_\+1@{dupx2\+\_\+1}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dupx2\+\_\+1()}{dupx2\_1()}}
+{\footnotesize\ttfamily void dupx2\+\_\+1 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função empilha valores no topo da pilha segundo uma determinada regra. 
+
+A função opera desempilhando tres valores da pilha, e em seguida empilha o primeiro valor que foi retirado, depois empilha o terceiro valor, depois o segundo valor e repete o primeiro valor. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a2dd2a6f684b065a929d4609b53422219}\label{Instructions_8c_a2dd2a6f684b065a929d4609b53422219}} 
+\index{Instructions.\+c@{Instructions.\+c}!dupx2\+\_\+2@{dupx2\+\_\+2}}
+\index{dupx2\+\_\+2@{dupx2\+\_\+2}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{dupx2\+\_\+2()}{dupx2\_2()}}
+{\footnotesize\ttfamily void dupx2\+\_\+2 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função refaz a forma utilizada pela função dupx1. 
+
+A função funciona analogamente a funçao dupx1 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a1e6ace92acc086c83667982f68c2e448}\label{Instructions_8c_a1e6ace92acc086c83667982f68c2e448}} 
+\index{Instructions.\+c@{Instructions.\+c}!f2d@{f2d}}
+\index{f2d@{f2d}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{f2d()}{f2d()}}
+{\footnotesize\ttfamily void f2d (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um float para double. 
+
+A funçao desempilha um float, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para double, depois empilha no topo da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ad44b1dfb2457e7dde15873e44259bfd9}\label{Instructions_8c_ad44b1dfb2457e7dde15873e44259bfd9}} 
+\index{Instructions.\+c@{Instructions.\+c}!f2i@{f2i}}
+\index{f2i@{f2i}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{f2i()}{f2i()}}
+{\footnotesize\ttfamily void f2i (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um float para int. 
+
+A funçao desempilha um float, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para int, depois empilha no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a098f7408a3df0fd67ef07ee694cba314}\label{Instructions_8c_a098f7408a3df0fd67ef07ee694cba314}} 
+\index{Instructions.\+c@{Instructions.\+c}!f2l@{f2l}}
+\index{f2l@{f2l}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{f2l()}{f2l()}}
+{\footnotesize\ttfamily void f2l (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um float para long long. 
+
+A funçao desempilha um float, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para long long, depois empilha no topo da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a2fa2713004b611c8bc0bfebc89510ec0}\label{Instructions_8c_a2fa2713004b611c8bc0bfebc89510ec0}} 
+\index{Instructions.\+c@{Instructions.\+c}!fadd@{fadd}}
+\index{fadd@{fadd}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fadd()}{fadd()}}
+{\footnotesize\ttfamily void fadd (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função soma dois valores do tipo float. 
+
+A função opera desempilhando dois valores da pilha, somando os dois e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a773dfc779489dc4e7749a29a499ed807}\label{Instructions_8c_a773dfc779489dc4e7749a29a499ed807}} 
+\index{Instructions.\+c@{Instructions.\+c}!faload@{faload}}
+\index{faload@{faload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{faload()}{faload()}}
+{\footnotesize\ttfamily void faload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função carrega um float na pilha de operandos a partir de um array de floats. 
+
+A função retira da pilha de operandos o valor do índice do vetor e a referência ao vetor na memória, retira o valor encontrado na posição referência + indice do vetor e empilha esse valor na pilha de operandos. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a7a66351c38b630f31819190b8bd68f54}\label{Instructions_8c_a7a66351c38b630f31819190b8bd68f54}} 
+\index{Instructions.\+c@{Instructions.\+c}!fastore@{fastore}}
+\index{fastore@{fastore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fastore()}{fastore()}}
+{\footnotesize\ttfamily void fastore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função armazena um float do topo da pilha de operandos em um vetor de floats. 
+
+A função retira da pilha de operandos o valor do float a ser armazenado do vetor, o índice para a posição onde esse elemento será armazenado e uma referência a posição do início desse vetor na memória 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a3819adbf3f5150e9a3ee9a6a13180a27}\label{Instructions_8c_a3819adbf3f5150e9a3ee9a6a13180a27}} 
+\index{Instructions.\+c@{Instructions.\+c}!fcmpg@{fcmpg}}
+\index{fcmpg@{fcmpg}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fcmpg()}{fcmpg()}}
+{\footnotesize\ttfamily void fcmpg (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta � uma fun��o de compara��o de dois floats da pilha de operandos utilizando o padrão I\+E\+EE 754. 
+
+A função desempilha dois valores (dado1 e dado2) da pilha de operandos. Se o valor de dado1 for maior que o valor de dado2, a função empilha 1 na pilha de operandos. Se os valores forem iguais, a função empilha 0. Caso o valor de dado2 seja maior que o valor de dado1, então -\/1 é inserido na pilha. Se ou dos valores for um número não suportado pela máquina (NaN), o valor a ser empilhado na pilha é 1. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8af59e9aec972bf0a8a4bca916e5e802}\label{Instructions_8c_a8af59e9aec972bf0a8a4bca916e5e802}} 
+\index{Instructions.\+c@{Instructions.\+c}!fcmpl@{fcmpl}}
+\index{fcmpl@{fcmpl}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fcmpl()}{fcmpl()}}
+{\footnotesize\ttfamily void fcmpl (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta é uma função de comparação de dois floats da pilha de operandos utilizando o padrão I\+E\+EE 754. 
+
+A função desempilha dois valores (dado1 e dado2) da pilha de operandos. Se o valor de dado1 for maior que o valor de dado2, a função empilha 1 na pilha de operandos. Se os valores forem iguais, a função empilha 0. Caso o valor de dado2 seja maior que o valor de dado1, então -\/1 é inserido na pilha. Se ou dos valores for um número não suportado pela máquina (NaN), o valor a ser empilhado na pilha é -\/1. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a34ecfdc9e3def3ee1fd4395cd45ba64c}\label{Instructions_8c_a34ecfdc9e3def3ee1fd4395cd45ba64c}} 
+\index{Instructions.\+c@{Instructions.\+c}!fconstn@{fconstn}}
+\index{fconstn@{fconstn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fconstn()}{fconstn()}}
+{\footnotesize\ttfamily void fconstn (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função insere na pilha um valor de ponto flutuante. 
+
+A função opera recebendo um parametro do tipo float, empilhando o parametro no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+{\em constante} & Um valor flutuante para a pilha. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ada86d1da11dd35aac89d3e2be7cda5cf}\label{Instructions_8c_ada86d1da11dd35aac89d3e2be7cda5cf}} 
+\index{Instructions.\+c@{Instructions.\+c}!fdiv@{fdiv}}
+\index{fdiv@{fdiv}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fdiv()}{fdiv()}}
+{\footnotesize\ttfamily void fdiv (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função divide dois valores do tipo float. 
+
+A função opera desempilhando dois valores da pilha, dividindo os dois e empilha o resultado no topo da pilha. Note que nesta divisão não há o truncamento da parte fracionaria. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ad03163d48d68f24e57a5cbcf3159bac9}\label{Instructions_8c_ad03163d48d68f24e57a5cbcf3159bac9}} 
+\index{Instructions.\+c@{Instructions.\+c}!fload@{fload}}
+\index{fload@{fload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fload()}{fload()}}
+{\footnotesize\ttfamily void fload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente carrega um float na pilha de operandos. 
+
+A função empilha o valor do float armazenado no vetor de variáveis locais do índice presente no byte imediatamente após o opcode. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a3881f278d7316ed8e8853373b3c3d5fc}\label{Instructions_8c_a3881f278d7316ed8e8853373b3c3d5fc}} 
+\index{Instructions.\+c@{Instructions.\+c}!floadn@{floadn}}
+\index{floadn@{floadn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{floadn()}{floadn()}}
+{\footnotesize\ttfamily void floadn (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente carrega uma constante float na pilha de operandos. 
+
+A função empilha o valor do float armazenado no vetor de variáveis locais. 
+\begin{DoxyParams}{Parâmetros}
+{\em val} & Índice do valor a ser empilhado. \\
+\hline
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a026967129d62c77760656130595cacec}\label{Instructions_8c_a026967129d62c77760656130595cacec}} 
+\index{Instructions.\+c@{Instructions.\+c}!fmul@{fmul}}
+\index{fmul@{fmul}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fmul()}{fmul()}}
+{\footnotesize\ttfamily void fmul (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função multiplica dois do tipo float. 
+
+A função opera desempilhando dois valores da pilha, multiplicando os dois e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a778424f5d04a57b5c5b9c010b10642d3}\label{Instructions_8c_a778424f5d04a57b5c5b9c010b10642d3}} 
+\index{Instructions.\+c@{Instructions.\+c}!fneg@{fneg}}
+\index{fneg@{fneg}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fneg()}{fneg()}}
+{\footnotesize\ttfamily void fneg (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função passa o valor para negativo de um float. 
+
+A função opera desempilhando um valor da pilha, e acresenta o sinal negativo a este valor, empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a847f61be128bf30e88346cf55f7bc3ba}\label{Instructions_8c_a847f61be128bf30e88346cf55f7bc3ba}} 
+\index{Instructions.\+c@{Instructions.\+c}!frem@{frem}}
+\index{frem@{frem}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{frem()}{frem()}}
+{\footnotesize\ttfamily void frem (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função obtém o resto de uma divisão de ponto flutuante. 
+
+A função opera desempilhando dois valores da pilha, dividindo os dois valores e pegando o resto entre eles e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8a6f8d2ae4502435cf6c67fdfe83543e}\label{Instructions_8c_a8a6f8d2ae4502435cf6c67fdfe83543e}} 
+\index{Instructions.\+c@{Instructions.\+c}!freturn@{freturn}}
+\index{freturn@{freturn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{freturn()}{freturn()}}
+{\footnotesize\ttfamily void freturn (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o executa o retorno de um metodo, empilhando o valor float de retorno na pilha de operandos do frame do metodo chamador. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a353f26708cd929278d61b6a6be8dee12}\label{Instructions_8c_a353f26708cd929278d61b6a6be8dee12}} 
+\index{Instructions.\+c@{Instructions.\+c}!fstore@{fstore}}
+\index{fstore@{fstore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fstore()}{fstore()}}
+{\footnotesize\ttfamily void fstore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente armazena um float do topo da pilha de operandos no vetor de variáveis locais. 
+
+A função primeiro desempilha o valor do topo da pilha e esse valor é armazenado no vetor de variáveis locais na posição indicada pelo indice correspondente ao primeiro byte após o opcode. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a385c644c66d20927c82a9f19e7720a27}\label{Instructions_8c_a385c644c66d20927c82a9f19e7720a27}} 
+\index{Instructions.\+c@{Instructions.\+c}!fstoren@{fstoren}}
+\index{fstoren@{fstoren}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fstoren()}{fstoren()}}
+{\footnotesize\ttfamily void fstoren (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente armazena um float do topo da pilha de operandos no vetor de variáveis locais. 
+
+A função primeiro desempilha o valor do topo da pilha e esse valor é armazenado no vetor de variáveis locais na posição indicada por val. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ab5ddde2fa9a7480f08ccc33c4402a6c3}\label{Instructions_8c_ab5ddde2fa9a7480f08ccc33c4402a6c3}} 
+\index{Instructions.\+c@{Instructions.\+c}!fsub@{fsub}}
+\index{fsub@{fsub}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{fsub()}{fsub()}}
+{\footnotesize\ttfamily void fsub (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função subtrai dois valores do tipo float. 
+
+A função opera desempilhando dois valores da pilha, subtraindo os dois e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a58eac8eff63f9b01d3e732868752d29d}\label{Instructions_8c_a58eac8eff63f9b01d3e732868752d29d}} 
+\index{Instructions.\+c@{Instructions.\+c}!getfield@{getfield}}
+\index{getfield@{getfield}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{getfield()}{getfield()}}
+{\footnotesize\ttfamily void getfield (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha o valor de um atributo de uma classe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde se efetuar� a opera��o. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ad0af00102fb7621045a1c6035acfe5eb}\label{Instructions_8c_ad0af00102fb7621045a1c6035acfe5eb}} 
+\index{Instructions.\+c@{Instructions.\+c}!getstatic@{getstatic}}
+\index{getstatic@{getstatic}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{getstatic()}{getstatic()}}
+{\footnotesize\ttfamily void getstatic (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o coloca no frame o operador est�tico. 
+
+A fun��o tem como objetivo prepara para fazer o printf, identificando o tipo de operando. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ab1f6e9da234a92f5725f6c0de3c47a39}\label{Instructions_8c_ab1f6e9da234a92f5725f6c0de3c47a39}} 
+\index{Instructions.\+c@{Instructions.\+c}!Goto@{Goto}}
+\index{Goto@{Goto}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{Goto()}{Goto()}}
+{\footnotesize\ttfamily void Goto (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o produz um deslocamento de 16 bits a ser somado ao valor de PC para implementar um desvio incondicional. 
+
+A fun��o opera construindo um offset de 16 bits a partir de um vetor de bytes e modifica o pc. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a61f19fe1ba20edb901a2090344a983de}\label{Instructions_8c_a61f19fe1ba20edb901a2090344a983de}} 
+\index{Instructions.\+c@{Instructions.\+c}!Goto\+\_\+w@{Goto\+\_\+w}}
+\index{Goto\+\_\+w@{Goto\+\_\+w}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{Goto\+\_\+w()}{Goto\_w()}}
+{\footnotesize\ttfamily void Goto\+\_\+w (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o produz um deslocamento de 32 bits a ser somado ao valor de PC para implementar um desvio incondicional. 
+
+A fun��o opera construindo um offset de 32 bits a partir de um vetor de bytes e modifica o pc. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a1b83b228e63c9d60057ddd3133ee95a3}\label{Instructions_8c_a1b83b228e63c9d60057ddd3133ee95a3}} 
+\index{Instructions.\+c@{Instructions.\+c}!i2b@{i2b}}
+\index{i2b@{i2b}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{i2b()}{i2b()}}
+{\footnotesize\ttfamily void i2b (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um int para byte. 
+
+A funçao desempilha um int. Entao, faz um casting para byte, depois empilha no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ae845ffb71260c681aef0497c9cc8c537}\label{Instructions_8c_ae845ffb71260c681aef0497c9cc8c537}} 
+\index{Instructions.\+c@{Instructions.\+c}!i2c@{i2c}}
+\index{i2c@{i2c}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{i2c()}{i2c()}}
+{\footnotesize\ttfamily void i2c (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um int para char. 
+
+A funçao desempilha um int. Entao, faz um casting para char. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a289dc0bc8d211502c64e8eaf6c788891}\label{Instructions_8c_a289dc0bc8d211502c64e8eaf6c788891}} 
+\index{Instructions.\+c@{Instructions.\+c}!i2d@{i2d}}
+\index{i2d@{i2d}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{i2d()}{i2d()}}
+{\footnotesize\ttfamily void i2d (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um int para double. 
+
+A funçao desempilha um int. Entao, faz um casting para double, depois empilha no topo da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a4f64f89ab6d89fec030df9acc88b730d}\label{Instructions_8c_a4f64f89ab6d89fec030df9acc88b730d}} 
+\index{Instructions.\+c@{Instructions.\+c}!i2f@{i2f}}
+\index{i2f@{i2f}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{i2f()}{i2f()}}
+{\footnotesize\ttfamily void i2f (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função coverte um valor inteiro para o tipo float. 
+
+A função retira um valor da pilha ,e converte o valor retirado para o tipo float. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a67421289339ff79e64120f6eece8f553}\label{Instructions_8c_a67421289339ff79e64120f6eece8f553}} 
+\index{Instructions.\+c@{Instructions.\+c}!i2l@{i2l}}
+\index{i2l@{i2l}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{i2l()}{i2l()}}
+{\footnotesize\ttfamily void i2l (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um int para long long. 
+
+A funçao desempilha um int. Entao, faz um casting para long long, depois empilha no topo da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a3dff2d25279d8cde9acba86e542960b8}\label{Instructions_8c_a3dff2d25279d8cde9acba86e542960b8}} 
+\index{Instructions.\+c@{Instructions.\+c}!i2s@{i2s}}
+\index{i2s@{i2s}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{i2s()}{i2s()}}
+{\footnotesize\ttfamily void i2s (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um int para short. 
+
+A funçao desempilha um int. Entao, faz um casting para short, depois empilha no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a623503ebec3f0a1528a72dc4299d79db}\label{Instructions_8c_a623503ebec3f0a1528a72dc4299d79db}} 
+\index{Instructions.\+c@{Instructions.\+c}!iadd@{iadd}}
+\index{iadd@{iadd}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iadd()}{iadd()}}
+{\footnotesize\ttfamily void iadd (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função soma dois valores inteiros. 
+
+A função opera desempilhando dois valores da pilha, somando os dois e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a3ba98d8f29fa2e335cedde2ee701dcfb}\label{Instructions_8c_a3ba98d8f29fa2e335cedde2ee701dcfb}} 
+\index{Instructions.\+c@{Instructions.\+c}!iaload@{iaload}}
+\index{iaload@{iaload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iaload()}{iaload()}}
+{\footnotesize\ttfamily void iaload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o armazena um int do topo da pilha de operandos em um vetor de ints. 
+
+A fun��o retira da pilha de operandos o valor do int a ser armazenado do vetor, o �ndice para a posi��o onde esse elemento ser� armazenado e uma refer�ncia a posi��o do in�cio desse vetor na mem�ria 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_acfc35c6f495590de03ec16bb410fa2eb}\label{Instructions_8c_acfc35c6f495590de03ec16bb410fa2eb}} 
+\index{Instructions.\+c@{Instructions.\+c}!iand@{iand}}
+\index{iand@{iand}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iand()}{iand()}}
+{\footnotesize\ttfamily void iand (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz a operação \char`\"{}e\char`\"{} logico entre dois valores inteiros. 
+
+A função opera desempilhando dois valores da pilha, e faz o \char`\"{}e\char`\"{} logico entre os valores e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_acb0bbb231bebfe7ee184f51439cde5a7}\label{Instructions_8c_acb0bbb231bebfe7ee184f51439cde5a7}} 
+\index{Instructions.\+c@{Instructions.\+c}!iastore@{iastore}}
+\index{iastore@{iastore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iastore()}{iastore()}}
+{\footnotesize\ttfamily void iastore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função armazena um int do topo da pilha de operandos em um vetor de ints. 
+
+A função retira da pilha de operandos o valor do int a ser armazenado do vetor, o índice para a posição onde esse elemento será armazenado e uma referência a posição do início desse vetor na memória 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a9774fa7ccf4436f3bd486ecba45f7b72}\label{Instructions_8c_a9774fa7ccf4436f3bd486ecba45f7b72}} 
+\index{Instructions.\+c@{Instructions.\+c}!iconst@{iconst}}
+\index{iconst@{iconst}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iconst()}{iconst()}}
+{\footnotesize\ttfamily void iconst (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função empilha um valor constante na pilha de operandos. 
+
+A função opera inserindo um valor inteiro no topo do pilha 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+{\em valor} & Um inteiro a ser empilhado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a4f9e7c6193392fe8824266697f51fcf5}\label{Instructions_8c_a4f9e7c6193392fe8824266697f51fcf5}} 
+\index{Instructions.\+c@{Instructions.\+c}!idiv@{idiv}}
+\index{idiv@{idiv}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{idiv()}{idiv()}}
+{\footnotesize\ttfamily void idiv (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função divide dois valores inteiros. 
+
+A função opera desempilhando dois valores da pilha, dividindo os dois e truncando a parte fracionaria da operação e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a415c81a41fac4524d110aff25284830e}\label{Instructions_8c_a415c81a41fac4524d110aff25284830e}} 
+\index{Instructions.\+c@{Instructions.\+c}!if\+\_\+acmpeq@{if\+\_\+acmpeq}}
+\index{if\+\_\+acmpeq@{if\+\_\+acmpeq}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{if\+\_\+acmpeq()}{if\_acmpeq()}}
+{\footnotesize\ttfamily void if\+\_\+acmpeq (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o compara os dois valores do tipo refer�ncia no topo da pilha de operandos, e produz o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando as duas refer�ncias, e verificando se as mesmas s�o iguais, caso elas sejam, pc recebe pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a35f02117ec35a53434035688c339a21f}\label{Instructions_8c_a35f02117ec35a53434035688c339a21f}} 
+\index{Instructions.\+c@{Instructions.\+c}!if\+\_\+acmpne@{if\+\_\+acmpne}}
+\index{if\+\_\+acmpne@{if\+\_\+acmpne}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{if\+\_\+acmpne()}{if\_acmpne()}}
+{\footnotesize\ttfamily void if\+\_\+acmpne (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o compara os dois valores do tipo refer�ncia no topo da pilha de operandos, e produz o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando as duas refer�ncias, e verificando se as mesmas s�o iguais, caso elas n�o sejam, pc recebe pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ab97d9bee28ad74380ccf16fdb0891dec}\label{Instructions_8c_ab97d9bee28ad74380ccf16fdb0891dec}} 
+\index{Instructions.\+c@{Instructions.\+c}!if\+\_\+icmpeq@{if\+\_\+icmpeq}}
+\index{if\+\_\+icmpeq@{if\+\_\+icmpeq}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{if\+\_\+icmpeq()}{if\_icmpeq()}}
+{\footnotesize\ttfamily void if\+\_\+icmpeq (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o compara os dois valores inteiros no topo da pilha de operandos, e calcula o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando os dois valores inteiros, e verificando se os mesmos s�o iguais, caso eles sejam, o pc � modificado para pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a984ee14a3d1305398a30d71a39a31e2b}\label{Instructions_8c_a984ee14a3d1305398a30d71a39a31e2b}} 
+\index{Instructions.\+c@{Instructions.\+c}!if\+\_\+icmpge@{if\+\_\+icmpge}}
+\index{if\+\_\+icmpge@{if\+\_\+icmpge}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{if\+\_\+icmpge()}{if\_icmpge()}}
+{\footnotesize\ttfamily void if\+\_\+icmpge (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o retira dois elementos do topo da pilha, e calcula um offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando dois valores do topo da pilha e verificando se o segundo valor desempilhado � maior ou igual ao primeiro. Se isso for verdade, o pc � modificado para pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aaf08c7dcf4830be0ca8c009322d7afa8}\label{Instructions_8c_aaf08c7dcf4830be0ca8c009322d7afa8}} 
+\index{Instructions.\+c@{Instructions.\+c}!if\+\_\+icmpgt@{if\+\_\+icmpgt}}
+\index{if\+\_\+icmpgt@{if\+\_\+icmpgt}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{if\+\_\+icmpgt()}{if\_icmpgt()}}
+{\footnotesize\ttfamily void if\+\_\+icmpgt (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o retira dois elementos do topo da pilha, e produz um offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando dois valores do topo da pilha e verificando se o segundo valor desempilhado � maior que o primeiro. Se isso for verdade. Se isso for verdade, o pc � modificado para pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a4661a511019cc319a25485bbb060da36}\label{Instructions_8c_a4661a511019cc319a25485bbb060da36}} 
+\index{Instructions.\+c@{Instructions.\+c}!if\+\_\+icmple@{if\+\_\+icmple}}
+\index{if\+\_\+icmple@{if\+\_\+icmple}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{if\+\_\+icmple()}{if\_icmple()}}
+{\footnotesize\ttfamily void if\+\_\+icmple (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o compara se o valor no topo da pilha de operandos � maior ou igual ao segundo valor, e calcula o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando os dois valores inteiros, e verificando se o segundo valor desempilhado � menor ou igual ao primeiro valor desempilhado. Caso isso seja verdade, o pc � modificado para pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a781631e63f47b9950053aca869f6beda}\label{Instructions_8c_a781631e63f47b9950053aca869f6beda}} 
+\index{Instructions.\+c@{Instructions.\+c}!if\+\_\+icmplt@{if\+\_\+icmplt}}
+\index{if\+\_\+icmplt@{if\+\_\+icmplt}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{if\+\_\+icmplt()}{if\_icmplt()}}
+{\footnotesize\ttfamily void if\+\_\+icmplt (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o compara se o valor no topo da pilha de operandos � maior que o segundo valor, e calcula o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando os dois valores inteiros, e verificando se o segundo valor desempilhado � menor que o primeiro valor desempilhado. Caso isso seja verdade, o pc � modificado para pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a98218ae00da49f5e14d869765a1d430b}\label{Instructions_8c_a98218ae00da49f5e14d869765a1d430b}} 
+\index{Instructions.\+c@{Instructions.\+c}!if\+\_\+icmpne@{if\+\_\+icmpne}}
+\index{if\+\_\+icmpne@{if\+\_\+icmpne}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{if\+\_\+icmpne()}{if\_icmpne()}}
+{\footnotesize\ttfamily void if\+\_\+icmpne (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o compara os dois valores inteiros no topo da pilha de operandos, e calcula o offset a partir do qual PC deve ser incrementado para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando os dois valores inteiros, e verificando se os mesmos s�o iguais, caso eles sejam, o pc � modificado para pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aee7559362b17e07327f743f0bec3afd6}\label{Instructions_8c_aee7559362b17e07327f743f0bec3afd6}} 
+\index{Instructions.\+c@{Instructions.\+c}!ifeq@{ifeq}}
+\index{ifeq@{ifeq}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ifeq()}{ifeq()}}
+{\footnotesize\ttfamily void ifeq (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o implementa um desvio condicional do tipo vari�vel igual a zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando o valor no topo da pilha, e verificando se o mesmo � igual a zero. Se isso proceder, pc recebe pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_abf549ebd8ac5fed66d6678af96f1f062}\label{Instructions_8c_abf549ebd8ac5fed66d6678af96f1f062}} 
+\index{Instructions.\+c@{Instructions.\+c}!ifge@{ifge}}
+\index{ifge@{ifge}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ifge()}{ifge()}}
+{\footnotesize\ttfamily void ifge (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o implementa um desvio condicional do tipo vari�vel maior ou igual a zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando o valor no topo da pilha, e verificando se o mesmo � maior ou igual a zero. Se isso proceder, pc recebe pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ac1c65e20772cf0ea744a4615fe38a388}\label{Instructions_8c_ac1c65e20772cf0ea744a4615fe38a388}} 
+\index{Instructions.\+c@{Instructions.\+c}!ifgt@{ifgt}}
+\index{ifgt@{ifgt}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ifgt()}{ifgt()}}
+{\footnotesize\ttfamily void ifgt (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o implementa um desvio condicional do tipo vari�vel maior que zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando o valor no topo da pilha, e verificando se o mesmo � maior que zero. Se isso proceder, pc recebe pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aeb8800de8baa55ab71d6cb58fc93c22b}\label{Instructions_8c_aeb8800de8baa55ab71d6cb58fc93c22b}} 
+\index{Instructions.\+c@{Instructions.\+c}!ifle@{ifle}}
+\index{ifle@{ifle}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ifle()}{ifle()}}
+{\footnotesize\ttfamily void ifle (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o implementa um desvio condicional do tipo vari�vel menor ou igual a zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando o valor no topo da pilha, e verificando se o mesmo � menor ou igual a zero. Se isso proceder, pc recebe pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ad504c74f331058c5f95a9ac7ff9d18e1}\label{Instructions_8c_ad504c74f331058c5f95a9ac7ff9d18e1}} 
+\index{Instructions.\+c@{Instructions.\+c}!iflt@{iflt}}
+\index{iflt@{iflt}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iflt()}{iflt()}}
+{\footnotesize\ttfamily void iflt (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o implementa um desvio condicional do tipo vari�vel menor que zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando o valor no topo da pilha, e verificando se o mesmo � menor que zero. Se isso proceder, pc recebe pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aaedd51dc94e53861a357b9df3754aa66}\label{Instructions_8c_aaedd51dc94e53861a357b9df3754aa66}} 
+\index{Instructions.\+c@{Instructions.\+c}!ifne@{ifne}}
+\index{ifne@{ifne}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ifne()}{ifne()}}
+{\footnotesize\ttfamily void ifne (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o implementa um desvio condicional do tipo vari�vel diferente de zero, calculando um deslocamento a ser adicionado ao valor de PC para alcan�ar a pr�xima instru��o. 
+
+A fun��o opera desempilhando o valor no topo da pilha, e verificando se o mesmo � diferente de zero. Se isso proceder, pc recebe pc+idx-\/3. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a12dec4bc7993af7347d0f46e20d6c6e7}\label{Instructions_8c_a12dec4bc7993af7347d0f46e20d6c6e7}} 
+\index{Instructions.\+c@{Instructions.\+c}!ifnonull@{ifnonull}}
+\index{ifnonull@{ifnonull}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ifnonull()}{ifnonull()}}
+{\footnotesize\ttfamily void ifnonull (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o verifica se o valor no topo da pilha � uma refer�ncia nula, e produz um offset a ser somado ao PC para alcan�ar a pr�xima instru��o a ser executada. 
+
+A fun��o opera retirando o valor do topo da pilha que servir� de �ndice para o vetor de ponteiros. Depois verifica se o ponteiro aponta para N\+U\+LL. Se ele n�o apontar para N\+U\+LL, o pc � atualizado. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ac1a0c8fff689e07ee131622c5717132e}\label{Instructions_8c_ac1a0c8fff689e07ee131622c5717132e}} 
+\index{Instructions.\+c@{Instructions.\+c}!ifnull@{ifnull}}
+\index{ifnull@{ifnull}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ifnull()}{ifnull()}}
+{\footnotesize\ttfamily void ifnull (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o verifica se o valor no topo da pilha � uma refer�ncia nula, e produz um offset a ser somado ao PC para alcan�ar a pr�xima instru��o a ser executada. 
+
+A fun��o opera retirando o valor do topo da pilha que servir� de �ndice para o vetor de ponteiros. Depois verifica se o ponteiro aponta para N\+U\+LL. Se ele apontar para N\+U\+LL, o pc � atualizado. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ab8ac31bb6743ea143a088dd3a3f41c51}\label{Instructions_8c_ab8ac31bb6743ea143a088dd3a3f41c51}} 
+\index{Instructions.\+c@{Instructions.\+c}!iinc@{iinc}}
+\index{iinc@{iinc}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iinc()}{iinc()}}
+{\footnotesize\ttfamily void iinc (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o simplesmente incrementa um valor do vetor de vari�veis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame e o byte informado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a45ea65a52b6ea9e735727875934b8c47}\label{Instructions_8c_a45ea65a52b6ea9e735727875934b8c47}} 
+\index{Instructions.\+c@{Instructions.\+c}!iload@{iload}}
+\index{iload@{iload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iload()}{iload()}}
+{\footnotesize\ttfamily void iload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente carrega um int na pilha de operandos. 
+
+A função empilha o valor do int armazenado no vetor de variáveis locais do índice dado. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a49c874473ab4ef46868606485ee972c6}\label{Instructions_8c_a49c874473ab4ef46868606485ee972c6}} 
+\index{Instructions.\+c@{Instructions.\+c}!iloadn@{iloadn}}
+\index{iloadn@{iloadn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iloadn()}{iloadn()}}
+{\footnotesize\ttfamily void iloadn (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente carrega um int na pilha de operandos. 
+
+A função empilha o valor do int armazenado no vetor de variáveis locais do índice dado. 
+\begin{DoxyParams}{Parâmetros}
+{\em val} & Índice do valor a ser empilhado. \\
+\hline
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_add0fcbb1828f4213f1604c9d6305e9f0}\label{Instructions_8c_add0fcbb1828f4213f1604c9d6305e9f0}} 
+\index{Instructions.\+c@{Instructions.\+c}!imul@{imul}}
+\index{imul@{imul}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{imul()}{imul()}}
+{\footnotesize\ttfamily void imul (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função multiplica dois valores inteiros. 
+
+A função opera desempilhando dois valores da pilha, multiplicando os dois e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a0a547b62f2d2962310ea9d0f77666a89}\label{Instructions_8c_a0a547b62f2d2962310ea9d0f77666a89}} 
+\index{Instructions.\+c@{Instructions.\+c}!ineg@{ineg}}
+\index{ineg@{ineg}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ineg()}{ineg()}}
+{\footnotesize\ttfamily void ineg (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função passa o valor para negativo de um inteiro. 
+
+A função opera desempilhando um valor da pilha, e acresenta o sinal negativo a este valor, empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a90f4258b5f87aa1547bb969718ebd90e}\label{Instructions_8c_a90f4258b5f87aa1547bb969718ebd90e}} 
+\index{Instructions.\+c@{Instructions.\+c}!ior@{ior}}
+\index{ior@{ior}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ior()}{ior()}}
+{\footnotesize\ttfamily void ior (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz a operação \char`\"{}ou\char`\"{} logico entre dois valores inteiros. 
+
+A função opera desempilhando dois valores da pilha, e faz o \char`\"{}ou\char`\"{} logico ente os valores e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a5431f64e760037b20933b1ec0ff8c932}\label{Instructions_8c_a5431f64e760037b20933b1ec0ff8c932}} 
+\index{Instructions.\+c@{Instructions.\+c}!irem@{irem}}
+\index{irem@{irem}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{irem()}{irem()}}
+{\footnotesize\ttfamily void irem (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função pela o resto de uma divisão inteira. 
+
+A função opera desempilhando dois valores da pilha, dividindo os dois valores e pegando o resto entre eles e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_af705acf601f1223a0f9f7e839d6a16ed}\label{Instructions_8c_af705acf601f1223a0f9f7e839d6a16ed}} 
+\index{Instructions.\+c@{Instructions.\+c}!ireturn@{ireturn}}
+\index{ireturn@{ireturn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ireturn()}{ireturn()}}
+{\footnotesize\ttfamily void ireturn (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao executa o retorno de um metodo, empilhando o valor int de retorno na pilha de operandos do frame do metodo chamador. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a5a47a84af9ce9210583e2b34e7e8ca17}\label{Instructions_8c_a5a47a84af9ce9210583e2b34e7e8ca17}} 
+\index{Instructions.\+c@{Instructions.\+c}!ishl@{ishl}}
+\index{ishl@{ishl}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ishl()}{ishl()}}
+{\footnotesize\ttfamily void ishl (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz o deslocamento de bits a esquerda de valores inteiros. 
+
+A função opera desempilhando um valor fazendo sua extensao de sinal, e desempilha outro valor para fazer o deslocamento de bits a esquerda do dado retirado anteriomente e empilhando este resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ad7436a2936e0f5648f5e4341c51ebdcf}\label{Instructions_8c_ad7436a2936e0f5648f5e4341c51ebdcf}} 
+\index{Instructions.\+c@{Instructions.\+c}!ishr@{ishr}}
+\index{ishr@{ishr}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ishr()}{ishr()}}
+{\footnotesize\ttfamily void ishr (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz o deslocamento de bits a direita de valores inteiros. 
+
+A função opera desempilhando um valor fazendo sua extensao de sinal, e desempilha outro valor para fazer o deslocamento de bits a direita do dado retirado anteriomente e empilhando este resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8c01e95c269879a1dc1a93334274b3a4}\label{Instructions_8c_a8c01e95c269879a1dc1a93334274b3a4}} 
+\index{Instructions.\+c@{Instructions.\+c}!istore@{istore}}
+\index{istore@{istore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{istore()}{istore()}}
+{\footnotesize\ttfamily void istore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o simplesmente armazena um int do topo da pilha de operandos no vetor de vari�veis locais. 
+
+A função primeiro desempilha o valor do topo da pilha e esse valor é armazenado no vetor de variáveis locais na posição indicada por index. Caso o indicador wide seja 0, o índice não é concatenado e seu alcance é de 8 bits. Caso seja 1, o índice é concatenado para que o mesmo possa ter um alcance maior de 16 bits. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a14ee4849c176450df2d8c109872abf7f}\label{Instructions_8c_a14ee4849c176450df2d8c109872abf7f}} 
+\index{Instructions.\+c@{Instructions.\+c}!istoren@{istoren}}
+\index{istoren@{istoren}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{istoren()}{istoren()}}
+{\footnotesize\ttfamily void istoren (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente armazena um int do topo da pilha de operandos no vetor de variáveis locais. 
+
+A função primeiro desempilha o valor do topo da pilha e esse valor é armazenado no vetor de variáveis locais na posição indicada por val. 
+\begin{DoxyParams}{Parâmetros}
+{\em val} & Índice do vetor de variaveis locais. \\
+\hline
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a9f7af649faabeddfda007b01ce895ba3}\label{Instructions_8c_a9f7af649faabeddfda007b01ce895ba3}} 
+\index{Instructions.\+c@{Instructions.\+c}!isub@{isub}}
+\index{isub@{isub}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{isub()}{isub()}}
+{\footnotesize\ttfamily void isub (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função subtrai dois valores inteiros. 
+
+A função opera desempilhando dois valores da pilha, subtraindo o primeiro pelo segundo e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_adf61ef75f4895aa3a4db1e3144a85816}\label{Instructions_8c_adf61ef75f4895aa3a4db1e3144a85816}} 
+\index{Instructions.\+c@{Instructions.\+c}!iushr@{iushr}}
+\index{iushr@{iushr}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{iushr()}{iushr()}}
+{\footnotesize\ttfamily void iushr (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz o deslocamento de bits a direita de valores inteiros. 
+
+A função opera desempilhando um valor fazendo sem extensao de sinal, e desempilha outro valor para fazer o deslocamento de bits a direita do dado retirado anteriomente e empilhando este resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a6f1742a279efdafe9a8e35e0cfe70bc5}\label{Instructions_8c_a6f1742a279efdafe9a8e35e0cfe70bc5}} 
+\index{Instructions.\+c@{Instructions.\+c}!ixor@{ixor}}
+\index{ixor@{ixor}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ixor()}{ixor()}}
+{\footnotesize\ttfamily void ixor (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz a operação logica \char`\"{}xor\char`\"{} entre dois valores inteiros. 
+
+A função opera desempilhando dois valores da pilha, e faz operação logica entre os dois e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ae010f8139df37446a351566312688379}\label{Instructions_8c_ae010f8139df37446a351566312688379}} 
+\index{Instructions.\+c@{Instructions.\+c}!jsr@{jsr}}
+\index{jsr@{jsr}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{jsr()}{jsr()}}
+{\footnotesize\ttfamily void jsr (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha o endere�o da pr�xima execu��o a ser executada e retorna um deslocamento de 16 bits a ser somado a PC. 
+
+A fun��o guarda o endere�o da pr�xima instru��o no topo da pilha de operandos, depois atualiza o pc. O offset � de 16 bits. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde a instru��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a17d3e3e5fb8d99e25a1e5caf899c54a1}\label{Instructions_8c_a17d3e3e5fb8d99e25a1e5caf899c54a1}} 
+\index{Instructions.\+c@{Instructions.\+c}!jsr\+\_\+w@{jsr\+\_\+w}}
+\index{jsr\+\_\+w@{jsr\+\_\+w}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{jsr\+\_\+w()}{jsr\_w()}}
+{\footnotesize\ttfamily void jsr\+\_\+w (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha o endere�o da pr�xima execu��o a ser executada e retorna um deslocamento de 32 bits a ser somado a PC. 
+
+A fun��o guarda o endere�o da pr�xima instru��o no topo da pilha de operandos, depois atualiza o pc. O offset � de 32 bits. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde a instru��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a4e0a77edecb133b58f57ba29cd277b53}\label{Instructions_8c_a4e0a77edecb133b58f57ba29cd277b53}} 
+\index{Instructions.\+c@{Instructions.\+c}!l2d@{l2d}}
+\index{l2d@{l2d}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{l2d()}{l2d()}}
+{\footnotesize\ttfamily void l2d (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um long long para double. 
+
+A funçao desempilha um long long, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para double, depois empilha no top da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_addaf018472ab2c5257e3275a50624818}\label{Instructions_8c_addaf018472ab2c5257e3275a50624818}} 
+\index{Instructions.\+c@{Instructions.\+c}!l2f@{l2f}}
+\index{l2f@{l2f}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{l2f()}{l2f()}}
+{\footnotesize\ttfamily void l2f (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um long long para float. 
+
+A funçao desempilha um long long, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para float, depois empilha no top da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a750239172914d03cc2a68608f545ecee}\label{Instructions_8c_a750239172914d03cc2a68608f545ecee}} 
+\index{Instructions.\+c@{Instructions.\+c}!l2i@{l2i}}
+\index{l2i@{l2i}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{l2i()}{l2i()}}
+{\footnotesize\ttfamily void l2i (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao converte um long long para int. 
+
+A funçao desempilha um long long, primeiro o menos significativo depois o mais significativo. Entao, faz um casting para int, depois empilha no top da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a6a53cc0354e8782ce6d8dd07219c96d5}\label{Instructions_8c_a6a53cc0354e8782ce6d8dd07219c96d5}} 
+\index{Instructions.\+c@{Instructions.\+c}!ladd@{ladd}}
+\index{ladd@{ladd}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ladd()}{ladd()}}
+{\footnotesize\ttfamily void ladd (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função soma dois valores long long. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando.\+Soma os dois operandos e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a93b5647880fca8535245cd71497a60b4}\label{Instructions_8c_a93b5647880fca8535245cd71497a60b4}} 
+\index{Instructions.\+c@{Instructions.\+c}!laload@{laload}}
+\index{laload@{laload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{laload()}{laload()}}
+{\footnotesize\ttfamily void laload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o armazena um long long do topo da pilha de operandos em um vetor de long longs. 
+
+A fun��o retira da pilha de operandos o valor do long long a ser armazenado do vetor, o �ndice para a posi��o onde esse elemento ser� armazenado e uma refer�ncia a posi��o do in�cio desse vetor na mem�ria 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_af107187a6f0ab21fa07051bcce1fe477}\label{Instructions_8c_af107187a6f0ab21fa07051bcce1fe477}} 
+\index{Instructions.\+c@{Instructions.\+c}!land@{land}}
+\index{land@{land}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{land()}{land()}}
+{\footnotesize\ttfamily void land (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao faz a operaçao \char`\"{}e\char`\"{} logico entre dois valores long long. 
+
+
+\begin{DoxyItemize}
+\item A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando. Faz o \char`\"{}e\char`\"{} logico entre os valores e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\mbox{\Hypertarget{Instructions_8c_a03dd1a36cf9045704ce5867c540ac867}\label{Instructions_8c_a03dd1a36cf9045704ce5867c540ac867}} 
+\index{Instructions.\+c@{Instructions.\+c}!lastore@{lastore}}
+\index{lastore@{lastore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lastore()}{lastore()}}
+{\footnotesize\ttfamily void lastore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função armazena um long long do topo da pilha de operandos em um vetor de long long\textquotesingle{}s. 
+
+A função retira da pilha de operandos o valor do long long a ser armazenado do vetor, o índice para a posição onde esse elemento será armazenado e uma referência a posição do início desse vetor na memória 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8af416713ef811ca6cf0026c8a4b29b0}\label{Instructions_8c_a8af416713ef811ca6cf0026c8a4b29b0}} 
+\index{Instructions.\+c@{Instructions.\+c}!lcmp@{lcmp}}
+\index{lcmp@{lcmp}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lcmp()}{lcmp()}}
+{\footnotesize\ttfamily void lcmp (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta compara dois valores long long que estao no topo da pilha. 
+
+A funçao desempilha dois long long\textquotesingle{}s, primeiro o menos significativo depois o mais significativo de cada operando. Entao, faz uma subtraçao entre os operandos, depois empilha um valor int, que sera 1 caso o primeiro operando for maior que o segundo, sera 0 caso os operandos sejam iguais, ou sera -\/1 caso o primeiro operando seja menor que o segundo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a701e241491f321212b2bec5be7f7e5b3}\label{Instructions_8c_a701e241491f321212b2bec5be7f7e5b3}} 
+\index{Instructions.\+c@{Instructions.\+c}!lconstn@{lconstn}}
+\index{lconstn@{lconstn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lconstn()}{lconstn()}}
+{\footnotesize\ttfamily void lconstn (\begin{DoxyParamCaption}\item[{long}]{val1,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha um valor constante na pilha de operandos. 
+
+A fun��o opera inserindo um valor long long no topo do pilha 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+{\em valor} & Um long long a ser empilhado. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a532851306e97050026eb46435c61e9cd}\label{Instructions_8c_a532851306e97050026eb46435c61e9cd}} 
+\index{Instructions.\+c@{Instructions.\+c}!ldc@{ldc}}
+\index{ldc@{ldc}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ldc()}{ldc()}}
+{\footnotesize\ttfamily void ldc (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o busca uma constante no pool de constantes e a empilha na pilha de operandos. 
+
+Fun��o usada para strig, floats e ints 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde a opera��o � efetuada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_af89834744bb8c53ff1223c62af02df94}\label{Instructions_8c_af89834744bb8c53ff1223c62af02df94}} 
+\index{Instructions.\+c@{Instructions.\+c}!ldc2@{ldc2}}
+\index{ldc2@{ldc2}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ldc2()}{ldc2()}}
+{\footnotesize\ttfamily void ldc2 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o busca uma constante no pool de constantes e a empilha na pilha de operandos. 
+
+Usada para doubles e long longs 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde a opera��o � efetuada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a3dd414846c75f8b15a19b13e11c40fda}\label{Instructions_8c_a3dd414846c75f8b15a19b13e11c40fda}} 
+\index{Instructions.\+c@{Instructions.\+c}!lldiv\+\_\+@{lldiv\+\_\+}}
+\index{lldiv\+\_\+@{lldiv\+\_\+}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lldiv\+\_\+()}{lldiv\_()}}
+{\footnotesize\ttfamily void lldiv\+\_\+ (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função divide dois valores long long. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando.\+Divide os dois operandos e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a7022391b3bea98bf1e5537b195f789f5}\label{Instructions_8c_a7022391b3bea98bf1e5537b195f789f5}} 
+\index{Instructions.\+c@{Instructions.\+c}!lload@{lload}}
+\index{lload@{lload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lload()}{lload()}}
+{\footnotesize\ttfamily void lload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente carrega um long long na pilha de operandos. 
+
+A função empilha o valor do long long armazenado no vetor de variáveis locais do índice dado. Empilha o mais significativo depois o menso significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a79deb92ed9543e32e024835e7d195350}\label{Instructions_8c_a79deb92ed9543e32e024835e7d195350}} 
+\index{Instructions.\+c@{Instructions.\+c}!lloadn@{lloadn}}
+\index{lloadn@{lloadn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lloadn()}{lloadn()}}
+{\footnotesize\ttfamily void lloadn (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente carrega um long long na pilha de operandos. 
+
+A função empilha o valor do long long armazenado no vetor de variáveis locais do índice dado. 
+\begin{DoxyParams}{Parâmetros}
+{\em val} & Índice do valor a ser empilhado. \\
+\hline
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a0ec203fbd351f0084818a871d92e6363}\label{Instructions_8c_a0ec203fbd351f0084818a871d92e6363}} 
+\index{Instructions.\+c@{Instructions.\+c}!lmul@{lmul}}
+\index{lmul@{lmul}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lmul()}{lmul()}}
+{\footnotesize\ttfamily void lmul (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função multiplicaçao dois valores long long. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando. Multiplica os dois operandos e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a1ccaa67537c2f37814764874da2aee04}\label{Instructions_8c_a1ccaa67537c2f37814764874da2aee04}} 
+\index{Instructions.\+c@{Instructions.\+c}!lneg@{lneg}}
+\index{lneg@{lneg}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lneg()}{lneg()}}
+{\footnotesize\ttfamily void lneg (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao passa o valor para negativo de um long long. 
+
+A função opera desempilhando dois valores da pilha, o menos significativo depois o mais significativo do operando. Acrescenta o sinal negativo a este valor, e empilha o resultado no topo da pilha. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a5a7da23a7ecbd62acedc398f5295162c}\label{Instructions_8c_a5a7da23a7ecbd62acedc398f5295162c}} 
+\index{Instructions.\+c@{Instructions.\+c}!lor@{lor}}
+\index{lor@{lor}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lor()}{lor()}}
+{\footnotesize\ttfamily void lor (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao faz a operaçao \char`\"{}ou\char`\"{} logico entre dois valores long long. 
+
+
+\begin{DoxyItemize}
+\item A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando. Faz o \char`\"{}ou\char`\"{} logico entre os valores e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\mbox{\Hypertarget{Instructions_8c_ac33a3332a30047f7da250f034c0bb9e5}\label{Instructions_8c_ac33a3332a30047f7da250f034c0bb9e5}} 
+\index{Instructions.\+c@{Instructions.\+c}!lrem@{lrem}}
+\index{lrem@{lrem}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lrem()}{lrem()}}
+{\footnotesize\ttfamily void lrem (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função divide dois valores long long e armazena o resto da divisao. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando.\+Divide os dois operandos e empilha o resto da divisao no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a1d0b49d57b4e97594a7f82bf299d487c}\label{Instructions_8c_a1d0b49d57b4e97594a7f82bf299d487c}} 
+\index{Instructions.\+c@{Instructions.\+c}!lreturn@{lreturn}}
+\index{lreturn@{lreturn}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lreturn()}{lreturn()}}
+{\footnotesize\ttfamily void lreturn (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao executa o retorno de um metodo, empilhando o valor long long de retorno na pilha de operandos do frame do metodo chamador. 
+
+A funçao desempilha dois valores, primeiro o menos significativo depois o mais significativo. Depois empilha na ordem contraria. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8ae75286fc4b426fcc7c7da53c93842c}\label{Instructions_8c_a8ae75286fc4b426fcc7c7da53c93842c}} 
+\index{Instructions.\+c@{Instructions.\+c}!lshl@{lshl}}
+\index{lshl@{lshl}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lshl()}{lshl()}}
+{\footnotesize\ttfamily void lshl (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz o deslocamento de bits a esquerda de valores long long. 
+
+A funçao desempilha um valor para fazer o deslocamento de bits a esquerda do dado retirado posteriomente. Entao a função opera desempilhando dois valores da pilha, o menos significativo depois o mais significativo do operando. Empilhando o resultado do deslocamento no topo da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a951fbc7756dfc4b798d531152a8fb93e}\label{Instructions_8c_a951fbc7756dfc4b798d531152a8fb93e}} 
+\index{Instructions.\+c@{Instructions.\+c}!lshr@{lshr}}
+\index{lshr@{lshr}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lshr()}{lshr()}}
+{\footnotesize\ttfamily void lshr (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz o deslocamento de bits a direita de valores long long. 
+
+A funçao desempilha um valor para fazer o deslocamento de bits a direita do dado retirado posteriomente. Entao a função opera desempilhando dois valores da pilha, o menos significativo depois o mais significativo do operando. Empilhando o resultado do deslocamento no topo da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a7e198a4137854449586d5d6bdbe360de}\label{Instructions_8c_a7e198a4137854449586d5d6bdbe360de}} 
+\index{Instructions.\+c@{Instructions.\+c}!lstore@{lstore}}
+\index{lstore@{lstore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lstore()}{lstore()}}
+{\footnotesize\ttfamily void lstore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funcao simplesmente armazena um long long do topo da pilha de operandos no vetor de variaveis locais. 
+
+A função primeiro desempilha o valor do topo da pilha e esse valor é armazenado no vetor de variáveis locais na posição indicada por index. Isso e feito para as partes mais e menos significativas. Caso o indicador wide seja 0, o índice não é concatenado e seu alcance é de 8 bits. Caso seja 1, o índice é concatenado para que o mesmo possa ter um alcance maior de 16 bits. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ad864f908094892a5bd18dabc7c06d6c3}\label{Instructions_8c_ad864f908094892a5bd18dabc7c06d6c3}} 
+\index{Instructions.\+c@{Instructions.\+c}!lstoren@{lstoren}}
+\index{lstoren@{lstoren}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lstoren()}{lstoren()}}
+{\footnotesize\ttfamily void lstoren (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{val,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função simplesmente armazena um long long do topo da pilha de operandos no vetor de variáveis locais. 
+
+A função primeiro desempilha o valor menos significativo do topo da pilha e esse valor é armazenado no vetor de variáveis locais na posição indicada por val. O valor mais significativo � retirado do topo da pilha e armazenado no vetor de vari�veis locais na posi��o val+1. 
+\begin{DoxyParams}{Parâmetros}
+{\em val} & Índice do vetor de variaveis locais. \\
+\hline
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ac1c570a56086d685de552ede0f46d2f3}\label{Instructions_8c_ac1c570a56086d685de552ede0f46d2f3}} 
+\index{Instructions.\+c@{Instructions.\+c}!lsub@{lsub}}
+\index{lsub@{lsub}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lsub()}{lsub()}}
+{\footnotesize\ttfamily void lsub (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função subtrai dois valores long long. 
+
+A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando.\+Subtrai os dois operandos e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a5a3fa8102d08ff7db6556d4af5644f22}\label{Instructions_8c_a5a3fa8102d08ff7db6556d4af5644f22}} 
+\index{Instructions.\+c@{Instructions.\+c}!lushr@{lushr}}
+\index{lushr@{lushr}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lushr()}{lushr()}}
+{\footnotesize\ttfamily void lushr (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz o deslocamento de bits a direita de valores long long. 
+
+A função opera desempilhando um valor fazendo sem extensao de sinal. Entao a função opera desempilhando dois valores da pilha, o menos significativo depois o mais significativo do operando. Empilhando o resultado do deslocamento no topo da pilha, primeiro o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a1007ca19be5041d1fe3fbc71a621acfc}\label{Instructions_8c_a1007ca19be5041d1fe3fbc71a621acfc}} 
+\index{Instructions.\+c@{Instructions.\+c}!lxor@{lxor}}
+\index{lxor@{lxor}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{lxor()}{lxor()}}
+{\footnotesize\ttfamily void lxor (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta funçao faz a operaçao \char`\"{}ou exclusivo\char`\"{} logico entre dois valores long long. 
+
+
+\begin{DoxyItemize}
+\item A função opera desempilhando quatro valores da pilha, o menos significativo depois o mais significativo de cada operando. Faz o \char`\"{}ou exclusivo\char`\"{} logico entre os valores e empilha o resultado no topo da pilha, o mais significativo depois o menos significativo. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+
+\end{DoxyItemize}\mbox{\Hypertarget{Instructions_8c_a4d1a81a0faca488a7f82de6a5576d4e1}\label{Instructions_8c_a4d1a81a0faca488a7f82de6a5576d4e1}} 
+\index{Instructions.\+c@{Instructions.\+c}!multianewarray@{multianewarray}}
+\index{multianewarray@{multianewarray}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{multianewarray()}{multianewarray()}}
+{\footnotesize\ttfamily void multianewarray (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha a refer�ncia e aloca a mem�ria para um array multidimensional. 
+
+A fun��o desemplinha o valor de cada dimens�o ,e l� dois bytes paro o �ndice do cp que cont�m o descritor do tipo e um byte que cont�m a quantidade de dimens�es. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_aec146b3cfa3d34b7d6804d574c80636e}\label{Instructions_8c_aec146b3cfa3d34b7d6804d574c80636e}} 
+\index{Instructions.\+c@{Instructions.\+c}!newarray@{newarray}}
+\index{newarray@{newarray}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{newarray()}{newarray()}}
+{\footnotesize\ttfamily void newarray (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o empilha a refer�ncia e aloca a mem�ria para um array unidimensional. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a7e9f3a9b0d70c7453f8e234f2483d4c8}\label{Instructions_8c_a7e9f3a9b0d70c7453f8e234f2483d4c8}} 
+\index{Instructions.\+c@{Instructions.\+c}!new\+Obj@{new\+Obj}}
+\index{new\+Obj@{new\+Obj}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{new\+Obj()}{newObj()}}
+{\footnotesize\ttfamily void new\+Obj (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o procura a classe e cria um novo objeto dessa classe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8d96d1abf18ba97f8ec556fe5fe7cddf}\label{Instructions_8c_a8d96d1abf18ba97f8ec556fe5fe7cddf}} 
+\index{Instructions.\+c@{Instructions.\+c}!pop@{pop}}
+\index{pop@{pop}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily void pop (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz um pop na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a66f881d94a0e1ebfcc247f3bdc62720f}\label{Instructions_8c_a66f881d94a0e1ebfcc247f3bdc62720f}} 
+\index{Instructions.\+c@{Instructions.\+c}!pop2@{pop2}}
+\index{pop2@{pop2}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{pop2()}{pop2()}}
+{\footnotesize\ttfamily void pop2 (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz dois pops na pilha de operandos. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a973ed81061aab3cc555c3e81e1d96edf}\label{Instructions_8c_a973ed81061aab3cc555c3e81e1d96edf}} 
+\index{Instructions.\+c@{Instructions.\+c}!putfield@{putfield}}
+\index{putfield@{putfield}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{putfield()}{putfield()}}
+{\footnotesize\ttfamily void putfield (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o desempilha o valor de um atributo de uma classe, e faz uma atribui��o ao campo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde se efetuar� a opera��o. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ac3b98fd98a5a66d5a193e31249f87ab5}\label{Instructions_8c_ac3b98fd98a5a66d5a193e31249f87ab5}} 
+\index{Instructions.\+c@{Instructions.\+c}!putstatic@{putstatic}}
+\index{putstatic@{putstatic}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{putstatic()}{putstatic()}}
+{\footnotesize\ttfamily void putstatic (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o desempilha o valor est�tico de um atributo de uma classe, e faz uma atribui��o ao campo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde se efetuar� a opera��o. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a1a30209ee66bb49b17a547b06e41d6d5}\label{Instructions_8c_a1a30209ee66bb49b17a547b06e41d6d5}} 
+\index{Instructions.\+c@{Instructions.\+c}!Reduce\+Dimension@{Reduce\+Dimension}}
+\index{Reduce\+Dimension@{Reduce\+Dimension}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{Reduce\+Dimension()}{ReduceDimension()}}
+{\footnotesize\ttfamily \hyperlink{structarrayMult}{array\+Mult}$\ast$ Reduce\+Dimension (\begin{DoxyParamCaption}\item[{\hyperlink{structarrayMult}{array\+Mult} $\ast$}]{dimen,  }\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{qualpos }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o reduz uma �nica dimens�o do array multidimensional. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$dimen} & ponteiro para o array multidimensional. \\
+\hline
+{\em qualpos} & �ndice para a dimens�o que ser� reduzida. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+array\+Mult$\ast$ retorna um ponteiro para uma struct que cont�m um vetor de offsets e a quantidade e o valor de cada dimens�o do array multidimensional. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{Instructions_8c_a68fc171934ce61f90c721103e173905d}\label{Instructions_8c_a68fc171934ce61f90c721103e173905d}} 
+\index{Instructions.\+c@{Instructions.\+c}!ret@{ret}}
+\index{ret@{ret}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{ret()}{ret()}}
+{\footnotesize\ttfamily void ret (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o l� o novo ppc do vetor de vari�veis locais. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde a instru��o � executada. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a74f2eaf3d9a79736d123665b7e03ec13}\label{Instructions_8c_a74f2eaf3d9a79736d123665b7e03ec13}} 
+\index{Instructions.\+c@{Instructions.\+c}!saload@{saload}}
+\index{saload@{saload}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{saload()}{saload()}}
+{\footnotesize\ttfamily void saload (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o armazena um short do topo da pilha de operandos em um vetor de shorts. 
+
+A fun��o retira da pilha de operandos o valor do short a ser armazenado do vetor, o �ndice para a posi��o onde esse elemento ser� armazenado e uma refer�ncia a posi��o do in�cio desse vetor na mem�ria 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a88acb22190554ff72bc2b5a266f37c0b}\label{Instructions_8c_a88acb22190554ff72bc2b5a266f37c0b}} 
+\index{Instructions.\+c@{Instructions.\+c}!sastore@{sastore}}
+\index{sastore@{sastore}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{sastore()}{sastore()}}
+{\footnotesize\ttfamily void sastore (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o armazena um valor em um dado �ndice de um array de shorts. 
+
+A fun��o opera desempilhando o valor a ser armazenado no vetor, o �ndice a ser alterado e a refer�ncia para o array de shorts. Ap�s isso o valor desempilhado � armazenado naquele �ndice do array. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame onde se efetuar� a opera��o. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a0f5d2ab60ed5197f3a3a3d1ee841dd8d}\label{Instructions_8c_a0f5d2ab60ed5197f3a3a3d1ee841dd8d}} 
+\index{Instructions.\+c@{Instructions.\+c}!sipush@{sipush}}
+\index{sipush@{sipush}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{sipush()}{sipush()}}
+{\footnotesize\ttfamily void sipush (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o simplesmente empilha um short (2 bytes) dado na pilha de operandos. 
+
+A fun��o apenas empilha um byte informado na pilha de operandos. H� extens�o de sinal. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_ae8c1c66e8119230a0245b76c42636f0c}\label{Instructions_8c_ae8c1c66e8119230a0245b76c42636f0c}} 
+\index{Instructions.\+c@{Instructions.\+c}!swap@{swap}}
+\index{swap@{swap}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void swap (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta função faz a troca de posição entre dois valores da pilha. 
+
+A função retira dois valores da pilha ,e empilha o segundo valor na pilha e depois o primeiro. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O ponteiro para o frame. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{Instructions_8c_a8475bd26f5f967d5e3a7cd972179acc2}\label{Instructions_8c_a8475bd26f5f967d5e3a7cd972179acc2}} 
+\index{Instructions.\+c@{Instructions.\+c}!tableswitch@{tableswitch}}
+\index{tableswitch@{tableswitch}!Instructions.\+c@{Instructions.\+c}}
+\subsubsection{\texorpdfstring{tableswitch()}{tableswitch()}}
+{\footnotesize\ttfamily void tableswitch (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Esta fun��o que executa o comando switch. 
+
+A fun��o possui tamanho varialvel com 0 a 3 bytes de preenchimento para que os endereço de offset sejam multiplos de 4. 
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fs} & O frame onde a opera��o � executada. \\
+\hline
+\end{DoxyParams}

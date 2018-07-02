@@ -1,0 +1,102 @@
+\hypertarget{FrameStack_8c}{}\section{Referência do Arquivo Frame\+Stack.\+c}
+\label{FrameStack_8c}\index{Frame\+Stack.\+c@{Frame\+Stack.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Frame\+Stack.\+h\char`\"{}}\newline
+Gráfico de dependência de inclusões para Frame\+Stack.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{FrameStack_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{FrameStack_8c_a605a09336c06cbc72668767f80bc0865}{push\+\_\+frame} (\hyperlink{structcp__info}{cp\+\_\+info} $\ast$cp, \hyperlink{structStaticAtrib}{Static\+Atrib} $\ast$sa, \hyperlink{structmethod__info}{method\+\_\+info} $\ast$mf, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Função que adiciona um frame. \end{DoxyCompactList}\item 
+void \hyperlink{FrameStack_8c_a0023f807f16e23c4bf72546e035d6c7d}{pop\+\_\+frame} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\item 
+void \hyperlink{FrameStack_8c_a58e0fe52e8e68e2d658615da24266b9b}{push\+\_\+operand} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} data, \hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$opstack)
+\begin{DoxyCompactList}\small\item\em Função que coloca um operando na pilha. \end{DoxyCompactList}\item 
+void \hyperlink{FrameStack_8c_aa1cfd3f59256a45cef0b2308c57d1b1a}{free\+\_\+operand\+\_\+stack} (\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$opstack)
+\begin{DoxyCompactList}\small\item\em Função que libera a pilha da memória. \end{DoxyCompactList}\item 
+\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{FrameStack_8c_a5316e1c063f566340878c6e5564c11a7}{pop\+\_\+operand} (\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$opstack)
+\begin{DoxyCompactList}\small\item\em Função que desempilha um operando da pilha. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{FrameStack_8c_aa1cfd3f59256a45cef0b2308c57d1b1a}\label{FrameStack_8c_aa1cfd3f59256a45cef0b2308c57d1b1a}} 
+\index{Frame\+Stack.\+c@{Frame\+Stack.\+c}!free\+\_\+operand\+\_\+stack@{free\+\_\+operand\+\_\+stack}}
+\index{free\+\_\+operand\+\_\+stack@{free\+\_\+operand\+\_\+stack}!Frame\+Stack.\+c@{Frame\+Stack.\+c}}
+\subsubsection{\texorpdfstring{free\+\_\+operand\+\_\+stack()}{free\_operand\_stack()}}
+{\footnotesize\ttfamily void free\+\_\+operand\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$}]{opstack }\end{DoxyParamCaption})}
+
+
+
+Função que libera a pilha da memória. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$opstack} & ponteiro para a pilha \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{FrameStack_8c_a0023f807f16e23c4bf72546e035d6c7d}\label{FrameStack_8c_a0023f807f16e23c4bf72546e035d6c7d}} 
+\index{Frame\+Stack.\+c@{Frame\+Stack.\+c}!pop\+\_\+frame@{pop\+\_\+frame}}
+\index{pop\+\_\+frame@{pop\+\_\+frame}!Frame\+Stack.\+c@{Frame\+Stack.\+c}}
+\subsubsection{\texorpdfstring{pop\+\_\+frame()}{pop\_frame()}}
+{\footnotesize\ttfamily void pop\+\_\+frame (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{FrameStack_8c_a5316e1c063f566340878c6e5564c11a7}\label{FrameStack_8c_a5316e1c063f566340878c6e5564c11a7}} 
+\index{Frame\+Stack.\+c@{Frame\+Stack.\+c}!pop\+\_\+operand@{pop\+\_\+operand}}
+\index{pop\+\_\+operand@{pop\+\_\+operand}!Frame\+Stack.\+c@{Frame\+Stack.\+c}}
+\subsubsection{\texorpdfstring{pop\+\_\+operand()}{pop\_operand()}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} pop\+\_\+operand (\begin{DoxyParamCaption}\item[{\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Função que desempilha um operando da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$stack} & ponteiro para a pilha \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+O operando desimpilhado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{FrameStack_8c_a605a09336c06cbc72668767f80bc0865}\label{FrameStack_8c_a605a09336c06cbc72668767f80bc0865}} 
+\index{Frame\+Stack.\+c@{Frame\+Stack.\+c}!push\+\_\+frame@{push\+\_\+frame}}
+\index{push\+\_\+frame@{push\+\_\+frame}!Frame\+Stack.\+c@{Frame\+Stack.\+c}}
+\subsubsection{\texorpdfstring{push\+\_\+frame()}{push\_frame()}}
+{\footnotesize\ttfamily void push\+\_\+frame (\begin{DoxyParamCaption}\item[{\hyperlink{structcp__info}{cp\+\_\+info} $\ast$}]{cp,  }\item[{\hyperlink{structStaticAtrib}{Static\+Atrib} $\ast$}]{sa,  }\item[{\hyperlink{structmethod__info}{method\+\_\+info} $\ast$}]{mf,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Função que adiciona um frame. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$cp} & Ponteiro para o constant pool \\
+\hline
+{\em $\ast$mf} & Ponteiro para as informações do método \\
+\hline
+{\em $\ast$fs} & Ponteiro para a pilha de frames \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{FrameStack_8c_a58e0fe52e8e68e2d658615da24266b9b}\label{FrameStack_8c_a58e0fe52e8e68e2d658615da24266b9b}} 
+\index{Frame\+Stack.\+c@{Frame\+Stack.\+c}!push\+\_\+operand@{push\+\_\+operand}}
+\index{push\+\_\+operand@{push\+\_\+operand}!Frame\+Stack.\+c@{Frame\+Stack.\+c}}
+\subsubsection{\texorpdfstring{push\+\_\+operand()}{push\_operand()}}
+{\footnotesize\ttfamily void push\+\_\+operand (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{data,  }\item[{\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Função que coloca um operando na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em data} & O operando a ser empilhado \\
+\hline
+{\em $\ast$stack} & ponteiro para a pilha \\
+\hline
+\end{DoxyParams}

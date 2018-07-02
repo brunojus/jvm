@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Java Virtual Machine: Referência do Arquivo jvm.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Java Virtual Machine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo jvm.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="Interpreter_8h_source.html">Interpreter.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para jvm.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="jvm_8c__incl.png" border="0" usemap="#jvm_8c" alt=""/></div>
+<map name="jvm_8c" id="jvm_8c">
+<area shape="rect" id="node4" href="Interpreter_8h.html" title="Interpreter.h" alt="" coords="201,80,293,107"/>
+<area shape="rect" id="node5" href="MethodArea_8h.html" title="MethodArea.h" alt="" coords="239,229,342,256"/>
+<area shape="rect" id="node9" href="FrameStack_8h.html" title="FrameStack.h" alt="" coords="328,155,432,181"/>
+<area shape="rect" id="node10" href="Opcodes_8h.html" title="Opcodes.h" alt="" coords="43,155,128,181"/>
+<area shape="rect" id="node11" href="Instructions_8h.html" title="Instructions.h" alt="" coords="152,155,253,181"/>
+<area shape="rect" id="node7" href="ClassLoader_8h.html" title="ClassLoader.h" alt="" coords="325,304,432,331"/>
+<area shape="rect" id="node12" href="AuxiliarInstructions_8h.html" title="AuxiliarInstructions.h" alt="" coords="71,229,215,256"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a2ddcc1c187ddc987628d0ab578b9bdaf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jvm_8c.html#a2ddcc1c187ddc987628d0ab578b9bdaf">Nargs</a> (char *descriptor, int length)</td></tr>
+<tr class="separator:a2ddcc1c187ddc987628d0ab578b9bdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34beb517dee3ac718322e49051319d9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jvm_8c.html#a34beb517dee3ac718322e49051319d9c">executarPrintln</a> (<a class="el" href="structFrameStack.html">FrameStack</a> *fr, char *descriptor, int length)</td></tr>
+<tr class="separator:a34beb517dee3ac718322e49051319d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac43e303b11535d016ead0d667ec059dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jvm_8c.html#ac43e303b11535d016ead0d667ec059dc">executarClinit</a> (<a class="el" href="structFrameStack.html">FrameStack</a> *fr)</td></tr>
+<tr class="separator:ac43e303b11535d016ead0d667ec059dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe8264d3d4324533907e8018e7d7a185"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jvm_8c.html#afe8264d3d4324533907e8018e7d7a185">executar</a> (char *method, char *descriptor, char *class_name, int nargs, <a class="el" href="structFrameStack.html">FrameStack</a> *fr, int especial)</td></tr>
+<tr class="separator:afe8264d3d4324533907e8018e7d7a185"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="jvm_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
+<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Funções</h2>
+<a id="afe8264d3d4324533907e8018e7d7a185"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe8264d3d4324533907e8018e7d7a185">&#9670;&nbsp;</a></span>executar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void executar </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>method</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>descriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>class_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nargs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structFrameStack.html">FrameStack</a> *&#160;</td>
+          <td class="paramname"><em>fr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>especial</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac43e303b11535d016ead0d667ec059dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac43e303b11535d016ead0d667ec059dc">&#9670;&nbsp;</a></span>executarClinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void executarClinit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structFrameStack.html">FrameStack</a> *&#160;</td>
+          <td class="paramname"><em>fr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a34beb517dee3ac718322e49051319d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34beb517dee3ac718322e49051319d9c">&#9670;&nbsp;</a></span>executarPrintln()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void executarPrintln </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structFrameStack.html">FrameStack</a> *&#160;</td>
+          <td class="paramname"><em>fr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>descriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ddcc1c187ddc987628d0ab578b9bdaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ddcc1c187ddc987628d0ab578b9bdaf">&#9670;&nbsp;</a></span>Nargs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Nargs </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>descriptor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,170 @@
+\hypertarget{FrameStack_8h}{}\section{Referência do Arquivo Frame\+Stack.\+h}
+\label{FrameStack_8h}\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+{\ttfamily \#include \char`\"{}Method\+Area.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Class\+Loader.\+h\char`\"{}}\newline
+Gráfico de dependência de inclusões para Frame\+Stack.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{FrameStack_8h__incl}
+\end{center}
+\end{figure}
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{FrameStack_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Componentes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structoperand}{operand}
+\item 
+struct \hyperlink{structoperand__stack}{operand\+\_\+stack}
+\begin{DoxyCompactList}\small\item\em Estrutura da pilha propriamente dita. \end{DoxyCompactList}\item 
+struct \hyperlink{structframe}{frame}
+\begin{DoxyCompactList}\small\item\em Estrutura dos elementos da pilha de frames. \end{DoxyCompactList}\item 
+struct \hyperlink{structFrameStack}{Frame\+Stack}
+\begin{DoxyCompactList}\small\item\em Estrutura da pilha de frames. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Definições de Tipos}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structoperand}{operand} \hyperlink{FrameStack_8h_a35236647a2ad82ec456f438503e59d11}{stack}
+\item 
+typedef struct \hyperlink{structoperand__stack}{operand\+\_\+stack} \hyperlink{FrameStack_8h_a2ede843ae23dfbb88d1e68890580b97a}{operand\+\_\+stack}
+\begin{DoxyCompactList}\small\item\em Estrutura da pilha propriamente dita. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structframe}{frame} \hyperlink{FrameStack_8h_aa02f79e5cf231f7fcd7bdf8e647fe96e}{frame}
+\begin{DoxyCompactList}\small\item\em Estrutura dos elementos da pilha de frames. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structFrameStack}{Frame\+Stack} \hyperlink{FrameStack_8h_ab4bdf0a3d1b174c241124cb6b89dcaef}{Frame\+Stack}
+\begin{DoxyCompactList}\small\item\em Estrutura da pilha de frames. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{FrameStack_8h_adf405e4f609a9f435b67ef5aae21bb29}{push\+\_\+operand} (\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} data, \hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$\hyperlink{FrameStack_8h_a35236647a2ad82ec456f438503e59d11}{stack})
+\begin{DoxyCompactList}\small\item\em Função que coloca um operando na pilha. \end{DoxyCompactList}\item 
+\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{FrameStack_8h_a399acbcb53bc89fa98f48faf5af41ba2}{pop\+\_\+operand} (\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$\hyperlink{FrameStack_8h_a35236647a2ad82ec456f438503e59d11}{stack})
+\begin{DoxyCompactList}\small\item\em Função que desempilha um operando da pilha. \end{DoxyCompactList}\item 
+void \hyperlink{FrameStack_8h_aa1cfd3f59256a45cef0b2308c57d1b1a}{free\+\_\+operand\+\_\+stack} (\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$opstack)
+\begin{DoxyCompactList}\small\item\em Função que libera a pilha da memória. \end{DoxyCompactList}\item 
+void \hyperlink{FrameStack_8h_a605a09336c06cbc72668767f80bc0865}{push\+\_\+frame} (\hyperlink{structcp__info}{cp\+\_\+info} $\ast$cp, \hyperlink{structStaticAtrib}{Static\+Atrib} $\ast$sa, \hyperlink{structmethod__info}{method\+\_\+info} $\ast$mf, \hyperlink{structFrameStack}{Frame\+Stack} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Função que adiciona um frame. \end{DoxyCompactList}\item 
+void \hyperlink{FrameStack_8h_a73dce0d70d5626fd174e379d1affbd1f}{pop\+\_\+frame} (\hyperlink{structFrameStack}{Frame\+Stack} $\ast$sf)
+\end{DoxyCompactItemize}
+
+
+\subsection{Definições dos tipos}
+\mbox{\Hypertarget{FrameStack_8h_aa02f79e5cf231f7fcd7bdf8e647fe96e}\label{FrameStack_8h_aa02f79e5cf231f7fcd7bdf8e647fe96e}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!frame@{frame}}
+\index{frame@{frame}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structframe}{frame} \hyperlink{structframe}{frame}}
+
+
+
+Estrutura dos elementos da pilha de frames. 
+
+\mbox{\Hypertarget{FrameStack_8h_ab4bdf0a3d1b174c241124cb6b89dcaef}\label{FrameStack_8h_ab4bdf0a3d1b174c241124cb6b89dcaef}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!Frame\+Stack@{Frame\+Stack}}
+\index{Frame\+Stack@{Frame\+Stack}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{Frame\+Stack}{FrameStack}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structFrameStack}{Frame\+Stack} \hyperlink{structFrameStack}{Frame\+Stack}}
+
+
+
+Estrutura da pilha de frames. 
+
+\mbox{\Hypertarget{FrameStack_8h_a2ede843ae23dfbb88d1e68890580b97a}\label{FrameStack_8h_a2ede843ae23dfbb88d1e68890580b97a}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!operand\+\_\+stack@{operand\+\_\+stack}}
+\index{operand\+\_\+stack@{operand\+\_\+stack}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{operand\+\_\+stack}{operand\_stack}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structoperand__stack}{operand\+\_\+stack} \hyperlink{structoperand__stack}{operand\+\_\+stack}}
+
+
+
+Estrutura da pilha propriamente dita. 
+
+\mbox{\Hypertarget{FrameStack_8h_a35236647a2ad82ec456f438503e59d11}\label{FrameStack_8h_a35236647a2ad82ec456f438503e59d11}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!stack@{stack}}
+\index{stack@{stack}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{stack}{stack}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structoperand}{operand} \hyperlink{FrameStack_8h_a35236647a2ad82ec456f438503e59d11}{stack}}
+
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{FrameStack_8h_aa1cfd3f59256a45cef0b2308c57d1b1a}\label{FrameStack_8h_aa1cfd3f59256a45cef0b2308c57d1b1a}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!free\+\_\+operand\+\_\+stack@{free\+\_\+operand\+\_\+stack}}
+\index{free\+\_\+operand\+\_\+stack@{free\+\_\+operand\+\_\+stack}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{free\+\_\+operand\+\_\+stack()}{free\_operand\_stack()}}
+{\footnotesize\ttfamily void free\+\_\+operand\+\_\+stack (\begin{DoxyParamCaption}\item[{\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$}]{opstack }\end{DoxyParamCaption})}
+
+
+
+Função que libera a pilha da memória. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$opstack} & ponteiro para a pilha \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{FrameStack_8h_a73dce0d70d5626fd174e379d1affbd1f}\label{FrameStack_8h_a73dce0d70d5626fd174e379d1affbd1f}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!pop\+\_\+frame@{pop\+\_\+frame}}
+\index{pop\+\_\+frame@{pop\+\_\+frame}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{pop\+\_\+frame()}{pop\_frame()}}
+{\footnotesize\ttfamily void pop\+\_\+frame (\begin{DoxyParamCaption}\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{sf }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{FrameStack_8h_a399acbcb53bc89fa98f48faf5af41ba2}\label{FrameStack_8h_a399acbcb53bc89fa98f48faf5af41ba2}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!pop\+\_\+operand@{pop\+\_\+operand}}
+\index{pop\+\_\+operand@{pop\+\_\+operand}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{pop\+\_\+operand()}{pop\_operand()}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} pop\+\_\+operand (\begin{DoxyParamCaption}\item[{\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Função que desempilha um operando da pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$stack} & ponteiro para a pilha \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+O operando desimpilhado 
+\end{DoxyReturn}
+\mbox{\Hypertarget{FrameStack_8h_a605a09336c06cbc72668767f80bc0865}\label{FrameStack_8h_a605a09336c06cbc72668767f80bc0865}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!push\+\_\+frame@{push\+\_\+frame}}
+\index{push\+\_\+frame@{push\+\_\+frame}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{push\+\_\+frame()}{push\_frame()}}
+{\footnotesize\ttfamily void push\+\_\+frame (\begin{DoxyParamCaption}\item[{\hyperlink{structcp__info}{cp\+\_\+info} $\ast$}]{cp,  }\item[{\hyperlink{structStaticAtrib}{Static\+Atrib} $\ast$}]{sa,  }\item[{\hyperlink{structmethod__info}{method\+\_\+info} $\ast$}]{mf,  }\item[{\hyperlink{structFrameStack}{Frame\+Stack} $\ast$}]{fs }\end{DoxyParamCaption})}
+
+
+
+Função que adiciona um frame. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$cp} & Ponteiro para o constant pool \\
+\hline
+{\em $\ast$mf} & Ponteiro para as informações do método \\
+\hline
+{\em $\ast$fs} & Ponteiro para a pilha de frames \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{FrameStack_8h_adf405e4f609a9f435b67ef5aae21bb29}\label{FrameStack_8h_adf405e4f609a9f435b67ef5aae21bb29}} 
+\index{Frame\+Stack.\+h@{Frame\+Stack.\+h}!push\+\_\+operand@{push\+\_\+operand}}
+\index{push\+\_\+operand@{push\+\_\+operand}!Frame\+Stack.\+h@{Frame\+Stack.\+h}}
+\subsubsection{\texorpdfstring{push\+\_\+operand()}{push\_operand()}}
+{\footnotesize\ttfamily void push\+\_\+operand (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4}}]{data,  }\item[{\hyperlink{structoperand__stack}{operand\+\_\+stack} $\ast$}]{stack }\end{DoxyParamCaption})}
+
+
+
+Função que coloca um operando na pilha. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em data} & O operando a ser empilhado \\
+\hline
+{\em $\ast$stack} & ponteiro para a pilha \\
+\hline
+\end{DoxyParams}

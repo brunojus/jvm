@@ -1,0 +1,528 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Java Virtual Machine: Referência do Arquivo MethodArea.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Java Virtual Machine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a> &#124;
+<a href="#var-members">Variáveis</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo MethodArea.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="MethodArea_8h_source.html">MethodArea.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para MethodArea.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="MethodArea_8c__incl.png" border="0" usemap="#MethodArea_8c" alt=""/></div>
+<map name="MethodArea_8c" id="MethodArea_8c">
+<area shape="rect" id="node2" href="MethodArea_8h.html" title="MethodArea.h" alt="" coords="46,80,149,107"/>
+<area shape="rect" id="node4" href="ClassLoader_8h.html" title="ClassLoader.h" alt="" coords="101,155,208,181"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ac4fbac94288cf0cd229e1fd09183b2f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#ac4fbac94288cf0cd229e1fd09183b2f5">insertClass</a> (<a class="el" href="structClass.html">Class</a> *newClass)</td></tr>
+<tr class="memdesc:ac4fbac94288cf0cd229e1fd09183b2f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que insere uma classe na lista de classes.  <a href="#ac4fbac94288cf0cd229e1fd09183b2f5">Mais...</a><br /></td></tr>
+<tr class="separator:ac4fbac94288cf0cd229e1fd09183b2f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab63ab145475573765f2ba8751e7debbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#ab63ab145475573765f2ba8751e7debbb">destroyClassList</a> ()</td></tr>
+<tr class="memdesc:ab63ab145475573765f2ba8751e7debbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Limpa da memória toda a lista de classes.  <a href="#ab63ab145475573765f2ba8751e7debbb">Mais...</a><br /></td></tr>
+<tr class="separator:ab63ab145475573765f2ba8751e7debbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c73bbfba081261f068c03a5993eaa5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structClass.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#a3c73bbfba081261f068c03a5993eaa5f">searchClass</a> (char *className)</td></tr>
+<tr class="memdesc:a3c73bbfba081261f068c03a5993eaa5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que procura e carrega uma classe do HD.  <a href="#a3c73bbfba081261f068c03a5993eaa5f">Mais...</a><br /></td></tr>
+<tr class="separator:a3c73bbfba081261f068c03a5993eaa5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af296db4d6c3b98842c7850fd72a80883"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcp__info.html">cp_info</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#af296db4d6c3b98842c7850fd72a80883">cpSearch</a> (char *className)</td></tr>
+<tr class="memdesc:af296db4d6c3b98842c7850fd72a80883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que procura o constant pool.  <a href="#af296db4d6c3b98842c7850fd72a80883">Mais...</a><br /></td></tr>
+<tr class="separator:af296db4d6c3b98842c7850fd72a80883"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a562ab8bca97550f9ea25092bb5e81b25"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#a562ab8bca97550f9ea25092bb5e81b25">CountStaticAtrib</a> (<a class="el" href="structClassFile.html">ClassFile</a> *ptClass)</td></tr>
+<tr class="memdesc:a562ab8bca97550f9ea25092bb5e81b25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que conta o número de atributos estáticos.  <a href="#a562ab8bca97550f9ea25092bb5e81b25">Mais...</a><br /></td></tr>
+<tr class="separator:a562ab8bca97550f9ea25092bb5e81b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f2ba10edcf4fa9e42f29c1b77e25d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#a07f2ba10edcf4fa9e42f29c1b77e25d9">CountAtrib</a> (<a class="el" href="structClassFile.html">ClassFile</a> *ptClass)</td></tr>
+<tr class="memdesc:a07f2ba10edcf4fa9e42f29c1b77e25d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que conta o número de atributos dinâmicos.  <a href="#a07f2ba10edcf4fa9e42f29c1b77e25d9">Mais...</a><br /></td></tr>
+<tr class="separator:a07f2ba10edcf4fa9e42f29c1b77e25d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa543f19f820dc4c6700166fd4fb80a6a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#aa543f19f820dc4c6700166fd4fb80a6a">TypeDescriptor</a> (char *descriptor)</td></tr>
+<tr class="memdesc:aa543f19f820dc4c6700166fd4fb80a6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que procura o tipo do descritor.  <a href="#aa543f19f820dc4c6700166fd4fb80a6a">Mais...</a><br /></td></tr>
+<tr class="separator:aa543f19f820dc4c6700166fd4fb80a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6fe11c8391105d4fbeb194a5e1aa234"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStaticAtrib.html">StaticAtrib</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#af6fe11c8391105d4fbeb194a5e1aa234">staticLoad</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf)</td></tr>
+<tr class="memdesc:af6fe11c8391105d4fbeb194a5e1aa234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que extrai todos os parametros estáticos.  <a href="#af6fe11c8391105d4fbeb194a5e1aa234">Mais...</a><br /></td></tr>
+<tr class="separator:af6fe11c8391105d4fbeb194a5e1aa234"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a013df09207698346ad966d4b80035bce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structObject.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#a013df09207698346ad966d4b80035bce">createObject</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf)</td></tr>
+<tr class="memdesc:a013df09207698346ad966d4b80035bce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que cria um objeto.  <a href="#a013df09207698346ad966d4b80035bce">Mais...</a><br /></td></tr>
+<tr class="separator:a013df09207698346ad966d4b80035bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a998584cc00a46f1674dc97c91e1786e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmethod__info.html">method_info</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#a998584cc00a46f1674dc97c91e1786e7">getMethod</a> (char *name, char *class_name, char *descriptor)</td></tr>
+<tr class="memdesc:a998584cc00a46f1674dc97c91e1786e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que extrai as informações de um dado método.  <a href="#a998584cc00a46f1674dc97c91e1786e7">Mais...</a><br /></td></tr>
+<tr class="separator:a998584cc00a46f1674dc97c91e1786e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8141c4149f381e339859a57b0e2f5e68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structcp__info.html">cp_info</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#a8141c4149f381e339859a57b0e2f5e68">getCpSuper</a> (char *name, char *class_name, char *descriptor)</td></tr>
+<tr class="memdesc:a8141c4149f381e339859a57b0e2f5e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que procura um constant pool de um função.  <a href="#a8141c4149f381e339859a57b0e2f5e68">Mais...</a><br /></td></tr>
+<tr class="separator:a8141c4149f381e339859a57b0e2f5e68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a9afe10625c496a7e6b9329feeb3874"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structStaticAtrib.html">StaticAtrib</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#a6a9afe10625c496a7e6b9329feeb3874">getstaticAtrib</a> (char *class_name)</td></tr>
+<tr class="memdesc:a6a9afe10625c496a7e6b9329feeb3874"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que busca o vetor de variáveis estáticas.  <a href="#a6a9afe10625c496a7e6b9329feeb3874">Mais...</a><br /></td></tr>
+<tr class="separator:a6a9afe10625c496a7e6b9329feeb3874"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1d849ab049d6d42552889dfea989d5"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#a6c1d849ab049d6d42552889dfea989d5">getNAtribStatic</a> (char *class_name)</td></tr>
+<tr class="memdesc:a6c1d849ab049d6d42552889dfea989d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que conta o número de atributos estáticos.  <a href="#a6c1d849ab049d6d42552889dfea989d5">Mais...</a><br /></td></tr>
+<tr class="separator:a6c1d849ab049d6d42552889dfea989d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variáveis</h2></td></tr>
+<tr class="memitem:ab10f9eb1f39a25ecca6fe345f4bff710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structClass.html">Class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="MethodArea_8c.html#ab10f9eb1f39a25ecca6fe345f4bff710">list</a> = NULL</td></tr>
+<tr class="separator:ab10f9eb1f39a25ecca6fe345f4bff710"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Funções</h2>
+<a id="a07f2ba10edcf4fa9e42f29c1b77e25d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f2ba10edcf4fa9e42f29c1b77e25d9">&#9670;&nbsp;</a></span>CountAtrib()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CountAtrib </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>ptClass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que conta o número de atributos dinâmicos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*ptClass</td><td>ponteiro para a classe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Número de atributos dinâmicos </dd></dl>
+
+</div>
+</div>
+<a id="a562ab8bca97550f9ea25092bb5e81b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a562ab8bca97550f9ea25092bb5e81b25">&#9670;&nbsp;</a></span>CountStaticAtrib()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CountStaticAtrib </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>ptClass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que conta o número de atributos estáticos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*ptClass</td><td>ponteiro para a classe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Número de atributos estáticos </dd></dl>
+
+</div>
+</div>
+<a id="af296db4d6c3b98842c7850fd72a80883"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af296db4d6c3b98842c7850fd72a80883">&#9670;&nbsp;</a></span>cpSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcp__info.html">cp_info</a>* cpSearch </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>className</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que procura o constant pool. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*className</td><td>Nome da classe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para o constant poll </dd></dl>
+
+</div>
+</div>
+<a id="a013df09207698346ad966d4b80035bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a013df09207698346ad966d4b80035bce">&#9670;&nbsp;</a></span>createObject()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structObject.html">Object</a>* createObject </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que cria um objeto. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*cf</td><td>Ponteiro para a classe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para o objeto </dd></dl>
+
+</div>
+</div>
+<a id="ab63ab145475573765f2ba8751e7debbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab63ab145475573765f2ba8751e7debbb">&#9670;&nbsp;</a></span>destroyClassList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void destroyClassList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Limpa da memória toda a lista de classes. </p>
+
+</div>
+</div>
+<a id="a8141c4149f381e339859a57b0e2f5e68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8141c4149f381e339859a57b0e2f5e68">&#9670;&nbsp;</a></span>getCpSuper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structcp__info.html">cp_info</a>* getCpSuper </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>class_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>descriptor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que procura um constant pool de um função. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*name</td><td>Nome do método </td></tr>
+    <tr><td class="paramname">*class_name</td><td>Nome da classe que contém esse método </td></tr>
+    <tr><td class="paramname">*descritor</td><td>Descritor do método </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para o constant pool </dd></dl>
+
+</div>
+</div>
+<a id="a998584cc00a46f1674dc97c91e1786e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a998584cc00a46f1674dc97c91e1786e7">&#9670;&nbsp;</a></span>getMethod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmethod__info.html">method_info</a>* getMethod </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>class_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>descriptor</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que extrai as informações de um dado método. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*name</td><td>Nome do método </td></tr>
+    <tr><td class="paramname">*class_name</td><td>Nome da classe que contém esse método </td></tr>
+    <tr><td class="paramname">*descritor</td><td>Descritor do método </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para a estrutura que guarda as informações do método </dd></dl>
+
+</div>
+</div>
+<a id="a6c1d849ab049d6d42552889dfea989d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c1d849ab049d6d42552889dfea989d5">&#9670;&nbsp;</a></span>getNAtribStatic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long getNAtribStatic </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>class_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que conta o número de atributos estáticos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*class_name</td><td>nome da classe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Número de atributos estáticos </dd></dl>
+
+</div>
+</div>
+<a id="a6a9afe10625c496a7e6b9329feeb3874"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a9afe10625c496a7e6b9329feeb3874">&#9670;&nbsp;</a></span>getstaticAtrib()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structStaticAtrib.html">StaticAtrib</a>* getstaticAtrib </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>class_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que busca o vetor de variáveis estáticas. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*class_name</td><td>nome da classe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para o vetor de variáveis estáticas </dd></dl>
+
+</div>
+</div>
+<a id="ac4fbac94288cf0cd229e1fd09183b2f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4fbac94288cf0cd229e1fd09183b2f5">&#9670;&nbsp;</a></span>insertClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void insertClass </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClass.html">Class</a> *&#160;</td>
+          <td class="paramname"><em>newClass</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que insere uma classe na lista de classes. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*newClass</td><td>Ponteiro para a classe a ser inserida </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c73bbfba081261f068c03a5993eaa5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c73bbfba081261f068c03a5993eaa5f">&#9670;&nbsp;</a></span>searchClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structClass.html">Class</a>* searchClass </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>className</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que procura e carrega uma classe do HD. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*className</td><td>Endereço da classe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Ponteiro para a classe </dd></dl>
+
+</div>
+</div>
+<a id="af6fe11c8391105d4fbeb194a5e1aa234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6fe11c8391105d4fbeb194a5e1aa234">&#9670;&nbsp;</a></span>staticLoad()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structStaticAtrib.html">StaticAtrib</a>* staticLoad </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que extrai todos os parametros estáticos. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*cf</td><td>Ponteiro para a classe </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor de variáveis estáticas </dd></dl>
+
+</div>
+</div>
+<a id="aa543f19f820dc4c6700166fd4fb80a6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa543f19f820dc4c6700166fd4fb80a6a">&#9670;&nbsp;</a></span>TypeDescriptor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TypeDescriptor </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>descriptor</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função que procura o tipo do descritor. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*descritor</td><td>string do descritor </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Número referente a esse descritor </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variáveis</h2>
+<a id="ab10f9eb1f39a25ecca6fe345f4bff710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab10f9eb1f39a25ecca6fe345f4bff710">&#9670;&nbsp;</a></span>list</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structClass.html">Class</a>* list = NULL</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

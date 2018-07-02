@@ -1,0 +1,236 @@
+\hypertarget{unioncp__info_1_1datacp}{}\section{Referência da União cp\+\_\+info\+:\+:datacp}
+\label{unioncp__info_1_1datacp}\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+
+
+{\ttfamily \#include $<$Class\+Loader.\+h$>$}
+
+
+
+Diagrama de colaboração para cp\+\_\+info\+:\+:datacp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unioncp__info_1_1datacp__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Atributos Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_a4540b43d9ad83000fc7febdba3cfef4a}{name\_index}\\
+\} \hyperlink{unioncp__info_1_1datacp_a4525c82a522e0e579c9f40f1c6d30b81}{Class}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_afe58e71caa77c751cd4149cba08365c9}{class\_index}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_a10e647455d27f6b08b65df60301401d9}{name\_and\_type\_index}\\
+\} \hyperlink{unioncp__info_1_1datacp_a7efec0a325241942db9e4aa925adfdd8}{Fieldref}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_a4540b43d9ad83000fc7febdba3cfef4a}{name\_index}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_a9dd2cf98a0eacfc287bf71858e5ca7fb}{descriptor\_index}\\
+\} \hyperlink{unioncp__info_1_1datacp_a428f1877b11d61637645670cae8f9200}{NameAndType}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_a38d5e0a1710a66be36faaa9ca4c0beb7}{length}\\
+\>\hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1} $\ast$ \hyperlink{unioncp__info_1_1datacp_a40e488bf00f85faac8a0fb14fabea614}{bytes}\\
+\} \hyperlink{unioncp__info_1_1datacp_aa0571418fb804e2f3c2f849eb75142e4}{Utf8}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_afe58e71caa77c751cd4149cba08365c9}{class\_index}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_a10e647455d27f6b08b65df60301401d9}{name\_and\_type\_index}\\
+\} \hyperlink{unioncp__info_1_1datacp_a00628d467fcdec56fa116d9caedb31f1}{Methodref}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_afe58e71caa77c751cd4149cba08365c9}{class\_index}\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_a10e647455d27f6b08b65df60301401d9}{name\_and\_type\_index}\\
+\} \hyperlink{unioncp__info_1_1datacp_a018323167290ca28a84842ea5add03d6}{InterfaceMethodref}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{unioncp__info_1_1datacp_af0c3e4590189a854d4c52d70464571cf}{string\_index}\\
+\} \hyperlink{unioncp__info_1_1datacp_aaf4057ca7dfbb3d88679bc5bd2477a48}{String}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unioncp__info_1_1datacp_ac52b232a2050869b907c4f779040ae55}{bytes}\\
+\} \hyperlink{unioncp__info_1_1datacp_a3fae51d860972546a641af00e3d6fc48}{Integer}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unioncp__info_1_1datacp_ac52b232a2050869b907c4f779040ae55}{bytes}\\
+\} \hyperlink{unioncp__info_1_1datacp_a431abea8c183a390982358fede7e6e7d}{Float}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unioncp__info_1_1datacp_a31f14c5e0d6b0cd8886188564f5544ca}{high\_bytes}\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unioncp__info_1_1datacp_a4851a5181dd7496139fa419eb5351d49}{low\_bytes}\\
+\} \hyperlink{unioncp__info_1_1datacp_a608d10fc02e173e416b0d8317a470a24}{Long}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unioncp__info_1_1datacp_a31f14c5e0d6b0cd8886188564f5544ca}{high\_bytes}\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{unioncp__info_1_1datacp_a4851a5181dd7496139fa419eb5351d49}{low\_bytes}\\
+\} \hyperlink{unioncp__info_1_1datacp_a61b7da66723d0b3419a8a0ecf063d1ad}{Double}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\subsection{Atributos}
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a40e488bf00f85faac8a0fb14fabea614}\label{unioncp__info_1_1datacp_a40e488bf00f85faac8a0fb14fabea614}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!bytes@{bytes}}
+\index{bytes@{bytes}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{bytes}{bytes}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1}$\ast$ cp\+\_\+info\+::datacp\+::bytes}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_ac52b232a2050869b907c4f779040ae55}\label{unioncp__info_1_1datacp_ac52b232a2050869b907c4f779040ae55}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!bytes@{bytes}}
+\index{bytes@{bytes}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{bytes}{bytes}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} cp\+\_\+info\+::datacp\+::bytes}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a4525c82a522e0e579c9f40f1c6d30b81}\label{unioncp__info_1_1datacp_a4525c82a522e0e579c9f40f1c6d30b81}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Class@{Class}}
+\index{Class@{Class}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Class}{Class}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Class}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_afe58e71caa77c751cd4149cba08365c9}\label{unioncp__info_1_1datacp_afe58e71caa77c751cd4149cba08365c9}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!class\+\_\+index@{class\+\_\+index}}
+\index{class\+\_\+index@{class\+\_\+index}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{class\+\_\+index}{class\_index}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} cp\+\_\+info\+::datacp\+::class\+\_\+index}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a9dd2cf98a0eacfc287bf71858e5ca7fb}\label{unioncp__info_1_1datacp_a9dd2cf98a0eacfc287bf71858e5ca7fb}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!descriptor\+\_\+index@{descriptor\+\_\+index}}
+\index{descriptor\+\_\+index@{descriptor\+\_\+index}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{descriptor\+\_\+index}{descriptor\_index}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} cp\+\_\+info\+::datacp\+::descriptor\+\_\+index}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a61b7da66723d0b3419a8a0ecf063d1ad}\label{unioncp__info_1_1datacp_a61b7da66723d0b3419a8a0ecf063d1ad}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Double@{Double}}
+\index{Double@{Double}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Double}{Double}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Double}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a7efec0a325241942db9e4aa925adfdd8}\label{unioncp__info_1_1datacp_a7efec0a325241942db9e4aa925adfdd8}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Fieldref@{Fieldref}}
+\index{Fieldref@{Fieldref}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Fieldref}{Fieldref}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Fieldref}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a431abea8c183a390982358fede7e6e7d}\label{unioncp__info_1_1datacp_a431abea8c183a390982358fede7e6e7d}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Float@{Float}}
+\index{Float@{Float}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Float}{Float}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Float}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a31f14c5e0d6b0cd8886188564f5544ca}\label{unioncp__info_1_1datacp_a31f14c5e0d6b0cd8886188564f5544ca}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!high\+\_\+bytes@{high\+\_\+bytes}}
+\index{high\+\_\+bytes@{high\+\_\+bytes}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{high\+\_\+bytes}{high\_bytes}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} cp\+\_\+info\+::datacp\+::high\+\_\+bytes}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a3fae51d860972546a641af00e3d6fc48}\label{unioncp__info_1_1datacp_a3fae51d860972546a641af00e3d6fc48}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Integer@{Integer}}
+\index{Integer@{Integer}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Integer}{Integer}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Integer}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a018323167290ca28a84842ea5add03d6}\label{unioncp__info_1_1datacp_a018323167290ca28a84842ea5add03d6}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Interface\+Methodref@{Interface\+Methodref}}
+\index{Interface\+Methodref@{Interface\+Methodref}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Interface\+Methodref}{InterfaceMethodref}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Interface\+Methodref}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a38d5e0a1710a66be36faaa9ca4c0beb7}\label{unioncp__info_1_1datacp_a38d5e0a1710a66be36faaa9ca4c0beb7}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!length@{length}}
+\index{length@{length}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} cp\+\_\+info\+::datacp\+::length}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a608d10fc02e173e416b0d8317a470a24}\label{unioncp__info_1_1datacp_a608d10fc02e173e416b0d8317a470a24}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Long@{Long}}
+\index{Long@{Long}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Long}{Long}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Long}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a4851a5181dd7496139fa419eb5351d49}\label{unioncp__info_1_1datacp_a4851a5181dd7496139fa419eb5351d49}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!low\+\_\+bytes@{low\+\_\+bytes}}
+\index{low\+\_\+bytes@{low\+\_\+bytes}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{low\+\_\+bytes}{low\_bytes}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} cp\+\_\+info\+::datacp\+::low\+\_\+bytes}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a00628d467fcdec56fa116d9caedb31f1}\label{unioncp__info_1_1datacp_a00628d467fcdec56fa116d9caedb31f1}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Methodref@{Methodref}}
+\index{Methodref@{Methodref}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Methodref}{Methodref}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Methodref}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a10e647455d27f6b08b65df60301401d9}\label{unioncp__info_1_1datacp_a10e647455d27f6b08b65df60301401d9}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!name\+\_\+and\+\_\+type\+\_\+index@{name\+\_\+and\+\_\+type\+\_\+index}}
+\index{name\+\_\+and\+\_\+type\+\_\+index@{name\+\_\+and\+\_\+type\+\_\+index}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{name\+\_\+and\+\_\+type\+\_\+index}{name\_and\_type\_index}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} cp\+\_\+info\+::datacp\+::name\+\_\+and\+\_\+type\+\_\+index}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a4540b43d9ad83000fc7febdba3cfef4a}\label{unioncp__info_1_1datacp_a4540b43d9ad83000fc7febdba3cfef4a}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!name\+\_\+index@{name\+\_\+index}}
+\index{name\+\_\+index@{name\+\_\+index}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{name\+\_\+index}{name\_index}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} cp\+\_\+info\+::datacp\+::name\+\_\+index}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_a428f1877b11d61637645670cae8f9200}\label{unioncp__info_1_1datacp_a428f1877b11d61637645670cae8f9200}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Name\+And\+Type@{Name\+And\+Type}}
+\index{Name\+And\+Type@{Name\+And\+Type}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Name\+And\+Type}{NameAndType}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Name\+And\+Type}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_aaf4057ca7dfbb3d88679bc5bd2477a48}\label{unioncp__info_1_1datacp_aaf4057ca7dfbb3d88679bc5bd2477a48}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!String@{String}}
+\index{String@{String}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{String}{String}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+String}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_af0c3e4590189a854d4c52d70464571cf}\label{unioncp__info_1_1datacp_af0c3e4590189a854d4c52d70464571cf}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!string\+\_\+index@{string\+\_\+index}}
+\index{string\+\_\+index@{string\+\_\+index}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{string\+\_\+index}{string\_index}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} cp\+\_\+info\+::datacp\+::string\+\_\+index}
+
+\mbox{\Hypertarget{unioncp__info_1_1datacp_aa0571418fb804e2f3c2f849eb75142e4}\label{unioncp__info_1_1datacp_aa0571418fb804e2f3c2f849eb75142e4}} 
+\index{cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}!Utf8@{Utf8}}
+\index{Utf8@{Utf8}!cp\+\_\+info\+::datacp@{cp\+\_\+info\+::datacp}}
+\subsubsection{\texorpdfstring{Utf8}{Utf8}}
+{\footnotesize\ttfamily struct \{ ... \}  cp\+\_\+info\+::datacp\+::\+Utf8}
+
+
+
+A documentação para esta união foi gerada a partir do seguinte arquivo\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ClassLoader_8h}{Class\+Loader.\+h}\end{DoxyCompactItemize}

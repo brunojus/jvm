@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Java Virtual Machine: Referência da Estrutura exception_table</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Java Virtual Machine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Atributos Públicos</a> &#124;
+<a href="structexception__table-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência da Estrutura exception_table</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Tabela de excesões.  
+ <a href="structexception__table.html#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ClassLoader_8h_source.html">ClassLoader.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de colaboração para exception_table:</div>
+<div class="dyncontent">
+<div class="center"><img src="structexception__table__coll__graph.png" border="0" usemap="#exception__table_coll__map" alt="Collaboration graph"/></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Atributos Públicos</h2></td></tr>
+<tr class="memitem:a63da93a2b0f5dc61b3a158a0c7384602"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structexception__table.html#a63da93a2b0f5dc61b3a158a0c7384602">start_pc</a></td></tr>
+<tr class="separator:a63da93a2b0f5dc61b3a158a0c7384602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb4c86c92f02d6fccd52a0a9be9c5dac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structexception__table.html#aeb4c86c92f02d6fccd52a0a9be9c5dac">end_pc</a></td></tr>
+<tr class="separator:aeb4c86c92f02d6fccd52a0a9be9c5dac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fe6fb5063598ad0d48aab5e617d6a35"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structexception__table.html#a8fe6fb5063598ad0d48aab5e617d6a35">handler_pc</a></td></tr>
+<tr class="separator:a8fe6fb5063598ad0d48aab5e617d6a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade50b30a987f3d3452a6de69eee0ada5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structexception__table.html#ade50b30a987f3d3452a6de69eee0ada5">catch_type</a></td></tr>
+<tr class="separator:ade50b30a987f3d3452a6de69eee0ada5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição Detalhada</h2>
+<div class="textblock"><p>Tabela de excesões. </p>
+</div><h2 class="groupheader">Atributos</h2>
+<a id="ade50b30a987f3d3452a6de69eee0ada5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade50b30a987f3d3452a6de69eee0ada5">&#9670;&nbsp;</a></span>catch_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a> exception_table::catch_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb4c86c92f02d6fccd52a0a9be9c5dac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb4c86c92f02d6fccd52a0a9be9c5dac">&#9670;&nbsp;</a></span>end_pc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a> exception_table::end_pc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fe6fb5063598ad0d48aab5e617d6a35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fe6fb5063598ad0d48aab5e617d6a35">&#9670;&nbsp;</a></span>handler_pc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a> exception_table::handler_pc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a63da93a2b0f5dc61b3a158a0c7384602"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63da93a2b0f5dc61b3a158a0c7384602">&#9670;&nbsp;</a></span>start_pc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a> exception_table::start_pc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>A documentação para esta estrutura foi gerada a partir do seguinte arquivo:<ul>
+<li><a class="el" href="ClassLoader_8h_source.html">ClassLoader.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

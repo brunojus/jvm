@@ -1,0 +1,104 @@
+\hypertarget{ClassLoader_8c}{}\section{Referência do Arquivo Class\+Loader.\+c}
+\label{ClassLoader_8c}\index{Class\+Loader.\+c@{Class\+Loader.\+c}}
+{\ttfamily \#include \char`\"{}Class\+Loader.\+h\char`\"{}}\newline
+Gráfico de dependência de inclusões para Class\+Loader.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{ClassLoader_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1} \hyperlink{ClassLoader_8c_a77853ce0387c0b914b5a106ff7cf9ae9}{u1\+Read} (F\+I\+LE $\ast$fd)
+\begin{DoxyCompactList}\small\item\em Função que le um byte do arquivo. \end{DoxyCompactList}\item 
+\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} \hyperlink{ClassLoader_8c_a73788d4e3c1c3577021c1dbf4ca75cc1}{u2\+Read} (F\+I\+LE $\ast$fd)
+\begin{DoxyCompactList}\small\item\em Função que le dois byte do arquivo. \end{DoxyCompactList}\item 
+\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{ClassLoader_8c_a4cba9f2733d339d7287d10d160c39e79}{u4\+Read} (F\+I\+LE $\ast$fd)
+\begin{DoxyCompactList}\small\item\em Função que le quatro byte do arquivo. \end{DoxyCompactList}\item 
+\hyperlink{structattribute__info}{attribute\+\_\+info} $\ast$ \hyperlink{ClassLoader_8c_aec485e0dbf4cf9a562e663eddf3835e1}{read\+\_\+attributes\+\_\+info} (\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} count, \hyperlink{structcp__info}{cp\+\_\+info} $\ast$cp, F\+I\+LE $\ast$ptr\+Class)
+\item 
+\hyperlink{structClassFile}{Class\+File} $\ast$ \hyperlink{ClassLoader_8c_a39d384ef8195b3711abd1c40b6fd5908}{read\+\_\+class} (char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Função que le o bytecode java e monta a estrutura da classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{ClassLoader_8c_aec485e0dbf4cf9a562e663eddf3835e1}\label{ClassLoader_8c_aec485e0dbf4cf9a562e663eddf3835e1}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!read\+\_\+attributes\+\_\+info@{read\+\_\+attributes\+\_\+info}}
+\index{read\+\_\+attributes\+\_\+info@{read\+\_\+attributes\+\_\+info}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{read\+\_\+attributes\+\_\+info()}{read\_attributes\_info()}}
+{\footnotesize\ttfamily \hyperlink{structattribute__info}{attribute\+\_\+info}$\ast$ read\+\_\+attributes\+\_\+info (\begin{DoxyParamCaption}\item[{\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2}}]{count,  }\item[{\hyperlink{structcp__info}{cp\+\_\+info} $\ast$}]{cp,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
+Funcao que le as informacoes dos atributos no bytecode count Numero de atributos $\ast$cp Ponteiro para o constant pool $\ast$ptr\+Class Ponteiro para o arquivo ptr\+Attributes ponteiro para vetor de atributos \mbox{\Hypertarget{ClassLoader_8c_a39d384ef8195b3711abd1c40b6fd5908}\label{ClassLoader_8c_a39d384ef8195b3711abd1c40b6fd5908}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!read\+\_\+class@{read\+\_\+class}}
+\index{read\+\_\+class@{read\+\_\+class}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{read\+\_\+class()}{read\_class()}}
+{\footnotesize\ttfamily \hyperlink{structClassFile}{Class\+File}$\ast$ read\+\_\+class (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Função que le o bytecode java e monta a estrutura da classe. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$filename} & Endereço do arquivo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+estrutura da classe montada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ClassLoader_8c_a77853ce0387c0b914b5a106ff7cf9ae9}\label{ClassLoader_8c_a77853ce0387c0b914b5a106ff7cf9ae9}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!u1\+Read@{u1\+Read}}
+\index{u1\+Read@{u1\+Read}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{u1\+Read()}{u1Read()}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a216a9f8b04b4f0af84a4ca9d1d85a6ca}{u1} u1\+Read (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fd }\end{DoxyParamCaption})}
+
+
+
+Função que le um byte do arquivo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fd} & endereço do arquivo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+byte lido 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ClassLoader_8c_a73788d4e3c1c3577021c1dbf4ca75cc1}\label{ClassLoader_8c_a73788d4e3c1c3577021c1dbf4ca75cc1}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!u2\+Read@{u2\+Read}}
+\index{u2\+Read@{u2\+Read}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{u2\+Read()}{u2Read()}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} u2\+Read (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fd }\end{DoxyParamCaption})}
+
+
+
+Função que le dois byte do arquivo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fd} & endereço do arquivo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+bytes lidos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ClassLoader_8c_a4cba9f2733d339d7287d10d160c39e79}\label{ClassLoader_8c_a4cba9f2733d339d7287d10d160c39e79}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!u4\+Read@{u4\+Read}}
+\index{u4\+Read@{u4\+Read}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{u4\+Read()}{u4Read()}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} u4\+Read (\begin{DoxyParamCaption}\item[{F\+I\+LE $\ast$}]{fd }\end{DoxyParamCaption})}
+
+
+
+Função que le quatro byte do arquivo. 
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em $\ast$fd} & endereço do arquivo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+bytes lidos 
+\end{DoxyReturn}
