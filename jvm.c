@@ -363,8 +363,8 @@ int main(int argc, char* argv[]){
 			print_versions(cf, arq);
 			fprintf(arq, "\n");
 
-      // print_constantpool(cf, arq);
-  		// fprintf(arq, "\n");
+      print_constantpool(cf, arq);
+  		fprintf(arq, "\n");
 
 			print_interfaces(cf, arq);
     		fprintf(arq, "\n");

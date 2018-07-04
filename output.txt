@@ -1,4 +1,4 @@
-Nome do .class: ArquivosTesteLadeira/long/long_aritmetica
+Path do .class: ArquivosTesteLadeira/long/long_aritmetica
 
 -- MAGIC: cafebabe
 
@@ -14,6 +14,124 @@ MAJOR VERSION: 46 - JDK 1.2
 -- ATTRIBUTES_COUNT: 1
 
 
+- CONSTANT POOL COUNT: 33
+- CONSTANT_POOL:
+[1]
+[2]
+ ---CP_INFO: METHOD
+ ---CLASS_INDEX: 11: java/lang/Object
+ ---NAMEANDTYPE_INDEX: 20: <init>()V
+[3]
+ ---CP_INFO: LONG
+ ---HIGH: 0
+ ---LOW: 64
+ ---VALUE: 100
+[4]
+[5]
+ ---CP_INFO: LONG
+ ---HIGH: 0
+ ---LOW: 14
+ ---VALUE: 20
+[6]
+[7]
+ ---CP_INFO: FIELDREF
+ ---CLASS_INDEX: 21: java/lang/System
+ ---NAMEANDTYPE_INDEX: 22: outLjava/io/PrintStream;
+[8]
+ ---CP_INFO: METHOD
+ ---CLASS_INDEX: 23: java/io/PrintStream
+ ---NAMEANDTYPE_INDEX: 24: println(J)V
+[9]
+ ---CP_INFO: LONG
+ ---HIGH: 0
+ ---LOW: 3fffffff
+ ---VALUE: 1073741823
+[10]
+[11]
+ ---CP_INFO: CLASS
+ ---NAME_INDEX: 25: long_aritmetica
+[12]
+ ---CP_INFO: CLASS
+ ---NAME_INDEX: 26: java/lang/Object
+[13]
+ ---CP_INFO: UTF8
+ ---LENGTH: 6
+ ---VALUE: <init>
+[14]
+ ---CP_INFO: UTF8
+ ---LENGTH: 3
+ ---VALUE: ()V
+[15]
+ ---CP_INFO: UTF8
+ ---LENGTH: 4
+ ---VALUE: Code
+[16]
+ ---CP_INFO: UTF8
+ ---LENGTH: 15
+ ---VALUE: LineNumberTable
+[17]
+ ---CP_INFO: UTF8
+ ---LENGTH: 4
+ ---VALUE: main
+[18]
+ ---CP_INFO: UTF8
+ ---LENGTH: 22
+ ---VALUE: ([Ljava/lang/String;)V
+[19]
+ ---CP_INFO: UTF8
+ ---LENGTH: 10
+ ---VALUE: SourceFile
+[20]
+ ---CP_INFO: UTF8
+ ---LENGTH: 20
+ ---VALUE: long_aritmetica.java
+[21]
+ ---CP_INFO: NAMEANDTYPE
+ ---NAME_INDEX: 12: <init>
+ ---DESCRIPTOR_INDEX: 13: ()V
+[22]
+ ---CP_INFO: CLASS
+ ---NAME_INDEX: 27: java/lang/System
+[23]
+ ---CP_INFO: NAMEANDTYPE
+ ---NAME_INDEX: 28: out
+ ---DESCRIPTOR_INDEX: 29: Ljava/io/PrintStream;
+[24]
+ ---CP_INFO: CLASS
+ ---NAME_INDEX: 30: java/io/PrintStream
+[25]
+ ---CP_INFO: NAMEANDTYPE
+ ---NAME_INDEX: 31: println
+ ---DESCRIPTOR_INDEX: 32: (J)V
+[26]
+ ---CP_INFO: UTF8
+ ---LENGTH: 15
+ ---VALUE: long_aritmetica
+[27]
+ ---CP_INFO: UTF8
+ ---LENGTH: 16
+ ---VALUE: java/lang/Object
+[28]
+ ---CP_INFO: UTF8
+ ---LENGTH: 16
+ ---VALUE: java/lang/System
+[29]
+ ---CP_INFO: UTF8
+ ---LENGTH: 3
+ ---VALUE: out
+[30]
+ ---CP_INFO: UTF8
+ ---LENGTH: 21
+ ---VALUE: Ljava/io/PrintStream;
+[31]
+ ---CP_INFO: UTF8
+ ---LENGTH: 19
+ ---VALUE: java/io/PrintStream
+[32]
+ ---CP_INFO: UTF8
+ ---LENGTH: 7
+ ---VALUE: println
+
 INTERFACES_COUNT: 0
 
 INTERFACES:
@@ -26,8 +144,8 @@ FIELDS_COUNT: 0
 METHODS_COUNT: 2
 METHODS:
 [0]
---- NAME_INDEX: 12: (null)
---- DESCRIPTOR_INDEX: 13: <init>
+--- NAME_INDEX: 12: <init>
+--- DESCRIPTOR_INDEX: 13: ()V
 --- ACCESS_FLAGS: 1 [public ]
 --- ATTRIBUTE_COUNT: 1
 --- [0] METHOD_ATTRIBUTE:
@@ -35,8 +153,8 @@ METHODS:
 	ATTRIBUTE_LENGTH: 29
 
 [1]
---- NAME_INDEX: 16: LineNumberTable
---- DESCRIPTOR_INDEX: 17: main
+--- NAME_INDEX: 16: main
+--- DESCRIPTOR_INDEX: 17: ([Ljava/lang/String;)V
 --- ACCESS_FLAGS: 9 [public static ]
 --- ATTRIBUTE_COUNT: 1
 --- [1] METHOD_ATTRIBUTE:
