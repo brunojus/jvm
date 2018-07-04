@@ -323,30 +323,45 @@ void executar(char* method, char* descriptor, char* class_name,int nargs, FrameS
 int main(int argc, char* argv[]){
 
 	method_info *mi;
+	int opcao;
+	printf("1- Para executar o código Java\n2- Para salvar a saída do exibidor:\n");
+	scanf("%d",&opcao);
 
 	if (argc==2){
 		FrameStack fr;
 
 
-		Class* class  = searchClass(argv[1]);
+		if(opcao==1)
+		{
+			Class* class  = searchClass(argv[1]);
+			mi =getMethod("<clinit>",argv[1],"()V");/*Procura a funcao clinit*/
+			if (mi!=NULL){
+				push_frame(class->classFl->constant_pool,class->atribs, mi, &(fr));
+				executarClinit(&fr);
+				pop_frame(&fr);
 
-		mi =getMethod("<clinit>",argv[1],"()V");/*Procura a funcao clinit*/
-		if (mi!=NULL){
-			push_frame(class->classFl->constant_pool,class->atribs, mi, &(fr));
-			executarClinit(&fr);
-			pop_frame(&fr);
+			}
+			executar("main","([Ljava/lang/String;)V",argv[1],0,&(fr),0);
+		}
+		
+		
+		if(opcao==2)
+		{
+			FILE* arq = NULL;
+			arq = fopen("output.txt","w+");
+			
+			ClassFile *cf;
+			cf = (ClassFile *) malloc(sizeof(ClassFile));
+			cf = read_class(argv[1]);
+
+			print_func_magic(cf,arq);
+			
 
 		}
-		/*Conferir, pois o java ja implementa a chamada dessa funcao quando chama as funcoes(construtores) INVOKE. PROVAVELMENTE ERRADO*/
-		/*mi =getMethod("<init>",argv[1],"()V");procura a funcao init
-		if (mi!=NULL){
-			push_frame(class->classFl->constant_pool,class->atribs, mi, &(fr));
-			executarClinit(&fr);
-			pop_frame(&fr);
-		}*/
 
-        /*Chamada da execucao da main, usa Ljava/lang/String, pq toda main no java usa esse descritor*/
-		executar("main","([Ljava/lang/String;)V",argv[1],0,&(fr),0);
+
+
+		
 
 	}
 	else{
