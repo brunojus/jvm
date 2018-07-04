@@ -78,134 +78,171 @@ attribute_info* read_attributes_info ( u2 count, cp_info *cp,  FILE *ptrClass){
 
 }
 
+/*Carrega as versões do JAVA que foram utilizadas para gerar o arquivo .class*/
+void load_java_versions(ClassFile* cf, FILE* ptrClass) {
+    cf->minor_version = u2Read(ptrClass);
+    cf->major_version = u2Read(ptrClass);
+}
+
+void load_constantpool(ClassFile* cf, FILE* ptrClass) {
+  int i;
+  cf->constant_pool_count = u2Read(ptrClass);
+  cf->constant_pool = (cp_info *) malloc((cf->constant_pool_count)*sizeof(cp_info));
+  for (i=1; i < cf->constant_pool_count ; i++) {
+      cf->constant_pool[i].tag = u1Read(ptrClass);
+      switch (cf->constant_pool[i].tag) {
+           case CLASS_INDEX:
+              cf->constant_pool[i].data.Class.name_index = u2Read(ptrClass);
+              break;
+           case FIELDREF:
+              cf->constant_pool[i].data.Fieldref.class_index = u2Read(ptrClass);
+              cf->constant_pool[i].data.Fieldref.name_and_type_index = u2Read(ptrClass);
+              break;
+          case METHODREF:
+              cf->constant_pool[i].data.Methodref.class_index = u2Read(ptrClass);
+              cf->constant_pool[i].data.Methodref.name_and_type_index = u2Read(ptrClass);
+              break;
+          case INTERFACEMETHODREF:
+              cf->constant_pool[i].data.InterfaceMethodref.class_index = u2Read(ptrClass);
+              cf->constant_pool[i].data.InterfaceMethodref.name_and_type_index = u2Read(ptrClass);
+              break;
+          case STRING:
+              cf->constant_pool[i].data.String.string_index = u2Read(ptrClass);
+              break;
+          case INTEGER:
+              cf->constant_pool[i].data.Integer.bytes = u4Read(ptrClass);
+              break;
+          case FLOAT:
+              cf->constant_pool[i].data.Float.bytes = u4Read(ptrClass);
+              break;
+          case LONG:
+              cf->constant_pool[i].data.Long.high_bytes = u4Read(ptrClass);
+              cf->constant_pool[i].data.Long.low_bytes = u4Read(ptrClass);
+              i++;    /*Por long long ser de categoria 2 o proximo indice do const poll e invalido*/
+              break;
+          case DOUBLE:
+              cf->constant_pool[i].data.Double.high_bytes = u4Read(ptrClass);
+              cf->constant_pool[i].data.Double.low_bytes = u4Read(ptrClass);
+              i++;    /*Por double ser de categoria 2 o proximo indice do const poll e invalido*/
+              break;
+          case NAMEANDTYPE:
+              cf->constant_pool[i].data.NameAndType.name_index = u2Read(ptrClass);
+              cf->constant_pool[i].data.NameAndType.descriptor_index = u2Read(ptrClass);
+              break;
+          case UTF8:
+              cf->constant_pool[i].data.Utf8.length = u2Read(ptrClass);
+              cf->constant_pool[i].data.Utf8.bytes = (u1 *) malloc((cf->constant_pool[i].data.Utf8.length+1)* sizeof(u1));
+              fread (cf->constant_pool[i].data.Utf8.bytes, sizeof(u1),cf->constant_pool[i].data.Utf8.length,ptrClass);
+              cf->constant_pool[i].data.Utf8.bytes[cf->constant_pool[i].data.Utf8.length]='\0';
+              break;
+      }
+  }
+}
+
+void load_classdata(ClassFile* cf, FILE* ptrClass) {
+  cf->access_flags = u2Read(ptrClass);
+  cf->this_class = u2Read(ptrClass);
+  cf->super_class = u2Read(ptrClass);
+}
+
+void load_interfaces(ClassFile* cf, FILE* ptrClass) {
+  int i;
+  cf->interfaces_count = u2Read(ptrClass);
+  if (cf->interfaces_count>0){
+      cf->interfaces = (u2 *) malloc(cf->interfaces_count*sizeof(u2));
+      for (i=0; i<cf->interfaces_count; i++){
+          cf->interfaces[i] = u2Read(ptrClass);
+      }
+  }
+}
+
+void load_fields(ClassFile* cf, FILE* ptrClass) {
+  int i;
+  cf->fields_count = u2Read(ptrClass);
+  if (cf->fields_count>0){
+      cf->fields = (field_info *) malloc (cf->fields_count*sizeof(field_info));
+      for (i=0;i<cf->fields_count; i++){
+          cf->fields[i].access_flags = u2Read(ptrClass);
+               cf->fields[i].name_index = u2Read(ptrClass);
+          cf->fields[i].descriptor_index = u2Read(ptrClass);
+          cf->fields[i].attributes_count = u2Read(ptrClass);
+          cf->fields[i].attributes = read_attributes_info ( cf->fields[i].attributes_count,cf->constant_pool, ptrClass);
+      }
+  }
+}
+
+void load_methods(ClassFile* cf, FILE* ptrClass) {
+  int i;
+  cf->methods_count = u2Read(ptrClass);
+  cf->methods = (method_info *) malloc (cf->methods_count*sizeof(method_info));
+  for (i=0;i<cf->methods_count;i++){
+      cf->methods[i].access_flags = u2Read(ptrClass);
+      cf->methods[i].name_index =u2Read(ptrClass);
+      cf->methods[i].descriptor_index = u2Read(ptrClass);
+      cf->methods[i].attributes_count = u2Read(ptrClass);
+      cf->methods[i].attributes = read_attributes_info(cf->methods[i].attributes_count,cf->constant_pool, ptrClass);
+
+  }
+}
+
+void load_attributes(ClassFile* cf, FILE* ptrClass) {
+  cf->attributes_count = u2Read(ptrClass);
+  cf->attributes = read_attributes_info(cf->attributes_count,cf->constant_pool, ptrClass);
+}
+
+void load_func_magic(ClassFile* cf, FILE* ptrClass) {
+  cf->magic = u4Read(ptrClass);
+  if(cf->magic != 0xCAFEBABE){
+    printf("Arquivo .class fornecido nao e arquivo .class JAVA.\n");
+    exit(1);
+    // return NULL;
+  }
+}
+
+
+FILE* read_file(char* filename) {
+  FILE *ptrClass;
+  int length = strlen(filename);
+  int length_dir;
+  char pclass[7] = ".class";
+  char* size_dir = strrchr(filename,'/');
+  if (size_dir){
+    memcpy(dir_base,filename,(size_dir-filename)+1);
+    dir_base[(size_dir-filename)+2]='\0';
+    strcat(filename,pclass);
+    ptrClass = fopen (filename,"rb");
+    filename[length]='\0';
+  }else {
+    length_dir= strlen(dir_base);
+    strcat(dir_base,filename);
+    strcat(dir_base,pclass);
+    ptrClass = fopen (dir_base,"rb");
+    dir_base[length_dir]='\0';
+  }
+  if (ptrClass == NULL){
+      printf("Nao foi possivel abrir o arquivo: %s!\n\n", filename);
+      exit(1);
+  }
+
+  return ptrClass;
+}
+
 ClassFile *read_class(char *filename){
 
     FILE *ptrClass;
     int i;
-    int length = strlen(filename);
-    int length_dir;
-    char pclass[7] = ".class";
     ClassFile *cf;
-    char* size_dir = strrchr(filename,'/');
-    if (size_dir){
-	memcpy(dir_base,filename,(size_dir-filename)+1);
-	dir_base[(size_dir-filename)+2]='\0';
-	strcat(filename,pclass);
-    	ptrClass = fopen (filename,"rb");
-    	filename[length]='\0';
-    }else {
-	length_dir= strlen(dir_base);
-	strcat(dir_base,filename);
-	strcat(dir_base,pclass);
-	ptrClass = fopen (dir_base,"rb");
-	dir_base[length_dir]='\0';
-
-    }
-
-    if (ptrClass == NULL){
-        printf("Nao foi possivel abrir o arquivo: %s!\n\n", filename);
-        return NULL;
-    }
+    ptrClass = read_file(filename);
     cf = (ClassFile *) malloc(sizeof(ClassFile));
-    cf->magic = u4Read(ptrClass);
-    if(cf->magic != 0xCAFEBABE){
-	printf("Arquivo .class fornecido nao e arquivo .class JAVA.\n");
-	exit(1);
-	return NULL;
-    }
-    cf->minor_version = u2Read(ptrClass);
-    cf->major_version = u2Read(ptrClass);
-    cf->constant_pool_count = u2Read(ptrClass);
-    cf->constant_pool = (cp_info *) malloc((cf->constant_pool_count)*sizeof(cp_info));
-    for (i=1; i < cf->constant_pool_count ; i++) {
-        cf->constant_pool[i].tag = u1Read(ptrClass);
-        switch (cf->constant_pool[i].tag) {
-             case CLASS_INDEX:
-                cf->constant_pool[i].data.Class.name_index = u2Read(ptrClass);
-                break;
-             case FIELDREF:
-                cf->constant_pool[i].data.Fieldref.class_index = u2Read(ptrClass);
-                cf->constant_pool[i].data.Fieldref.name_and_type_index = u2Read(ptrClass);
-                break;
-            case METHODREF:
-                cf->constant_pool[i].data.Methodref.class_index = u2Read(ptrClass);
-                cf->constant_pool[i].data.Methodref.name_and_type_index = u2Read(ptrClass);
-                break;
-            case INTERFACEMETHODREF:
-                cf->constant_pool[i].data.InterfaceMethodref.class_index = u2Read(ptrClass);
-                cf->constant_pool[i].data.InterfaceMethodref.name_and_type_index = u2Read(ptrClass);
-                break;
-            case STRING:
-                cf->constant_pool[i].data.String.string_index = u2Read(ptrClass);
-                break;
-            case INTEGER:
-                cf->constant_pool[i].data.Integer.bytes = u4Read(ptrClass);
-                break;
-            case FLOAT:
-                cf->constant_pool[i].data.Float.bytes = u4Read(ptrClass);
-                break;
-            case LONG:
-                cf->constant_pool[i].data.Long.high_bytes = u4Read(ptrClass);
-                cf->constant_pool[i].data.Long.low_bytes = u4Read(ptrClass);
-                i++;    /*Por long long ser de categoria 2 o proximo indice do const poll e invalido*/
-                break;
-            case DOUBLE:
-                cf->constant_pool[i].data.Double.high_bytes = u4Read(ptrClass);
-                cf->constant_pool[i].data.Double.low_bytes = u4Read(ptrClass);
-                i++;    /*Por double ser de categoria 2 o proximo indice do const poll e invalido*/
-                break;
-            case NAMEANDTYPE:
-                cf->constant_pool[i].data.NameAndType.name_index = u2Read(ptrClass);
-                cf->constant_pool[i].data.NameAndType.descriptor_index = u2Read(ptrClass);
-                break;
-            case UTF8:
-                cf->constant_pool[i].data.Utf8.length = u2Read(ptrClass);
-                cf->constant_pool[i].data.Utf8.bytes = (u1 *) malloc((cf->constant_pool[i].data.Utf8.length+1)* sizeof(u1));
-                fread (cf->constant_pool[i].data.Utf8.bytes, sizeof(u1),cf->constant_pool[i].data.Utf8.length,ptrClass);
-                cf->constant_pool[i].data.Utf8.bytes[cf->constant_pool[i].data.Utf8.length]='\0';
-                break;
-        }
-    }
-    cf->access_flags = u2Read(ptrClass);
-    cf->this_class = u2Read(ptrClass);
-    cf->super_class = u2Read(ptrClass);
-    cf->interfaces_count = u2Read(ptrClass);
 
-/*Parte das interfaces*/
-    if (cf->interfaces_count>0){
-        cf->interfaces = (u2 *) malloc(cf->interfaces_count*sizeof(u2));
-        for (i=0; i<cf->interfaces_count; i++){
-            cf->interfaces[i] = u2Read(ptrClass);
-        }
-    }
-    cf->fields_count = u2Read(ptrClass);
-
-/*Parte dos campos*/
-    if (cf->fields_count>0){
-        cf->fields = (field_info *) malloc (cf->fields_count*sizeof(field_info));
-        for (i=0;i<cf->fields_count; i++){
-            cf->fields[i].access_flags = u2Read(ptrClass);
-                 cf->fields[i].name_index = u2Read(ptrClass);
-            cf->fields[i].descriptor_index = u2Read(ptrClass);
-            cf->fields[i].attributes_count = u2Read(ptrClass);
-            cf->fields[i].attributes = read_attributes_info ( cf->fields[i].attributes_count,cf->constant_pool, ptrClass);
-        }
-    }
-    cf->methods_count = u2Read(ptrClass);
-
-/*Parte dos metodos*/
-    cf->methods = (method_info *) malloc (cf->methods_count*sizeof(method_info));
-    for (i=0;i<cf->methods_count;i++){
-        cf->methods[i].access_flags = u2Read(ptrClass);
-        cf->methods[i].name_index =u2Read(ptrClass);
-        cf->methods[i].descriptor_index = u2Read(ptrClass);
-        cf->methods[i].attributes_count = u2Read(ptrClass);
-        cf->methods[i].attributes = read_attributes_info(cf->methods[i].attributes_count,cf->constant_pool, ptrClass);
-
-    }
-    cf->attributes_count = u2Read(ptrClass);
-    cf->attributes = read_attributes_info(cf->attributes_count,cf->constant_pool, ptrClass);
+    load_func_magic(cf, ptrClass);
+    load_java_versions(cf, ptrClass);
+    load_constantpool(cf, ptrClass);
+    load_classdata(cf, ptrClass);
+    load_interfaces(cf, ptrClass);
+    load_fields(cf, ptrClass);
+    load_methods(cf, ptrClass);
+    load_attributes(cf, ptrClass);
 
     return cf;
 }
-
