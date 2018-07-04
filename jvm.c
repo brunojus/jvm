@@ -342,35 +342,39 @@ int main(int argc, char* argv[]){
 			}
 			executar("main","([Ljava/lang/String;)V",argv[1],0,&(fr),0);
 		}
-		
-		
+
+
 		if(opcao==2)
 		{
 			FILE* arq = NULL;
 			arq = fopen("output.txt","w+");
-			
+
 			ClassFile *cf;
 			cf = (ClassFile *) malloc(sizeof(ClassFile));
 			cf = read_class(argv[1]);
 
+      fprintf(arq, "Path do .class: ");
+      fprintf(arq, argv[1]);
+      fprintf(arq, "\n\n");
+
 			print_func_magic(cf,arq);
 			fprintf(arq, "\n");
-			
+
 			print_versions(cf, arq);
 			fprintf(arq, "\n");
 
-		    // print_constantpool(cf, arq);
-    		// fprintf(arq, "\n");
-    		
+      // print_constantpool(cf, arq);
+  		// fprintf(arq, "\n");
+
 			print_interfaces(cf, arq);
     		fprintf(arq, "\n");
-    		
+
 			print_fields(cf, arq);
     		fprintf(arq, "\n");
-    		
+
 			print_methodes(cf, arq);
     		fprintf(arq, "\n");
-    		
+
 			print_atributes(cf, arq);
 			fprintf(arq, "\n");
 
@@ -378,7 +382,7 @@ int main(int argc, char* argv[]){
 
 
 
-		
+
 
 	}
 	else{
@@ -387,6 +391,3 @@ int main(int argc, char* argv[]){
 	return 1;
 
 }
-
-
-

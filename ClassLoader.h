@@ -50,55 +50,65 @@ typedef unsigned int u4;
 */
 char dir_base[100];
 
+union {
+    u4 U4;
+    float Float;
+} u4tofloat;
+
+union {
+    long Long;
+    double Double;
+} longtodouble;
+
 /**
 *  \brief Estrutura do constant pool
 */
 typedef struct cp_info{
         u1 tag;
          union datacp{
-        struct  {/*valor 7*/
-               u2 name_index;
-        }Class;
-        struct  {/* valor 9*/
-              u2 class_index;
-              u2 name_and_type_index;
-        }Fieldref ;
+            struct  {/*valor 7*/
+                   u2 name_index;
+            }Class;
+            struct  {/* valor 9*/
+                  u2 class_index;
+                  u2 name_and_type_index;
+            }Fieldref ;
 
-        struct {/*valor 12*/
-            u2 name_index; 
-            u2 descriptor_index;
-        }NameAndType;
-        struct{/* valor 1*/
-            u2 length; 
-            u1 *bytes;
-        }Utf8;
-        struct {/* valor 10*/
-            u2 class_index; 
-            u2 name_and_type_index;
-        }Methodref;
-        struct {/* valor 11*/
-            u2 class_index; 
-            u2 name_and_type_index;
-        }InterfaceMethodref;
-        struct {/* valor 8*/
-            u2 string_index; 
-        }String;
-        struct {/*valor 3*/
-            u4 bytes;
-        }Integer;
-        struct {/* valor 4*/
-            u4 bytes;
-        }Float;
-        struct {/*valor 5*/
-            u4 high_bytes;
-            u4 low_bytes;
-        }Long;
-        struct {/*valor 5*/
-            u4 high_bytes;
-            u4 low_bytes;
-        }Double;
-    }data;
-    
+            struct {/*valor 12*/
+                u2 name_index;
+                u2 descriptor_index;
+            }NameAndType;
+            struct{/* valor 1*/
+                u2 length;
+                u1 *bytes;
+            }Utf8;
+            struct {/* valor 10*/
+                u2 class_index;
+                u2 name_and_type_index;
+            }Methodref;
+            struct {/* valor 11*/
+                u2 class_index;
+                u2 name_and_type_index;
+            }InterfaceMethodref;
+            struct {/* valor 8*/
+                u2 string_index;
+            }String;
+            struct {/*valor 3*/
+                u4 bytes;
+            }Integer;
+            struct {/* valor 4*/
+                u4 bytes;
+            }Float;
+            struct {/*valor 5*/
+                u4 high_bytes;
+                u4 low_bytes;
+            }Long;
+            struct {/*valor 5*/
+                u4 high_bytes;
+                u4 low_bytes;
+            }Double;
+         }data;
+
 }cp_info;
 
 typedef struct {
@@ -157,7 +167,7 @@ typedef struct attribute_info {
 /**
 *  \brief Escrutura para gernciar as informações dos campos
 */
-typedef struct field_info{      
+typedef struct field_info{
    u2 access_flags;    /*Flags de controle*/
    u2 name_index;    /*Indice para o nome do campo*/
    u2 descriptor_index;    /*Indice para o descritor*/
@@ -167,7 +177,7 @@ typedef struct field_info{
 /**
 *  \brief Escrutura para gernciar as informações dos metodos
 */
-typedef struct  method_info {      
+typedef struct  method_info {
     u2 access_flags;    /*Flags de controle*/
     u2 name_index;   /*Indice para o nome do campo*/
     u2 descriptor_index;    /*Indice para o descritor*/
@@ -177,7 +187,7 @@ typedef struct  method_info {
 /**
 *  \brief Escrutura da classe
 */
-typedef struct ClassFile { 
+typedef struct ClassFile {
     u4 magic;    /*Numero mágico*/
     u2 minor_version;    /*Menor versão aceitável*/
     u2 major_version;    /*Maior versão aceitável*/

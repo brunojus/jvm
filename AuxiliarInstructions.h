@@ -1,6 +1,6 @@
 #ifndef __AUXILIARINSTRUCTIONS_H__
 #define __AUXILIARINSTRUCTIONS_H__
-
+#include "ClassLoader.h"
 
 /**
 *  \brief Fun��o que calcula o resto da divisao doubles
@@ -19,5 +19,5 @@ double fmod(double d1,double d2);
 float quociente(float f1,float f2);
 
 
-// int return_type(char* type);
+int return_type(char* type);
 #endif

@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "ClassLoader.h"
+#include "AuxiliarInstructions.h"
 
 int bit_is_true(int code, int id);
 void print_flags(int code,FILE* arq);

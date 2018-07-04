@@ -66,6 +66,81 @@ void print_versions(ClassFile* cf, FILE* arq) {
 
 }
 
+
+/*Imprime os valores referente a constant pool, as tags definidas na tabela
+foram definidos no exibidor.h */
+void print_constantpool(ClassFile* cf, FILE* arq) {
+    int i = 1;
+    long long Long;
+    fprintf(arq, "- CONSTANT POOL COUNT: %d\n", cf->constant_pool_count);
+    fprintf(arq, "- CONSTANT_POOL:\n");
+    cp_info* cp;
+    for (cp = cf->constant_pool; cp < cf->constant_pool + cf->constant_pool_count - 1; ++cp) {
+        fprintf(arq, "[%d]\n", i++);
+        switch (cp->tag) {
+          case CLASS_INDEX:
+              fprintf(arq, " ---CP_INFO: CLASS\n");
+              fprintf(arq, " ---NAME_INDEX: %d: %s\n", cp->data.Class.name_index, (char*)cf->constant_pool[cp->data.Class.name_index - 1].data.Utf8.bytes);
+              break;
+          case FIELDREF:
+              fprintf(arq, " ---CP_INFO: FIELDREF\n");
+              fprintf(arq, " ---CLASS_INDEX: %d: %s\n", cp->data.Fieldref.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.class_index - 1].data.Class.name_index - 1].data.Utf8.bytes);
+              fprintf(arq, " ---NAMEANDTYPE_INDEX: %d: %s%s\n", cp->data.Fieldref.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.name_and_type_index - 1].data.NameAndType.name_index - 1].data.Utf8.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.name_and_type_index - 1].data.NameAndType.descriptor_index - 1].data.Utf8.bytes);
+              break;
+          case METHODREF:
+              fprintf(arq, " ---CP_INFO: METHOD\n");
+              fprintf(arq, " ---CLASS_INDEX: %d: %s\n", cp->data.Methodref.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.class_index - 1].data.Class.name_index - 1].data.Utf8.bytes);
+              fprintf(arq, " ---NAMEANDTYPE_INDEX: %d: %s%s\n", cp->data.Methodref.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.name_and_type_index - 1].data.NameAndType.name_index - 1].data.Utf8.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.name_and_type_index - 1].data.NameAndType.descriptor_index - 1].data.Utf8.bytes);
+              break;
+          case INTERFACEMETHODREF:
+              fprintf(arq, " ---CP_INFO: INTERFACE\n");
+              fprintf(arq, " ---CLASS_INDEX: %d: %s\n", cp->data.InterfaceMethodref.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.InterfaceMethodref.class_index - 1].data.Class.name_index - 1].data.Utf8.bytes);
+              fprintf(arq, " ---NAMEANDTYPE_INDEX: %d: %s%s\n", cp->data.InterfaceMethodref.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.InterfaceMethodref.name_and_type_index - 1].data.NameAndType.name_index - 1].data.Utf8.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->data.InterfaceMethodref.name_and_type_index - 1].data.NameAndType.descriptor_index - 1].data.Utf8.bytes);
+              break;
+          case NAMEANDTYPE:
+              fprintf(arq, " ---CP_INFO: NAMEANDTYPE\n");
+              fprintf(arq, " ---NAME_INDEX: %d: %s\n", cp->data.NameAndType.name_index, (char*)cf->constant_pool[cp->data.NameAndType.name_index - 1].data.Utf8.bytes);
+              fprintf(arq, " ---DESCRIPTOR_INDEX: %d: %s\n", cp->data.NameAndType.descriptor_index, (char*)cf->constant_pool[cp->data.NameAndType.descriptor_index - 1].data.Utf8.bytes);
+              break;
+          case UTF8:
+              fprintf(arq, " ---CP_INFO: UTF8\n");
+              fprintf(arq, " ---LENGTH: %d\n", cp->data.Utf8.length);
+              fprintf(arq, " ---VALUE: %s\n", (char*)cp->data.Utf8.bytes);
+              break;
+          case STRING:
+              fprintf(arq, " ---CP_INFO: STRING\n");
+              fprintf(arq, " ---STRING_INDEX: %d: %s\n", cp->data.String.string_index, (char*)cf->constant_pool[cp->data.String.string_index - 1].data.Utf8.bytes);
+              break;
+          case INTEGER:
+              fprintf(arq, " ---CP_INFO: INTEGER\n");
+              fprintf(arq, " ---BYTES: %x\n", cp->data.Integer.bytes);
+              fprintf(arq, " ---VALUE: %u\n", cp->data.Integer.bytes);
+              break;
+          case FLOAT:
+              fprintf(arq, " ---CP_INFO: FLOAT\n");
+              fprintf(arq, " ---BYTES: %x\n", cp->data.Float.bytes);
+              u4tofloat.U4 = cp->data.Float.bytes;
+              fprintf(arq, " ---VALUE: %f\n", u4tofloat.Float);
+              break;
+          case LONG:
+              fprintf(arq, " ---CP_INFO: LONG\n");
+              fprintf(arq, " ---HIGH: %x\n", cp->data.Long.high_bytes);
+              fprintf(arq, " ---LOW: %x\n", cp->data.Long.low_bytes);
+              Long = ((long long) cp->data.Long.high_bytes << 32) | (cp->data.Long.low_bytes);
+              fprintf(arq, " ---VALUE: %lld\n", Long);
+              break;
+          case DOUBLE:
+              fprintf(arq, " ---CP_INFO: DOUBLE\n");
+              fprintf(arq, " ---HIGH: %x\n", cp->data.Double.high_bytes);
+              fprintf(arq, " ---LOW: %x\n", cp->data.Double.low_bytes);
+              Long = ((long long) cp->data.Double.high_bytes << 32) | (cp->data.Double.low_bytes);
+              fprintf(arq, " ---VALUE: %lld\n", Long);
+              break;
+        }
+    }
+
+}
+
 void print_interfaces(ClassFile* cf, FILE* arq) {
     fprintf(arq, "INTERFACES_COUNT: %d\n", cf->interfaces_count);
     fprintf(arq, "\n");
@@ -202,21 +277,6 @@ char* look_version(int code) {
             break;
     }
     return version_jdk;
-}
-
-/*Verifica o conteúdo da string e retorna qual é o seu tipo*/
-int return_type(char* type) {
-    if (!strcmp(type, "ConstantValue")) {
-        return CONSTANTVALUE;
-    } else if (!strcmp(type, "Code")) {
-        return "Code";
-    } else if (!strcmp(type, "Exceptions")) {
-        return "Exceptions";
-    } else if (!strcmp(type, "InnerClasses")) {
-        return INNERCLASSES;
-    } else {
-        return OTHER;
-    }
 }
 
 void print_atribute(ClassFile* cf, attribute_info* att, FILE* arq) {
@@ -706,4 +766,3 @@ enum instrucoes_code {
     }
     free(type);
 }
-
