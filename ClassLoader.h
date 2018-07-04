@@ -24,12 +24,10 @@
 
 /*******************attributes info******************/
 #define CODE 1
-#define EXCEPTIONSA 2
+#define EXCEPTIONS 2
 #define INNERCLASSES 3
 #define OTHER 4
 
-
-#define EXCEPTIONS "Exceptions"
 
 
 #define REFERENCE_INTEGER 15

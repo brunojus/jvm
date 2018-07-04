@@ -677,7 +677,7 @@ enum instrucoes_code {
             print_atribute(cf, aux_att, arq);
         }
         break;
-    case EXCEPTIONSA:
+    case EXCEPTIONS:
         fprintf(arq, "--- TYPE: EXCEPTIONS\n");
         fprintf(arq, "--- NUMBER_OF_EXCEPTIONS: %d\n", att->data.Exceptions_attribute.number_of_exceptions);
         u2* expt_aux;
