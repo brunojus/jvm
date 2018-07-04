@@ -355,9 +355,24 @@ int main(int argc, char* argv[]){
 
 			print_func_magic(cf,arq);
 			fprintf(arq, "\n");
+			
 			print_versions(cf, arq);
 			fprintf(arq, "\n");
-			
+
+		    // print_constantpool(cf, arq);
+    		// fprintf(arq, "\n");
+    		
+			print_interfaces(cf, arq);
+    		fprintf(arq, "\n");
+    		
+			print_fields(cf, arq);
+    		fprintf(arq, "\n");
+    		
+			print_methodes(cf, arq);
+    		fprintf(arq, "\n");
+    		
+			print_atributes(cf, arq);
+			fprintf(arq, "\n");
 
 		}
 

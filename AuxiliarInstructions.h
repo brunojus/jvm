@@ -18,4 +18,6 @@ double fmod(double d1,double d2);
 */
 float quociente(float f1,float f2);
 
+
+// int return_type(char* type);
 #endif

@@ -35,10 +35,10 @@ attribute_info* read_attributes_info ( u2 count, cp_info *cp,  FILE *ptrClass){
         ptrAttributes[i].attribute_name_index = u2Read(ptrClass);
         ptrAttributes[i].attribute_length = u4Read(ptrClass);
 
-        if (strcmp((char *)cp[ptrAttributes[i].attribute_name_index].data.Utf8.bytes,CONSTANT_VALUE)==0){
+        if (strcmp((char *)cp[ptrAttributes[i].attribute_name_index].data.Utf8.bytes,"ConstantValue")==0){
 
             ptrAttributes[i].data.ConstantValue_attribute.constantvalue_index = u2Read(ptrClass);
-        }else if (strcmp((char *)cp[ptrAttributes[i].attribute_name_index].data.Utf8.bytes,CODE)==0){
+        }else if (strcmp((char *)cp[ptrAttributes[i].attribute_name_index].data.Utf8.bytes,"Code")==0){
 
             ptrAttributes[i].data.Code_attribute.max_stack = u2Read(ptrClass);
             ptrAttributes[i].data.Code_attribute.max_locals = u2Read(ptrClass);
@@ -55,12 +55,12 @@ attribute_info* read_attributes_info ( u2 count, cp_info *cp,  FILE *ptrClass){
             /*esta JVM nao implementa excessoes*/
 		      u2Read(ptrClass);
 		      u2Read(ptrClass);
-              	      u2Read(ptrClass);
+              u2Read(ptrClass);
 		      u2Read(ptrClass);
             }
             ptrAttributes[i].data.Code_attribute.attributes_count = u2Read(ptrClass);
             ptrAttributes[i].data.Code_attribute.attributes = read_attributes_info(ptrAttributes[i].data.Code_attribute.attributes_count, cp, ptrClass);
-        }else if (strcmp((char *)cp[ptrAttributes[i].attribute_name_index].data.Utf8.bytes,EXCEPTIONS)==0){
+        }else if (strcmp((char *)cp[ptrAttributes[i].attribute_name_index].data.Utf8.bytes,"Exceptions")==0){
 
             ptrAttributes[i].data.Exceptions_attribute.number_of_exceptions = u2Read(ptrClass);
             ptrAttributes[i].data.Exceptions_attribute.exception_index_table = (u2 *)

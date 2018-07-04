@@ -18,12 +18,17 @@
 #define DOUBLE 6
 #define NAMEANDTYPE 12
 #define UTF8  1
+#define CONSTANTVALUE 5
 
 
 
 /*******************attributes info******************/
-#define CODE "Code"
-#define CONSTANT_VALUE "ConstantValue"
+#define CODE 1
+#define EXCEPTIONSA 2
+#define INNERCLASSES 3
+#define OTHER 4
+
+
 #define EXCEPTIONS "Exceptions"
 
 
@@ -97,15 +102,23 @@ typedef struct cp_info{
     }data;
     
 }cp_info;
+
+typedef struct {
+    u2  inner_class_info_index;
+    u2  outer_class_info_index;
+    u2  inner_name_index;
+    u2  inner_class_access_flags;
+} classtype_info;
+
 /**
 *  \brief Tabela de excesões
 */
-struct exception_table{
+typedef struct exception_table{
        u2 start_pc;/*Começo do try*/
           u2 end_pc; /*Fim do try*/
           u2  handler_pc; /*Ponteiro para o tratamento*/
           u2  catch_type;/*Tipo do catch*/
-};
+}exception_table;
 
 /**
 *  \brief Estrutura das informações dos atributos
@@ -132,6 +145,14 @@ typedef struct attribute_info {
             u2 number_of_exceptions;    /*Numero de excessões*/
             u2 *exception_index_table;    /*indice da tabela de excessões*/
         }Exceptions_attribute;    /*Atributo de exceção*/
+
+    struct {
+            u2 number_of_classes;
+            classtype_info* classes;
+        }   InnerClasses;
+        struct {
+            u1* bytes;
+        } Other;
    }data;
 }attribute_info;
 
