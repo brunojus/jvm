@@ -354,7 +354,9 @@ int main(int argc, char* argv[]){
 			cf = read_class(argv[1]);
 
 			print_func_magic(cf,arq);
-			print_flags(cf->access_flags, arq);
+			fprintf(arq, "\n");
+			print_versions(cf, arq);
+			fprintf(arq, "\n");
 			
 
 		}
