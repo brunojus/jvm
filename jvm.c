@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "Interpreter.h"
-
-
+#include "exibidor.h"
 
 
 
@@ -355,6 +354,7 @@ int main(int argc, char* argv[]){
 			cf = read_class(argv[1]);
 
 			print_func_magic(cf,arq);
+			print_flags(cf->access_flags, arq);
 			
 
 		}
