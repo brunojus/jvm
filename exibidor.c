@@ -75,7 +75,7 @@ void print_constantpool(ClassFile* cf, FILE* arq) {
     fprintf(arq, "- CONSTANT POOL COUNT: %d\n", cf->constant_pool_count);
     fprintf(arq, "- CONSTANT_POOL:\n");
     cp_info* cp;
-    for (cp = cf->constant_pool; cp < cf->constant_pool + cf->constant_pool_count - 1; ++cp) {
+    for (cp = cf->constant_pool; cp < cf->constant_pool + cf->constant_pool_count ; ++cp) {
         fprintf(arq, "[%d]\n", i++);
         switch (cp->tag) {
           case CLASS_INDEX:
@@ -95,7 +95,7 @@ void print_constantpool(ClassFile* cf, FILE* arq) {
           case INTERFACEMETHODREF:
               fprintf(arq, " ---CP_INFO: INTERFACE\n");
               fprintf(arq, " ---CLASS_INDEX: %d: %s\n", cp->data.InterfaceMethodref.class_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.InterfaceMethodref.class_index].data.Class.name_index].data.Utf8.bytes);
-              fprintf(arq, " ---NAMEANDTYPE_INDEX: %d: %s%s\n", cp->data.InterfaceMethodref.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.InterfaceMethodref.name_and_type_index].data.NameAndType.name_index].data.Utf8.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->data.InterfaceMethodref.name_and_type_index].data.NameAndType.descriptor_index - 1].data.Utf8.bytes);
+              fprintf(arq, " ---NAMEANDTYPE_INDEX: %d: %s%s\n", cp->data.InterfaceMethodref.name_and_type_index, (char*)cf->constant_pool[cf->constant_pool[cp->data.InterfaceMethodref.name_and_type_index].data.NameAndType.name_index].data.Utf8.bytes, (char*)cf->constant_pool[cf->constant_pool[cp->data.InterfaceMethodref.name_and_type_index].data.NameAndType.descriptor_index ].data.Utf8.bytes);
               break;
           case NAMEANDTYPE:
               fprintf(arq, " ---CP_INFO: NAMEANDTYPE\n");
@@ -212,8 +212,8 @@ void print_fields(ClassFile* cf, FILE* arq) {
     field_info* aux_field;
     for (aux_field = cf->fields; aux_field < cf->fields + cf->fields_count; ++aux_field) {
         fprintf(arq, "\t[%d]\n", var1++);
-        fprintf(arq, "\tNAME_INDEX: %d: %s\n", aux_field->name_index, (char*)cf->constant_pool[aux_field->name_index - 1].data.Utf8.bytes);
-        fprintf(arq, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_field->descriptor_index, (char*)cf->constant_pool[aux_field->descriptor_index - 1].data.Utf8.bytes);
+        fprintf(arq, "\tNAME_INDEX: %d: %s\n", aux_field->name_index, (char*)cf->constant_pool[aux_field->name_index ].data.Utf8.bytes);
+        fprintf(arq, "\tDESCRIPTOR_INDEX: %d: %s\n", aux_field->descriptor_index, (char*)cf->constant_pool[aux_field->descriptor_index ].data.Utf8.bytes);
         fprintf(arq, "\tACCESS_FLAGS: %x ", aux_field->access_flags);
         print_flags(aux_field->access_flags, arq);
         fprintf(arq, "\n");
@@ -340,38 +340,38 @@ enum instrucoes_code {
 
     long long Long;
     char* type;
-    type = (char*)malloc(sizeof(char) * cf->constant_pool[att->attribute_name_index - 1].data.Utf8.length+1);
-    strcpy(type, (char*)cf->constant_pool[att->attribute_name_index - 1].data.Utf8.bytes);
+    type = (char*)malloc(sizeof(char) * cf->constant_pool[att->attribute_name_index ].data.Utf8.length+1);
+    strcpy(type, (char*)cf->constant_pool[att->attribute_name_index ].data.Utf8.bytes);
     int i = return_type(type);
-    fprintf(arq, "\tATTRIBUTE_NAME_INDEX: %d : %s\n", att->attribute_name_index, (char*)cf->constant_pool[att->attribute_name_index - 1].data.Utf8.bytes);
+    fprintf(arq, "\tATTRIBUTE_NAME_INDEX: %d : %s\n", att->attribute_name_index, (char*)cf->constant_pool[att->attribute_name_index ].data.Utf8.bytes);
     fprintf(arq, "\tATTRIBUTE_LENGTH: %u\n\n", att->attribute_length);
     switch (i) {
     case CONSTANTVALUE:
         fprintf(arq, "\tTYPE: CONSTANT_VALUE\n");
         fprintf(arq, "\tCONSTANTVALUE_INDEX: %d\n\n", att->data.ConstantValue_attribute.constantvalue_index);
-        switch (cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index - 1].tag) {
+        switch (cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index ].tag) {
         case INTEGER:
             fprintf(arq, "\tCP_INFO: INTEGER\n");
-            fprintf(arq, "\tBYTES: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index - 1].data.Integer.bytes);
-            fprintf(arq, "\tVALUE: %u\n\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index - 1].data.Integer.bytes);
+            fprintf(arq, "\tBYTES: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index ].data.Integer.bytes);
+            fprintf(arq, "\tVALUE: %u\n\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index ].data.Integer.bytes);
             break;
         case FLOAT:
             fprintf(arq, "\tCP_INFO: FLOAT\n");
-            fprintf(arq, "\tBYTES: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index - 1].data.Float.bytes);
-            fprintf(arq, "\tVALUE: %lf\n\n", (float *)cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index- 1].data.Float.bytes);
+            fprintf(arq, "\tBYTES: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index ].data.Float.bytes);
+            fprintf(arq, "\tVALUE: %lf\n\n", (float *)cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index].data.Float.bytes);
             break;
         case LONG:
             fprintf(arq, "\tCP_INFO: LONG\n");
-            fprintf(arq, "\tHIGH: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index - 1].data.Long.high_bytes);
-            fprintf(arq, "\tLOW: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index - 1].data.Long.low_bytes);
-            Long = ((long long) cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index  - 1].data.Long.high_bytes << 32) | (cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index - 1].data.Long.low_bytes);
+            fprintf(arq, "\tHIGH: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index ].data.Long.high_bytes);
+            fprintf(arq, "\tLOW: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index ].data.Long.low_bytes);
+            Long = ((long long) cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index  ].data.Long.high_bytes << 32) | (cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index ].data.Long.low_bytes);
             fprintf(arq, "\tVALUE: %lld\n\n", Long);
             break;
         case DOUBLE:
             fprintf(arq, "\tCP_INFO: DOUBLE\n");
-            fprintf(arq, "\tHIGH: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index  - 1].data.Double.high_bytes);
-            fprintf(arq, "\tLOW: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index  - 1].data.Double.low_bytes);
-            Long = ((long long) cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index  - 1].data.Double.high_bytes << 32) | (cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index - 1].data.Double.low_bytes);
+            fprintf(arq, "\tHIGH: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index  ].data.Double.high_bytes);
+            fprintf(arq, "\tLOW: %x\n", cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index  ].data.Double.low_bytes);
+            Long = ((long long) cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index  ].data.Double.high_bytes << 32) | (cf->constant_pool[att->data.ConstantValue_attribute.constantvalue_index ].data.Double.low_bytes);
             fprintf(arq, "\tVALUE: %lld\n\n", Long);
             break;
         }
@@ -430,10 +430,10 @@ enum instrucoes_code {
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    cp = cf->constant_pool +  u2_aux - 1;
+                    cp = cf->constant_pool +  u2_aux ;
                     fprintf(arq, "#%d <%s.%s>", u2_aux,
-                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.class_index - 1].data.Class.name_index - 1].data.Utf8.bytes,
-                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.name_and_type_index - 1].data.NameAndType.name_index - 1].data.Utf8.bytes);
+                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.class_index ].data.Class.name_index ].data.Utf8.bytes,
+                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.name_and_type_index ].data.NameAndType.name_index ].data.Utf8.bytes);
                     break;
                 case getstatic:
                     u2_aux = *(++code); //byte1 de index
@@ -587,10 +587,10 @@ enum instrucoes_code {
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    cp = cf->constant_pool + u2_aux - 1;
+                    cp = cf->constant_pool + u2_aux ;
                     fprintf(arq, "#%d <%s.%s>", u2_aux,
-                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.class_index - 1].data.Class.name_index - 1].data.Utf8.bytes,
-						(char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.name_and_type_index - 1].data.NameAndType.name_index - 1].data.Utf8.bytes);
+                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.class_index ].data.Class.name_index ].data.Utf8.bytes,
+						(char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.name_and_type_index ].data.NameAndType.name_index ].data.Utf8.bytes);
                     break;
                 case invokestatic:
                     u2_aux = *(++code); //byte1 de index
@@ -602,10 +602,10 @@ enum instrucoes_code {
                     u2_aux = *(++code); //byte1 de index
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    cp = cf->constant_pool + u2_aux - 1;
+                    cp = cf->constant_pool + u2_aux ;
                     fprintf(arq, "#%d <%s.%s>", u2_aux,
-                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.class_index - 1].data.Class.name_index - 1].data.Utf8.bytes,
-                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.name_and_type_index - 1].data.NameAndType.name_index - 1].data.Utf8.bytes);
+                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.class_index ].data.Class.name_index ].data.Utf8.bytes,
+                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Methodref.name_and_type_index ].data.NameAndType.name_index ].data.Utf8.bytes);
                     break;
                 case istore:
                     fprintf(arq, "#%d", *(++code)); //index
@@ -628,7 +628,7 @@ enum instrucoes_code {
                     break;
                 case ldc:
                     u1_aux = *(++code); //index
-                    cp = cf->constant_pool + u2_aux - 1;
+                    cp = cf->constant_pool + u2_aux ;
                     fprintf(arq, "#%d", u2_aux); //CONTEUDO PODE SER STRING, FLOAT...
                     break;
                 case ldc_w:
@@ -660,8 +660,8 @@ enum instrucoes_code {
                     u2_aux = *(++code);
                     u2_aux = u2_aux << 8; //shift de index
                     u2_aux += *(++code); //byte2 de index
-                    cp = cf->constant_pool +  u2_aux - 1;
-                    fprintf(arq, "#%d, <%s>", u2_aux, (char*)cf->constant_pool[cp->data.Class.name_index - 1].data.Utf8.bytes);
+                    cp = cf->constant_pool +  u2_aux ;
+                    fprintf(arq, "#%d, <%s>", u2_aux, (char*)cf->constant_pool[cp->data.Class.name_index ].data.Utf8.bytes);
                     break;
                 case newarray:
                     fprintf(arq, "%s", newarray_value[*(++code)]);
@@ -671,10 +671,10 @@ enum instrucoes_code {
                     u2_aux = u2_aux << 8;
                     u2_aux += *(++code);
 
-                    cp = cf->constant_pool +  u2_aux - 1;
+                    cp = cf->constant_pool +  u2_aux ;
                     fprintf(arq, "#%d <%s.%s>", u2_aux,
-                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.class_index - 1].data.Class.name_index - 1].data.Utf8.bytes,
-                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.name_and_type_index - 1].data.NameAndType.name_index - 1].data.Utf8.bytes);
+                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.class_index ].data.Class.name_index ].data.Utf8.bytes,
+                        (char*)cf->constant_pool[cf->constant_pool[cp->data.Fieldref.name_and_type_index ].data.NameAndType.name_index ].data.Utf8.bytes);
                     break;
                 case putstatic:
                     u2_aux = *(++code);

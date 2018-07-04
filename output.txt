@@ -149,8 +149,21 @@ METHODS:
 --- ACCESS_FLAGS: 1 [public ]
 --- ATTRIBUTE_COUNT: 1
 --- [0] METHOD_ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 14 : ()V
+	ATTRIBUTE_NAME_INDEX: 14 : Code
 	ATTRIBUTE_LENGTH: 29
+
+	TYPE: CODE
+	MAX_STACK: 1
+	MAX_LOCALS: 1
+	CODE_LENGTH: 5
+	CODE:
+		0 | aload_0 
+		1 | invokespecial #1 <java/lang/Object.<init>>
+		4 | return 
+--- EXCEPTION_TABLE_LENGTH: 0
+--- ATTRIBUTES_COUNT: 1
+	ATTRIBUTE_NAME_INDEX: 15 : LineNumberTable
+	ATTRIBUTE_LENGTH: 6
 
 [1]
 --- NAME_INDEX: 16: main
@@ -158,14 +171,78 @@ METHODS:
 --- ACCESS_FLAGS: 9 [public static ]
 --- ATTRIBUTE_COUNT: 1
 --- [1] METHOD_ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 14 : ()V
+	ATTRIBUTE_NAME_INDEX: 14 : Code
 	ATTRIBUTE_LENGTH: 176
+
+	TYPE: CODE
+	MAX_STACK: 5
+	MAX_LOCALS: 5
+	CODE_LENGTH: 100
+	CODE:
+		0 | ldc2_w #2
+		3 | lstore_1 
+		4 | ldc2_w #4
+		7 | lstore_3 
+		8 | getstatic #6
+		11 | lload_1 
+		12 | lload_3 
+		13 | ladd 
+		14 | invokevirtual #7 <java/io/PrintStream.println>
+		17 | getstatic #6
+		20 | lload_1 
+		21 | lload_3 
+		22 | lsub 
+		23 | invokevirtual #7 <java/io/PrintStream.println>
+		26 | getstatic #6
+		29 | lload_1 
+		30 | lload_3 
+		31 | lmul 
+		32 | invokevirtual #7 <java/io/PrintStream.println>
+		35 | getstatic #6
+		38 | lload_1 
+		39 | lload_3 
+		40 | ldiv 
+		41 | invokevirtual #7 <java/io/PrintStream.println>
+		44 | getstatic #6
+		47 | lload_1 
+		48 | lneg 
+		49 | invokevirtual #7 <java/io/PrintStream.println>
+		52 | getstatic #6
+		55 | lload_1 
+		56 | lload_3 
+		57 | lrem 
+		58 | invokevirtual #7 <java/io/PrintStream.println>
+		61 | getstatic #6
+		64 | lload_1 
+		65 | lload_3 
+		66 | land 
+		67 | invokevirtual #7 <java/io/PrintStream.println>
+		70 | getstatic #6
+		73 | lload_1 
+		74 | iconst_2 
+		75 | lshl 
+		76 | invokevirtual #7 <java/io/PrintStream.println>
+		79 | getstatic #6
+		82 | lload_1 
+		83 | iconst_2 
+		84 | lshr 
+		85 | invokevirtual #7 <java/io/PrintStream.println>
+		88 | ldc2_w #8
+		91 | lstore_1 
+		92 | getstatic #6
+		95 | lload_1 
+		96 | invokevirtual #7 <java/io/PrintStream.println>
+		99 | return 
+--- EXCEPTION_TABLE_LENGTH: 0
+--- ATTRIBUTES_COUNT: 1
+	ATTRIBUTE_NAME_INDEX: 15 : LineNumberTable
+	ATTRIBUTE_LENGTH: 58
 
 
 ATTRIBUTES_COUNT: 1
 ATTRIBUTES:
 [0] ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 18 : ([Ljava/lang/String;)V
+	ATTRIBUTE_NAME_INDEX: 18 : SourceFile
 	ATTRIBUTE_LENGTH: 2
 
 
