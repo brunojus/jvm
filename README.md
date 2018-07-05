@@ -1,6 +1,8 @@
 # JVM final
 
-## Data de apresentação: 29/06 ??
+## Data de apresentação: 06/07/18
+
+## Para rodar, basta dar make na pasta e depois ./jvm.exe
 
 ## Links Importantes
 ### Sobre arquitetura:

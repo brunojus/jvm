@@ -108,7 +108,7 @@ typedef struct {
         struct {
             u2  class_index;
             u2  name_and_type_index;
-        }   Fieldref_info, Method_info,   Interface_info;
+        }   Fieldref_info, Method_info, Interface_info;
         struct {
             u2  name_index;
             u2  descriptor_index;

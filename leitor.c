@@ -273,14 +273,14 @@ void load_attribute(attribute_info* att, ClassFile* cf, FILE* fd) {
   }
 
   ClassFile* readClass(FILE* fd) {
-      ClassFile* cf = (ClassFile*) calloc(1,sizeof(ClassFile));
-      load_func_magic(cf, fd);
-      load_java_versions(cf, fd);
-      load_constantpool(cf, fd);
-      load_classdata(cf, fd);
-      load_interfaces(cf, fd);
-      load_fields(cf, fd);
-      load_methods(cf, fd);
-      load_attributes(cf, fd);
-      return cf;
+      ClassFile* cf = (ClassFile*) calloc(1,sizeof(ClassFile)); // Aloca espaço para uma instância de ClassFile
+      load_func_magic(cf, fd); // Atribuição da variável magic
+      load_java_versions(cf, fd); // Atribuição da variável minor_version e major_version
+      load_constantpool(cf, fd); // Atribuição da variável constant_pool_count e constant_pool
+      load_classdata(cf, fd); // Atribuição das variáveis access_flags, this_class e super_class
+      load_interfaces(cf, fd); // Atribuição das variáveis interfaces_count e interfaces
+      load_fields(cf, fd); // Atribuição das variáveis fields_count e fields
+      load_methods(cf, fd); // Atribuição da variável methods
+      load_attributes(cf, fd); // Atribuição das variáveis attributes_count e attributes
+      return cf; // Retorna o ponteiro para a estrutura carregada
 }

@@ -1,134 +1,129 @@
-Nome do .class: double_aritmetica.class
+Nome do .class: HelloWorld.class
 
 
 -- MAGIC: cafebabe
 
 -- MINOR VERSION: 0
-MAJOR VERSION: 46 - JDK 1.2
--- CONSTANT POOL COUNT: 31
+MAJOR VERSION: 52 - Java SE 8
+-- CONSTANT POOL COUNT: 29
 -- ACCESS_FLAGS: 21 [public super ]
--- THIS_CLASS: 8
--- SUPER_CLASS: 9
+-- THIS_CLASS: 5
+-- SUPER_CLASS: 6
 -- INTERFACES_COUNT: 0
 -- FIELDS_COUNT: 0
 -- METHODS_COUNT: 2
 -- ATTRIBUTES_COUNT: 1
 
 
-- CONSTANT POOL COUNT: 31
+- CONSTANT POOL COUNT: 29
 - CONSTANT_POOL:
 [1]
  ---CP_INFO: METHOD
- ---CLASS_INDEX: 9: java/lang/Object
- ---NAMEANDTYPE_INDEX: 18: <init>()V
+ ---CLASS_INDEX: 6: java/lang/Object
+ ---NAMEANDTYPE_INDEX: 15: <init>()V
 [2]
- ---CP_INFO: DOUBLE
- ---HIGH: 40588f5c
- ---LOW: 28f5c28f
- ---VALUE: 4636613442364883599
-[3]
-[4]
- ---CP_INFO: DOUBLE
- ---HIGH: 4060dbd7
- ---LOW: a3d70a4
- ---VALUE: 4638949332827861156
-[5]
-[6]
  ---CP_INFO: FIELDREF
- ---CLASS_INDEX: 19: java/lang/System
- ---NAMEANDTYPE_INDEX: 20: outLjava/io/PrintStream;
-[7]
+ ---CLASS_INDEX: 16: java/lang/System
+ ---NAMEANDTYPE_INDEX: 17: outLjava/io/PrintStream;
+[3]
+ ---CP_INFO: STRING
+ ---STRING_INDEX: 18: Hello, World
+[4]
  ---CP_INFO: METHOD
- ---CLASS_INDEX: 21: java/io/PrintStream
- ---NAMEANDTYPE_INDEX: 22: println(D)V
-[8]
+ ---CLASS_INDEX: 19: java/io/PrintStream
+ ---NAMEANDTYPE_INDEX: 20: println(Ljava/lang/String;)V
+[5]
  ---CP_INFO: CLASS
- ---NAME_INDEX: 23: double_aritmetica
-[9]
+ ---NAME_INDEX: 21: HelloWorld
+[6]
  ---CP_INFO: CLASS
- ---NAME_INDEX: 24: java/lang/Object
-[10]
+ ---NAME_INDEX: 22: java/lang/Object
+[7]
  ---CP_INFO: UTF8
  ---LENGTH: 6
  ---VALUE: <init>
-[11]
+[8]
  ---CP_INFO: UTF8
  ---LENGTH: 3
  ---VALUE: ()V
-[12]
+[9]
  ---CP_INFO: UTF8
  ---LENGTH: 4
  ---VALUE: Code
-[13]
+[10]
  ---CP_INFO: UTF8
  ---LENGTH: 15
  ---VALUE: LineNumberTable
-[14]
+[11]
  ---CP_INFO: UTF8
  ---LENGTH: 4
  ---VALUE: main
-[15]
+[12]
  ---CP_INFO: UTF8
  ---LENGTH: 22
  ---VALUE: ([Ljava/lang/String;)V
-[16]
+[13]
  ---CP_INFO: UTF8
  ---LENGTH: 10
  ---VALUE: SourceFile
-[17]
+[14]
  ---CP_INFO: UTF8
- ---LENGTH: 22
- ---VALUE: double_aritmetica.java
-[18]
+ ---LENGTH: 15
+ ---VALUE: HelloWorld.java
+[15]
  ---CP_INFO: NAMEANDTYPE
- ---NAME_INDEX: 10: <init>
- ---DESCRIPTOR_INDEX: 11: ()V
+ ---NAME_INDEX: 7: <init>
+ ---DESCRIPTOR_INDEX: 8: ()V
+[16]
+ ---CP_INFO: CLASS
+ ---NAME_INDEX: 23: java/lang/System
+[17]
+ ---CP_INFO: NAMEANDTYPE
+ ---NAME_INDEX: 24: out
+ ---DESCRIPTOR_INDEX: 25: Ljava/io/PrintStream;
+[18]
+ ---CP_INFO: UTF8
+ ---LENGTH: 12
+ ---VALUE: Hello, World
 [19]
  ---CP_INFO: CLASS
- ---NAME_INDEX: 25: java/lang/System
+ ---NAME_INDEX: 26: java/io/PrintStream
 [20]
  ---CP_INFO: NAMEANDTYPE
- ---NAME_INDEX: 26: out
- ---DESCRIPTOR_INDEX: 27: Ljava/io/PrintStream;
+ ---NAME_INDEX: 27: println
+ ---DESCRIPTOR_INDEX: 28: (Ljava/lang/String;)V
 [21]
- ---CP_INFO: CLASS
- ---NAME_INDEX: 28: java/io/PrintStream
-[22]
- ---CP_INFO: NAMEANDTYPE
- ---NAME_INDEX: 29: println
- ---DESCRIPTOR_INDEX: 30: (D)V
-[23]
  ---CP_INFO: UTF8
- ---LENGTH: 17
- ---VALUE: double_aritmetica
-[24]
+ ---LENGTH: 10
+ ---VALUE: HelloWorld
+[22]
  ---CP_INFO: UTF8
  ---LENGTH: 16
  ---VALUE: java/lang/Object
-[25]
+[23]
  ---CP_INFO: UTF8
  ---LENGTH: 16
  ---VALUE: java/lang/System
-[26]
+[24]
  ---CP_INFO: UTF8
  ---LENGTH: 3
  ---VALUE: out
-[27]
+[25]
  ---CP_INFO: UTF8
  ---LENGTH: 21
  ---VALUE: Ljava/io/PrintStream;
-[28]
+[26]
  ---CP_INFO: UTF8
  ---LENGTH: 19
  ---VALUE: java/io/PrintStream
-[29]
+[27]
  ---CP_INFO: UTF8
  ---LENGTH: 7
  ---VALUE: println
-[30]
+[28]
  ---CP_INFO: UTF8
- ---LENGTH: 4
- ---VALUE: (D)V
+ ---LENGTH: 21
+ ---VALUE: (Ljava/lang/String;)V
 
 INTERFACES_COUNT: 0
 
@@ -142,12 +137,12 @@ FIELDS_COUNT: 0
 METHODS_COUNT: 2
 METHODS:
 [0]
---- NAME_INDEX: 10: <init>
---- DESCRIPTOR_INDEX: 11: ()V
+--- NAME_INDEX: 7: <init>
+--- DESCRIPTOR_INDEX: 8: ()V
 --- ACCESS_FLAGS: 1 [public ]
 --- ATTRIBUTE_COUNT: 1
 --- [0] METHOD_ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 12 : Code
+	ATTRIBUTE_NAME_INDEX: 9 : Code
 	ATTRIBUTE_LENGTH: 29
 
 	TYPE: CODE
@@ -160,67 +155,37 @@ METHODS:
 		4 | return 
 --- EXCEPTION_TABLE_LENGTH: 0
 --- ATTRIBUTES_COUNT: 1
-	ATTRIBUTE_NAME_INDEX: 13 : LineNumberTable
+	ATTRIBUTE_NAME_INDEX: 10 : LineNumberTable
 	ATTRIBUTE_LENGTH: 6
 
 [1]
---- NAME_INDEX: 14: main
---- DESCRIPTOR_INDEX: 15: ([Ljava/lang/String;)V
+--- NAME_INDEX: 11: main
+--- DESCRIPTOR_INDEX: 12: ([Ljava/lang/String;)V
 --- ACCESS_FLAGS: 9 [public static ]
 --- ATTRIBUTE_COUNT: 1
 --- [1] METHOD_ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 12 : Code
-	ATTRIBUTE_LENGTH: 118
+	ATTRIBUTE_NAME_INDEX: 9 : Code
+	ATTRIBUTE_LENGTH: 37
 
 	TYPE: CODE
-	MAX_STACK: 5
-	MAX_LOCALS: 5
-	CODE_LENGTH: 62
+	MAX_STACK: 2
+	MAX_LOCALS: 1
+	CODE_LENGTH: 9
 	CODE:
-		0 | ldc2_w #2
-		3 | dstore_1 
-		4 | ldc2_w #4
-		7 | dstore_3 
-		8 | getstatic #6
-		11 | dload_1 
-		12 | dload_3 
-		13 | dadd 
-		14 | invokevirtual #7 <java/io/PrintStream.println>
-		17 | getstatic #6
-		20 | dload_1 
-		21 | dload_3 
-		22 | dsub 
-		23 | invokevirtual #7 <java/io/PrintStream.println>
-		26 | getstatic #6
-		29 | dload_1 
-		30 | dload_3 
-		31 | dmul 
-		32 | invokevirtual #7 <java/io/PrintStream.println>
-		35 | getstatic #6
-		38 | dload_1 
-		39 | dload_3 
-		40 | ddiv 
-		41 | invokevirtual #7 <java/io/PrintStream.println>
-		44 | getstatic #6
-		47 | dload_1 
-		48 | dneg 
-		49 | invokevirtual #7 <java/io/PrintStream.println>
-		52 | getstatic #6
-		55 | dload_3 
-		56 | dload_1 
-		57 | drem 
-		58 | invokevirtual #7 <java/io/PrintStream.println>
-		61 | return 
+		0 | getstatic #2
+		3 | ldc #2
+		5 | invokevirtual #4 <java/io/PrintStream.println>
+		8 | return 
 --- EXCEPTION_TABLE_LENGTH: 0
 --- ATTRIBUTES_COUNT: 1
-	ATTRIBUTE_NAME_INDEX: 13 : LineNumberTable
-	ATTRIBUTE_LENGTH: 38
+	ATTRIBUTE_NAME_INDEX: 10 : LineNumberTable
+	ATTRIBUTE_LENGTH: 10
 
 
 ATTRIBUTES_COUNT: 1
 ATTRIBUTES:
 [0] ATTRIBUTE:
-	ATTRIBUTE_NAME_INDEX: 16 : SourceFile
+	ATTRIBUTE_NAME_INDEX: 13 : SourceFile
 	ATTRIBUTE_LENGTH: 2
 
 
