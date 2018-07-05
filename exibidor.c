@@ -124,17 +124,17 @@ void print_constantpool(ClassFile* cf, FILE* arq) {
               break;
           case LONG:
               fprintf(arq, " ---CP_INFO: LONG\n");
-              fprintf(arq, " ---HIGH: %x\n", cp->data.Long.high_bytes);
-              fprintf(arq, " ---LOW: %x\n", cp->data.Long.low_bytes);
+              fprintf(arq, " ---HIGH: %llf\n", cp->data.Long.high_bytes);
+              fprintf(arq, " ---LOW: %llf\n", cp->data.Long.low_bytes);
               Long = ((long long) cp->data.Long.high_bytes << 32) | (cp->data.Long.low_bytes);
               fprintf(arq, " ---VALUE: %lld\n", Long);
               break;
           case DOUBLE:
               fprintf(arq, " ---CP_INFO: DOUBLE\n");
-              fprintf(arq, " ---HIGH: %x\n", cp->data.Double.high_bytes);
-              fprintf(arq, " ---LOW: %x\n", cp->data.Double.low_bytes);
+              fprintf(arq, " ---HIGH: %.2llf\n", cp->data.Double.high_bytes);
+              fprintf(arq, " ---LOW: %.2llf\n", cp->data.Double.low_bytes);
               Long = ((long long) cp->data.Double.high_bytes << 32) | (cp->data.Double.low_bytes);
-              fprintf(arq, " ---VALUE: %lld\n", Long);
+              fprintf(arq, " ---VALUE: %.2llf\n", Long);
               break;
         }
     }
