@@ -1055,7 +1055,7 @@ void newarray(FrameStack *fs){
     unsigned short* pUShort;
     short* pShort;
     long long* pLong; 
-    tipo = tipo | fs->top->method->attributes->data.Code_attribute.code[++fs->top->pc];
+    tipo = tipo | fs->top->method->attributes->data.Code_attribute.code[++fs->top->pc+1];
     switch (tipo){
         case (4):/* BOOLEAN */
             pBoolean = (char *) malloc(tam*sizeof(char));
