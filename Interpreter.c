@@ -254,10 +254,6 @@ void executarInstrucao(unsigned char opcode,FrameStack* fr){
 		case(op_dastore):
 			dastore(fr);
 		break;
-		case(op_aastore):
-			printf("Erro. Instrucao aastore nao implementada\n");
-			exit(1);
-		break;
 		case(op_bastore):
 			bastore(fr);
 		break;
@@ -521,10 +517,6 @@ void executarInstrucao(unsigned char opcode,FrameStack* fr){
 		case(op_tableswitch):
 			tableswitch (fr);
 		break;
-		case(op_lookupswitch):
-			printf("Erro. Instrucao lookupswitck nao implementada\n");
-			exit(1);
-		break;
 		case(op_ireturn):
 			ireturn(fr);
 		break;
@@ -597,10 +589,6 @@ void executarInstrucao(unsigned char opcode,FrameStack* fr){
 			executar((char *)fr->top->cPoolRunTime[idx_method].data.Utf8.bytes,(char *)fr->top->cPoolRunTime[idx_descriptor].data.Utf8.bytes,(char *) fr->top->cPoolRunTime[idx_class].data.Utf8.bytes, Nargs((char *)fr->top->cPoolRunTime[idx_descriptor].data.Utf8.bytes,fr->top->cPoolRunTime[idx_descriptor].data.Utf8.length),fr,0 );
 			
 		break;
-		case(op_invokeinterface):
-			printf("Erro. Instrucao invokeinterface nao implementada\n");
-			exit(1);
-		break;
 		case(op_new):
 			newObj(fr);
 		break;
@@ -609,34 +597,6 @@ void executarInstrucao(unsigned char opcode,FrameStack* fr){
 		break;
 		case(op_anewarray):
 			anewarray(fr);
-		break;
-		case(op_arraylength):
-			printf("Erro. Instrucao arraylength nao implementada\n");
-			exit(1);
-		break;
-		case(op_athrow):
-			printf("Erro. Instrucao athrow nao implementada\n");
-			exit(1);
-		break;
-		case(op_checkcast):
-			printf("Erro. Instrucao checkcast nao implementada\n");
-			exit(1);
-		break;
-		case(op_instanceof):
-			printf("Erro. Instrucao instanceof nao implementada\n");
-			exit(1);
-		break;
-		case(op_monitorenter):
-			printf("Erro. Instrucao monitorenter nao implementada\n");
-			exit(1);
-		break;
-		case(op_monitorexit):
-			printf("Erro. Instrucao monitorexit nao implementada\n");
-			exit(1);
-		break;
-		case(op_wide):
-			printf("Erro. Instrucao wide nao implementada\n");
-			exit(1);
 		break;
 		case(op_multianewarray):
 			multianewarray(fr);
@@ -652,18 +612,6 @@ void executarInstrucao(unsigned char opcode,FrameStack* fr){
 		break;
 		case(op_jsr_w):
 			jsr_w(fr);
-		break;
-		case(op_breakpoint):
-			printf("Erro. Instrucao breakpoint nao implementada\n");
-			exit(1);
-		break;
-		case(op_impdep1):
-			printf("Erro. Instrucao inpedep1 nao implementada\n");
-			exit(1);
-		break;
-		case(op_impdep):
-			printf("Erro. Instrucao impdep nao implementada\n");
-			exit(1);
 		break;
 		default:
 		break;
