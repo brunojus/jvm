@@ -5,5 +5,5 @@ var searchData=
   ['dimensions',['dimensions',['../structarrayMult.html#a32a40b7692ac520541539fe93367fb91',1,'arrayMult']]],
   ['dimensions_5fcount',['dimensions_count',['../structarrayMult.html#ad6c84cfce9d33584b955a601503867f1',1,'arrayMult']]],
   ['dir_5fbase',['dir_base',['../ClassLoader_8h.html#a5bfba61e06da03cfa8305f6903f2a3a3',1,'ClassLoader.h']]],
-  ['double',['Double',['../unioncp__info_1_1datacp.html#a61b7da66723d0b3419a8a0ecf063d1ad',1,'cp_info::datacp::Double()'],['../unionDataAtrib.html#a3be5309079282250f66331e13f32ad46',1,'DataAtrib::Double()']]]
+  ['double',['Double',['../unioncp__info_1_1datacp.html#a3be6ec0a488ed9cce7fe4ae1fe68b95c',1,'cp_info::datacp::Double()'],['../unionDataAtrib.html#ab9a5f070a06a259aad6e82f068fc305f',1,'DataAtrib::Double()'],['../ClassLoader_8h.html#a67712f090f8c18a2de65a31a26762315',1,'Double():&#160;ClassLoader.h']]]
 ];

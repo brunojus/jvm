@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Java Virtual Machine: Código-Fonte de exibidor.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Java Virtual Machine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">exibidor.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="exibidor_8h.html">Vá para a documentação deste arquivo.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div><div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;inttypes.h&gt;</span></div><div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;stdlib.h&gt;</span></div><div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string.h&gt;</span></div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ClassLoader_8h.html">ClassLoader.h</a>&quot;</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="AuxiliarInstructions_8h.html">AuxiliarInstructions.h</a>&quot;</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keywordtype">int</span> <a class="code" href="exibidor_8h.html#a2536a6e3653e6a1d7c3140675d25fdaf">bit_is_true</a>(<span class="keywordtype">int</span> code, <span class="keywordtype">int</span> <span class="keywordtype">id</span>);</div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#a1a01812eda71a45ba35d3988240c2cbe">print_flags</a>(<span class="keywordtype">int</span> code,FILE* arq);</div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#a4778e7ba3b524b627189f5a12cd2ba58">print_func_magic</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,FILE* arq);</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#a48bde3f16c3b4fb1200cfeed966271b3">print_versions</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,FILE* arq);</div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#a1afd246a2708493137d6779a8a0949e8">print_constantpool</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,FILE* arq);</div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#aa3ee6d33a96bd2d33d1febe2148c89cb">print_classdata</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,FILE* arq);</div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#ae816a5183f48e88d2916f7eb3435276f">print_interfaces</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,FILE* arq);</div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#a2319a835bb7cb2db0e68a5baee9520d9">print_atribute</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf, <a class="code" href="structattribute__info.html">attribute_info</a>* att,FILE* arq);</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#a7bf7dfe6bd02790dffee49ca9d2db790">print_fields</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,FILE* arq);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#a9c6461cf8681e258a54c6ecec7b4af89">print_methodes</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,FILE* arq);</div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#abbccca1911c01347bce3a7b3f6ba5880">print_atributes</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,FILE* arq);</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="exibidor_8h.html#a847a96c8d54d5a68b6c0161fdd0cbe24">print_class</a>(<a class="code" href="structClassFile.html">ClassFile</a>* cf,<span class="keywordtype">char</span>* namefile,FILE* arq);</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keywordtype">char</span>* <a class="code" href="exibidor_8h.html#a452dd1d3f9dad220fbe70a74adffca67">look_version</a>(<span class="keywordtype">int</span> code);</div><div class="ttc" id="ClassLoader_8h_html"><div class="ttname"><a href="ClassLoader_8h.html">ClassLoader.h</a></div></div>
+<div class="ttc" id="exibidor_8h_html_a452dd1d3f9dad220fbe70a74adffca67"><div class="ttname"><a href="exibidor_8h.html#a452dd1d3f9dad220fbe70a74adffca67">look_version</a></div><div class="ttdeci">char * look_version(int code)</div></div>
+<div class="ttc" id="exibidor_8h_html_aa3ee6d33a96bd2d33d1febe2148c89cb"><div class="ttname"><a href="exibidor_8h.html#aa3ee6d33a96bd2d33d1febe2148c89cb">print_classdata</a></div><div class="ttdeci">void print_classdata(ClassFile *cf, FILE *arq)</div></div>
+<div class="ttc" id="exibidor_8h_html_ae816a5183f48e88d2916f7eb3435276f"><div class="ttname"><a href="exibidor_8h.html#ae816a5183f48e88d2916f7eb3435276f">print_interfaces</a></div><div class="ttdeci">void print_interfaces(ClassFile *cf, FILE *arq)</div></div>
+<div class="ttc" id="AuxiliarInstructions_8h_html"><div class="ttname"><a href="AuxiliarInstructions_8h.html">AuxiliarInstructions.h</a></div></div>
+<div class="ttc" id="exibidor_8h_html_a7bf7dfe6bd02790dffee49ca9d2db790"><div class="ttname"><a href="exibidor_8h.html#a7bf7dfe6bd02790dffee49ca9d2db790">print_fields</a></div><div class="ttdeci">void print_fields(ClassFile *cf, FILE *arq)</div></div>
+<div class="ttc" id="exibidor_8h_html_a9c6461cf8681e258a54c6ecec7b4af89"><div class="ttname"><a href="exibidor_8h.html#a9c6461cf8681e258a54c6ecec7b4af89">print_methodes</a></div><div class="ttdeci">void print_methodes(ClassFile *cf, FILE *arq)</div></div>
+<div class="ttc" id="structattribute__info_html"><div class="ttname"><a href="structattribute__info.html">attribute_info</a></div><div class="ttdoc">Estrutura das informações dos atributos. </div><div class="ttdef"><b>Definition:</b> ClassLoader.h:134</div></div>
+<div class="ttc" id="exibidor_8h_html_a847a96c8d54d5a68b6c0161fdd0cbe24"><div class="ttname"><a href="exibidor_8h.html#a847a96c8d54d5a68b6c0161fdd0cbe24">print_class</a></div><div class="ttdeci">void print_class(ClassFile *cf, char *namefile, FILE *arq)</div></div>
+<div class="ttc" id="exibidor_8h_html_a1afd246a2708493137d6779a8a0949e8"><div class="ttname"><a href="exibidor_8h.html#a1afd246a2708493137d6779a8a0949e8">print_constantpool</a></div><div class="ttdeci">void print_constantpool(ClassFile *cf, FILE *arq)</div></div>
+<div class="ttc" id="exibidor_8h_html_abbccca1911c01347bce3a7b3f6ba5880"><div class="ttname"><a href="exibidor_8h.html#abbccca1911c01347bce3a7b3f6ba5880">print_atributes</a></div><div class="ttdeci">void print_atributes(ClassFile *cf, FILE *arq)</div></div>
+<div class="ttc" id="exibidor_8h_html_a48bde3f16c3b4fb1200cfeed966271b3"><div class="ttname"><a href="exibidor_8h.html#a48bde3f16c3b4fb1200cfeed966271b3">print_versions</a></div><div class="ttdeci">void print_versions(ClassFile *cf, FILE *arq)</div></div>
+<div class="ttc" id="exibidor_8h_html_a2536a6e3653e6a1d7c3140675d25fdaf"><div class="ttname"><a href="exibidor_8h.html#a2536a6e3653e6a1d7c3140675d25fdaf">bit_is_true</a></div><div class="ttdeci">int bit_is_true(int code, int id)</div></div>
+<div class="ttc" id="structClassFile_html"><div class="ttname"><a href="structClassFile.html">ClassFile</a></div><div class="ttdoc">Escrutura da classe. </div><div class="ttdef"><b>Definition:</b> ClassLoader.h:190</div></div>
+<div class="ttc" id="exibidor_8h_html_a2319a835bb7cb2db0e68a5baee9520d9"><div class="ttname"><a href="exibidor_8h.html#a2319a835bb7cb2db0e68a5baee9520d9">print_atribute</a></div><div class="ttdeci">void print_atribute(ClassFile *cf, attribute_info *att, FILE *arq)</div></div>
+<div class="ttc" id="exibidor_8h_html_a1a01812eda71a45ba35d3988240c2cbe"><div class="ttname"><a href="exibidor_8h.html#a1a01812eda71a45ba35d3988240c2cbe">print_flags</a></div><div class="ttdeci">void print_flags(int code, FILE *arq)</div></div>
+<div class="ttc" id="exibidor_8h_html_a4778e7ba3b524b627189f5a12cd2ba58"><div class="ttname"><a href="exibidor_8h.html#a4778e7ba3b524b627189f5a12cd2ba58">print_func_magic</a></div><div class="ttdeci">void print_func_magic(ClassFile *cf, FILE *arq)</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

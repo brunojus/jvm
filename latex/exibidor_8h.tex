@@ -1,0 +1,135 @@
+\hypertarget{exibidor_8h}{}\section{Referência do Arquivo exibidor.\+h}
+\label{exibidor_8h}\index{exibidor.\+h@{exibidor.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$inttypes.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Class\+Loader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Auxiliar\+Instructions.\+h\char`\"{}}\newline
+Gráfico de dependência de inclusões para exibidor.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{exibidor_8h__incl}
+\end{center}
+\end{figure}
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{exibidor_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{exibidor_8h_a2536a6e3653e6a1d7c3140675d25fdaf}{bit\+\_\+is\+\_\+true} (int code, int id)
+\item 
+void \hyperlink{exibidor_8h_a1a01812eda71a45ba35d3988240c2cbe}{print\+\_\+flags} (int code, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_a4778e7ba3b524b627189f5a12cd2ba58}{print\+\_\+func\+\_\+magic} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_a48bde3f16c3b4fb1200cfeed966271b3}{print\+\_\+versions} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_a1afd246a2708493137d6779a8a0949e8}{print\+\_\+constantpool} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_aa3ee6d33a96bd2d33d1febe2148c89cb}{print\+\_\+classdata} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_ae816a5183f48e88d2916f7eb3435276f}{print\+\_\+interfaces} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_a2319a835bb7cb2db0e68a5baee9520d9}{print\+\_\+atribute} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, \hyperlink{structattribute__info}{attribute\+\_\+info} $\ast$att, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_a7bf7dfe6bd02790dffee49ca9d2db790}{print\+\_\+fields} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_a9c6461cf8681e258a54c6ecec7b4af89}{print\+\_\+methodes} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_abbccca1911c01347bce3a7b3f6ba5880}{print\+\_\+atributes} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$arq)
+\item 
+void \hyperlink{exibidor_8h_a847a96c8d54d5a68b6c0161fdd0cbe24}{print\+\_\+class} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, char $\ast$namefile, F\+I\+LE $\ast$arq)
+\item 
+char $\ast$ \hyperlink{exibidor_8h_a452dd1d3f9dad220fbe70a74adffca67}{look\+\_\+version} (int code)
+\end{DoxyCompactItemize}
+
+
+\subsection{Funções}
+\mbox{\Hypertarget{exibidor_8h_a2536a6e3653e6a1d7c3140675d25fdaf}\label{exibidor_8h_a2536a6e3653e6a1d7c3140675d25fdaf}} 
+\index{exibidor.\+h@{exibidor.\+h}!bit\+\_\+is\+\_\+true@{bit\+\_\+is\+\_\+true}}
+\index{bit\+\_\+is\+\_\+true@{bit\+\_\+is\+\_\+true}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{bit\+\_\+is\+\_\+true()}{bit\_is\_true()}}
+{\footnotesize\ttfamily int bit\+\_\+is\+\_\+true (\begin{DoxyParamCaption}\item[{int}]{code,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a452dd1d3f9dad220fbe70a74adffca67}\label{exibidor_8h_a452dd1d3f9dad220fbe70a74adffca67}} 
+\index{exibidor.\+h@{exibidor.\+h}!look\+\_\+version@{look\+\_\+version}}
+\index{look\+\_\+version@{look\+\_\+version}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{look\+\_\+version()}{look\_version()}}
+{\footnotesize\ttfamily char$\ast$ look\+\_\+version (\begin{DoxyParamCaption}\item[{int}]{code }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a2319a835bb7cb2db0e68a5baee9520d9}\label{exibidor_8h_a2319a835bb7cb2db0e68a5baee9520d9}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+atribute@{print\+\_\+atribute}}
+\index{print\+\_\+atribute@{print\+\_\+atribute}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+atribute()}{print\_atribute()}}
+{\footnotesize\ttfamily void print\+\_\+atribute (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{\hyperlink{structattribute__info}{attribute\+\_\+info} $\ast$}]{att,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_abbccca1911c01347bce3a7b3f6ba5880}\label{exibidor_8h_abbccca1911c01347bce3a7b3f6ba5880}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+atributes@{print\+\_\+atributes}}
+\index{print\+\_\+atributes@{print\+\_\+atributes}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+atributes()}{print\_atributes()}}
+{\footnotesize\ttfamily void print\+\_\+atributes (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a847a96c8d54d5a68b6c0161fdd0cbe24}\label{exibidor_8h_a847a96c8d54d5a68b6c0161fdd0cbe24}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+class@{print\+\_\+class}}
+\index{print\+\_\+class@{print\+\_\+class}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+class()}{print\_class()}}
+{\footnotesize\ttfamily void print\+\_\+class (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{char $\ast$}]{namefile,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_aa3ee6d33a96bd2d33d1febe2148c89cb}\label{exibidor_8h_aa3ee6d33a96bd2d33d1febe2148c89cb}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+classdata@{print\+\_\+classdata}}
+\index{print\+\_\+classdata@{print\+\_\+classdata}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+classdata()}{print\_classdata()}}
+{\footnotesize\ttfamily void print\+\_\+classdata (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a1afd246a2708493137d6779a8a0949e8}\label{exibidor_8h_a1afd246a2708493137d6779a8a0949e8}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+constantpool@{print\+\_\+constantpool}}
+\index{print\+\_\+constantpool@{print\+\_\+constantpool}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+constantpool()}{print\_constantpool()}}
+{\footnotesize\ttfamily void print\+\_\+constantpool (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a7bf7dfe6bd02790dffee49ca9d2db790}\label{exibidor_8h_a7bf7dfe6bd02790dffee49ca9d2db790}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+fields@{print\+\_\+fields}}
+\index{print\+\_\+fields@{print\+\_\+fields}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+fields()}{print\_fields()}}
+{\footnotesize\ttfamily void print\+\_\+fields (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a1a01812eda71a45ba35d3988240c2cbe}\label{exibidor_8h_a1a01812eda71a45ba35d3988240c2cbe}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+flags@{print\+\_\+flags}}
+\index{print\+\_\+flags@{print\+\_\+flags}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+flags()}{print\_flags()}}
+{\footnotesize\ttfamily void print\+\_\+flags (\begin{DoxyParamCaption}\item[{int}]{code,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a4778e7ba3b524b627189f5a12cd2ba58}\label{exibidor_8h_a4778e7ba3b524b627189f5a12cd2ba58}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+func\+\_\+magic@{print\+\_\+func\+\_\+magic}}
+\index{print\+\_\+func\+\_\+magic@{print\+\_\+func\+\_\+magic}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+func\+\_\+magic()}{print\_func\_magic()}}
+{\footnotesize\ttfamily void print\+\_\+func\+\_\+magic (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_ae816a5183f48e88d2916f7eb3435276f}\label{exibidor_8h_ae816a5183f48e88d2916f7eb3435276f}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+interfaces@{print\+\_\+interfaces}}
+\index{print\+\_\+interfaces@{print\+\_\+interfaces}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+interfaces()}{print\_interfaces()}}
+{\footnotesize\ttfamily void print\+\_\+interfaces (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a9c6461cf8681e258a54c6ecec7b4af89}\label{exibidor_8h_a9c6461cf8681e258a54c6ecec7b4af89}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+methodes@{print\+\_\+methodes}}
+\index{print\+\_\+methodes@{print\+\_\+methodes}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+methodes()}{print\_methodes()}}
+{\footnotesize\ttfamily void print\+\_\+methodes (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{exibidor_8h_a48bde3f16c3b4fb1200cfeed966271b3}\label{exibidor_8h_a48bde3f16c3b4fb1200cfeed966271b3}} 
+\index{exibidor.\+h@{exibidor.\+h}!print\+\_\+versions@{print\+\_\+versions}}
+\index{print\+\_\+versions@{print\+\_\+versions}!exibidor.\+h@{exibidor.\+h}}
+\subsubsection{\texorpdfstring{print\+\_\+versions()}{print\_versions()}}
+{\footnotesize\ttfamily void print\+\_\+versions (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{arq }\end{DoxyParamCaption})}
+

@@ -19,11 +19,77 @@ Gráfico de dependência de inclusões para Class\+Loader.\+c\+:\nopagebreak
 \begin{DoxyCompactList}\small\item\em Função que le quatro byte do arquivo. \end{DoxyCompactList}\item 
 \hyperlink{structattribute__info}{attribute\+\_\+info} $\ast$ \hyperlink{ClassLoader_8c_aec485e0dbf4cf9a562e663eddf3835e1}{read\+\_\+attributes\+\_\+info} (\hyperlink{ClassLoader_8h_a5f223212eef04d10a4550ded680cb1cf}{u2} count, \hyperlink{structcp__info}{cp\+\_\+info} $\ast$cp, F\+I\+LE $\ast$ptr\+Class)
 \item 
+void \hyperlink{ClassLoader_8c_a62b758f5b99395d074017d307d73641a}{load\+\_\+java\+\_\+versions} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$ptr\+Class)
+\item 
+void \hyperlink{ClassLoader_8c_af6bae492e4e521980d3538a6742c449e}{load\+\_\+constantpool} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$ptr\+Class)
+\item 
+void \hyperlink{ClassLoader_8c_a4509ee7ac3cf3e2c9f309388a8f9378a}{load\+\_\+classdata} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$ptr\+Class)
+\item 
+void \hyperlink{ClassLoader_8c_a2476ed8ac21ba7b6c69867e595b3fc41}{load\+\_\+interfaces} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$ptr\+Class)
+\item 
+void \hyperlink{ClassLoader_8c_a0b58bf308c674534d80c354292fc48ac}{load\+\_\+fields} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$ptr\+Class)
+\item 
+void \hyperlink{ClassLoader_8c_abe349a0643f6767eae14bf0ced245cb8}{load\+\_\+methods} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$ptr\+Class)
+\item 
+void \hyperlink{ClassLoader_8c_a2b990c8468ebdb4d1482dd55217ebda7}{load\+\_\+attributes} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$ptr\+Class)
+\item 
+void \hyperlink{ClassLoader_8c_a00a8198afebedd62ebc9550aca666809}{load\+\_\+func\+\_\+magic} (\hyperlink{structClassFile}{Class\+File} $\ast$cf, F\+I\+LE $\ast$ptr\+Class)
+\item 
+F\+I\+LE $\ast$ \hyperlink{ClassLoader_8c_a9e077f92c288d6d36c9d7d6aca8b988f}{read\+\_\+file} (char $\ast$filename)
+\item 
 \hyperlink{structClassFile}{Class\+File} $\ast$ \hyperlink{ClassLoader_8c_a39d384ef8195b3711abd1c40b6fd5908}{read\+\_\+class} (char $\ast$filename)
 \begin{DoxyCompactList}\small\item\em Função que le o bytecode java e monta a estrutura da classe. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Funções}
+\mbox{\Hypertarget{ClassLoader_8c_a2b990c8468ebdb4d1482dd55217ebda7}\label{ClassLoader_8c_a2b990c8468ebdb4d1482dd55217ebda7}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!load\+\_\+attributes@{load\+\_\+attributes}}
+\index{load\+\_\+attributes@{load\+\_\+attributes}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+attributes()}{load\_attributes()}}
+{\footnotesize\ttfamily void load\+\_\+attributes (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClassLoader_8c_a4509ee7ac3cf3e2c9f309388a8f9378a}\label{ClassLoader_8c_a4509ee7ac3cf3e2c9f309388a8f9378a}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!load\+\_\+classdata@{load\+\_\+classdata}}
+\index{load\+\_\+classdata@{load\+\_\+classdata}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+classdata()}{load\_classdata()}}
+{\footnotesize\ttfamily void load\+\_\+classdata (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClassLoader_8c_af6bae492e4e521980d3538a6742c449e}\label{ClassLoader_8c_af6bae492e4e521980d3538a6742c449e}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!load\+\_\+constantpool@{load\+\_\+constantpool}}
+\index{load\+\_\+constantpool@{load\+\_\+constantpool}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+constantpool()}{load\_constantpool()}}
+{\footnotesize\ttfamily void load\+\_\+constantpool (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClassLoader_8c_a0b58bf308c674534d80c354292fc48ac}\label{ClassLoader_8c_a0b58bf308c674534d80c354292fc48ac}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!load\+\_\+fields@{load\+\_\+fields}}
+\index{load\+\_\+fields@{load\+\_\+fields}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+fields()}{load\_fields()}}
+{\footnotesize\ttfamily void load\+\_\+fields (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClassLoader_8c_a00a8198afebedd62ebc9550aca666809}\label{ClassLoader_8c_a00a8198afebedd62ebc9550aca666809}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!load\+\_\+func\+\_\+magic@{load\+\_\+func\+\_\+magic}}
+\index{load\+\_\+func\+\_\+magic@{load\+\_\+func\+\_\+magic}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+func\+\_\+magic()}{load\_func\_magic()}}
+{\footnotesize\ttfamily void load\+\_\+func\+\_\+magic (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClassLoader_8c_a2476ed8ac21ba7b6c69867e595b3fc41}\label{ClassLoader_8c_a2476ed8ac21ba7b6c69867e595b3fc41}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!load\+\_\+interfaces@{load\+\_\+interfaces}}
+\index{load\+\_\+interfaces@{load\+\_\+interfaces}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+interfaces()}{load\_interfaces()}}
+{\footnotesize\ttfamily void load\+\_\+interfaces (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClassLoader_8c_a62b758f5b99395d074017d307d73641a}\label{ClassLoader_8c_a62b758f5b99395d074017d307d73641a}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!load\+\_\+java\+\_\+versions@{load\+\_\+java\+\_\+versions}}
+\index{load\+\_\+java\+\_\+versions@{load\+\_\+java\+\_\+versions}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+java\+\_\+versions()}{load\_java\_versions()}}
+{\footnotesize\ttfamily void load\+\_\+java\+\_\+versions (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ClassLoader_8c_abe349a0643f6767eae14bf0ced245cb8}\label{ClassLoader_8c_abe349a0643f6767eae14bf0ced245cb8}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!load\+\_\+methods@{load\+\_\+methods}}
+\index{load\+\_\+methods@{load\+\_\+methods}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{load\+\_\+methods()}{load\_methods()}}
+{\footnotesize\ttfamily void load\+\_\+methods (\begin{DoxyParamCaption}\item[{\hyperlink{structClassFile}{Class\+File} $\ast$}]{cf,  }\item[{F\+I\+LE $\ast$}]{ptr\+Class }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{ClassLoader_8c_aec485e0dbf4cf9a562e663eddf3835e1}\label{ClassLoader_8c_aec485e0dbf4cf9a562e663eddf3835e1}} 
 \index{Class\+Loader.\+c@{Class\+Loader.\+c}!read\+\_\+attributes\+\_\+info@{read\+\_\+attributes\+\_\+info}}
 \index{read\+\_\+attributes\+\_\+info@{read\+\_\+attributes\+\_\+info}!Class\+Loader.\+c@{Class\+Loader.\+c}}
@@ -48,6 +114,12 @@ Função que le o bytecode java e monta a estrutura da classe.
 \begin{DoxyReturn}{Retorna}
 estrutura da classe montada 
 \end{DoxyReturn}
+\mbox{\Hypertarget{ClassLoader_8c_a9e077f92c288d6d36c9d7d6aca8b988f}\label{ClassLoader_8c_a9e077f92c288d6d36c9d7d6aca8b988f}} 
+\index{Class\+Loader.\+c@{Class\+Loader.\+c}!read\+\_\+file@{read\+\_\+file}}
+\index{read\+\_\+file@{read\+\_\+file}!Class\+Loader.\+c@{Class\+Loader.\+c}}
+\subsubsection{\texorpdfstring{read\+\_\+file()}{read\_file()}}
+{\footnotesize\ttfamily F\+I\+LE$\ast$ read\+\_\+file (\begin{DoxyParamCaption}\item[{char $\ast$}]{filename }\end{DoxyParamCaption})}
+
 \mbox{\Hypertarget{ClassLoader_8c_a77853ce0387c0b914b5a106ff7cf9ae9}\label{ClassLoader_8c_a77853ce0387c0b914b5a106ff7cf9ae9}} 
 \index{Class\+Loader.\+c@{Class\+Loader.\+c}!u1\+Read@{u1\+Read}}
 \index{u1\+Read@{u1\+Read}!Class\+Loader.\+c@{Class\+Loader.\+c}}

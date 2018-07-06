@@ -10,7 +10,8 @@ Gráfico de dependência de inclusões para Class\+Loader.\+h\+:\nopagebreak
 \includegraphics[width=260pt]{ClassLoader_8h__incl}
 \end{center}
 \end{figure}
-Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo\+:\nopagebreak
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,6 +24,8 @@ Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com
 struct \hyperlink{structcp__info}{cp\+\_\+info}
 \begin{DoxyCompactList}\small\item\em Estrutura do constant pool. \end{DoxyCompactList}\item 
 union \hyperlink{unioncp__info_1_1datacp}{cp\+\_\+info\+::datacp}
+\item 
+struct \hyperlink{structclasstype__info}{classtype\+\_\+info}
 \item 
 struct \hyperlink{structexception__table}{exception\+\_\+table}
 \begin{DoxyCompactList}\small\item\em Tabela de excesões. \end{DoxyCompactList}\item 
@@ -63,11 +66,15 @@ struct \hyperlink{structClassFile}{Class\+File}
 \item 
 \#define \hyperlink{ClassLoader_8h_af9a8bd70343e082dbc63ac806b8ced24}{U\+T\+F8}~1
 \item 
-\#define \hyperlink{ClassLoader_8h_ae6527c8381eb3f23b7fd6d6efec6ffc7}{C\+O\+DE}~\char`\"{}Code\char`\"{}
+\#define \hyperlink{ClassLoader_8h_a859aa5c67c5e43972131dbc0a18d5fcf}{C\+O\+N\+S\+T\+A\+N\+T\+V\+A\+L\+UE}~5
 \item 
-\#define \hyperlink{ClassLoader_8h_a5e942d5b9cbcd72a52adaf04bb1dbf72}{C\+O\+N\+S\+T\+A\+N\+T\+\_\+\+V\+A\+L\+UE}~\char`\"{}Constant\+Value\char`\"{}
+\#define \hyperlink{ClassLoader_8h_ae6527c8381eb3f23b7fd6d6efec6ffc7}{C\+O\+DE}~1
 \item 
-\#define \hyperlink{ClassLoader_8h_a4caa73a345f11f79bd729b3390c73427}{E\+X\+C\+E\+P\+T\+I\+O\+NS}~\char`\"{}Exceptions\char`\"{}
+\#define \hyperlink{ClassLoader_8h_a4caa73a345f11f79bd729b3390c73427}{E\+X\+C\+E\+P\+T\+I\+O\+NS}~2
+\item 
+\#define \hyperlink{ClassLoader_8h_a8848fefb3714930ce3d25c3c6f0e82d4}{I\+N\+N\+E\+R\+C\+L\+A\+S\+S\+ES}~3
+\item 
+\#define \hyperlink{ClassLoader_8h_ac00c5fe00853dab2ff3d86ae62c83809}{O\+T\+H\+ER}~4
 \item 
 \#define \hyperlink{ClassLoader_8h_a53119d3081255979452287fd91342ab1}{R\+E\+F\+E\+R\+E\+N\+C\+E\+\_\+\+I\+N\+T\+E\+G\+ER}~15
 \item 
@@ -100,6 +107,8 @@ typedef unsigned int \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850
 \item 
 typedef struct \hyperlink{structcp__info}{cp\+\_\+info} \hyperlink{ClassLoader_8h_ac152ca02fa3b57b8d90f0ae0b30f099a}{cp\+\_\+info}
 \begin{DoxyCompactList}\small\item\em Estrutura do constant pool. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structexception__table}{exception\+\_\+table} \hyperlink{ClassLoader_8h_a221b9693e220df24ce3b6a3df1e70605}{exception\+\_\+table}
+\begin{DoxyCompactList}\small\item\em Tabela de excesões. \end{DoxyCompactList}\item 
 typedef struct \hyperlink{structattribute__info}{attribute\+\_\+info} \hyperlink{ClassLoader_8h_a7b1e7b81c7ca3b550a1973f2d8672950}{attribute\+\_\+info}
 \begin{DoxyCompactList}\small\item\em Estrutura das informações dos atributos. \end{DoxyCompactList}\item 
 typedef struct \hyperlink{structfield__info}{field\+\_\+info} \hyperlink{ClassLoader_8h_a92465becb59d258f61da663b1a202b14}{field\+\_\+info}
@@ -123,7 +132,23 @@ typedef struct \hyperlink{structClassFile}{Class\+File} \hyperlink{ClassLoader_8
 \begin{DoxyCompactItemize}
 \item 
 char \hyperlink{ClassLoader_8h_a5bfba61e06da03cfa8305f6903f2a3a3}{dir\+\_\+base} \mbox{[}100\mbox{]}
-\begin{DoxyCompactList}\small\item\em Diretório de que contem as classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Diretório de que contem as classes. \end{DoxyCompactList}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>\hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} \hyperlink{ClassLoader_8h_a5d93fc64f3a23458fa5d3cc542494b6e}{U4}\\
+\>float \hyperlink{ClassLoader_8h_a00c3b491c1db9c4ac2e31f31aea8c9eb}{Float}\\
+\} \hyperlink{ClassLoader_8h_aa29b726b7ff0781ea5f8b6fe84d669e8}{u4tofloat}\\
+
+\end{tabbing}\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>long \hyperlink{ClassLoader_8h_aeddffb9c0038836003e76ef704117014}{Long}\\
+\>double \hyperlink{ClassLoader_8h_a67712f090f8c18a2de65a31a26762315}{Double}\\
+\} \hyperlink{ClassLoader_8h_a8da3c4b4bea66232c197464e78787984}{longtodouble}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
 
 
 \subsection{Definições e macros}
@@ -137,13 +162,13 @@ char \hyperlink{ClassLoader_8h_a5bfba61e06da03cfa8305f6903f2a3a3}{dir\+\_\+base}
 \index{Class\+Loader.\+h@{Class\+Loader.\+h}!C\+O\+DE@{C\+O\+DE}}
 \index{C\+O\+DE@{C\+O\+DE}!Class\+Loader.\+h@{Class\+Loader.\+h}}
 \subsubsection{\texorpdfstring{C\+O\+DE}{CODE}}
-{\footnotesize\ttfamily \#define C\+O\+DE~\char`\"{}Code\char`\"{}}
+{\footnotesize\ttfamily \#define C\+O\+DE~1}
 
-\mbox{\Hypertarget{ClassLoader_8h_a5e942d5b9cbcd72a52adaf04bb1dbf72}\label{ClassLoader_8h_a5e942d5b9cbcd72a52adaf04bb1dbf72}} 
-\index{Class\+Loader.\+h@{Class\+Loader.\+h}!C\+O\+N\+S\+T\+A\+N\+T\+\_\+\+V\+A\+L\+UE@{C\+O\+N\+S\+T\+A\+N\+T\+\_\+\+V\+A\+L\+UE}}
-\index{C\+O\+N\+S\+T\+A\+N\+T\+\_\+\+V\+A\+L\+UE@{C\+O\+N\+S\+T\+A\+N\+T\+\_\+\+V\+A\+L\+UE}!Class\+Loader.\+h@{Class\+Loader.\+h}}
-\subsubsection{\texorpdfstring{C\+O\+N\+S\+T\+A\+N\+T\+\_\+\+V\+A\+L\+UE}{CONSTANT\_VALUE}}
-{\footnotesize\ttfamily \#define C\+O\+N\+S\+T\+A\+N\+T\+\_\+\+V\+A\+L\+UE~\char`\"{}Constant\+Value\char`\"{}}
+\mbox{\Hypertarget{ClassLoader_8h_a859aa5c67c5e43972131dbc0a18d5fcf}\label{ClassLoader_8h_a859aa5c67c5e43972131dbc0a18d5fcf}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!C\+O\+N\+S\+T\+A\+N\+T\+V\+A\+L\+UE@{C\+O\+N\+S\+T\+A\+N\+T\+V\+A\+L\+UE}}
+\index{C\+O\+N\+S\+T\+A\+N\+T\+V\+A\+L\+UE@{C\+O\+N\+S\+T\+A\+N\+T\+V\+A\+L\+UE}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{C\+O\+N\+S\+T\+A\+N\+T\+V\+A\+L\+UE}{CONSTANTVALUE}}
+{\footnotesize\ttfamily \#define C\+O\+N\+S\+T\+A\+N\+T\+V\+A\+L\+UE~5}
 
 \mbox{\Hypertarget{ClassLoader_8h_a8747af38b86aa2bbcda2f1b1aa0888c2}\label{ClassLoader_8h_a8747af38b86aa2bbcda2f1b1aa0888c2}} 
 \index{Class\+Loader.\+h@{Class\+Loader.\+h}!D\+O\+U\+B\+LE@{D\+O\+U\+B\+LE}}
@@ -155,7 +180,7 @@ char \hyperlink{ClassLoader_8h_a5bfba61e06da03cfa8305f6903f2a3a3}{dir\+\_\+base}
 \index{Class\+Loader.\+h@{Class\+Loader.\+h}!E\+X\+C\+E\+P\+T\+I\+O\+NS@{E\+X\+C\+E\+P\+T\+I\+O\+NS}}
 \index{E\+X\+C\+E\+P\+T\+I\+O\+NS@{E\+X\+C\+E\+P\+T\+I\+O\+NS}!Class\+Loader.\+h@{Class\+Loader.\+h}}
 \subsubsection{\texorpdfstring{E\+X\+C\+E\+P\+T\+I\+O\+NS}{EXCEPTIONS}}
-{\footnotesize\ttfamily \#define E\+X\+C\+E\+P\+T\+I\+O\+NS~\char`\"{}Exceptions\char`\"{}}
+{\footnotesize\ttfamily \#define E\+X\+C\+E\+P\+T\+I\+O\+NS~2}
 
 \mbox{\Hypertarget{ClassLoader_8h_afbc7a63629d0bfdc607f8996f48bfb75}\label{ClassLoader_8h_afbc7a63629d0bfdc607f8996f48bfb75}} 
 \index{Class\+Loader.\+h@{Class\+Loader.\+h}!F\+I\+E\+L\+D\+R\+EF@{F\+I\+E\+L\+D\+R\+EF}}
@@ -168,6 +193,12 @@ char \hyperlink{ClassLoader_8h_a5bfba61e06da03cfa8305f6903f2a3a3}{dir\+\_\+base}
 \index{F\+L\+O\+AT@{F\+L\+O\+AT}!Class\+Loader.\+h@{Class\+Loader.\+h}}
 \subsubsection{\texorpdfstring{F\+L\+O\+AT}{FLOAT}}
 {\footnotesize\ttfamily \#define F\+L\+O\+AT~4}
+
+\mbox{\Hypertarget{ClassLoader_8h_a8848fefb3714930ce3d25c3c6f0e82d4}\label{ClassLoader_8h_a8848fefb3714930ce3d25c3c6f0e82d4}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!I\+N\+N\+E\+R\+C\+L\+A\+S\+S\+ES@{I\+N\+N\+E\+R\+C\+L\+A\+S\+S\+ES}}
+\index{I\+N\+N\+E\+R\+C\+L\+A\+S\+S\+ES@{I\+N\+N\+E\+R\+C\+L\+A\+S\+S\+ES}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{I\+N\+N\+E\+R\+C\+L\+A\+S\+S\+ES}{INNERCLASSES}}
+{\footnotesize\ttfamily \#define I\+N\+N\+E\+R\+C\+L\+A\+S\+S\+ES~3}
 
 \mbox{\Hypertarget{ClassLoader_8h_a91d43eadec33c80149f92e5abf5df58c}\label{ClassLoader_8h_a91d43eadec33c80149f92e5abf5df58c}} 
 \index{Class\+Loader.\+h@{Class\+Loader.\+h}!I\+N\+T\+E\+G\+ER@{I\+N\+T\+E\+G\+ER}}
@@ -198,6 +229,12 @@ char \hyperlink{ClassLoader_8h_a5bfba61e06da03cfa8305f6903f2a3a3}{dir\+\_\+base}
 \index{N\+A\+M\+E\+A\+N\+D\+T\+Y\+PE@{N\+A\+M\+E\+A\+N\+D\+T\+Y\+PE}!Class\+Loader.\+h@{Class\+Loader.\+h}}
 \subsubsection{\texorpdfstring{N\+A\+M\+E\+A\+N\+D\+T\+Y\+PE}{NAMEANDTYPE}}
 {\footnotesize\ttfamily \#define N\+A\+M\+E\+A\+N\+D\+T\+Y\+PE~12}
+
+\mbox{\Hypertarget{ClassLoader_8h_ac00c5fe00853dab2ff3d86ae62c83809}\label{ClassLoader_8h_ac00c5fe00853dab2ff3d86ae62c83809}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!O\+T\+H\+ER@{O\+T\+H\+ER}}
+\index{O\+T\+H\+ER@{O\+T\+H\+ER}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{O\+T\+H\+ER}{OTHER}}
+{\footnotesize\ttfamily \#define O\+T\+H\+ER~4}
 
 \mbox{\Hypertarget{ClassLoader_8h_ae2970acb36a2385c90aa4c29c4f126ab}\label{ClassLoader_8h_ae2970acb36a2385c90aa4c29c4f126ab}} 
 \index{Class\+Loader.\+h@{Class\+Loader.\+h}!R\+E\+F\+E\+R\+E\+N\+C\+E\+\_\+\+B\+O\+O\+L\+E\+AN@{R\+E\+F\+E\+R\+E\+N\+C\+E\+\_\+\+B\+O\+O\+L\+E\+AN}}
@@ -303,6 +340,16 @@ Escrutura da classe.
 
 
 Estrutura do constant pool. 
+
+\mbox{\Hypertarget{ClassLoader_8h_a221b9693e220df24ce3b6a3df1e70605}\label{ClassLoader_8h_a221b9693e220df24ce3b6a3df1e70605}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!exception\+\_\+table@{exception\+\_\+table}}
+\index{exception\+\_\+table@{exception\+\_\+table}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{exception\+\_\+table}{exception\_table}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structexception__table}{exception\+\_\+table} \hyperlink{structexception__table}{exception\+\_\+table}}
+
+
+
+Tabela de excesões. 
 
 \mbox{\Hypertarget{ClassLoader_8h_a92465becb59d258f61da663b1a202b14}\label{ClassLoader_8h_a92465becb59d258f61da663b1a202b14}} 
 \index{Class\+Loader.\+h@{Class\+Loader.\+h}!field\+\_\+info@{field\+\_\+info}}
@@ -429,4 +476,40 @@ bytes lidos
 
 
 Diretório de que contem as classes. 
+
+\mbox{\Hypertarget{ClassLoader_8h_a67712f090f8c18a2de65a31a26762315}\label{ClassLoader_8h_a67712f090f8c18a2de65a31a26762315}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!Double@{Double}}
+\index{Double@{Double}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{Double}{Double}}
+{\footnotesize\ttfamily double Double}
+
+\mbox{\Hypertarget{ClassLoader_8h_a00c3b491c1db9c4ac2e31f31aea8c9eb}\label{ClassLoader_8h_a00c3b491c1db9c4ac2e31f31aea8c9eb}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!Float@{Float}}
+\index{Float@{Float}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{Float}{Float}}
+{\footnotesize\ttfamily float Float}
+
+\mbox{\Hypertarget{ClassLoader_8h_aeddffb9c0038836003e76ef704117014}\label{ClassLoader_8h_aeddffb9c0038836003e76ef704117014}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!Long@{Long}}
+\index{Long@{Long}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{Long}{Long}}
+{\footnotesize\ttfamily long Long}
+
+\mbox{\Hypertarget{ClassLoader_8h_a8da3c4b4bea66232c197464e78787984}\label{ClassLoader_8h_a8da3c4b4bea66232c197464e78787984}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!longtodouble@{longtodouble}}
+\index{longtodouble@{longtodouble}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{longtodouble}{longtodouble}}
+{\footnotesize\ttfamily union \{ ... \}   longtodouble}
+
+\mbox{\Hypertarget{ClassLoader_8h_a5d93fc64f3a23458fa5d3cc542494b6e}\label{ClassLoader_8h_a5d93fc64f3a23458fa5d3cc542494b6e}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!U4@{U4}}
+\index{U4@{U4}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{U4}{U4}}
+{\footnotesize\ttfamily \hyperlink{ClassLoader_8h_aedf6ddc03df8caaaccbb4c60b9a9b850}{u4} U4}
+
+\mbox{\Hypertarget{ClassLoader_8h_aa29b726b7ff0781ea5f8b6fe84d669e8}\label{ClassLoader_8h_aa29b726b7ff0781ea5f8b6fe84d669e8}} 
+\index{Class\+Loader.\+h@{Class\+Loader.\+h}!u4tofloat@{u4tofloat}}
+\index{u4tofloat@{u4tofloat}!Class\+Loader.\+h@{Class\+Loader.\+h}}
+\subsubsection{\texorpdfstring{u4tofloat}{u4tofloat}}
+{\footnotesize\ttfamily union \{ ... \}   u4tofloat}
 

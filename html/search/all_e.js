@@ -211,5 +211,7 @@ var searchData=
   ['opcodes_2eh',['Opcodes.h',['../Opcodes_8h.html',1,'']]],
   ['operand',['operand',['../structoperand.html',1,'']]],
   ['operand_5fstack',['operand_stack',['../structoperand__stack.html',1,'operand_stack'],['../FrameStack_8h.html#a2ede843ae23dfbb88d1e68890580b97a',1,'operand_stack():&#160;FrameStack.h']]],
-  ['opstack',['opStack',['../structframe.html#ac87e8a50c7f6d37600c44c1faca0f530',1,'frame']]]
+  ['opstack',['opStack',['../structframe.html#ac87e8a50c7f6d37600c44c1faca0f530',1,'frame']]],
+  ['other',['Other',['../unionattribute__info_1_1dataatt.html#af88f44781ffe638c91492186db4c77b6',1,'attribute_info::dataatt::Other()'],['../ClassLoader_8h.html#ac00c5fe00853dab2ff3d86ae62c83809',1,'OTHER():&#160;ClassLoader.h']]],
+  ['outer_5fclass_5finfo_5findex',['outer_class_info_index',['../structclasstype__info.html#addb19ba72e3ccfc7b7e5630b872e87f1',1,'classtype_info']]]
 ];

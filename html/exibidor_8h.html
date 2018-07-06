@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Java Virtual Machine: Referência do Arquivo exibidor.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Java Virtual Machine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Busca');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle">
+<div class="title">Referência do Arquivo exibidor.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;inttypes.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="ClassLoader_8h_source.html">ClassLoader.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="AuxiliarInstructions_8h_source.html">AuxiliarInstructions.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Gráfico de dependência de inclusões para exibidor.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="exibidor_8h__incl.png" border="0" usemap="#exibidor_8h" alt=""/></div>
+<map name="exibidor_8h" id="exibidor_8h">
+<area shape="rect" id="node7" href="ClassLoader_8h.html" title="ClassLoader.h" alt="" coords="120,155,227,181"/>
+<area shape="rect" id="node8" href="AuxiliarInstructions_8h.html" title="AuxiliarInstructions.h" alt="" coords="32,80,176,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Este grafo mostra quais arquivos estão direta ou indiretamente relacionados com este arquivo:</div>
+<div class="dyncontent">
+<div class="center"><img src="exibidor_8h__dep__incl.png" border="0" usemap="#exibidor_8hdep" alt=""/></div>
+<map name="exibidor_8hdep" id="exibidor_8hdep">
+<area shape="rect" id="node2" href="exibidor_8c.html" title="exibidor.c" alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node3" href="jvm_8c.html" title="jvm.c" alt="" coords="108,80,163,107"/>
+</map>
+</div>
+</div>
+<p><a href="exibidor_8h_source.html">Vá para o código-fonte deste arquivo.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a2536a6e3653e6a1d7c3140675d25fdaf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a2536a6e3653e6a1d7c3140675d25fdaf">bit_is_true</a> (int code, int id)</td></tr>
+<tr class="separator:a2536a6e3653e6a1d7c3140675d25fdaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a01812eda71a45ba35d3988240c2cbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a1a01812eda71a45ba35d3988240c2cbe">print_flags</a> (int code, FILE *arq)</td></tr>
+<tr class="separator:a1a01812eda71a45ba35d3988240c2cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4778e7ba3b524b627189f5a12cd2ba58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a4778e7ba3b524b627189f5a12cd2ba58">print_func_magic</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *arq)</td></tr>
+<tr class="separator:a4778e7ba3b524b627189f5a12cd2ba58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48bde3f16c3b4fb1200cfeed966271b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a48bde3f16c3b4fb1200cfeed966271b3">print_versions</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *arq)</td></tr>
+<tr class="separator:a48bde3f16c3b4fb1200cfeed966271b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1afd246a2708493137d6779a8a0949e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a1afd246a2708493137d6779a8a0949e8">print_constantpool</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *arq)</td></tr>
+<tr class="separator:a1afd246a2708493137d6779a8a0949e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ee6d33a96bd2d33d1febe2148c89cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#aa3ee6d33a96bd2d33d1febe2148c89cb">print_classdata</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *arq)</td></tr>
+<tr class="separator:aa3ee6d33a96bd2d33d1febe2148c89cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae816a5183f48e88d2916f7eb3435276f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#ae816a5183f48e88d2916f7eb3435276f">print_interfaces</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *arq)</td></tr>
+<tr class="separator:ae816a5183f48e88d2916f7eb3435276f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2319a835bb7cb2db0e68a5baee9520d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a2319a835bb7cb2db0e68a5baee9520d9">print_atribute</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, <a class="el" href="structattribute__info.html">attribute_info</a> *att, FILE *arq)</td></tr>
+<tr class="separator:a2319a835bb7cb2db0e68a5baee9520d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf7dfe6bd02790dffee49ca9d2db790"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a7bf7dfe6bd02790dffee49ca9d2db790">print_fields</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *arq)</td></tr>
+<tr class="separator:a7bf7dfe6bd02790dffee49ca9d2db790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c6461cf8681e258a54c6ecec7b4af89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a9c6461cf8681e258a54c6ecec7b4af89">print_methodes</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *arq)</td></tr>
+<tr class="separator:a9c6461cf8681e258a54c6ecec7b4af89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbccca1911c01347bce3a7b3f6ba5880"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#abbccca1911c01347bce3a7b3f6ba5880">print_atributes</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *arq)</td></tr>
+<tr class="separator:abbccca1911c01347bce3a7b3f6ba5880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a847a96c8d54d5a68b6c0161fdd0cbe24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a847a96c8d54d5a68b6c0161fdd0cbe24">print_class</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, char *namefile, FILE *arq)</td></tr>
+<tr class="separator:a847a96c8d54d5a68b6c0161fdd0cbe24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a452dd1d3f9dad220fbe70a74adffca67"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="exibidor_8h.html#a452dd1d3f9dad220fbe70a74adffca67">look_version</a> (int code)</td></tr>
+<tr class="separator:a452dd1d3f9dad220fbe70a74adffca67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Funções</h2>
+<a id="a2536a6e3653e6a1d7c3140675d25fdaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2536a6e3653e6a1d7c3140675d25fdaf">&#9670;&nbsp;</a></span>bit_is_true()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int bit_is_true </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a452dd1d3f9dad220fbe70a74adffca67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a452dd1d3f9dad220fbe70a74adffca67">&#9670;&nbsp;</a></span>look_version()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* look_version </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2319a835bb7cb2db0e68a5baee9520d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2319a835bb7cb2db0e68a5baee9520d9">&#9670;&nbsp;</a></span>print_atribute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_atribute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structattribute__info.html">attribute_info</a> *&#160;</td>
+          <td class="paramname"><em>att</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbccca1911c01347bce3a7b3f6ba5880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbccca1911c01347bce3a7b3f6ba5880">&#9670;&nbsp;</a></span>print_atributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_atributes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a847a96c8d54d5a68b6c0161fdd0cbe24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847a96c8d54d5a68b6c0161fdd0cbe24">&#9670;&nbsp;</a></span>print_class()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_class </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>namefile</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3ee6d33a96bd2d33d1febe2148c89cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ee6d33a96bd2d33d1febe2148c89cb">&#9670;&nbsp;</a></span>print_classdata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_classdata </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1afd246a2708493137d6779a8a0949e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1afd246a2708493137d6779a8a0949e8">&#9670;&nbsp;</a></span>print_constantpool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_constantpool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7bf7dfe6bd02790dffee49ca9d2db790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bf7dfe6bd02790dffee49ca9d2db790">&#9670;&nbsp;</a></span>print_fields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_fields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1a01812eda71a45ba35d3988240c2cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a01812eda71a45ba35d3988240c2cbe">&#9670;&nbsp;</a></span>print_flags()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_flags </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4778e7ba3b524b627189f5a12cd2ba58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4778e7ba3b524b627189f5a12cd2ba58">&#9670;&nbsp;</a></span>print_func_magic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_func_magic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae816a5183f48e88d2916f7eb3435276f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae816a5183f48e88d2916f7eb3435276f">&#9670;&nbsp;</a></span>print_interfaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_interfaces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c6461cf8681e258a54c6ecec7b4af89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c6461cf8681e258a54c6ecec7b4af89">&#9670;&nbsp;</a></span>print_methodes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_methodes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48bde3f16c3b4fb1200cfeed966271b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48bde3f16c3b4fb1200cfeed966271b3">&#9670;&nbsp;</a></span>print_versions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void print_versions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>arq</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

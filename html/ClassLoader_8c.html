@@ -87,11 +87,253 @@ Funções</h2></td></tr>
 <tr class="separator:a4cba9f2733d339d7287d10d160c39e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec485e0dbf4cf9a562e663eddf3835e1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structattribute__info.html">attribute_info</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#aec485e0dbf4cf9a562e663eddf3835e1">read_attributes_info</a> (<a class="el" href="ClassLoader_8h.html#a5f223212eef04d10a4550ded680cb1cf">u2</a> count, <a class="el" href="structcp__info.html">cp_info</a> *cp, FILE *ptrClass)</td></tr>
 <tr class="separator:aec485e0dbf4cf9a562e663eddf3835e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62b758f5b99395d074017d307d73641a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#a62b758f5b99395d074017d307d73641a">load_java_versions</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *ptrClass)</td></tr>
+<tr class="separator:a62b758f5b99395d074017d307d73641a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6bae492e4e521980d3538a6742c449e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#af6bae492e4e521980d3538a6742c449e">load_constantpool</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *ptrClass)</td></tr>
+<tr class="separator:af6bae492e4e521980d3538a6742c449e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4509ee7ac3cf3e2c9f309388a8f9378a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#a4509ee7ac3cf3e2c9f309388a8f9378a">load_classdata</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *ptrClass)</td></tr>
+<tr class="separator:a4509ee7ac3cf3e2c9f309388a8f9378a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2476ed8ac21ba7b6c69867e595b3fc41"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#a2476ed8ac21ba7b6c69867e595b3fc41">load_interfaces</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *ptrClass)</td></tr>
+<tr class="separator:a2476ed8ac21ba7b6c69867e595b3fc41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b58bf308c674534d80c354292fc48ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#a0b58bf308c674534d80c354292fc48ac">load_fields</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *ptrClass)</td></tr>
+<tr class="separator:a0b58bf308c674534d80c354292fc48ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe349a0643f6767eae14bf0ced245cb8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#abe349a0643f6767eae14bf0ced245cb8">load_methods</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *ptrClass)</td></tr>
+<tr class="separator:abe349a0643f6767eae14bf0ced245cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b990c8468ebdb4d1482dd55217ebda7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#a2b990c8468ebdb4d1482dd55217ebda7">load_attributes</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *ptrClass)</td></tr>
+<tr class="separator:a2b990c8468ebdb4d1482dd55217ebda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a8198afebedd62ebc9550aca666809"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#a00a8198afebedd62ebc9550aca666809">load_func_magic</a> (<a class="el" href="structClassFile.html">ClassFile</a> *cf, FILE *ptrClass)</td></tr>
+<tr class="separator:a00a8198afebedd62ebc9550aca666809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e077f92c288d6d36c9d7d6aca8b988f"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#a9e077f92c288d6d36c9d7d6aca8b988f">read_file</a> (char *filename)</td></tr>
+<tr class="separator:a9e077f92c288d6d36c9d7d6aca8b988f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39d384ef8195b3711abd1c40b6fd5908"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ClassLoader_8c.html#a39d384ef8195b3711abd1c40b6fd5908">read_class</a> (char *filename)</td></tr>
 <tr class="memdesc:a39d384ef8195b3711abd1c40b6fd5908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função que le o bytecode java e monta a estrutura da classe.  <a href="#a39d384ef8195b3711abd1c40b6fd5908">Mais...</a><br /></td></tr>
 <tr class="separator:a39d384ef8195b3711abd1c40b6fd5908"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Funções</h2>
+<a id="a2b990c8468ebdb4d1482dd55217ebda7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b990c8468ebdb4d1482dd55217ebda7">&#9670;&nbsp;</a></span>load_attributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_attributes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>ptrClass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4509ee7ac3cf3e2c9f309388a8f9378a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4509ee7ac3cf3e2c9f309388a8f9378a">&#9670;&nbsp;</a></span>load_classdata()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_classdata </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>ptrClass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af6bae492e4e521980d3538a6742c449e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6bae492e4e521980d3538a6742c449e">&#9670;&nbsp;</a></span>load_constantpool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_constantpool </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>ptrClass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b58bf308c674534d80c354292fc48ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b58bf308c674534d80c354292fc48ac">&#9670;&nbsp;</a></span>load_fields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_fields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>ptrClass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a00a8198afebedd62ebc9550aca666809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00a8198afebedd62ebc9550aca666809">&#9670;&nbsp;</a></span>load_func_magic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_func_magic </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>ptrClass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2476ed8ac21ba7b6c69867e595b3fc41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2476ed8ac21ba7b6c69867e595b3fc41">&#9670;&nbsp;</a></span>load_interfaces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_interfaces </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>ptrClass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62b758f5b99395d074017d307d73641a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b758f5b99395d074017d307d73641a">&#9670;&nbsp;</a></span>load_java_versions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_java_versions </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>ptrClass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abe349a0643f6767eae14bf0ced245cb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe349a0643f6767eae14bf0ced245cb8">&#9670;&nbsp;</a></span>load_methods()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void load_methods </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structClassFile.html">ClassFile</a> *&#160;</td>
+          <td class="paramname"><em>cf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>ptrClass</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aec485e0dbf4cf9a562e663eddf3835e1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec485e0dbf4cf9a562e663eddf3835e1">&#9670;&nbsp;</a></span>read_attributes_info()</h2>
 
@@ -151,6 +393,24 @@ Funções</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Retorna</dt><dd>estrutura da classe montada </dd></dl>
+
+</div>
+</div>
+<a id="a9e077f92c288d6d36c9d7d6aca8b988f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e077f92c288d6d36c9d7d6aca8b988f">&#9670;&nbsp;</a></span>read_file()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FILE* read_file </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['stack',['stack',['../FrameStack_8h.html#a35236647a2ad82ec456f438503e59d11',1,'FrameStack.h']]],
-  ['staticatrib',['StaticAtrib',['../MethodArea_8h.html#a19a1a9a62ffeef237d0cf65a9ea929c7',1,'MethodArea.h']]]
+  ['object',['Object',['../MethodArea_8h.html#ab1287b6141419421dc5c14b9f7756b0a',1,'MethodArea.h']]],
+  ['opcodes',['opcodes',['../Opcodes_8h.html#a18fa3933ea0e15cfb3427323fa82d779',1,'Opcodes.h']]],
+  ['operand_5fstack',['operand_stack',['../FrameStack_8h.html#a2ede843ae23dfbb88d1e68890580b97a',1,'FrameStack.h']]]
 ];
