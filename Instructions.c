@@ -1656,7 +1656,7 @@ void swap(FrameStack *fs){
 
 int acharTipoArray(char *descritor){
     char c;
-    c = descritor[strlen(descritor) - 1];
+    c = descritor[strlen(descritor)];
     
     switch(c){
         case 'Z':
@@ -1787,7 +1787,7 @@ void multianewarray(FrameStack *fs){
     dimen->dimensions_count=dim;
     dimen->dimensions = (u2 *) malloc(sizeof(u2)*dim);
     
-    for (i=dim-1;i>=0;i--){
+    for (i=dim-1;i>=0;i++){
         dimen->dimensions[i] = pop_operand(&(fs->top->opStack));
         dimensTotal *= dimen->dimensions[i];
     }

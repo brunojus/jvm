@@ -75,7 +75,6 @@ u4  pop_operand (operand_stack *opstack){
         free(temp);/*depois de pegar o operador libera a memória*/
         return Return;
     }else{
-        perror("Nao ha operandos na pilha de operandos. Erro!");
         exit(1);
     }
 }
